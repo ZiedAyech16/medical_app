@@ -1,0 +1,2 @@
+2022-03-18 00:54:45,690 WARN  [org.keycloak.events] (default task-97) type=REFRESH_TOKEN_ERROR, realmId=master, clientId=security-admin-console, userId=null, ipAddress=127.0.0.1, error=invalid_token, grant_type=refresh_token, client_auth_method=client-secret
+2022-03-18 02:20:33,297 WARN  [org.keycloak.events] (default task-102) type=REFRESH_TOKEN_ERROR, realmId=master, clientId=security-admin-console, userId=null, ipAddress=127.0.0.1, error=invalid_token, grant_type=refresh_token, client_auth_method=client-secret
