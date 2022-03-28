@@ -1,0 +1,118 @@
+2022-03-21 14:46:01,455 INFO  [org.jboss.modules] (main) JBoss Modules version 2.0.0.Final
+2022-03-21 14:46:08,162 INFO  [org.jboss.msc] (main) JBoss MSC version 1.4.13.Final
+2022-03-21 14:46:08,189 INFO  [org.jboss.threads] (main) JBoss Threads version 2.4.0.Final
+2022-03-21 14:46:08,813 INFO  [org.jboss.as] (MSC service thread 1-1) WFLYSRV0049: Keycloak 16.1.1 (WildFly Core 18.0.4.Final) starting
+2022-03-21 14:46:08,823 DEBUG [org.jboss.as.config] (MSC service thread 1-1) Configured system properties:
+	awt.toolkit = sun.awt.windows.WToolkit
+	file.encoding = Cp1252
+	file.encoding.pkg = sun.io
+	file.separator = \
+	java.awt.graphicsenv = sun.awt.Win32GraphicsEnvironment
+	java.awt.headless = true
+	java.awt.printerjob = sun.awt.windows.WPrinterJob
+	java.class.path = D:\pf_medicale\contenu\keycloak-16.1.1\jboss-modules.jar
+	java.class.version = 52.0
+	java.endorsed.dirs = C:\Program Files (x86)\Java\jdk1.8.0_51\jre\lib\endorsed
+	java.ext.dirs = C:\Program Files (x86)\Java\jdk1.8.0_51\jre\lib\ext;C:\WINDOWS\Sun\Java\lib\ext
+	java.home = C:\Program Files (x86)\Java\jdk1.8.0_51\jre
+	java.io.tmpdir = C:\Users\hp\AppData\Local\Temp\
+	java.library.path = C:\Program Files (x86)\Java\jdk1.8.0_51\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\Program Files\Common Files\Oracle\Java\javapath;D:\app\hp\product\11.2.0\dbhome_2\bin;D:\app\hp\product\11.2.0\dbhome_1\bin;C:\oraclexe\app\oracle\product\11.2.0\server\bin;C:\ProgramData\Oracle\Java\javapath;C:\ProgramData\Boxstarter;C:\wamp64\bin\php\php5.6.35;C:\xampp1\php;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\ProgramData\chocolatey\bin;C:\Program Files (x86)\Java\jdk1.8.0_191\bin;C:\Program Files (x86)\Java\jdk1.8.0_51\bin;C:\ProgramData\ComposerSetup\bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn\;C:\Program Files (x86)\apache-maven-3.6.3\bin;D:\xampp\mysql\bin;C:\Program Files\Java\jdk-11.0.10\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\nodejs\;C:\Program Files\Git\cmd;C:\Users\hp\AppData\Local\Programs\Python\Python310;C:\Program Files\wkhtmltopdf\bin;C:\Program Files (x86)\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files (x86)\Microsoft SQL Server\150\DTS\Binn\;C:\Program Files\Microsoft SQL Server\150\DTS\Binn\;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Roaming\Composer\vendor\bin;C:\Users\hp\AppData\Roaming\npm\node_modules\;C:\Users\hp\AppData\Roaming\npm\node_modules\cordova\bin;C:\Users\hp\AppData\Local\Programs\Microsoft VS Code\bin;D:\xampp\php;C:\Users\hp\.dotnet\tools;D:\IntelliJ IDEA Community Edition 2020.3.2\bin;C:\Users\hp\AppData\Local\Microsoft\WindowsApps;C:\Users\hp\AppData\Roaming\npm;C:\Users\hp\AppData\Roaming\npm\node_modules\npm\bin;C:\Program Files (x86)\nodejs\node_modules\npm\bin;D:\flutter\flutter\bin;C:\Users\hp\AppData\Local\Android\Sdk\emulator-2;C:\Users\hp\AppData\Local\Programs\Python\Python310\Scripts;D:\mongodb_\mongodb-win32-x86_64-windows-5.0.4-rc0\bin;C:\openssl\bin;C:\Program Files\Apache Software Foundation\Tomcat 9.0_Tomcat91\bin;C:\Program Files\Apache Software Foundation\Tomcat 9.0_Tomcat91;C:\curl-7.82.0-win64-mingw\bin\curl;.
+	java.net.preferIPv4Stack = true
+	java.runtime.name = Java(TM) SE Runtime Environment
+	java.runtime.version = 1.8.0_51-b16
+	java.specification.name = Java Platform API Specification
+	java.specification.vendor = Oracle Corporation
+	java.specification.version = 1.8
+	java.util.logging.manager = org.jboss.logmanager.LogManager
+	java.vendor = Oracle Corporation
+	java.vendor.url = http://java.oracle.com/
+	java.vendor.url.bug = http://bugreport.sun.com/bugreport/
+	java.version = 1.8.0_51
+	java.vm.info = mixed mode
+	java.vm.name = Java HotSpot(TM) Client VM
+	java.vm.specification.name = Java Virtual Machine Specification
+	java.vm.specification.vendor = Oracle Corporation
+	java.vm.specification.version = 1.8
+	java.vm.vendor = Oracle Corporation
+	java.vm.version = 25.51-b03
+	javax.management.builder.initial = org.jboss.as.jmx.PluggableMBeanServerBuilder
+	jboss.home.dir = D:\pf_medicale\contenu\keycloak-16.1.1
+	jboss.host.name = desktop-0jli20s
+	jboss.modules.dir = D:\pf_medicale\contenu\keycloak-16.1.1\modules
+	jboss.modules.system.pkgs = org.jboss.byteman
+	jboss.node.name = desktop-0jli20s
+	jboss.qualified.host.name = desktop-0jli20s
+	jboss.server.base.dir = D:\pf_medicale\contenu\keycloak-16.1.1\standalone
+	jboss.server.config.dir = D:\pf_medicale\contenu\keycloak-16.1.1\standalone\configuration
+	jboss.server.data.dir = D:\pf_medicale\contenu\keycloak-16.1.1\standalone\data
+	jboss.server.deploy.dir = D:\pf_medicale\contenu\keycloak-16.1.1\standalone\data\content
+	jboss.server.log.dir = D:\pf_medicale\contenu\keycloak-16.1.1\standalone\log
+	jboss.server.name = desktop-0jli20s
+	jboss.server.persist.config = true
+	jboss.server.temp.dir = D:\pf_medicale\contenu\keycloak-16.1.1\standalone\tmp
+	line.separator = 
+
+	logging.configuration = file:D:\pf_medicale\contenu\keycloak-16.1.1\standalone\configuration/logging.properties
+	module.path = D:\pf_medicale\contenu\keycloak-16.1.1\modules
+	org.jboss.boot.log.file = D:\pf_medicale\contenu\keycloak-16.1.1\standalone\log\server.log
+	org.jboss.resolver.warning = true
+	os.arch = x86
+	os.name = Windows 8.1
+	os.version = 6.3
+	path.separator = ;
+	program.name = standalone.bat
+	sun.arch.data.model = 32
+	sun.boot.class.path = C:\Program Files (x86)\Java\jdk1.8.0_51\jre\lib\resources.jar;C:\Program Files (x86)\Java\jdk1.8.0_51\jre\lib\rt.jar;C:\Program Files (x86)\Java\jdk1.8.0_51\jre\lib\sunrsasign.jar;C:\Program Files (x86)\Java\jdk1.8.0_51\jre\lib\jsse.jar;C:\Program Files (x86)\Java\jdk1.8.0_51\jre\lib\jce.jar;C:\Program Files (x86)\Java\jdk1.8.0_51\jre\lib\charsets.jar;C:\Program Files (x86)\Java\jdk1.8.0_51\jre\lib\jfr.jar;C:\Program Files (x86)\Java\jdk1.8.0_51\jre\classes
+	sun.boot.library.path = C:\Program Files (x86)\Java\jdk1.8.0_51\jre\bin
+	sun.cpu.endian = little
+	sun.cpu.isalist = pentium_pro+mmx pentium_pro pentium+mmx pentium i486 i386 i86
+	sun.desktop = windows
+	sun.io.unicode.encoding = UnicodeLittle
+	sun.java.command = D:\pf_medicale\contenu\keycloak-16.1.1\jboss-modules.jar -mp D:\pf_medicale\contenu\keycloak-16.1.1\modules org.jboss.as.standalone -Djboss.home.dir=D:\pf_medicale\contenu\keycloak-16.1.1
+	sun.java.launcher = SUN_STANDARD
+	sun.jnu.encoding = Cp1252
+	sun.management.compiler = HotSpot Client Compiler
+	sun.os.patch.level = 
+	sun.stderr.encoding = cp850
+	sun.stdout.encoding = cp850
+	user.country = FR
+	user.dir = C:\Windows\System32
+	user.home = C:\Users\hp
+	user.language = fr
+	user.name = hp
+	user.script = 
+	user.timezone = Europe/Paris
+	user.variant = 
+2022-03-21 14:46:08,825 DEBUG [org.jboss.as.config] (MSC service thread 1-1) VM Arguments: -Dprogram.name=standalone.bat -Xms64M -Xmx512M -XX:MetaspaceSize=96M -XX:MaxMetaspaceSize=256m -Djava.net.preferIPv4Stack=true -Djboss.modules.system.pkgs=org.jboss.byteman -Djava.awt.headless=true -Dorg.jboss.boot.log.file=D:\pf_medicale\contenu\keycloak-16.1.1\standalone\log\server.log -Dlogging.configuration=file:D:\pf_medicale\contenu\keycloak-16.1.1\standalone\configuration/logging.properties 
+2022-03-21 14:46:16,110 INFO  [org.wildfly.security] (ServerService Thread Pool -- 19) ELY00001: WildFly Elytron version 1.18.3.Final
+2022-03-21 14:46:27,549 INFO  [org.jboss.as.server] (Controller Boot Thread) WFLYSRV0039: Creating http management service using socket-binding (management-http)
+2022-03-21 14:46:27,674 INFO  [org.xnio] (MSC service thread 1-1) XNIO version 3.8.5.Final
+2022-03-21 14:46:27,705 INFO  [org.jboss.as.jaxrs] (ServerService Thread Pool -- 38) WFLYRS0016: RESTEasy version 4.7.4.Final
+2022-03-21 14:46:27,706 INFO  [org.jboss.as.clustering.infinispan] (ServerService Thread Pool -- 36) WFLYCLINF0001: Activating Infinispan subsystem.
+2022-03-21 14:46:27,716 INFO  [org.xnio.nio] (MSC service thread 1-1) XNIO NIO Implementation Version 3.8.5.Final
+2022-03-21 14:46:27,720 INFO  [org.wildfly.extension.health] (ServerService Thread Pool -- 35) WFLYHEALTH0001: Activating Base Health Subsystem
+2022-03-21 14:46:27,728 INFO  [org.wildfly.extension.metrics] (ServerService Thread Pool -- 44) WFLYMETRICS0001: Activating Base Metrics Subsystem
+2022-03-21 14:46:27,736 INFO  [org.jboss.as.naming] (ServerService Thread Pool -- 45) WFLYNAM0001: Activating Naming Subsystem
+2022-03-21 14:46:27,744 INFO  [org.jboss.as.connector] (MSC service thread 1-2) WFLYJCA0009: Starting Jakarta Connectors Subsystem (WildFly/IronJacamar 1.5.3.Final)
+2022-03-21 14:46:27,884 WARN  [org.jboss.as.txn] (ServerService Thread Pool -- 49) WFLYTX0013: The node-identifier attribute on the /subsystem=transactions is set to the default value. This is a danger for environments running multiple servers. Please make sure the attribute value is unique.
+2022-03-21 14:46:28,082 WARN  [org.wildfly.clustering.web.undertow] (ServerService Thread Pool -- 50) WFLYCLWEBUT0007: No routing provider found for default-server; using legacy provider based on static configuration
+2022-03-21 14:46:28,532 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-5) WFLYUT0003: Undertow 2.2.14.Final starting
+2022-03-21 14:46:28,773 INFO  [org.wildfly.extension.undertow] (ServerService Thread Pool -- 50) WFLYUT0014: Creating file handler for path 'D:\pf_medicale\contenu\keycloak-16.1.1/welcome-content' with options [directory-listing: 'false', follow-symlink: 'false', case-sensitive: 'true', safe-symlink-paths: '[]']
+2022-03-21 14:46:29,134 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-7) WFLYELY00023: KeyStore file 'D:\pf_medicale\contenu\keycloak-16.1.1\standalone\configuration\application.keystore' does not exist. Used blank.
+2022-03-21 14:46:29,269 INFO  [org.jboss.as.connector.subsystems.datasources] (ServerService Thread Pool -- 30) WFLYJCA0004: Deploying JDBC-compliant driver class org.h2.Driver (version 1.4)
+2022-03-21 14:46:29,272 INFO  [org.jboss.as.connector.deployers.jdbc] (MSC service thread 1-2) WFLYJCA0018: Started Driver service with driver-name = h2
+2022-03-21 14:46:29,440 WARN  [org.wildfly.extension.elytron] (MSC service thread 1-4) WFLYELY01084: KeyStore D:\pf_medicale\contenu\keycloak-16.1.1\standalone\configuration\application.keystore not found, it will be auto generated on first use with a self-signed certificate for host localhost
+2022-03-21 14:46:29,659 INFO  [org.jboss.as.naming] (MSC service thread 1-3) WFLYNAM0003: Starting Naming Service
+2022-03-21 14:46:29,660 INFO  [org.jboss.as.mail.extension] (MSC service thread 1-6) WFLYMAIL0001: Bound mail session [java:jboss/mail/Default]
+2022-03-21 14:46:30,246 INFO  [org.wildfly.extension.io] (ServerService Thread Pool -- 37) WFLYIO001: Worker 'default' has auto-configured to 8 IO threads with 64 max task threads based on your 4 available processors
+2022-03-21 14:46:30,251 INFO  [org.jboss.as.ejb3] (MSC service thread 1-8) WFLYEJB0481: Strict pool slsb-strict-max-pool is using a max instance size of 64 (per class), which is derived from thread worker pool sizing.
+2022-03-21 14:46:30,251 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0482: Strict pool mdb-strict-max-pool is using a max instance size of 16 (per class), which is derived from the number of CPUs on this host.
+2022-03-21 14:46:30,400 INFO  [org.jboss.remoting] (MSC service thread 1-1) JBoss Remoting version 5.0.23.Final
+2022-03-21 14:46:30,407 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0012: Started server default-server.
+2022-03-21 14:46:30,410 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) Queuing requests.
+2022-03-21 14:46:30,412 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-4) WFLYUT0018: Host default-host starting
+2022-03-21 14:46:30,644 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0006: Undertow HTTP listener default listening on 127.0.0.1:8088
+2022-03-21 14:46:31,358 INFO  [org.wildfly.extension.undertow] (MSC service thread 1-3) WFLYUT0006: Undertow HTTPS listener https listening on 127.0.0.1:8443
+2022-03-21 14:46:31,556 INFO  [org.jboss.as.ejb3] (MSC service thread 1-6) WFLYEJB0493: Jakarta Enterprise Beans subsystem suspension complete
+2022-03-21 14:46:31,803 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-2) WFLYJCA0001: Bound data source [java:jboss/datasources/ExampleDS]
+2022-03-21 14:46:31,803 INFO  [org.jboss.as.connector.subsystems.datasources] (MSC service thread 1-7) WFLYJCA0001: Bound data source [java:jboss/datasources/KeycloakDS]
