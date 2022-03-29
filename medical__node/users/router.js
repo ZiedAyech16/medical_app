@@ -1,4 +1,5 @@
 const express = require("express");
+const User = require("./user");
 const router = express.Router();
 const userDB = require("./user_db");
 
@@ -6,6 +7,26 @@ const userDB = require("./user_db");
 
 var users__=[];
 const user_db = new userDB();
+//user_db.ajouterUser("user").then((data)=>console.log(data)).catch((err)=>console.log(err));
+
+
+router.post("/",async(req,res)=>{
+    console.log(req.body);
+     res.send(req.body);
+//      user_db.ajouterUser({
+//     "nom": "guyfg",
+//     "prenom": "bfuhjdbhj",
+//     "email": "vghjvgjh@",
+//     "contact": "5645",
+//     "username": "kjnkjk",
+//     "password": "kbnkj"
+// }).then((data)=>res.status(201).send(data)).catch((err)=>res.status(500).send(err));
+
+   // const user = new User( req.body);
+   await user_db.ajouterUser(req.body).then((data)=>res.status(201).send(data)).catch((err)=>res.status(500).send(err));
+
+});
+
 user_db.afficherTousUser().then((result)=>{
     //console.log(result);
     result.forEach(element => {
@@ -37,9 +58,6 @@ console.log(users__.length);
 
 
 
-router.post("/",(req,res)=>{
-    user_db.ajouterUser();
 
-});
 
 module.exports = router;
