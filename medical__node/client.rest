@@ -2,3 +2,14 @@ GET http://127.0.0.1:5000/users
 
 ###
 POST http://127.0.0.1:5000/users
+Content-Type: application/json; charset=utf-8;
+
+
+{
+     "nom": "guyfg",
+    "prenom": "bfuhjdbhj",
+    "email": "vghjvgjh@",
+    "contact": "5645",
+    "username": "kjnkjk",
+    "password": "kbnkj"
+}
