@@ -27,6 +27,15 @@ router.post("/",async(req,res)=>{
 
 });
 
+router.delete("/:id",(req,res)=>{
+    user_db.removeItem(req.params.id).then((res_)=>res.json(res_)).catch((err)=>res.json(err));
+});
+
+router.put("/:id",(req,res)=>{
+    console.log(req.body);
+    user_db.updateItem(req.params.id,req.body).then((res_)=>res.json(res_)).catch((err)=>res.json(err));
+})
+
 user_db.afficherTousUser().then((result)=>{
     //console.log(result);
     result.forEach(element => {

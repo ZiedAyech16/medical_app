@@ -21,6 +21,8 @@ app.use((req,res,next)=>{
     res.header({"Access-Control-Allow-Origin":"*"});
     next();
 })
-app.use("/users",users);
+//app.use("/users",users);
+const  users_=require("./patient/routes");
+app.use("/users",users_);
 
 app.listen(5000);
