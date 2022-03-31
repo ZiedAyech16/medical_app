@@ -1,4 +1,5 @@
 var mysql = require("mysql");
+const version = require("nodemon/lib/version");
 const User = require("./user");
 
 
@@ -67,7 +68,33 @@ class userDB{
         });
         
     }
+
+    removeItem(id){
+        return new Promise((resolve,reject)=>{
+            con.connect((err)=>{
+                if(err)reject(err);
+                con.query("delete from user where id="+id+"",function(err,result){
+                    if(err)reject(err);
+                    resolve(result);
+                })
+            })
+        })
+    }
+
+    updateItem(id,user){
+        return new Promise((resolve, reject)=>{
+            con.connect((err)=>{
+                if(err)reject(err);
+                con.query("update user set nom='"+user.nom+"',prenom='"+user.prenom+"',email='"+user.email+"',contact="+user.contact+",username='"+user.username+"',password='"+user.password+"' where id="+id+"",(err,results)=>{
+                    if(err)reject(err);
+                    resolve(results);
+                })
+            })
+        })
+    }
 }
+
+
 
 
 module.exports = userDB;
