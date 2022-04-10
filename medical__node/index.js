@@ -1,6 +1,5 @@
 const express= require("express");
 const app = express();
-const users = require("./users/router");
 const cors = require("cors");
 const morgan = require("morgan");
 const bodyParser = require("body-parser");
@@ -22,7 +21,18 @@ app.use((req,res,next)=>{
     next();
 })
 //app.use("/users",users);
-const  users_=require("./patient/routes");
+const  users_=require("./router/user_routes");
 app.use("/users",users_);
+const patients = require("./router/patient_routes");
+app.use("/patients",patients);
+
+const medecins = require("./router/medecin_routes");
+app.use("/medecins",medecins);
+
+const secretaires = require('./router/secretaire_routes');
+app.use("/secretaires",secretaires);
+
+const rdvs = require("./router/rdv_routes");
+app.use("/rdvs",rdvs);
 
 app.listen(5000);

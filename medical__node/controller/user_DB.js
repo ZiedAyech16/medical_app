@@ -1,4 +1,5 @@
-const User = require("./user");
+const Patient = require("../model/patient");
+const User = require("../model/user");
 
  function insertUser(nom,prenom,email,contact,username,password){
 
@@ -15,10 +16,12 @@ const User = require("./user");
 async function findAllUsers(){
    
       return await User.findAll({
-            // include:[
-            //   //  model: Setting
+            //  include:[{
+            //      model:Patient,
+            //     attributes:{exclude:[]}
+            //     }]
             //   //attributes: [""]
-            // ]
+             
         })
     
     
@@ -52,7 +55,7 @@ async function removeUser(id){
 }
 
 //insertUser("aaaa","bbbb","nnnnn",13165,"ijnj@","kk").then((res)=>console.log(res)).catch((err)=>console.log(err));
-console.log(findAllUsers().then((res)=>console.log(res)));
+//console.log(findAllUsers().then((res)=>console.log(res)));
 //updateUser(12,"aaaa","bbbb","nnn1545nn",13165,"ijnj@","kk");
 //.then((res)=>console.log(res)).catch((err)=>console.log(err));
 

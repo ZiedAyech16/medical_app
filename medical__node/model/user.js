@@ -1,6 +1,6 @@
 const {Sequelize, DataTypes} = require("sequelize");
 
-const db = require("./db");
+const db = require("../database/db");
 const sequelize = db.sequelize;
 const User = sequelize.define("User",{
     id:{
@@ -34,5 +34,10 @@ const User = sequelize.define("User",{
         allowNull:false
     }
 });
+
+// User.hasMany(Patient);
+// User.belongsTo(Patient);
+
+// User.sync({force:true})
 
 module.exports = User;

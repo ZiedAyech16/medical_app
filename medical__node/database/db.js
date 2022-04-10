@@ -2,8 +2,8 @@ const mysql = require('mysql2');
 const config = require("./config");
 
 const Sequelize = require("sequelize");
-const ConnectionConfig = require('mysql/lib/ConnectionConfig');
-const User = require('./user');
+//const ConnectionConfig = require('mysql/lib/ConnectionConfig');
+
 
 module.exports = db = {};
 const {host, port, user,password,database}=config.database;
