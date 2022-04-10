@@ -1,6 +1,5 @@
 const express = require("express");
-const User = require("./user");
-const { findAllUsers, insertUser, updateUser, removeUser, findUser } = require("./user_DB");
+const { findAllUsers, insertUser, updateUser, removeUser, findUser } = require("../controller/user_DB");
 const router = express.Router();
 
 
