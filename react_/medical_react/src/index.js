@@ -3,13 +3,17 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { createStore } from 'redux';
+import { combineReducers, createStore } from 'redux';
 import { Provider } from 'react-redux';
 import connexion from './user/store/reducers';
+import medecinReducers from './medecins/store/reducers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-
-const store = createStore(connexion);
+const allReducers = combineReducers({
+  auth:connexion,
+  medecin:medecinReducers
+})
+const store = createStore(allReducers);
 root.render(
   <React.StrictMode>
     <Provider store={store}>

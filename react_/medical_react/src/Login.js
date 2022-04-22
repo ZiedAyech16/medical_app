@@ -9,7 +9,7 @@ export default function Login(){
     const dispatch=useDispatch();
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
-    const state = useSelector(state=>state);
+    const state = useSelector(state=>state.auth);
     const [users,setUsers] =  useState({});
 
     const [token,setToken]=useState();

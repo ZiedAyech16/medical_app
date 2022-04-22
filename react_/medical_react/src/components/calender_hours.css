@@ -1,0 +1,23 @@
+.items_h{
+    display: grid;
+    grid-template-columns: auto  ;
+}
+.item_h{
+    border: 2px solid white;
+}
+.duree{
+    background-color: cornsilk;
+    float: left;
+    height: 50px;
+    
+}
+
+.munite{
+    font-size: 16px;
+    margin-right:2px;
+}
+
+.sub_munite{
+    font-size: 16px;
+    margin-right:55px;
+}
