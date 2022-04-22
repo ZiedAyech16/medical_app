@@ -1,7 +1,8 @@
 const express = require("express");
-const { findAllUsers, insertUser, updateUser, removeUser, findUser } = require("../controller/user_DB");
+const { findAllUsers, insertUser, updateUser, removeUser, findUser, findUserByPasswordEmail } = require("../controller/user_DB");
 const router = express.Router();
 
+//findUserByPasswordEmail("zied44@","1111").then((result)=>console.log(result));
 
 router.get("/",(req,res)=>{
     findAllUsers().then((result)=>res.json(result)).catch((err)=>res.status(500).json(err));
