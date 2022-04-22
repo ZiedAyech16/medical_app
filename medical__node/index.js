@@ -35,4 +35,6 @@ app.use("/secretaires",secretaires);
 const rdvs = require("./router/rdv_routes");
 app.use("/rdvs",rdvs);
 
+const auth = require("./security/auth");
+app.use("/api",auth);
 app.listen(5000);
