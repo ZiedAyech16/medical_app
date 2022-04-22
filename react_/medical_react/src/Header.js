@@ -5,7 +5,7 @@ import { Logout_ } from "./user/store/actions";
 export default function Header(){
     const [currentEmail,setCurrentEmail]=useState();
     //setCurrentEmail(localStorage.getItem("email"));
-    const state=useSelector(state=>state);
+    const state=useSelector(state=>state.auth);
     console.log("my data",state.email);
     const dispatch = useDispatch();
     const logout = ()=>{
