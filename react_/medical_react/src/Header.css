@@ -1,0 +1,14 @@
+.nav_bar{
+    background-color: darkseagreen;
+}
+
+.log_out:hover{
+    background-color: gold;
+}
+
+.log_out{
+    background-color: darkseagreen;
+    border: none;
+    font-family: bold;
+    font-size: 16px;
+}

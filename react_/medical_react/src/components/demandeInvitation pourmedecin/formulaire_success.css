@@ -1,0 +1,45 @@
+.model_form{
+    background-color: white;
+    border-radius: 1%;
+    margin: 2%;
+
+}
+
+.button_close{
+    background-color: darkkhaki;
+    color: red;
+    font-size:38px;
+    border: none;
+}
+
+.input_text{
+    width: 90%;
+}
+
+.container_model{
+background-color: darkkhaki;
+}
+
+.button_{
+    background-color: transparent;
+    color: black;
+    border:2px ridge black;
+    font-family: bold;
+    border-radius: 0 25% 0 0;
+    padding: 1%;
+}
+
+.button_:hover{
+    background-color: black;
+    color: wheat;
+    border:2px ridge wheat;
+    font-family: bold;
+    border-radius: 0 25% 0 0;
+    padding: 1%;
+}
+
+.image{
+    width: 60px;
+    height: 60px;
+    border-radius: 35%;
+}

@@ -1,0 +1,45 @@
+.container_{
+}
+
+
+
+.container{
+    background-color: aliceblue;
+    width: 60%;
+    border-radius: 15% ;
+    margin-top: 3%;
+    padding: 2%;
+}
+
+input{
+    font-size: 16px;
+    width: 60%;
+    padding: 1%;
+    margin: 2%;
+}
+.btn1{
+    background-color: #4c7faf;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: left;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-top: 4px;
+    cursor: pointer;
+    
+  }
+
+.btn2{
+    background-color: #4c7faf;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+  }

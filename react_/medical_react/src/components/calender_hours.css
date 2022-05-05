@@ -21,3 +21,18 @@
     font-size: 16px;
     margin-right:55px;
 }
+
+.my_table{
+    /* background-color: whitesmoke;
+    padding: 50px; */
+}
+
+.my_table_thead{
+    background-color: brown;
+}
+.time{
+    float: left;
+    width: 50px;
+    margin-left: -22px;
+    
+}
