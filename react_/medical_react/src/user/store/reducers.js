@@ -1,7 +1,7 @@
 const initState = {
-    email:"",
-    token:"",
-    password:""
+    email:'',
+    token:'',
+    password:''
 }
 
 const connexion = (state=initState,action)=>{

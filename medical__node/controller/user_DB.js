@@ -33,7 +33,7 @@ function findUser(id){
 }
 
 function findUserByPasswordEmail(email,password){
-    return User.findOne({where:{email:email,password:password}});
+    return User.count({where:{email:email,password:password}});
 }
 
 function findUserByPasswordEmail2(email,password){

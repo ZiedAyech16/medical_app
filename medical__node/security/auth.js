@@ -23,13 +23,22 @@ router.get("/posts",verifyToken,(req,res)=>{
     // }).catch((e)=>res.send({"message":"user not exists!!"}));
 
 router.get("/login",(req,res)=>{
-    // findUserByPasswordEmail(req.body.email,req.body.password).then((result)=>{
-    //     console.log(result);
-    // }).catch((e)=>res.send({"message":"user not exists!!"}));
+    findUserByPasswordEmail(req.body.email,req.body.password).then((result)=>{
+        //  console.log(result);
+        //  res.send({res:result});
 
-    jwt.sign({user:req.body},'secretKey',{expiresIn:'30s'},(err,token)=>{
-        res.json({token})
-    });
+         if(result>0){
+                 jwt.sign({user:req.body},'secretKey',{expiresIn:'30s'},(err,token)=>{
+                    res.json({token})
+                });
+         }else{
+             res.json({"message":"user not found!"})
+         }
+    }).catch((e)=>res.send({"message":"user not exists!!"}));
+
+    // jwt.sign({user:req.body},'secretKey',{expiresIn:'30s'},(err,token)=>{
+    //     res.json({token})
+    // });
 });
 
 function verifyToken(req,res,next){

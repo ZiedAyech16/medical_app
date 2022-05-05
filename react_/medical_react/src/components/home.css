@@ -1,4 +1,10 @@
 .item{
     padding:5px 5px 5px 0;
     width: 200pt;
+    
+}
+
+.item:hover{
+    background-color: goldenrod;
+    border: 4px ridge gold;
 }
