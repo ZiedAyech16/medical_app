@@ -3,12 +3,12 @@
     width: 60%;
 }
 
-input{
+/* input{
     font-size: 16px;
-    width: 60%;
+    width: 40%;
     padding: 1%;
     margin: 2%;
-}
+} */
 .btn1{
     background-color: #4CAF50;
     border: none;
@@ -22,15 +22,32 @@ input{
     cursor: pointer;
   }
 
-.btn2{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
+.btn{
+    border:4px ridge whitesmoke;
+    background-color : darkslategrey;
+    color: whitesmoke;
+    padding: 5px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
+    font-size: 22px;
     margin: 4px 2px;
     cursor: pointer;
+    border-radius: 0 30% 0 15%;
+  }
+i{
+  margin-left: 20%;
+
+}
+  .input_{
+    width: 40%;
+    border: none;
+    font-size: 24px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .login_page{
+    padding: 2%;
+    color: darkslategrey;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   }

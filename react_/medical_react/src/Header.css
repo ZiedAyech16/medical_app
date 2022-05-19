@@ -1,14 +1,22 @@
 .nav_bar{
-    background-color: darkseagreen;
+    background-color: lightskyblue;
 }
 
 .log_out:hover{
-    background-color: gold;
+    border:none;
+    background-color: burlywood;
 }
 
 .log_out{
-    background-color: darkseagreen;
+    background-color: lightskyblue;
     border: none;
     font-family: bold;
-    font-size: 16px;
+    font-size: 24px;
+}
+
+
+.email_{
+    color: whitesmoke;
+    font-size: large;
+    text-shadow: 2px 2px 2px royalblue;
 }

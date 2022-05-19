@@ -1,0 +1,30 @@
+.btn_reject{
+    background-color: crimson;
+    color: whitesmoke;
+    padding: 3%;
+    margin: 1%;
+    border: none;
+}
+
+.btn_valid{
+    background-color: cornflowerblue;
+    color: whitesmoke;
+    padding: 3%;
+    margin: 1%;
+    border: none;
+
+}
+
+.rendez_vous_title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color:navy;
+    letter-spacing: 5px;
+    
+}
+
+.rendez_vous_title::first-letter{
+    font-size: 3rem;
+    color: midnightblue;
+    text-shadow: 5px 1px 0px yellowgreen;
+}
+

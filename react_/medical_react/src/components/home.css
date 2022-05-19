@@ -8,3 +8,9 @@
     background-color: goldenrod;
     border: 4px ridge gold;
 }
+
+.container_items{
+    background-color: aliceblue;
+    margin-right: 1%;
+    height: 540px;
+}

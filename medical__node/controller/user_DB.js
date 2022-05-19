@@ -1,11 +1,11 @@
 const Patient = require("../model/patient");
 const User = require("../model/user");
 
- function insertUser(nom,prenom,email,contact,username,password){
-
+ function insertUser(nom,prenom,age,email,contact,username,password,image){
+console.log(image);
     return new Promise((resolve,reject)=>{
 
-        const res = User.create({nom,prenom,email,contact,username,password});
+        const res = User.create({nom,prenom,age,email,contact,username,password,image});
         resolve(res);
         reject("err");
     })
@@ -61,7 +61,7 @@ async function removeUser(id){
 //    }
 }
 
-//insertUser("aaaa","bbbb","nnnnn",13165,"ijnj@","kk").then((res)=>console.log(res)).catch((err)=>console.log(err));
+//insertUser("aaaa","bbbb","12","nnnnn","13165","ijnj@","kk","image1").then((res)=>console.log(res)).catch((err)=>console.log(err));
 //console.log(findAllUsers().then((res)=>console.log(res)));
 //updateUser(12,"aaaa","bbbb","nnn1545nn",13165,"ijnj@","kk");
 //.then((res)=>console.log(res)).catch((err)=>console.log(err));
