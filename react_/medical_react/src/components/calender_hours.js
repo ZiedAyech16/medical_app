@@ -68,7 +68,7 @@ const [heure_depart,setHeure_depart] = useState(0);
    // console.log(params);
     return(
         <div>
-            <h2>Date {params.day}/{params.month}/{params.year}</h2>
+            <h2 className="date_">Date {params.day<10?<>0</>:<></>}{params.day}/{params.day<10?<>0</>:<></>}{params.month}/{params.year} Selectionné</h2>
 
 
          
@@ -94,7 +94,7 @@ const [heure_depart,setHeure_depart] = useState(0);
 
             </tr>
       
-             <tr>   {disponibilityp1.map((data,i)=><td ><button className="" data-toggle={modal1[i]} data-target="#exampleModalLong"  onClick={()=>remplirDemande(data,i)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr>
+             <tr>   {disponibilityp1.map((data,i)=><td ><button className="" data-toggle={modal1[i]} data-target="#exampleModalLong"  onClick={()=>remplirDemande(data,i)} style={{backgroundColor:data,width:"105%",height:"100px",border:"none"}}></button></td>)}</tr>
 
 
              <tr>
@@ -114,7 +114,7 @@ const [heure_depart,setHeure_depart] = useState(0);
 
             </tr>
       
-             <tr>   {disponibilityp2.map((data,i)=><td ><button className="" data-toggle={modal2[i]} data-target="#exampleModalLong" onClick={()=>remplirDemande(data,i+11)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr>
+             <tr>   {disponibilityp2.map((data,i)=><td ><button className="" data-toggle={modal2[i]} data-target="#exampleModalLong" onClick={()=>remplirDemande(data,i+11)} style={{backgroundColor:data,width:"105%",height:"100px",border:"none"}}></button></td>)}</tr>
 
 <tr></tr>
         </table>

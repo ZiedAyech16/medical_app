@@ -26,13 +26,13 @@ export default function Header(){
     return (
         <nav className="navbar navbar-light nav_bar">
   <div className="container-fluid">
-    <a className="navbar-brand text-light">Medical</a>
+    <a className="navbar-brand text-light">Gestion Cabinet Medical</a>
   
 
   <div>
       
       {localStorage.getItem("email").length!==0 ?<div>
-          {localStorage.getItem("email")}
+          <span className="email_">{localStorage.getItem("email")}</span>
           <button className=" log_out btn-sm" onClick={logout}>Logout</button>
       </div>:'You need to Login'}
   </div>

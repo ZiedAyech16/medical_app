@@ -1,6 +1,14 @@
+var formidable = require('formidable');
+var fs = require('fs');
 const express = require("express");
 const { findAllUsers, insertUser, updateUser, removeUser, findUser, findUserByPasswordEmail } = require("../controller/user_DB");
 const router = express.Router();
+
+
+// const express =require("express");
+// const app = express();
+const {upload,uploadImage} = require("../controller/controller_image");
+
 
 //findUserByPasswordEmail("zied44@","1111").then((result)=>console.log(result));
 
@@ -13,9 +21,27 @@ router.get("/:id",(req,res)=>{
     findUser(req.params.id).then((result)=>res.json(result)).catch((err)=>res.status(500).json(err));
 })
 
-router.post("/",(req,res)=>{
-    insertUser(req.body.nom,req.body.prenom,req.body.email,req.body.contact,req.body.username,req.body.password);
-})
+router.post("/",uploadImage,upload);
+
+
+// router.post("/",(req,res)=>{
+//     // var form = new formidable.IncomingForm({ 
+//     //     uploadDir: __dirname + '/images',  // don't forget the __dirname here
+//     //     keepExtensions: true,
+//     //     multiples: true 
+//     //   });
+    
+//     //   form.parse(req, (err, fields, files) => {
+//     //     if (err) {
+//     //       next(err);
+//     //       return;
+//     //     }
+
+//     //     //res.json({ fields, files });
+//     //   });
+//       insertUser(req.body.nom,req.body.prenom,req.body.age,req.body.email,req.body.contact,req.body.username,req.body.password,'files.image.newFilename').then((user)=>res.send(user)).catch((err_)=>res.send(err_));
+
+// })
 
 router.put("/:id",(req,res)=>{
     updateUser(req.params.id,req.body.nom,req.body.prenom,req.body.email,req.body.contact,req.body.username,req.body.password)

@@ -4,7 +4,7 @@ import Calender from "../../components/calender";
 import { getAllMedecins } from "../gerer_medecin/all";
 import { Link } from "react-router-dom";
 import MedecinItem from "../../components/medecinItem";
-
+import "./all_med.css";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 
 export default function AllMedecins(props){
@@ -21,6 +21,7 @@ export default function AllMedecins(props){
     },[])
     return (
         <div>
+            <h2 style={{float:"left"}} className="all_med_title">Liste des <span className="all_med_title_">{props.specialite} </span></h2>
               <table className="table">
                         <thead className="thead-dark">
                             <tr>

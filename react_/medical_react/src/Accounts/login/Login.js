@@ -71,17 +71,30 @@ const handleChange = ()=>{
     },[]);
 
     return (<div style={url}>
-        {change?<form className="container">
-            <h3>Login Page :</h3>
-          <div>  <input type="email"  placeholder="email :" value={email} onChange={e=>setEmail(e.target.value)}></input></div>
-            <div><input type="password"  placeholder="Password :" value={password} onChange={e=>setPassword(e.target.value)}></input></div>
-            <div><button className="btn1" onClick={login}>Send</button>
-            <button onClick={()=>setChange(false)} className="btn2">test</button>
-            <button onClick={handleChange} className="btn2">test</button>
+        {change?<form className="login-container">
+            <h3 className="login_page">Medical Login Page :</h3>
+          <div >
+              
+                  <i className="fas fa-user"></i>
+                  
+                  <input type="email"  className="input_" placeholder="email :" value={email} onChange={e=>setEmail(e.target.value)}></input>
+                  </div>
+            <div>
+            <i className="fas fa-lock"></i>
+                <input type="password" className="input_" placeholder="Password :" value={password} onChange={e=>setPassword(e.target.value)}></input>
+            </div>
+            <div>
+                <button className="btn" onClick={login}>Login</button>
+                <button onClick={()=>setChange(false)} className="btn">Sign in</button>
 
             </div>
             
         </form>:<RegisterAccount />}
+
+
+
+
+
 </div>
     );
 }
@@ -89,8 +102,9 @@ const handleChange = ()=>{
 const url = {
     backgroundImage: `url(${process.env.PUBLIC_URL+ "/images/image_med2.jpg"})`,
     width:"100%",
-    height:"400px",
+    height:"600px",
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    filter:'opacity(0.8px)'
 
 }

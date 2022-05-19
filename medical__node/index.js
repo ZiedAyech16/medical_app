@@ -37,4 +37,107 @@ app.use("/rdvs",rdvs);
 
 const auth = require("./security/auth");
 app.use("/api",auth);
+
+var formidable = require('formidable');
+var fs = require('fs');
+app.get("/fileup",(req,res)=>{
+   if (req.url == '/fileupload') {
+
+        var form = new formidable.IncomingForm({ 
+            uploadDir: __dirname + '/upload/images',  // don't forget the __dirname here
+            keepExtensions: true
+          });
+        form.parse(req, function (err, fields, files) {
+            //console.log(files);
+
+          var oldpath = files.filetoupload.filepath;
+          console.log(oldpath);
+        //  var newpath = 'C:/Users/Your Name/' + files.filetoupload.originalFilename;
+          var newpath = 'upload/images/' + files.filetoupload.originalFilename;
+          fs.rename(oldpath, newpath, function (err) {
+            if (err) throw res.send({"msg err":err});
+            
+
+            res.write('File uploaded and moved!');
+            res.end();
+          });
+     });
+     } 
+
+
+
+     app.use((req,res,next)=>{
+      res.setHeader('Access-Control-Allow-Origin','*');
+      res.setHeader(
+          'Access-Control-Allow-Headers','Origin, X-Requested-Width,Content-Type,Accept, Authorization'
+      );
+      res.setHeader('Access-Control-Allow-Methods','GET, POST, PATCH,DELETE');
+      next();
+  })
+
+    // if (req.url == '/fileupload') {
+    //     var form = new formidable.IncomingForm({ 
+    //         uploadDir: __dirname + '/images',  // don't forget the __dirname here
+    //         keepExtensions: true
+    //       });
+    //     form.parse(req, function (err, fields, files) {
+    //         //console.log(files);
+    //       var oldpath = files.filetoupload.filepath;
+    //       console.log(oldpath);
+    //     //  var newpath = 'C:/Users/Your Name/' + files.filetoupload.originalFilename;
+    //       var newpath = 'images/' + files.filetoupload.originalFilename;
+    //       fs.rename(oldpath, newpath, function (err) {
+    //         if (err) throw err;
+    //         res.write('File uploaded and moved!');
+    //         res.end();
+    //       });
+    //  });
+    //   } else {
+    //     res.writeHead(200, {'Content-Type': 'text/html'});
+    //     res.write('<form action="fileupload" method="post" enctype="multipart/form-data">');
+    //     res.write('<input type="file" name="filetoupload"><br>');
+    //     res.write('<input type="submit">');
+    //     res.write('</form>');
+    //     return res.end();
+    //   }
+})
+
+
+
+
+// app.get('/', (req, res) => {
+//     res.send(`
+//       <h2>With <code>"express"</code> npm package</h2>
+//       <form action="/api/upload" enctype="multipart/form-data" method="post">
+//         <div>Text field title: <input type="text" name="title" /></div>
+//         <div>File: <input type="file" name="someExpressFiles" multiple="multiple" /></div>
+//         <input type="submit" value="Upload" />
+//       </form>
+//     `);
+//   });
+  
+  app.post('/api/upload', (req, res, next) => {
+    //const form = formidable({ multiples: true });
+    var form = new formidable.IncomingForm({ 
+      uploadDir: __dirname + '/images',  // don't forget the __dirname here
+      keepExtensions: true,
+      multiples: true 
+    });
+  
+    form.parse(req, (err, fields, files) => {
+      if (err) {
+        next(err);
+        return;
+      }
+      res.json({ fields, files });
+    });
+  });
+  
+  // app.listen(3001, () => {
+  //   console.log('Server listening on http://localhost:3000 ...');
+  // });
+
+
+
+
 app.listen(5000);

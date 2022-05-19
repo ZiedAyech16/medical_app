@@ -10,7 +10,7 @@
     display: grid;
     grid-template-columns: auto auto auto auto auto auto auto auto;
     padding: 5px;
-    margin: 2px;
+    margin: 1px;
 }
 
 
@@ -21,14 +21,14 @@
 
 
 .calender_year{
-    margin: 4px;
+    margin: 2px;
 }
 
 .calender_year{
 }
 
 .container_calender{
-    margin-top: 2%;
+    margin-top: 1%;
     border: 6px ridge goldenrod;
     background-color: lightgoldenrodyellow;
 

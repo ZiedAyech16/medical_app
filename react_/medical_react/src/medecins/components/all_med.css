@@ -1,0 +1,27 @@
+.all_med_title{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: darkblue;
+    text-transform: capitalize;
+    letter-spacing: 5px;
+}
+.all_med_title::first-letter{
+    font-size: 3rem;
+    color: midnightblue;
+    text-shadow: 5px 1px 0px yellowgreen;
+}
+
+.all_med_title_{
+    font-size: 3rem;
+    color: midnightblue;
+    text-shadow: 3px 1px 0px yellowgreen;
+}
+.date_{
+    background-color: deepskyblue;
+    color: aliceblue;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    letter-spacing: 3px;
+    padding: 15px;
+    border-radius: 0 25% 0 25%;
+    border: 3px ridge #8b0000;
+    margin-bottom: 45px;
+}
