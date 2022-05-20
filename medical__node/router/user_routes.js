@@ -52,4 +52,18 @@ router.delete("/:id",(req,res)=>{
     removeUser(req.params.id).then((ress)=>res.json(ress)).catch((err)=>res.json(err));
 })
 
+
+
+router.get("/images/:nom",function(req,res){
+  console.log(__dirname);
+  console.log(__dirname+'/public/'+JSON.stringify(req.params.nom));
+  fs.readFile("./"+'public/'+req.params.nom, function(err, data) {
+  if (err) console.log(err); // Fail if the file can't be read.
+    res.writeHead(200, {'Content-Type': 'image/jpeg'});
+    res.end(data); // Send the file data to the browser.
+});
+});
+
+
+
 module.exports = router;

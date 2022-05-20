@@ -66,6 +66,9 @@ const onFormSubmit = (e)=>{
     axios.post('/users',form,config)
     .then((response)=>{
       console.log(response);
+      setSecretaire({...secretaire,UserId:response.data.userId})
+      setPatient({...patient,UserId:response.data.userId})
+      setMedecin({...medecin,UserId:response.data.userId})
       alert('Image Uploaded Successfully')
     })
     .catch((err)=>{
@@ -93,6 +96,8 @@ const interface_Medecin = ()=>{
             <h1>You are doctor</h1>
             <label>Num Order :</label>
 
+            {/* <img src="http://127.0.0.1:5000/users/images/image-1652972961873.jpeg" /> */}
+
             <div style={{width:"95%"}}>
                 <input style={{width:"100%"}} value={medecin.num_order} onChange={(e)=>setMedecin({...medecin,num_order:e.target.value})} type="number" name="num_order" />
             </div>
@@ -104,7 +109,14 @@ const interface_Medecin = ()=>{
                 <option value={"psychotherapie"}>Psychothérapie</option>
                 <option value={"dentiste"}>dentiste</option>
                 <option value={"gynecologue"}>Gynecologue</option>
-                <option value={"pediatre"}>Pediatre</option>
+                {/* <option value={"gynecologue"}>Gynecologue</option> */}
+                <option value={"Allergists"}>Allergists</option>
+                <option value={"Dermatologists"}>Dermatologists</option>
+                <option value={"Ophthalmologists"}>Ophthalmologists</option>
+                {/* <option value={"Obstetrician"}>Obstetrician</option> */}
+                <option value={"gynecologists"}>gynecologists</option>
+                <option value={"Cardiologists"}>Cardiologists</option>  
+
 
                 </select>
             
@@ -212,7 +224,7 @@ const user_role_event = (e)=>{
             </div>
 
             <div>
-                <input type="file" name="photo" onChange={onInputChange} />
+                <input className="input_" type="file" name="photo" onChange={onInputChange} />
             </div>
 
             <div>

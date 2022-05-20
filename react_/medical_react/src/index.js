@@ -8,12 +8,14 @@ import { Provider } from 'react-redux';
 import connexion from './user/store/reducers';
 import medecinReducers from './medecins/store/reducers';
 import changestatebetweenLogAndReg from './Accounts/store_reg_log/reducers';
+import save_user_data_reducers from './Accounts/store_user_account/reducers';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const allReducers = combineReducers({
   auth:connexion,
   medecin:medecinReducers,
-  etatlogin:changestatebetweenLogAndReg
+  etatlogin:changestatebetweenLogAndReg,
+  user:save_user_data_reducers
 })
 const store = createStore(allReducers);
 root.render(

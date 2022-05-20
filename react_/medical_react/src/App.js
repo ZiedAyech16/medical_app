@@ -8,6 +8,7 @@ import Login from './Accounts/login/Login';
 import AllMedecins from './medecins/components/all_meds';
 import Home from './components/home';
 import RegisterAccount from './Accounts/register/RegisterAccount';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
   const state = useSelector(state=>state.auth);
@@ -23,7 +24,7 @@ function App() {
             // localStorage.setItem("password",statelogin.password);
   return (
     <div className="App">
-      
+      <BrowserRouter>
     <Header />
     {
     
@@ -36,8 +37,11 @@ function App() {
       </div>
       
     : <Home />
+
+
     }
       
+    </BrowserRouter>
 
     </div>
   );

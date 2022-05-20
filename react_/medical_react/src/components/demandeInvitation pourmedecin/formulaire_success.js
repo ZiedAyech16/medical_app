@@ -1,15 +1,26 @@
+import { useSelect } from "@mui/base";
 import axios from "axios";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import "./formulaire_success.css";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 export default function LoginInvite(props){
   const [doctor_name,setDoctorName]=useState('');
   const [specialite,setSpecialite]=useState('');
   const [user_doctor_id,setUser_doctor_id]=useState(0);
+  const [user,setUser] = useState([]);
+
+  
   axios.get(`/medecins/${props.doctor_id}`).then((data)=>{setSpecialite(data.data.specialite);setUser_doctor_id(data.data.UserId)}).catch((err)=>console.log(err));
   axios.get(`/medecins/${props.doctor_id}`).then((data)=>setSpecialite(data.data.specialite)).catch((err)=>console.log(err));
   axios.get(`/users/${user_doctor_id}`).then((data)=>setDoctorName(data.data.nom+" "+data.data.prenom)).catch((err)=>console.log(err));
 
+useEffect(()=>{
+  axios.get(`/users/${localStorage.getItem("id")}`).then((response)=>setUser(response.data));
+
+},[]);
+
+  
   console.log("props = "+props);
   const heure_dep = props.heure;
 
@@ -25,7 +36,7 @@ export default function LoginInvite(props){
       <div className="modal-header">
         <img src="/images/medecin1.jpg" className="image"></img>
         <div>
-        <h5 class="modal-title" id="exampleModalLongTitle">{doctor_name}</h5>
+        <h5 className="modal-title" id="exampleModalLongTitle">{doctor_name}</h5>
         <h6 style={{float:"left"}}>{specialite}</h6>
         </div>
         <button type="button" className="close button_close" data-dismiss="modal" aria-label="Close">
@@ -44,19 +55,19 @@ export default function LoginInvite(props){
           <h6>Saissez vos Information</h6>
             <div className="form-group">
               <label className="ms-3" style={{float:"left"}}>Nom :</label>
-              <input type="text" className="form-control input_text"></input>
+              <input type="text" value={user.nom} className="form-control input_text"></input>
 
             </div>
 
             <div className="form-group">
               <label style={{float:"left"}} className="ms-2" >Prenom :</label>
-              <input style={{float:"left"}} type="text" className="form-control input_text"></input>
+              <input style={{float:"left"}} value={user.prenom} type="text" className="form-control input_text"></input>
 
             </div>
 
             <div className="form-group">
-              <label style={{float:"left"}} className="ms-2" >Number :</label>
-              <input style={{float:"left"}} type="number" className="form-control input_text"></input>
+              <label style={{float:"left"}} className="ms-2" >Contact :</label>
+              <input style={{float:"left"}} value={user.contact} type="number" className="form-control input_text"></input>
 
             </div>
 

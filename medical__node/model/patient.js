@@ -30,12 +30,14 @@ const Patient = sequelize.define("Patient", {
 });
 
 User.hasOne(Patient);
-Patient.belongsTo(User,{
+Patient.belongsTo(User
+    ,{
     foreignKey:{
         //allowNull:false,
       //  name:"userId"
     }
-});
+}
+);
 //Patient.sync({ force: true });
 
 module.exports = Patient;

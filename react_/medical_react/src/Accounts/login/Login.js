@@ -5,11 +5,14 @@ import axios from "axios";
 import { Login_ } from "../../user/store/actions";
 import RegisterAccount from "../register/RegisterAccount";
 import { logging, register } from "../store_reg_log/actions";
+import save_user_data_reducers from "../store_user_account/reducers";
+import save_user_data_action from "../store_user_account/action";
 
 
 axios.defaults.baseURL = "http://127.0.0.1:5000/";
 export default function Login(){
     const dispatch=useDispatch();
+    const userstate = useSelector(state=>state.user);
     const [email,setEmail]=useState('');
     const [password,setPassword]=useState('');
     const state = useSelector(state=>state.auth);
@@ -19,6 +22,11 @@ export default function Login(){
     const [token,setToken]=useState('');
 
     const [change,setChange]=useState(true);
+    const [users__,setUsers__]=useState([]);
+
+    console.log(userstate);
+
+    const [all_user,setAll_user]=useState([]);
 
 const handleChange = ()=>{
     dispatch(logging(false));
@@ -29,6 +37,15 @@ const handleChange = ()=>{
      function login(e){    
 
         e.preventDefault();
+
+
+        
+      //  users__.map((response)=>console.log(response));
+        users__.filter((res)=>res.email===email).map((response)=>{
+            
+            dispatch(save_user_data_action({email:response.email,nom:response.nom,prenom:response.prenom,age:response.age,username:response.username,password:response.password,id:response.id}))
+            localStorage.setItem("id",response.id);
+        });
 
         axios.get("api/login",{
             data:{"email":email,"password":password}
@@ -42,7 +59,7 @@ const handleChange = ()=>{
                 console.log("res====>"+data.email);
                 dispatch(Login_({email:email,token:token,password:password}));
                 localStorage.setItem("token", token);
-
+                localStorage.setItem("id",userstate.id)
                 localStorage.setItem("email",email);
                 localStorage.setItem("password",password);
             }).catch(err=>console.log(err));
@@ -50,10 +67,15 @@ const handleChange = ()=>{
         });
         console.log(token);
         
-        localStorage.setItem("token", token);
+        all_user.filter((res)=>res.email===email).map((response)=>{
+                    localStorage.setItem("token", token);
 
         localStorage.setItem("email",email);
         localStorage.setItem("password",password);
+        })
+
+       // localStorage.setItem("id",userstate.user.id)
+
       
     }
 
@@ -68,6 +90,13 @@ const handleChange = ()=>{
         // }else{
         //     alert('wrong');
         // }
+
+  
+        axios.get("/users").then((response)=>setAll_user(response.data));
+        axios.get("/users").then((response)=>console.log(response.data));
+        axios.get("/users").then((response)=>setUsers__(response.data));
+
+
     },[]);
 
     return (<div style={url}>

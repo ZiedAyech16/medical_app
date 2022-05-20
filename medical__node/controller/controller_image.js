@@ -1,7 +1,7 @@
 const multer = require("multer");
 const { insertUser } = require("./user_DB");
 
-
+//j'utilise cette classe pour ajouter in utilisateur avec image 
 const multerConfig = multer.diskStorage({
     destination:(req,file,callback)=>{
         callback(null,'public/');
@@ -18,7 +18,7 @@ const upload = multer({
 exports.uploadImage = upload.single("photo");
 
 exports.upload = (req,res)=>{
-   // console.log(req.file);
+    console.log(req.file);
     console.log(req.body);
     insertUser(req.body.nom,req.body.prenom,req.body.age,req.body.email,req.body.contact,req.body.username,req.body.password,req.file.filename)
     .then((user)=>{
@@ -26,7 +26,9 @@ exports.upload = (req,res)=>{
          res.status(200).json({
         success: 'Success',
         user:user,
-        image:req.file.filename    });
+        image:req.file.filename,
+        userId:user.id
+    });
        // res.send(user)
         }
     ).catch((err_)=>res.send(err_));

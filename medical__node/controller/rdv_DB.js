@@ -1,7 +1,20 @@
+const Medecin = require("../model/medecin");
+const Patient = require("../model/patient");
 const RDV = require("../model/rdv");
 
 async function findAllRDV(){
-    return await RDV.findAll({});
+    return await RDV.findAll({
+    include:[
+        {
+        model:Medecin,
+         attributes:{exclude:[]}
+    },
+    {
+        model:Patient,
+         attributes:{exclude:[]}
+    }
+]
+    });
 }
 
 async function findOneRDV(id){

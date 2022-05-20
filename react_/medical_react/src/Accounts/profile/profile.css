@@ -1,0 +1,71 @@
+.image{
+    border-radius: 20% 20% 30% 50%;
+    width: 150px;
+    height: 150px;
+    background-color: aliceblue;
+    border: 4px solid white;
+    box-shadow: 2px 1px 10px 8px rgb(15, 87, 87);
+}
+
+.title{
+    font-size: 28px;
+    color: beige;
+    letter-spacing: 5px;
+    margin-left: -20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.text_content{
+    font-size: 22px;
+    font-style: oblique;
+    letter-spacing: 2px;
+    padding-bottom: 25px;
+    
+
+}
+
+.text_title{
+    font-size: 22px;
+    font-style: oblique;
+    letter-spacing: 4px;
+    color: cornflowerblue;
+    float: left;
+    line-height: 10px;
+    margin-left: 18px;
+    margin-top: 20px;
+    align-items: center;
+    
+}
+
+.card_profile{
+    background-color: rgb(12, 88, 139);
+    display: grid;
+    grid-template-columns: repeat(2,50%);
+    height: 500px;
+    border-radius: 10% 10% 30%  0;
+    border: 6px solid slategray;
+
+}
+
+.left_card{
+    background-color: beige;
+    margin: 20px;
+    border-radius:  10%;
+}
+
+.right_card{
+
+}
+
+.image_profile{
+    width: 250px;
+    height: 300px;
+    margin: 25px;
+    border: 6px solid whitesmoke;
+    border-radius:  0 45% 0 0;
+}
+
+.item_profile{
+    margin-top: 20px;
+    line-height: 50px;
+}
