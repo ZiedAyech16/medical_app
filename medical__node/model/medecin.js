@@ -27,10 +27,12 @@ const Medecin = sequelize.define("Medecin",{
 
 
 //Seconde
-// User.hasOne(Medecin);
-// Medecin.belongsTo(User,{
+User.hasOne(Medecin);
+Medecin.belongsTo(User
+//     ,{
 
-// });
+// }
+);
 
 //Medecin.sync({force:true});
 //end seconde

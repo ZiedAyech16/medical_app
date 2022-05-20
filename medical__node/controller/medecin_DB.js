@@ -14,7 +14,7 @@ async function findAllMedecin(){
     return await Medecin.findAll({
         include:{
             model:User,
-            attributes:{exclude:["updateAt"]}
+            attributes:{exclude:["createAt","updateAt"]}
         }
     });
 }

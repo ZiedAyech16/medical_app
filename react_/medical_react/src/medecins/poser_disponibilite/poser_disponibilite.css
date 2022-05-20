@@ -1,0 +1,35 @@
+.design_picker{
+    font-size: 28px;
+}
+
+.card_picker{
+    background-color: cadetblue;
+    display: grid;
+    grid-template-columns: repeat(1,100%);
+}
+
+.card_picker > button{
+    height: 50px;
+    width: 100px;
+    margin-left: 60px;
+    margin: 40px;
+}
+
+.title_picker{
+    color: beige;
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin: 20px 20px 20px 70px;
+    text-shadow: 4px  4px 4px navy;
+}
+
+.button_picker{
+    color: beige;
+    font-size: 28px;
+    letter-spacing: 4px;
+    margin: 20px 20px 20px 70px;
+    text-shadow: 4px  4px 4px navy;
+    background-color: darkcyan;
+    border: 1px solid white;
+    border-radius: 20%;
+}

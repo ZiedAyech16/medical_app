@@ -38,6 +38,9 @@ app.use("/rdvs",rdvs);
 const auth = require("./security/auth");
 app.use("/api",auth);
 
+const calenders = require("./router/calender_routes");
+app.use("/calenders",calenders);
+
 var formidable = require('formidable');
 var fs = require('fs');
 app.get("/fileup",(req,res)=>{

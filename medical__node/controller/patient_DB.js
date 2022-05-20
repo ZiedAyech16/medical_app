@@ -18,7 +18,7 @@ async function findAllPatients(){
    return await  Patient.findAll({
     include:[{
         model:User,
-       attributes:{exclude:[]}
+       attributes:{exclude:["createAt","updateAt"]}
        }]
    });
 }

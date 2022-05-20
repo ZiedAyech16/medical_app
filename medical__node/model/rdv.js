@@ -23,6 +23,6 @@ RDV.belongsTo(Medecin);
 Patient.hasOne(RDV);
 RDV.belongsTo(Patient);
 
-//RDV.sync({force:true});
+// RDV.sync({force:true});
 
 module.exports = RDV;

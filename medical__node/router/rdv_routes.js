@@ -2,8 +2,10 @@ const express = require("express");
 const { findAllRDV, findOneRDV, insertRDV, updateRDV, removeRDV } = require("../controller/rdv_DB");
 const router = express.Router();
 
+findAllRDV().then((data)=>console.log(data));
+
 router.get("/",(req,res)=>{
-    findAllRDV().then(data=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
+    findAllRDV().then((data)=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
 })
 
 router.get("/:id",(req,res)=>{
