@@ -533,10 +533,9 @@ const [heure_depart,setHeure_depart] = useState(0);
    // console.log(params);
     return(
         <div>
-            <h2 className="date_">Date {params.day<10?<>0</>:<></>}{params.day}/{params.day<10?<>0</>:<></>}{params.month}/{params.year} Selectionné</h2>
+            <h2 className="date_">Date {params.day<10?<>0</>:<></>}{params.day}/{params.day<10?<>0</>:<></>}{params.month}/{params.year} Selectionné<button className="refresh_hours" onClick={reload}>Pour Obtenir Des Infos</button></h2>
 
 
-<button onClick={reload}>reload</button>
          
     
 

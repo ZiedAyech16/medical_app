@@ -25,3 +25,6 @@
     border: 3px ridge #8b0000;
     margin-bottom: 45px;
 }
+.thead-dark > tr > td{
+    padding: 2%;
+}

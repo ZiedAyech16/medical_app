@@ -199,7 +199,10 @@ const user_role_event = (e)=>{
 
 
     return(
-        <div className="container_" style={url}>
+        <div>
+        <div style={url} ></div>
+
+        <div className="container__">
         {/* <form className="container"> */}
             <div><h1>Sign in :</h1></div>
 
@@ -270,6 +273,7 @@ const user_role_event = (e)=>{
             </div>
         {/* </form> */}
         </div>
+        </div>
     );
 }
 
@@ -277,8 +281,11 @@ const user_role_event = (e)=>{
 const url = {
     backgroundImage: `url(${process.env.PUBLIC_URL+ "/images/image_med2.jpg"})`,
     width:"100%",
-    height:"1000px",
+    height:"140%",
     backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover'
+    backgroundSize: 'cover',
+    position:"fixed",
+    zIndex:"-1"
+
 
 }

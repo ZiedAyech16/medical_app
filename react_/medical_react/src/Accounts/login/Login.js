@@ -69,9 +69,10 @@ const handleChange = ()=>{
         
         all_user.filter((res)=>res.email===email).map((response)=>{
                     localStorage.setItem("token", token);
-
-        localStorage.setItem("email",email);
-        localStorage.setItem("password",password);
+                    localStorage.setItem("id",response.id)
+            console.log("user = ",response);
+        localStorage.setItem("email",response.email);
+        localStorage.setItem("password",response.password);
         })
 
        // localStorage.setItem("id",userstate.user.id)
@@ -98,8 +99,9 @@ const handleChange = ()=>{
 
 
     },[]);
-
-    return (<div style={url}>
+console.log(all_user);
+    return (<div  className="container__">
+        <div  style={url} ></div>
         {change?<form className="login-container">
             <h3 className="login_page">Medical Login Page :</h3>
           <div >
@@ -131,9 +133,11 @@ const handleChange = ()=>{
 const url = {
     backgroundImage: `url(${process.env.PUBLIC_URL+ "/images/image_med2.jpg"})`,
     width:"100%",
-    height:"600px",
+    height:"140%",
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'cover',
-    filter:'opacity(0.8px)'
+    position:"fixed",
+    zIndex:"-1"
+
 
 }

@@ -1,0 +1,36 @@
+.fiche_card_container{
+    border: 2px solid #8b0000;
+    background-color: aliceblue;
+    width: 40%;
+    float: left;
+    padding: 2%;
+    margin: 1%;
+    border-radius: 2% 10% 10% 2%;
+}
+
+.fiche_card_name{
+    font-size: 28px;
+    color: navy;
+    font-style: oblique;
+    letter-spacing: 3px;
+    padding: 2%;
+}
+
+.fiche_card_element{
+    float: left;
+    margin: 2px;
+    padding: 2%;
+    color: #8b0000;
+    font-size: 15px;
+}
+
+.fiche_card_image{
+    width: 100%;
+    height: 200px;
+    float: left;
+    border-radius: 2% 2% 20% 20%;
+}
+
+.fiche_card_container_sub{
+
+}

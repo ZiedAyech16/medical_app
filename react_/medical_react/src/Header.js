@@ -28,6 +28,7 @@ export default function Header(){
     const toprofile = ()=>navigate("/profile");
     const tordvs = ()=>navigate("/rdvs");
     const posertime = ()=>navigate("/poser_time");
+    const gerefichespatient = () =>navigate("/fiche_patients");
     
     return (
         <nav className="navbar navbar-light nav_bar">
@@ -39,6 +40,7 @@ export default function Header(){
       {localStorage.getItem("email").length!==0 ?<div>
       {/* <Link to="/profile" >Profile</Link> */}
       <button className=" log_out btn-sm" onClick={posertime}>Poser Time</button>
+      <button className=" log_out btn-sm" onClick={gerefichespatient}>Gerer Fiche Patients</button>
       <button className=" log_out btn-sm" onClick={tordvs}>Rdvs</button>
       <button className=" log_out btn-sm" onClick={toprofile}>Profile</button>
 

@@ -11,14 +11,14 @@ const onClickHandler = () => navigate(`/calender/${props.medecin.id}`)
     const medecin=props.medecin;
     console.log(props);
     return(
-        <tr style={tr}>
-                                <td>{medecin.num_order} </td>
-                                <td>{medecin.specialite} </td>
-                                <td>{medecin.User.nom} </td>
-                                <td>{medecin.User.prenom} </td>
-                                <td>{medecin.User.contact} </td>
-                                <td></td>
-                                <button className="btn_item_medecin" onClick={onClickHandler}>choisir rende-vous</button>
+        <tr className="tr__">
+                                <td className="td__">{medecin.num_order} </td>
+                                <td className="td__">{medecin.specialite} </td>
+                                <td className="td__">{medecin.User.nom} </td>
+                                <td className="td__">{medecin.User.prenom} </td>
+                                <td className="td__">{medecin.User.contact} </td>
+                                <td className="td__"></td>
+                                <td  className="td__"><button className="btn_item_medecin" onClick={onClickHandler}>choisir rende-vous</button></td>
         </tr>
     );
 }
