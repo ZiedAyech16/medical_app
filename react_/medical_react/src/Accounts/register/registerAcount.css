@@ -1,10 +1,14 @@
-.container_{
+.container__{
+  background: radial-gradient(ellipse farthest-corner at var(--x) 0%, rgb(153, 61, 61,70%) 0%, rgb(82, 3, 3,60%) 14%, rgb(14, 131, 139,20%) 25%, rgb(0, 0, 128,20%) 62.5%, lightskyblue 100%);
+  animation: colorChange 5s infinite alternate;
+  padding: 1%;
+  border-radius: 4%;
 }
 
 
 
 .container{
-    background-color: aliceblue;
+    background-color: transparent;
     width: 60%;
     border-radius: 15% ;
     margin-top: 3%;
@@ -46,7 +50,7 @@ input{
 
 
   .container{
-    background-color: aliceblue;
+    background-color: transparent;
     width: 60%;
 }
 
@@ -116,6 +120,7 @@ i{
     display: grid;
     grid-template-columns: repeat(1,100%);
     padding: 2%;
+
   }
 
   select{

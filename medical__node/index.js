@@ -41,6 +41,9 @@ app.use("/api",auth);
 const calenders = require("./router/calender_routes");
 app.use("/calenders",calenders);
 
+const fiche_patients = require("./router/fiche_patient_routes");
+app.use("/fiche_patients",fiche_patients);
+
 var formidable = require('formidable');
 var fs = require('fs');
 app.get("/fileup",(req,res)=>{

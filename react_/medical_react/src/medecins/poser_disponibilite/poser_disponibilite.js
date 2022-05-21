@@ -25,11 +25,30 @@ export default function Poser_Time(props){
         date_.setMonth()
         axios.post('/calenders',{date:value,MedecinId:1}).then((response)=>console.log(response));
 
+        var close = document.getElementsByClassName("closebtn");
+        var i;
+        
+        for (i = 0; i < close.length; i++) {
+          close[i].onclick = function(){
+            var div = this.parentElement;
+            div.style.opacity = "0";
+            setTimeout(function(){ div.style.display = "none"; }, 600);
+          }
+        }
     }
+
+
+
+
+
 
     return(
         <div className="card_picker">
             {value?.toDate?.().toString()}
+            <div class="alert success">
+              <span class="closebtn">&times;</span>  
+              <strong>Success!</strong> Indicates a successful or positive action.
+            </div>
             <h2 className="title_picker">Disponibilte</h2>
             <DatePicker className="design_picker"
             
@@ -72,6 +91,13 @@ export default function Poser_Time(props){
     }}
   />
 </LocalizationProvider> */}
+
+
+
         </div>
     );
 }
+
+<script>
+
+</script>

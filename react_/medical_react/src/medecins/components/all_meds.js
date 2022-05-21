@@ -23,7 +23,7 @@ export default function AllMedecins(props){
         <div>
             <h2 style={{float:"left"}} className="all_med_title">Liste des <span className="all_med_title_">{props.specialite} </span></h2>
               <table className="table">
-                        <thead className="thead-dark">
+                        <thead className="tr_th">
                             <tr>
                             <th scope="col">num_order</th>
                             <th scope="col">specialite</th>

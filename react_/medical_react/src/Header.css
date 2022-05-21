@@ -1,22 +1,69 @@
-.nav_bar{
+/* .nav_bar{
     background-color: lightskyblue;
+    animation: anim 5s infinite;
+
+} */
+
+.nav_bar:hover{
+  
+  }
+  
+  @keyframes anim{
+    2%{background: linear-gradient(130deg, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00fffb99, #00fffb99, #00fffb99, #00fffb99,#00fffb99, #00fffb99, #00fffb99, #00fffb99, #00fffb99,#00fffb99); }
+    6%{background: linear-gradient(130deg, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00fffb99, #00fffb99, #00fffb99, #00fffb99, #00fffb99,#00fffb99, #00fffb99, #00fffb99, #00fffb99, #00fffb99,#00fffb99); }
+    8%{background: linear-gradient(130deg, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00008b99, #00fffb99, #00fffb99, #00fffb99, #00fffb99, #00fffb99, #00fffb99,#00fffb99, #00fffb99, #00fffb99, #00fffb99, #00fffb99,#00fffb99); }
+    
+
+  }
+
+  
+
+@property --x {
+  syntax: '<percentage>';
+  inherits: false;
+  initial-value: 0%;
 }
+  
+.nav_bar {
+    /* height: 30vh;
+    width: 60vw; */
+    width: 100%;
+    margin: auto;
+    border-radius: 0px;
+    background: radial-gradient(ellipse farthest-corner at var(--x) 0%, #FFFFFF 0%, #33a7eb 14%, #48cee0 25%, #4c8cc9 72.5%, lightskyblue 90%);
+    animation: colorChange 5s infinite alternate;
+  }
+  
+  @keyframes colorChange {
+    0% {
+      --x:0%;
+    }
+    50% {
+      --x:50%;
+    }
+    100% {
+      --x:100%;
+    }
+  }
 
 .log_out:hover{
     border:none;
-    background-color: burlywood;
-}
+    border-radius: 25%;
+    background: radial-gradient(ellipse farthest-corner at var(--x) 0%, rgb(153, 61, 61) 0%, rgb(82, 3, 3) 14%, rgb(14, 131, 139) 25%, navy 62.5%, lightskyblue 100%);
+    animation: colorChange 5s infinite alternate;}
 
 .log_out{
-    background-color: lightskyblue;
+    background-color: transparent;
     border: none;
     font-family: bold;
     font-size: 24px;
+    color: antiquewhite;
+
 }
 
 
 .email_{
     color: whitesmoke;
     font-size: large;
-    text-shadow: 2px 2px 2px royalblue;
+    text-shadow: 2px 2px 2px royalblue,2px 2px 2px royalblue;
 }

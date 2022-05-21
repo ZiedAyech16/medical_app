@@ -6,6 +6,8 @@ import RegisterAccount from "../Accounts/register/RegisterAccount";
 import App from "../App";
 import AllMedecins from "../medecins/components/all_meds";
 import Poser_Time from "../medecins/poser_disponibilite/poser_disponibilite";
+import FichePatient from "../secretaires/components/gerer_fiche_patient";
+import FichePatientItem from "../secretaires/components/gerer_fiche_patient_item";
 import { ListRendez_vous } from "../secretaires/components/gerer_rendez_vous";
 import Calender from "./calender";
 import { CalenderHour } from "./calender_hours";
@@ -132,6 +134,10 @@ export default function Home(){
     <Route path="/profile"  element={<Profile />} exact></Route>
         <Route path="/rdvs" element={<ListRendez_vous />}></Route>
         <Route path="/poser_time" element={<Poser_Time />} exact></Route>
+        <Route path="/fiche_patients" element={<FichePatient />} exact></Route>
+        <Route path="/fiche_patients/:id" element={<FichePatientItem />}></Route>
+
+        
 </Routes></div>
         
         
