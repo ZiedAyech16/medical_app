@@ -4,7 +4,7 @@ module.exports = {
         "port":3308,
         "user":"root",
         "password":"",
-        "database":"pfa"
+        "database":"gestion_medicale"
     },
     "pool":{
         "max":8,

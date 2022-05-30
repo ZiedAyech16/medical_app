@@ -1,5 +1,5 @@
 .container__{
-  background: radial-gradient(ellipse farthest-corner at var(--x) 0%, rgb(153, 61, 61,70%) 0%, rgb(82, 3, 3,60%) 14%, rgb(14, 131, 139,20%) 25%, rgb(0, 0, 128,20%) 62.5%, lightskyblue 100%);
+  background-color: rgba(0, 0, 0, 0.301);
   animation: colorChange 5s infinite alternate;
   padding: 1%;
   border-radius: 4%;
@@ -107,19 +107,24 @@ i{
   .radio_fields{
     display: grid;
     grid-template-columns: repeat(6,70px);
-    margin-left: 250px;
+    margin-left: 360px;
     font-size: large;
     color: papayawhip;
+    margin-bottom: 30px;
   }
 
   .user_role_fenetre{
-    border: 8px ridge whitesmoke;
-    background-color: dodgerblue;
-    box-shadow: 0 0 5px 4px cadetblue;
+    border: 8px ridge rgb(63, 150, 190,80%);
+    background-color: rgb(175, 209, 243,40%);
+    border-radius: 10%;
+    box-shadow: 0 0 5px 8px rgb(23, 38, 104,80%);
     margin: 0 20% 0 20%;
     display: grid;
     grid-template-columns: repeat(1,100%);
     padding: 2%;
+    margin: 2%;
+    width: 50vw;
+    margin-left: 300px;
 
   }
 

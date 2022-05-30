@@ -1,13 +1,17 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate, useParams } from "react-router";
 import { logging } from "../store_reg_log/actions";
 import "./registerAcount.css";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 export default function RegisterAccount(){
+    const params = useParams(param=>param);
+    const [doctor_edite,setDoctor_edite]=useState([]);
+    const [doctor_edite_,setDoctor_edite_]=useState({});
     const etatlogin = useSelector(state=>state.etatlogin);
     const dispatch = useDispatch();
-
+    const navigate = useNavigate();
     const [user_role,setUserRole]=useState(-1);
     const [userExist,setUserExist]=useState(false);
     const [users,setUsers]=useState([]);
@@ -41,6 +45,8 @@ export default function RegisterAccount(){
         }
     );
 
+    
+
     console.log(etatlogin);
 
 
@@ -48,6 +54,7 @@ const [file,setFile]=useState(null);
 
 const onFormSubmit = (e)=>{
     e.preventDefault();
+    console.log(file);
     const form = new FormData();
     form.append("photo",file);
     form.append("nom",user.nom);
@@ -66,9 +73,10 @@ const onFormSubmit = (e)=>{
     axios.post('/users',form,config)
     .then((response)=>{
       console.log(response);
-      setSecretaire({...secretaire,UserId:response.data.userId})
-      setPatient({...patient,UserId:response.data.userId})
-      setMedecin({...medecin,UserId:response.data.userId})
+      console.log(response.data.user.id)
+      setSecretaire({...secretaire,UserId:response.data.user.id})
+      setPatient({...patient,UserId:response.data.user.id})
+      setMedecin({...medecin,UserId:response.data.user.id})
       alert('Image Uploaded Successfully')
     })
     .catch((err)=>{
@@ -82,13 +90,42 @@ const onInputChange = (e)=>{
 
 
 
+
+
+ function getDataDoctor(){  
+     if(user.nom===""){
+    setTimeout(async()=>{
+
+    
+    await axios.get(`/medecins`).then((result)=>setDoctor_edite(result.data));
+    doctor_edite.filter(result=>result.id===parseInt(params.id)).map((result)=>setUser({...user,nom:result.User.nom,prenom:result.User.prenom,age:result.User.age,email:result.User.email,contact:result.User.contact,username:result.User.username,password:result.User.password})); 
+    doctor_edite.filter(result=>result.id===parseInt(params.id)).map((result)=>setMedecin({...medecin,UserId:result.UserId,num_order:result.num_order,specialite:result.specialite})); 
+    let data = Array.from(doctor_edite);
+    console.log("size==",data.length)
+  //  data.map((result)=>console.log(result))
+  
+    console.log(doctor_edite_)
+    console.log("doctor zied")
+    console.log("okvcvjhgdvjh")
+    
+},1000);}
+}
+
 //console.log(localStorage.getItem("email"));
 
 useEffect(()=>{
     axios.get("/users").then((response)=>setUsers(response.data));
     console.log(user_role);
-},[]);
+    console.log(params);
+    if(params.specialite==="doctor"){
+      //  axios.get(`/medecins/${params.id}`).then((result)=>{setDoctor_edite([...doctor_edite,result.data])}) 
+   
+    getDataDoctor();
+    }
+    console.log(user);
+},[user]);
 //console.log(user_role);
+getDataDoctor();
 
 const interface_Medecin = ()=>{
     return(
@@ -105,6 +142,7 @@ const interface_Medecin = ()=>{
 
             
                 <select  name="specialite" onChange={(e)=>setMedecin({...medecin,specialite:e.target.value})}>
+                {params.doctor!==null?<option value={`${medecin.specialite}`}>{medecin.specialite}</option>:<></>}
                 <option value={"pediatre"}>Pediatre</option>
                 <option value={"psychotherapie"}>Psychothérapie</option>
                 <option value={"dentiste"}>dentiste</option>
@@ -149,9 +187,15 @@ const interface_Patient = ()=>{
 
 const ajouterMedecin = (e)=>{
     e.preventDefault();
+    if(params.id!==null){
+        axios.put(`/medecins/${params.id}`,{
+            ...medecin
+        });
+    }else{
     axios.post("/medecins",{
         ...medecin
     });
+}
     console.log(medecin);
 }
 
@@ -167,7 +211,7 @@ const ajouterPatient = (e)=>{
     e.preventDefault();
     axios.post("/patients",{
         ...patient
-    });
+    }).then((response)=>console.log(response)).catch(errr=>console.log(errr));
 }
 
 
@@ -262,8 +306,8 @@ const user_role_event = (e)=>{
             }
 </div>
             <div>
-            <button className="btn" onClick={signIn}> Sign In</button>
-            <button className="btn" onClick={onFormSubmit}> Login</button>
+            <button className="btn_" onClick={(e)=>navigate("/")}> Login</button>
+            <button className="btn_" onClick={onFormSubmit}>Sign In</button>
 
             {
                       <div>
@@ -279,7 +323,7 @@ const user_role_event = (e)=>{
 
 
 const url = {
-    backgroundImage: `url(${process.env.PUBLIC_URL+ "/images/image_med2.jpg"})`,
+    backgroundImage: `url(${process.env.PUBLIC_URL+ "/images/background_.jpg"})`,
     width:"100%",
     height:"140%",
     backgroundRepeat: 'no-repeat',

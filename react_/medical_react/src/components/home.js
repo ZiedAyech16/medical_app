@@ -1,5 +1,6 @@
 import { Route, Routes  } from "react-router";
 import { Link ,BrowserRouter} from "react-router-dom";
+import GereDoctorByAdmin from "../Accounts/admin_gere_doctors/admin_gere_doctors";
 import Login from "../Accounts/login/Login";
 import Profile from "../Accounts/profile/profile";
 import RegisterAccount from "../Accounts/register/RegisterAccount";
@@ -17,7 +18,7 @@ import "./home.css";
 export default function Home(){
     return(
         <div className="mt-4 row">
-        <table className="container_items col-sm-2">
+        {/* <table className="container_items col-sm-2">
             <tr className="item">
                 <td>
                     <div className=" border-0">
@@ -41,15 +42,7 @@ export default function Home(){
                     </div>
                 </td>
                 </tr>
-                {/* <tr className="item">
-                <td >
-                    <div className=" border-0">
-                        <img src="/images/medecin2.jpg" width={40} height={40}></img>
-                        <h6><Link to="/gynecologue" className=" text-dark">Gynecologue</Link></h6>
-                    </div>
-                </td>
-
-            </tr> */}
+        
 
 
             <tr className="item">
@@ -72,15 +65,7 @@ export default function Home(){
 
             </tr>
 
-            {/* <tr className="item">
-                <td >
-                    <div className=" border-0">
-                        <img src="/images/medecin2.jpg" width={40} height={40}></img>
-                        <h6><Link to="/obstetrician" className=" text-dark">Obstetrician</Link></h6>
-                    </div>
-                </td>
-
-            </tr> */}
+      
 
             <tr className="item">
                 <td >
@@ -109,7 +94,7 @@ export default function Home(){
                 
                  
                 
-        </table>
+        </table> */}
 
 <div className="col-sm-9">
         <Routes>
@@ -136,6 +121,8 @@ export default function Home(){
         <Route path="/poser_time" element={<Poser_Time />} exact></Route>
         <Route path="/fiche_patients" element={<FichePatient />} exact></Route>
         <Route path="/fiche_patients/:id" element={<FichePatientItem />}></Route>
+        <Route path="/admin_gere_doctors" element={<GereDoctorByAdmin/>}  exact></Route>
+        <Route path="/editer/:id/:specialite"  element={<RegisterAccount />}></Route>
 
         
 </Routes></div>
