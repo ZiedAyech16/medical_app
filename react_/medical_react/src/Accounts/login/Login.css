@@ -22,18 +22,17 @@
     cursor: pointer;
   }
 
-.btn{
-    border:4px ridge whitesmoke;
-    background-color : darkslategrey;
-    color: whitesmoke;
-    padding: 5px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 22px;
-    margin: 4px 2px;
-    cursor: pointer;
-    border-radius: 0 30% 0 15%;
+.btn_{
+   background-color: transparent;
+   padding: 10px;
+   font-size: 24px;
+   background-color: #06001a ;
+   color: antiquewhite;
+   letter-spacing: 2px;
+   
+   border-radius: 10% 5% 20%;
+   border:none;
+   margin: 10px;
   }
 i{
   margin-left: 20%;
@@ -44,10 +43,20 @@ i{
     border: none;
     font-size: 24px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 5%;
   }
 
   .login_page{
     padding: 2%;
     color: darkslategrey;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  }
+
+  .container__{
+    background-color: rgb(46, 99, 146);
+  }
+
+  .login-container{
+    background-color: rgba(46, 99, 146, 0.308);
+    border-radius: 25% 0 25% 0;
   }

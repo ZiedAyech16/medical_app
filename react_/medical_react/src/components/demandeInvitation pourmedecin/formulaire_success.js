@@ -44,7 +44,7 @@ console.log(params);
 
 
 useEffect(()=>{
-  axios.get(`/medecins/${params.medecin_id!=null || params.medecin_id>0?params.medecin_id:props.doctor_id}`).then((data)=>setUser_doctor_id(data.data.UserId)).catch((err)=>console.log(err));
+  axios.get(`/medecins/${ params.medecin_id>0?params.medecin_id:props.doctor_id}`).then((data)=>setUser_doctor_id(data.data.UserId)).catch((err)=>console.log(err));
   axios.get(`/medecins/${params.medecin_id!=null||params.medecin_id>0 ?params.medecin_id:props.doctor_id}`).then((data)=>setSpecialite(data.data.specialite)).catch((err)=>console.log(err));
   console.log(user_doctor_id);
   axios.get(`/users/${user_doctor_id}`).then((data)=>setDoctorName(data.data.nom+" "+data.data.prenom)).catch((err)=>console.log(err));

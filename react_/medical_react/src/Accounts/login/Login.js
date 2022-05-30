@@ -115,8 +115,8 @@ console.log(all_user);
                 <input type="password" className="input_" placeholder="Password :" value={password} onChange={e=>setPassword(e.target.value)}></input>
             </div>
             <div>
-                <button className="btn" onClick={login}>Login</button>
-                <button onClick={()=>setChange(false)} className="btn">Sign in</button>
+                <button className="btn_" onClick={login}>Login</button>
+                <button onClick={()=>setChange(false)} className="btn_">Sign in</button>
 
             </div>
             
@@ -131,7 +131,7 @@ console.log(all_user);
 }
 
 const url = {
-    backgroundImage: `url(${process.env.PUBLIC_URL+ "/images/image_med2.jpg"})`,
+    backgroundImage: `url(${process.env.PUBLIC_URL+ "/images/background_.jpg"})`,
     width:"100%",
     height:"140%",
     backgroundRepeat: 'no-repeat',

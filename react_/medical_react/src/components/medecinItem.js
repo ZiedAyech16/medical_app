@@ -11,15 +11,16 @@ const onClickHandler = () => navigate(`/calender/${props.medecin.id}`)
     const medecin=props.medecin;
     console.log(props);
     return(
-        <tr className="tr__">
-                                <td className="td__">{medecin.num_order} </td>
-                                <td className="td__">{medecin.specialite} </td>
-                                <td className="td__">{medecin.User.nom} </td>
-                                <td className="td__">{medecin.User.prenom} </td>
-                                <td className="td__">{medecin.User.contact} </td>
-                                <td className="td__"></td>
-                                <td  className="td__"><button className="btn_item_medecin" onClick={onClickHandler}>choisir rende-vous</button></td>
-        </tr>
+        <div className="tr__">
+                                <div><img className="image_medecin" width={200} height={200} src={`http://127.0.0.1:5000/users/images/${medecin.User.image}`} /></div>
+                                <div className="td__">{medecin.num_order} </div>
+                                <div className="td__">{medecin.specialite} </div>
+                                <div className="td__">{medecin.User.nom} </div>
+                                <div className="td__">{medecin.User.prenom} </div>
+                                <div className="td__">{medecin.User.contact} </div>
+                                <div className="td__"></div>
+                                <div  className="td__"><button className="btn_item_medecin" onClick={onClickHandler}>choisir rende-vous</button></div>
+        </div>
     );
 }
 

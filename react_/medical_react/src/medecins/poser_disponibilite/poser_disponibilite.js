@@ -10,9 +10,13 @@ import "./poser_disponibilite.css";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 export default function Poser_Time(props){
     const [value,setValue]=useState(new Date());
+    const [medecin_,setMedecin_]=useState({});
+    const [medecin_all,setMedecin_all]=useState([]);
     React.useEffect(()=>{
         console.log('value');
     console.log(value);
+    axios.get(`/medecins`).then((result)=>setMedecin_all(result.data));
+    medecin_all.filter((res_)=>res_.UserId===parseInt(localStorage.getItem("id"))).map((result)=>setMedecin_(result));
 
     },[])
     // console.log(value.month.number);
@@ -23,7 +27,7 @@ export default function Poser_Time(props){
         e.preventDefault();
         const date_ = new Date();
         date_.setMonth()
-        axios.post('/calenders',{date:value,MedecinId:1}).then((response)=>console.log(response));
+        axios.post('/calenders',{date:value,MedecinId:medecin_.MedecinId}).then((response)=>console.log(response));
 
         var close = document.getElementsByClassName("closebtn");
         var i;
@@ -47,7 +51,7 @@ export default function Poser_Time(props){
             {value?.toDate?.().toString()}
             <div class="alert success">
               <span class="closebtn">&times;</span>  
-              <strong>Success!</strong> Indicates a successful or positive action.
+              <strong>Attendez pour Ajouter</strong> votre disponbilte:
             </div>
             <h2 className="title_picker">Disponibilte</h2>
             <DatePicker className="design_picker"

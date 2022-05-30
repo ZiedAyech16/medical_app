@@ -27,3 +27,7 @@
     color: navy;
     padding: 2%;
   }
+
+  .image_medecin{
+      border-radius: 10% 0 45% 0;
+  }

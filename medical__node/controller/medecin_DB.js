@@ -20,7 +20,7 @@ async function findAllMedecin(){
 }
 
 async function findOneMedecin(id){
-    return await Medecin.findOne({where:{id:id}});
+    return await Medecin.findOne({where:{id:id},include:{model:User}});
 }
 
 async function updateMedecin(new_med,id){

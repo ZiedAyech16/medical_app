@@ -56,7 +56,14 @@ export default function Profile(){
     
 
             <div className="card_profile">
-                <div className="left_card">
+
+            <div className="left_card">
+                            <img className="image_profile" src={`http://127.0.0.1:5000/users/images/${image}`}   />
+                            <h1 className="title">{nom} {prenom}</h1>
+
+                </div>
+
+                <div className="right_card">
 
 
                     <div className="item_profile">
@@ -76,19 +83,19 @@ export default function Profile(){
 
 <div className="item_profile">
 
-    <span style={{color:"blueviolet",fontSize:"20px",letterSpaccing:"3px",float:"left",marginLeft:"10px"}}>Date de creation :</span>
-        <span style={{color:"blue",fontSize:"20px",letterSpaccing:"3px"}}>
+    <span style={{color:"rgb(172, 161, 7)",fontSize:"20px",letterSpaccing:"3px",float:"left",marginLeft:"10px"}}>Date de creation :</span>
+        <span style={{color:"rgb(172, 161, 7)",fontSize:"20px",letterSpaccing:"3px"}}>
             
             {createdAt.charAt(0)}
             {createdAt.charAt(1)}
             {createdAt.charAt(2)}
             {createdAt.charAt(3)}
             </span>/
-            <span style= {{color:"navy",fontSize:"20px",letterSpaccing:"3px"}}>
+            <span style= {{color:"rgb(172, 161, 7)",fontSize:"20px",letterSpaccing:"3px"}}>
             {createdAt.charAt(5)}
             {createdAt.charAt(6)}
             </span>/
-            <span style= {{color:"blue",fontSize:"20px",letterSpaccing:"3px"}}>
+            <span style= {{color:"rgb(172, 161, 7)",fontSize:"20px",letterSpaccing:"3px"}}>
 
             {createdAt.charAt(8)}
             {createdAt.charAt(9)}
@@ -97,11 +104,7 @@ export default function Profile(){
 </div>
 </div>
 
-                            <div className="right_card">
-                            <img className="image_profile" src={`http://127.0.0.1:5000/users/images/${image}`}   />
-                            <h1 className="title">{nom} {prenom}</h1>
-
-                </div>
+                           
 
                    
 

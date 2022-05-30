@@ -31,6 +31,11 @@ export function ListRendez_vous(){
         yyyy:''
     });
 
+    const [search_patient,setSearch_patient]=useState('');
+    const searchpatient=useRef();
+
+    const  [all_patients,setAll_patients]=useState([]);
+
     console.log(date__);
 
     var fetchdata = async()=>{
@@ -62,6 +67,18 @@ export function ListRendez_vous(){
 console.log(value.day);
 
 
+
+const search_patient_condition = (valeur)=>{
+    //console.log("ok1");
+    const pats = all_patients.filter((res__)=>res__.User.nom.includes(valeur)).map((da)=>true)
+    return pats.length
+   // console.log("ok2");
+
+//all_patients.inc.map((da)=>console.log("_____",da))
+
+   // return false;
+}
+
     useEffect(()=>{
         fetchdata();
         patientsearch.current=searchPatient;
@@ -73,8 +90,12 @@ console.log(value.day);
         
             rdvs.map((d)=>setDate__({...date__,dd:d.date[8]+d.date[9]}))
         
-
+            searchpatient.current=search_patient
             console.log(date__);
+
+            axios.get("/patients").then((result)=>setAll_patients(result.data));
+           // console.log("dddd",search_patient_condition(search_patient));
+
         // let date_ = datePickerRef.current.date;
         // setDate(new DateObject(date_));
 
@@ -82,7 +103,7 @@ console.log(value.day);
        // console.log(rdvs[0]);
      //   console.log(rdvs_);
     // axios.get(`/medecins/${2}`).then((data)=>{console.log( data.data.specialite)});
-    },[]);
+    },[search_patient]);
    // fetchdata();
    const medecin_details = async(index)=>{
     const medecinId ="";
@@ -100,13 +121,20 @@ console.log(value.day);
    //1//console.log(medecin_details(2).then((result)=>{ JSON.stringify(result)}).then((result)=>{return result[0].specialite}));
     return(
         <div>
+            <div className="search_rdvs">
             <h1 className="rendez_vous_title">Gerer Rendez-Vous    
-</h1>
-<DatePicker
+            {
+   // console.log('tt',search_patient_condition(search_patient))
+}
+            </h1>
+            <input className="search_nom_fc" type="text" value={search_patient}  onChange={(e)=>setSearch_patient(e.target.value)} />
+
+
+            <DatePicker
      containerStyle={{ //datepicker container style
           width: "160px",
           margin: "auto",
-          marginLeft:"-80px",
+          marginLeft:"80px",
           
         }}
         style={{ //input style
@@ -119,6 +147,8 @@ console.log(value.day);
         }}
 
 value={value} onChange={setValue}  className=" red " />
+            </div>
+
        
 
 {
@@ -161,10 +191,16 @@ value={value} onChange={setValue}  className=" red " />
                 </tr> */}
 
                 </thead>
-                
+
+               
+
+
             {rdvs.filter((res)=>parseInt(res.date[8]+res.date[9])===value.day
             //  &&parseInt(res.date[5]+res.date[6])===convertoMonthToNumber(value.month)
-            &&parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===value.year).map((data)=>                <Rendezvous_Item rendezvous={data}  key={data.id} />
+            &&parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===value.year
+           // &&res.Patient.User.UserId.includes(search_patient)
+           &&search_patient_condition(search_patient)
+            ).map((data)=><Rendezvous_Item rendezvous={data}  key={data.id} />
 
             // <tr key={data.id}>
             //     <td>{data.id}</td>

@@ -5,13 +5,13 @@
     letter-spacing: 5px;
 }
 .all_med_title::first-letter{
-    font-size: 3rem;
+    font-size: 2rem;
     color: midnightblue;
     text-shadow: 5px 1px 0px yellowgreen;
 }
 
 .all_med_title_{
-    font-size: 3rem;
+    font-size: 2rem;
     color: midnightblue;
     text-shadow: 3px 1px 0px yellowgreen;
 }
@@ -27,4 +27,41 @@
 }
 .thead-dark > tr > td{
     padding: 2%;
+}
+
+.cards{
+    display: grid;
+    grid-template-columns: 28vw 33vw 28vw;
+    gap: 10px 20px;
+    margin-left: 20px;
+    z-index: 1;
+}
+
+.card{
+    width: auto;
+    border-radius: 2% 1% 3% 14%;
+    border-top: 6px solid #e0e0e0;
+    border-right: 6px solid #e0e0e0;
+
+}
+
+.card > img{
+    border-radius: 2% 1% 3% 24%;
+}
+
+.search_cards{
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
+}
+
+.search_panel{
+    font-size: large;
+    color: darkblue;
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    border-radius: 1%;
+}
+.search_panel:focus{
+    background-color: rgb(1, 34, 32);
+    color: aliceblue;
 }
