@@ -9,6 +9,8 @@ export default function RegisterAccount(){
     const params = useParams(param=>param);
     const [doctor_edite,setDoctor_edite]=useState([]);
     const [doctor_edite_,setDoctor_edite_]=useState({});
+    const [secretaire_edite,setSecretaire_edite]=useState([]);
+    const [secretaire_edite_,setSecretaire_edite_]=useState({});
     const etatlogin = useSelector(state=>state.etatlogin);
     const dispatch = useDispatch();
     const navigate = useNavigate();
@@ -111,6 +113,28 @@ const onInputChange = (e)=>{
 },1000);}
 }
 
+
+function getDataSecretaire(){  
+    if(user.nom===""){
+   setTimeout(async()=>{
+
+   
+   await axios.get(`/secretaires`).then((result)=>setSecretaire_edite_(result.data));
+   secretaire_edite.filter(result=>result.id===parseInt(params.id)).map((result)=>setUser({...user,nom:result.User.nom,prenom:result.User.prenom,age:result.User.age,email:result.User.email,contact:result.User.contact,username:result.User.username,password:result.User.password})); 
+   secretaire_edite_.filter(result=>result.id===parseInt(params.id)).map((result)=>setSecretaire({...secretaire,UserId:result.UserId})); 
+   let data = Array.from(secretaire_edite);
+   console.log("size==",data.length)
+ //  data.map((result)=>console.log(result))
+ 
+   console.log(secretaire_edite)
+   console.log("doctor zied")
+   console.log("okvcvjhgdvjh")
+   
+},1000);}
+}
+
+
+
 //console.log(localStorage.getItem("email"));
 
 useEffect(()=>{
@@ -122,6 +146,13 @@ useEffect(()=>{
    
     getDataDoctor();
     }
+    
+    if(params.specialite==="secretaire"){
+        //  axios.get(`/medecins/${params.id}`).then((result)=>{setDoctor_edite([...doctor_edite,result.data])}) 
+     
+      getDataSecretaire();
+      }
+
     console.log(user);
 },[user]);
 //console.log(user_role);

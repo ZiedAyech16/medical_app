@@ -1,6 +1,7 @@
 import { Route, Routes  } from "react-router";
 import { Link ,BrowserRouter} from "react-router-dom";
 import GereDoctorByAdmin from "../Accounts/admin_gere_doctors/admin_gere_doctors";
+import GereSecretairesByAdmin from "../Accounts/admin_gere_secretaire.js/admin_gere_secretaire";
 import Login from "../Accounts/login/Login";
 import Profile from "../Accounts/profile/profile";
 import RegisterAccount from "../Accounts/register/RegisterAccount";
@@ -123,6 +124,7 @@ export default function Home(){
         <Route path="/fiche_patients/:id" element={<FichePatientItem />}></Route>
         <Route path="/admin_gere_doctors" element={<GereDoctorByAdmin/>}  exact></Route>
         <Route path="/editer/:id/:specialite"  element={<RegisterAccount />}></Route>
+        <Route path="/admin_gere_secretaires" element={<GereSecretairesByAdmin />} ></Route>
 
         
 </Routes></div>

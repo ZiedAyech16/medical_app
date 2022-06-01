@@ -31,14 +31,15 @@ export default function AllMedecins(props){
               <div  className="cards">
              
             {
-                (medecins.filter((user)=>user.specialite===props.specialite&&user.User.nom.includes(search_)).map((state,key)=>
+               // medecins.map((us)=>console.log(us.User!==null?us.User.nom:{}))
+                medecins.filter((user)=>user.specialite===props.specialite&&user.User!==null?user.User.nom.includes(search_):false).map((state,key)=>
                         <div className="card" key={state.id}>
-                            
+                            {console.log(state)}
                             <MedecinItem  medecin={state} />
                             
                         </div>
                   
-                ))
+                )
             }
               </div>
         </div>

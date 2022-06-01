@@ -20,7 +20,7 @@ export default function FichePatient(){
          <input type="text" className="search_nom_fc" placeholder="Nom :" value={search_} onChange={(e)=>setSearch_(e.target.value)} /> 
          <input type="text" className="search_nom_fc" placeholder="Prenom :" value={search_prenom} onChange={(e)=>setSearch_Prenom(e.target.value)} /> 
              </div>
- {fiches.filter((res__)=>res__.nom.includes(search_)&&res__.prenom.includes(search_prenom)).map((result)=><FichePatientItem key={result.id} fiche_patient={result} />)}
+ {fiches.filter((res__)=>(res__.nom!==null?res__.nom.includes(search_):false)&&(res__.prenom!==null?res__.prenom.includes(search_prenom):false)).map((result)=><FichePatientItem key={result.id} fiche_patient={result} />)}
 
 
      </div>
