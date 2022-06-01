@@ -200,6 +200,7 @@ value={value} onChange={setValue}  className=" red " />
             &&parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===value.year
            // &&res.Patient.User.UserId.includes(search_patient)
            &&search_patient_condition(search_patient)
+           &&res.Medecin!==null&res.Patient!==null&&res.Medecin.UserId!==null&&res.Patient.UserId
             ).map((data)=><Rendezvous_Item rendezvous={data}  key={data.id} />
 
             // <tr key={data.id}>

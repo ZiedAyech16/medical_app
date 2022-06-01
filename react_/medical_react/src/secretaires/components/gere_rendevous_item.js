@@ -6,6 +6,7 @@ export default function Rendezvous_Item(props){
     const [userMedecin,setUserMedecin]=useState({});
     const [userPatient,setUserPatient]=useState({});
 
+    console.log(props.rendezvous);
 
     useEffect(()=>{
         axios.get(`/users/${props.rendezvous.Medecin.UserId}`).then((res)=>setUserMedecin(res.data));
