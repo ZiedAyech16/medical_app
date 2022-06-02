@@ -11,6 +11,40 @@ const Medecin = sequelize.define("Medecin",{
         allowNull:false,
         primaryKey:true
     },
+    nom:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    prenom:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    age:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    email:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    contact:{
+        type:DataTypes.INTEGER,
+        allowNull:false
+    },
+    username:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    password:{
+        type:DataTypes.STRING,
+        allowNull:false
+    },
+    image:{
+        type:DataTypes.STRING,
+        allowNull:false
+    }
+
+    ,
     num_order:{
         type:DataTypes.STRING,
     },
@@ -27,12 +61,12 @@ const Medecin = sequelize.define("Medecin",{
 
 
 //Seconde
-User.hasOne(Medecin);
-Medecin.belongsTo(User
-//     ,{
+// User.hasOne(Medecin);
+// Medecin.belongsTo(User
+// //     ,{
 
-// }
-);
+// // }
+// );
 
 //Medecin.sync({force:true});
 //end seconde

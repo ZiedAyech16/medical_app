@@ -179,12 +179,12 @@ const interface_Medecin = ()=>{
                 <option value={"dentiste"}>dentiste</option>
                 <option value={"gynecologue"}>Gynecologue</option>
                 {/* <option value={"gynecologue"}>Gynecologue</option> */}
-                <option value={"Allergists"}>Allergists</option>
-                <option value={"Dermatologists"}>Dermatologists</option>
-                <option value={"Ophthalmologists"}>Ophthalmologists</option>
+                <option value={"allergists"}>Allergists</option>
+                <option value={"dermatologists"}>Dermatologists</option>
+                <option value={"ophthalmologists"}>Ophthalmologists</option>
                 {/* <option value={"Obstetrician"}>Obstetrician</option> */}
-                <option value={"gynecologists"}>gynecologists</option>
-                <option value={"Cardiologists"}>Cardiologists</option>  
+                {/* <option value={"gynecologists"}>gynecologists</option> */}
+                <option value={"cardiologists"}>Cardiologists</option>  
 
 
                 </select>

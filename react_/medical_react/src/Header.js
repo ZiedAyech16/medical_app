@@ -1,9 +1,11 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import { Logout_ } from "./user/store/actions";
 import "./Header.css";
 import { useNavigate, useParams } from "react-router";
+import axios from "axios";
+import HomeAdmin from "./Accounts/home/home_admin";
 
 export default function Header(){
     const [currentEmail,setCurrentEmail]=useState('');
@@ -29,6 +31,17 @@ export default function Header(){
     const tordvs = ()=>navigate("/rdvs");
     const posertime = ()=>navigate("/poser_time");
     const gerefichespatient = () =>navigate("/fiche_patients");
+
+    const [users_role,setUser_Role]=useState([]);
+    const [user_admin,setUser_admin]=useState(false);
+
+    useEffect(()=>{
+        axios.get("/users_role").then(result=>setUser_Role(result.data));
+        users_role.filter((res)=>res.role!==null&&res.role==="admin"&&res.email===localStorage.getItem("email")).map((res)=>setUser_admin(true));
+
+    },[]);
+
+//    users_role.map(result=>console.log(result));
     
     return (
         <div className="">
@@ -39,8 +52,13 @@ export default function Header(){
       
       {localStorage.getItem("email").length!==0 ?<div className="navbar_part_2_">
       {/* <Link to="/profile" >Profile</Link> */}
+    
+   {   user_admin?<HomeAdmin />:
+     <div>
       <ul className="navbar_part_2_1">
       <li><img className="logo_" src="/images/sante.jpg" width={45} height={45} alt="Gestion Cabinet Medical" /></li>
+
+    
 
         <li><button className="btn-design log_out btn-sm" onClick={posertime}>Poser Time</button></li>
         <li><button className="btn-design log_out btn-sm" onClick={gerefichespatient}>Gerer Fiche Patients</button></li>
@@ -131,14 +149,15 @@ export default function Header(){
             </li>
         </ul>
         </li>
-      </ul>
+      </ul></div>}
       <ul className="navbar_part_2_2">
 
             <li className="email-design">{localStorage.getItem("email")}</li>
             <li><button className="btn-design log_out btn-sm" onClick={logout}>Logout</button></li>
       </ul>
       </div>:<div className="needtologin">You need to Login</div>}
-  </div>
+    
+     </div>
   </div>
 </div>
     );

@@ -47,6 +47,12 @@ app.use("/fiche_patients",fiche_patients);
 const admins = require("./router/admin_routes");
 app.use("/admins",admins);
 
+const specialtes = require("./router/specialite_routes");
+app.use("/specialites",specialtes);
+
+const userRole = require("./router/user_role_routes");
+app.use("/users_role",userRole);
+
 var formidable = require('formidable');
 var fs = require('fs');
 app.get("/fileup",(req,res)=>{

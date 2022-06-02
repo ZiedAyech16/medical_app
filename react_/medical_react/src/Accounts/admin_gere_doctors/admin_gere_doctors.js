@@ -27,7 +27,7 @@ export default function GereDoctorByAdmin(){
 }
         <div className="cards_doctors">
             {
-                doctors_.filter(result=>result.User!==null&&result.User.nom.includes(doctor_)).map((result)=><Gerer_Doctor_ByAdmin_Item key={result.id} doctor={result} />)
+                doctors_.filter(result=>result!==null&&result.nom.includes(doctor_)).map((result)=><Gerer_Doctor_ByAdmin_Item key={result.id} doctor={result} />)
             }
         </div>
 

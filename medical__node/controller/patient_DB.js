@@ -2,34 +2,47 @@ const { isRequired } = require("nodemon/lib/utils");
 const User = require("../model/user");
 const Patient = require("../model/patient");
 
-function insertPatient(patient){
+function insertPatient(patient,image){
     //const user = User.findOne({where:{id:id}});
    return Patient.create({
-        // nom:user.nom,
-        // prenom:user.prenom,
-        // email:user.email,
-        // contact:user.contact,
-        // username:user.username,
-        // password:user.password
-        UserId:patient.UserId});
+    nom:patient.nom,
+    prenom:patient.prenom,
+    email:patient.email,
+    contact:patient.contact,
+    age:patient.age,
+    username:patient.username,
+    password:patient.password,
+    image:image});
 }
 
 async function findAllPatients(){
    return await  Patient.findAll({
-    include:[{
-        model:User,
-       attributes:{exclude:["createAt","updateAt"]}
-       }]
+    // include:[{
+    //     //model:User,
+    //    attributes:{exclude:["createAt","updateAt"]}
+    //    }]
    });
 }
 
 async function findOnePatient(id){
-    return await Patient.findOne({where:{id:id},include:{model:User,attributes:{exclude:["createdAt","updatedAt"]}}});
+    return await Patient.findOne({where:{id:id}
+    //     ,include:{
+    //   //  model:User
+    //     //,
+    //     attributes:{exclude:["createdAt","updatedAt"]}
+    // }
+});
 }
 
 async function updatePatient(new_patient,id){
     return await Patient.update({
-        UserId:new_patient.UserId
+        nom:new_patient.nom,
+        prenom:new_patient.prenom,
+        email:new_patient.email,
+        contact:new_patient.contact,
+        age:new_patient.age,
+        password:new_patient.password,
+        image:new_patient.image
     },
     {
         where:{id:id}

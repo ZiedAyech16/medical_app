@@ -4,9 +4,17 @@ async function findAllAdmin(){
     return await Admin.findAll();
 }
 
-async function ajouterAdmin(admin){
+async function ajouterAdmin(admin,image){
     return await Admin.create({
-        UserId:admin.UserId
+        nom:admin.nom,
+        prenom:admin.prenom,
+        email:admin.email,
+        contact:admin.contact,
+        age:admin.age,
+        username:admin.username,
+        password:admin.password,
+        image:image
+
     })
 }
 

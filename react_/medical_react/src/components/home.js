@@ -5,6 +5,10 @@ import GereSecretairesByAdmin from "../Accounts/admin_gere_secretaire.js/admin_g
 import Login from "../Accounts/login/Login";
 import Profile from "../Accounts/profile/profile";
 import RegisterAccount from "../Accounts/register/RegisterAccount";
+import RegisterMedecin from "../Accounts/register/RegisterAccount_Medecin";
+import RegisterPatient from "../Accounts/register/Register_Account_Patient";
+import RegisterSecretaire from "../Accounts/register/Register_Account_Secretaire";
+import RegisterAdmin from "../Accounts/register/Register_Account_Admin";
 import App from "../App";
 import AllMedecins from "../medecins/components/all_meds";
 import Poser_Time from "../medecins/poser_disponibilite/poser_disponibilite";
@@ -15,6 +19,10 @@ import Calender from "./calender";
 import { CalenderHour } from "./calender_hours";
 
 import "./home.css";
+import Gere_Secretaire from "../Accounts/afficher_users/Secretaires";
+import Gere_Medecin from "../Accounts/afficher_users/Medecins/Medecins";
+import Gere_Patients from "../Accounts/afficher_users/Patients/Patients";
+import Gere_Admins from "../Accounts/afficher_users/Admins/Admins";
 
 export default function Home(){
     return(
@@ -125,6 +133,15 @@ export default function Home(){
         <Route path="/admin_gere_doctors" element={<GereDoctorByAdmin/>}  exact></Route>
         <Route path="/editer/:id/:specialite"  element={<RegisterAccount />}></Route>
         <Route path="/admin_gere_secretaires" element={<GereSecretairesByAdmin />} ></Route>
+
+        <Route path="/register/medecin" element={<RegisterMedecin />}></Route>
+        <Route path="/register/patient" element={<RegisterPatient />}></Route>
+        <Route path="/register/secretaire" element={<RegisterSecretaire />}></Route>
+        <Route path="/register/admins" element={<RegisterAdmin />}></Route>
+        <Route path="/gere/secretaires" element={<Gere_Secretaire />} exact></Route>
+        <Route path="/gere/medecins" element={<Gere_Medecin />} exact></Route>
+        <Route path="/gere/patients" element={<Gere_Patients />} exact></Route>
+        <Route path="/gere/admins" element={<Gere_Admins />} exact></Route>
 
         
 </Routes></div>
