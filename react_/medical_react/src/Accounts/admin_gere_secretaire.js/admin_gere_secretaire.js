@@ -27,7 +27,7 @@ export default function GereSecretairesByAdmin(){
 }
         <div className="cards_doctors">
             {
-                secretaires_.filter(result=>result.User!==null&&result.User.nom.includes(secretaire_)).map((result)=><Gerer_Secretaire_ByAdmin_Item key={result.id} seretaire={result} />)
+                secretaires_.filter(result=>result!==null&&result.nom.includes(secretaire_)).map((result)=><Gerer_Secretaire_ByAdmin_Item key={result.id} seretaire={result} />)
             }
         </div>
 

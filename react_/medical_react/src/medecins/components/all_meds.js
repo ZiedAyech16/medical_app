@@ -32,7 +32,7 @@ export default function AllMedecins(props){
              
             {
                // medecins.map((us)=>console.log(us.User!==null?us.User.nom:{}))
-                medecins.filter((user)=>user.specialite===props.specialite&&user.User!==null?user.User.nom.includes(search_):false).map((state,key)=>
+                medecins.filter((user)=>user.specialite===props.specialite&&user!==null?user.nom.includes(search_):false).map((state,key)=>
                         <div className="card" key={state.id}>
                             {console.log(state)}
                             <MedecinItem  medecin={state} />
