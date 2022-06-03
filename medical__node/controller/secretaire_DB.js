@@ -28,11 +28,13 @@ async function insertSecretaire(secretaire,image){
         age:secretaire.age,
         username:secretaire.username,
         password:secretaire.password,
-        image:image
+        image:image,
+        MedecinId:secretaire.MedecinId
+
     });
 }
 
-async function updateSecretaire(secretaire,id){
+async function updateSecretaire(secretaire,id,image){
     return await Secretaire.update({
         nom:secretaire.nom,
         prenom:secretaire.prenom,
@@ -41,7 +43,8 @@ async function updateSecretaire(secretaire,id){
         age:secretaire.age,
         username:secretaire.username,
         password:secretaire.password,
-        image:secretaire.image
+        image:image,
+        MedecinId:secretaire.MedecinId
 
     },{where:{id:id}});
 }

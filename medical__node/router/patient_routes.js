@@ -5,7 +5,7 @@ const router = express.Router();
 const patients = findAllPatients();
 console.log(patients);
 
-const {upload,uploadImage} = require("../controller/controller_image_patient");
+const {upload,uploadImage, uploadImage1, upload1} = require("../controller/controller_image_patient");
 
 
 router.get("/",(req,res)=>{
@@ -24,7 +24,7 @@ router.get("/:id",(req,res)=>{
     findOnePatient(req.params.id).then((resultat)=>res.status(200).send(resultat));
 })
 
-router.put("/:id",uploadImage,upload);
+router.put("/:id",uploadImage1,upload1);
 // router.put("/:id",(req,res)=>{
 //     updatePatient(req.body,req.params.id).then((data)=>res.status(200).send(data));
 // })

@@ -19,18 +19,6 @@ exports.uploadImage = upload.single("photo");
 
 exports.upload = (req,res)=>{
 
-    if(req.params.id!==null){
-        
-            updatePatient(req.body,req.params.id).then((patient) => {
-                res.status(200).json({
-                    success:patient,
-                    image:req.file.filename
-                })
-            }).catch((err) => {
-                console.log(err)
-            });
-        
-    }else{
     insertPatient(req.body,req.file.filename).then((patient) => {
         res.status(200).json({
             success:patient,
@@ -39,5 +27,21 @@ exports.upload = (req,res)=>{
     }).catch((err) => {
         console.log(err)
     });
+
 }
+
+const upload1 = multer({
+    storage:multerConfig
+})
+
+exports.uploadImage1 = upload1.single("photo");
+exports.upload1 = (req,res)=>{
+    updatePatient(req.body,req.params.id,req.file.filename).then((patient) => {
+        res.status(200).json({
+            success:patient,
+            image:req.file.filename
+        })
+    }).catch((err) => {
+        console.log(err)
+    });
 }

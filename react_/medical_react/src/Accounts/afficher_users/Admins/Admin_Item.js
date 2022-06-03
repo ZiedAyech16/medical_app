@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { createSearchParams } from "react-router-dom";
-import "./Secretaire.css";
+import "./Admin.css";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://127.0.0.1:5000";
@@ -19,7 +19,7 @@ export default function Admin_Item(props){
     const editer_admin = (e)=>{
         e.preventDefault();
         navigate({
-            pathname:"/register/admin",
+            pathname:"/register/admins",
             search:createSearchParams(
                 {
                     id:props.admin.id,
@@ -37,15 +37,15 @@ export default function Admin_Item(props){
     }
     return(
         <div className="gere_secretaire_card">
-            <img src={`http://127.0.0.1:5000/admins/images/${props.admin.image}`} alt="image 1" width={200} height={200} />
+            <img className="image_card_" src={`http://127.0.0.1:5000/admins/images/${props.admin.image}`} alt="image 1" />
             <div>
                 <h3 className="gere_secretaire_card_title">{props.admin.nom} {props.admin.prenom} </h3>
             </div>
             <div>
                 <div>
-                    <p className="gere_secretaire_card_text">Email:{props.admin.email} </p>
-                    <p className="gere_secretaire_card_text">Contact:{props.admin.contact} </p>
-                    <p className="gere_secretaire_card_text">Age:{props.admin.age} </p>
+                    <p className="gere_secretaire_card_text">Email: {props.admin.email} </p>
+                    <p className="gere_secretaire_card_text">Contact: {props.admin.contact} </p>
+                    <p className="gere_secretaire_card_text">Age: {props.admin.age} </p>
                 </div>
                 <div>
                     <button  className="gere_secretaire_card_button color_1" onClick={editer_admin}>Editer</button>

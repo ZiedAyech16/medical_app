@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { createSearchParams } from "react-router-dom";
-import "./Secretaire.css";
+import "./Medecin.css";
 import axios from "axios";
 
 axios.defaults.baseURL = "http://127.0.0.1:5000";
@@ -13,7 +13,7 @@ export default function Medecin_Item(props){
     const removeMedecin = (e)=>{
         e.preventDefault();
         axios.delete(`/medecins/${props.medecin.id}`);
-        navigate("/gere/medecin");
+        navigate("/gere/medecins");
     }
     
     const editer_medecin = (e)=>{
@@ -33,13 +33,14 @@ export default function Medecin_Item(props){
                     username:props.medecin.username,
                     password:props.medecin.password,
                     image:props.medecin.image,
+                    MedecinId:props.medecin.MedecinId
                 }
             ).toString()
         })
     }
     return(
-        <div className="gere_secretaire_card">
-            <img src={`http://127.0.0.1:5000/medecins/images/${props.medecin.image}`} alt="image 1" width={200} height={200} />
+        <div className="gere_secretaire_card_m">
+            <img className="image_card_" src={`http://127.0.0.1:5000/medecins/images/${props.medecin.image}`} alt="image 1"  />
             <div>
                 <h3 className="gere_secretaire_card_title">{props.medecin.nom} {props.medecin.prenom} </h3>
             </div>

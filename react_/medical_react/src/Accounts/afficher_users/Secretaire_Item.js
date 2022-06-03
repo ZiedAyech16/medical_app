@@ -37,15 +37,15 @@ export default function Secretaire_Item(props){
     }
     return(
         <div className="gere_secretaire_card">
-            <img src={`http://127.0.0.1:5000/patients/images/${props.secretaire.image}`} alt="image 1" width={200} height={200} />
+            <img className="image_card_" src={`http://127.0.0.1:5000/secretaires/images/${props.secretaire.image}`} alt="image 1" width={200} height={200} />
             <div>
                 <h3 className="gere_secretaire_card_title">{props.secretaire.nom} {props.secretaire.prenom} </h3>
             </div>
             <div>
                 <div>
-                    <p className="gere_secretaire_card_text">Email:{props.secretaire.email} </p>
-                    <p className="gere_secretaire_card_text">Contact:{props.secretaire.contact} </p>
-                    <p className="gere_secretaire_card_text">Age:{props.secretaire.age} </p>
+                    <p className="gere_secretaire_card_text">Email: {props.secretaire.email} </p>
+                    <p className="gere_secretaire_card_text">Contact: {props.secretaire.contact} </p>
+                    <p className="gere_secretaire_card_text">Age: {props.secretaire.age} </p>
                 </div>
                 <div>
                     <button  className="gere_secretaire_card_button color_1" onClick={editer_secretaire}>Editer</button>

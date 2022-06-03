@@ -15,7 +15,7 @@ export default function RegisterSecretaire(props){
         contact:0,
         username:'',
         password:'',
-        MedecinId:1
+        MedecinId:0
     })
     const [file,setFile]=useState(null);
 
@@ -33,6 +33,7 @@ export default function RegisterSecretaire(props){
         form.append("contact",secretaire.contact);
         form.append("username",secretaire.username);
         form.append("password",secretaire.password);
+        form.append("MedecinId",secretaire.MedecinId);
 
         const config = {
             headers:{
@@ -57,9 +58,11 @@ export default function RegisterSecretaire(props){
     }
     }
 
+    const [medecins,setMedecines]=useState([]);
 
 
     useEffect(()=>{
+        axios.get("/medecins").then(result=>setMedecines(result.data));
         if(searchparams.get("id")!==null){
             setSecretaire({...secretaire,
                 nom:searchparams.get("nom"),
@@ -69,55 +72,55 @@ export default function RegisterSecretaire(props){
                 contact:parseInt(searchparams.get("contact")),
                 username:searchparams.get("username"),
                 password:searchparams.get("password"),
-                image:searchparams.get("image")
+                image:searchparams.get("image"),
+                MedecinId:searchparams.get("MedecinId")
                 
             })
         }
     },[])
 
     return(
-    <div>
-        <h1></h1>
+    <div className="formulaire_container">
+        
 
-        <div>
+        <div className="formulaire_">
+            <h1 className="title_text">Secretaire</h1>
             <div>
-                <label>Nom :</label>
-                <input type="text" name="nom" value={secretaire.nom} onChange={(e)=>setSecretaire({...secretaire,nom:e.target.value})} />
+                <input placeholder="Nom :" className="input_text_" type="text" name="nom" value={secretaire.nom} onChange={(e)=>setSecretaire({...secretaire,nom:e.target.value})} />
             </div>
             <div>
-                <label>Prenom :</label>
-                <input type="text" name="prenom" value={secretaire.prenom} onChange={(e)=>setSecretaire({...secretaire,prenom:e.target.value})}  />
+                <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={secretaire.prenom} onChange={(e)=>setSecretaire({...secretaire,prenom:e.target.value})}  />
             </div>
             <div>
-                <label>Age :</label>
-                <input type="number" name="age" min={0} max={110} value={secretaire.age} onChange={(e)=>setSecretaire({...secretaire,age:e.target.value})}  />
+                <input placeholder="Age :" className="input_text_" type="number" name="age" min={0} max={110} value={secretaire.age} onChange={(e)=>setSecretaire({...secretaire,age:e.target.value})}  />
             </div>
             <div>
-                <label>Email :</label>
-                <input type="text" name="email"  value={secretaire.email} onChange={(e)=>setSecretaire({...secretaire,email:e.target.value})} />
+                <input placeholder="Email :" className="input_text_" type="text" name="email"  value={secretaire.email} onChange={(e)=>setSecretaire({...secretaire,email:e.target.value})} />
             </div>
             <div>
-                <label>Contact :</label>
-                <input type="number" name="contact" value={secretaire.contact} onChange={(e)=>setSecretaire({...secretaire,contact:e.target.value})}  />
+                <input placeholder="Contact :" className="input_text_" type="number" name="contact" value={secretaire.contact} onChange={(e)=>setSecretaire({...secretaire,contact:e.target.value})}  />
             </div>
 
             <div>
-                <label>Username :</label>
-                <input type="text" name="username"  value={secretaire.username} onChange={(e)=>setSecretaire({...secretaire,username:e.target.value})} />
+                <input placeholder="Username :" className="input_text_" type="text" name="username"  value={secretaire.username} onChange={(e)=>setSecretaire({...secretaire,username:e.target.value})} />
             </div>
             <div>
-                <label>Password</label>
-                <input type="text" name="password"  value={secretaire.password} onChange={(e)=>setSecretaire({...secretaire,password:e.target.value})} />
+                <input placeholder="Password :" className="input_text_" type="text" name="password"  value={secretaire.password} onChange={(e)=>setSecretaire({...secretaire,password:e.target.value})} />
             </div>
             <div>
-                <label>Image :</label>
-                <input type="file" name="photo" onChange={onInputChange}  />
+                <input placeholder="Image :" className="input_text_" type="file" name="photo" onChange={onInputChange}  />
             </div>
-        </div>
-        <div>
-                <button onClick={handleRegister}>Register</button>
+            <div>
+                <select className="input_text_" value={secretaire.MedecinId} name="MedecinId" onChange={(e)=>setSecretaire({...secretaire,MedecinId:e.target.value})}>
+                    {medecins.map(result=><option value={`${result.id}`}>{result.prenom} {result.nom}</option>)}
+                </select>
+            </div>
+             <div>
+                <button className="btn_" onClick={handleRegister}>Register</button>
                 
             </div>
+        </div>
+
     
     </div>);
 }

@@ -35,7 +35,7 @@ async function findOneMedecin(id){
     });
 }
 
-async function updateMedecin(new_med,id){
+async function updateMedecin(new_med,id,image){
     //const med = await Medecin.findOne({where:{id:new_med.id}});
     await Medecin.update({
         nom:new_med.nom,
@@ -44,7 +44,7 @@ async function updateMedecin(new_med,id){
         contact:new_med.contact,
         age:new_med.age,
         password:new_med.password,
-        image:new_med.image,
+        image:image,
         num_order:new_med.num_order,
         specialite:new_med.specialite,
         
