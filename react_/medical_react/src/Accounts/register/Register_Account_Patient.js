@@ -72,48 +72,42 @@ export default function RegisterPatient(){
     },[])
 
     return(
-    <div>
-        <h1></h1>
+    <div className="formulaire_container">
 
-        <div>
+        <div className="formulaire_">  
+            <h1 className="title_text">Patient</h1>
+
             <div>
-                <label>Nom :</label>
-                <input type="text" name="nom" value={patient.nom} onChange={(e)=>setPatient({...patient,nom:e.target.value})} />
+                <input  placeholder="Nom :" className="input_text_" type="text" name="nom" value={patient.nom} onChange={(e)=>setPatient({...patient,nom:e.target.value})} />
             </div>
             <div>
-                <label>Prenom :</label>
-                <input type="text" name="prenom" value={patient.prenom} onChange={(e)=>setPatient({...patient,prenom:e.target.value})}  />
+                <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={patient.prenom} onChange={(e)=>setPatient({...patient,prenom:e.target.value})}  />
             </div>
             <div>
-                <label>Age :</label>
-                <input type="number" name="age" min={0} max={110} value={patient.age} onChange={(e)=>setPatient({...patient,age:e.target.value})}  />
+                <input placeholder="Age :" className="input_text_" type="number" name="age" min={0} max={110} value={patient.age} onChange={(e)=>setPatient({...patient,age:e.target.value})}  />
             </div>
             <div>
-                <label>Email :</label>
-                <input type="text" name="email"  value={patient.email} onChange={(e)=>setPatient({...patient,email:e.target.value})} />
+                <input placeholder="Email :" className="input_text_" type="text" name="email"  value={patient.email} onChange={(e)=>setPatient({...patient,email:e.target.value})} />
             </div>
             <div>
-                <label>Contact :</label>
-                <input type="number" name="contact" value={patient.contact} onChange={(e)=>setPatient({...patient,contact:e.target.value})}  />
+                <input placeholder="Contact :" className="input_text_"  type="number" name="contact" value={patient.contact} onChange={(e)=>setPatient({...patient,contact:e.target.value})}  />
             </div>
 
             <div>
-                <label>Username :</label>
-                <input type="text" name="username"  value={patient.username} onChange={(e)=>setPatient({...patient,username:e.target.value})} />
+                <input placeholder="Username :" className="input_text_" type="text" name="username"  value={patient.username} onChange={(e)=>setPatient({...patient,username:e.target.value})} />
             </div>
             <div>
-                <label>Password</label>
-                <input type="text" name="password"  value={patient.password} onChange={(e)=>setPatient({...patient,password:e.target.value})} />
+                <input placeholder="Password :" className="input_text_"  type="text" name="password"  value={patient.password} onChange={(e)=>setPatient({...patient,password:e.target.value})} />
             </div>
             <div>
-                <label>Image :</label>
-                <input type="file" name="photo" onChange={onInputChange}  />
+                <input placeholder="Image :" className="input_text_"  type="file" name="photo" onChange={onInputChange}  />
             </div>
-        </div>
-        <div>
-                <button onClick={handleRegister}>Register</button>
+                 <div>
+                <button className="btn_" onClick={handleRegister}>Register</button>
                 
             </div>
+        </div>
+   
     
     </div>);
 }

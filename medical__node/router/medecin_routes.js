@@ -4,7 +4,7 @@ const { findAllMedecin, findOneMedecin, insertMedecin, updateMedecin, removeMede
 const router = express.Router();
 //findAllMedecin().then((data)=>console.log(data)).catch((err)=>console.log(err));
 
-const {upload,uploadImage} = require("../controller/controller_image_medecins");
+const {upload,uploadImage, uploadImage1, upload1} = require("../controller/controller_image_medecins");
 router.get("/",(req,res)=>{
     findAllMedecin().then((data)=>res.status(200).send(data)).catch((err)=>res.status(500).send(err));
 })
@@ -20,7 +20,7 @@ router.get("/:id",(req,res)=>{
 
 router.post("/",uploadImage,upload);
 
-router.put("/:id",uploadImage,upload);
+router.put("/:id",uploadImage1,upload1);
 
 
 router.delete("/:id",(req,res)=>{

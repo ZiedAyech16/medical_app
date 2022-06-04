@@ -2,7 +2,7 @@ const fs = require("fs");
 const express = require("express");
 const { findAllSecretaire, findOneSecretaire, insertSecretaire, updateSecretaire, removeSecretaire } = require("../controller/secretaire_DB");
 const router = express.Router();
-const {upload,uploadImage} = require("../controller/controller_image_secretaire");
+const {upload,uploadImage, upload1, uploadImage1} = require("../controller/controller_image_secretaire");
 
 
 router.get("/",(req,res)=>{
@@ -23,7 +23,7 @@ router.post("/",uploadImage,upload);
 // router.put("/:id",(req,res)=>{
 //     updateSecretaire(req.body,req.params.id).then(data=>res.status(200).send(data)).catch(err=>res.status(500).send(err));
 // })
-router.put("/:id",uploadImage,upload);
+router.put("/:id",uploadImage1,upload1);
 
 router.delete("/:id",(req,res)=>{
     removeSecretaire(req.params.id).then(data=>res.sendStatus(200).send(data)).catch(err=>res.sendStatus(500).send(err));

@@ -1,8 +1,8 @@
 const fs = require("fs");
 const express = require("express");
-const { findAllAdmin, ajouterAdmin, findAdminById } = require("../controller/admin_DB");
+const { findAllAdmin, ajouterAdmin, findAdminById, removeAdmin } = require("../controller/admin_DB");
 const router = express.Router();
-const {upload,uploadImage} = require("../controller/controller_image_admin");
+const {upload,uploadImage, uploadImage1, upload1} = require("../controller/controller_image_admin");
 
 router.get("/",(req,res)=>{
     findAllAdmin().then(result=>res.send(result)).catch((err)=>res.send(err));
@@ -14,8 +14,14 @@ router.get("/",(req,res)=>{
 
 router.post("/",uploadImage,upload);
 
+router.put("/:id",uploadImage1,upload1);
+
 router.get("/:id",(req,res)=>{
     findAdminById(req.params.id).then(result=>res.send(result)).catch((err)=>res.send(err));
+})
+
+router.delete("/:id",(req,res)=>{
+    removeAdmin(req.params.id).then(result=>res.send(result)).catch((errrr)=>res.send(errrr));
 })
 
 

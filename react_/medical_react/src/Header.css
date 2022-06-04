@@ -41,7 +41,7 @@
   display: flex;
   justify-content: flex-end;
   margin-left: 20vw;
-  width: 40vw;
+  width: 20vw;
 
 }
 
@@ -80,6 +80,7 @@ ul{
   background-color: darkcyan;
   border: 4px solid whitesmoke;
   color: aliceblue;
+  width: 100vw;
 }
 
 
@@ -88,13 +89,13 @@ ul{
   background-color: aliceblue;
   border-radius: 0 2% 0 0;
   margin-top: -1.6%;
-  width: 30vw;
+  width: 20vw;
   /* margin-right: 1%; */
   /* height: 540px; */
   cursor: pointer;
   border: 4px solid whitesmoke;
   box-shadow: 0 0 0 4px darkblue;
-  margin: 20px 0 0 10px;
+  margin: 20px 0 0 2px;
   z-index: 3;
 }
 
@@ -117,7 +118,7 @@ ul{
 
 
 .dropdown > table{
-  background-color: rgb(217, 249, 250);
+  background-color: rgba(71, 110, 194, 0.993);
   display: none;
   z-index: 100;
 }
@@ -129,7 +130,7 @@ ul{
 
 .display_item{
   display: grid;
-  grid-template-columns: 80px auto;
+  grid-template-columns: 60px auto;
   align-items: center;
   padding: 20px;
 }
@@ -137,18 +138,7 @@ ul{
   animation: display_item_anim 5s linear 0.2s infinite alternate;
 }
 
-@keyframes display_item_anim{
-  10%{ background-color: cornflowerblue;transform: scaleX(1.6) translateX(46px);}
-  20%{ background-color: cornflowerblue;transform: scaleX(1.6) translateX(46px);}
-  30%{ background-color: cornflowerblue;transform: scaleX(1.6) translateX(46px);}
-  40%{background-color: cornflowerblue;transform: scaleX(1.6) translateX(46px);}
-  50%{ background-color: cornflowerblue;transform: scaleX(1.6) translateX(46px);}
-  60%{ background-color: cornflowerblue;transform: scaleX(1.6) translateX(46px);}
-  70%{ background-color: cornflowerblue;transform: scaleX(1.6) translateX(46px);}
-  80%{  background-color: cornflowerblue;transform: scaleX(1.6) translateX(46px);}
-  90%{ background-color: cornflowerblue;transform: scaleX(1.6) translateX(46px);}
-  100%{  background-color: cornflowerblue;transform: scaleX(1/6) translateX(46px);}
-}
+
 .dropdown_{
   text-decoration: none;
   cursor: pointer;
@@ -160,4 +150,9 @@ ul{
   letter-spacing: 3px;
   display: flex;
   float: right;
+}
+
+.navbar_admin{
+  display: flex;
+  justify-content: baseline;
 }

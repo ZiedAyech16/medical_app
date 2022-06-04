@@ -1,9 +1,10 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 axios.defaults.baseURL = "http://localhost:5000";
 export default function RegisterAdmin(){
-
+    const [searchparams]=useSearchParams();
     const [admin,setAdmin]=useState({
         nom:'',
         prenom:'',
@@ -12,7 +13,7 @@ export default function RegisterAdmin(){
         contact:0,
         username:'',
         password:'',
-        MedecinId:1
+     //   MedecinId:1
     })
     const [file,setFile]=useState(null);
 
@@ -37,64 +38,78 @@ export default function RegisterAdmin(){
             }
         }
 
+        if(searchparams.get("id")!==null){
+            console.log("not null");
+            axios.put(`/admins/${searchparams.get("id")}`,form,config).then((res)=>{
+                console.log(res);
+                //axios.post("/users_role",{email:res.data.success.email,userId:res.data.success.id,role:'patient'});
+            }).catch((errr)=>console.log(errr));
+        }else{
+            console.log(" null");
+
         console.log(admin);
         axios.post("/admins",form,config).then((res)=>{
             console.log(res);
             axios.post("/users_role",{email:res.data.admin.email,userId:res.data.admin.id,role:'admin'});
 
         }).catch((errr)=>console.log(errr));
-
+    }
     }
 
 
 
     useEffect(()=>{
-        
+        if(searchparams.get("id")!==null){
+            setAdmin({...admin,
+                nom:searchparams.get("nom"),
+                prenom:searchparams.get("prenom"),
+                age:searchparams.get("age"),
+                email:searchparams.get("email"),
+                contact:parseInt(searchparams.get("contact")),
+                username:searchparams.get("username"),
+                password:searchparams.get("password"),
+                image:searchparams.get("image")
+                
+            })
+        }  
     },[])
 
     return(
-    <div>
-        <h1></h1>
+    <div className="formulaire_container">
+        <h1 className="title_text">Admin</h1>
 
-        <div>
+        <div className="formulaire_">
             <div>
-                <label>Nom :</label>
-                <input type="text" name="nom" value={admin.nom} onChange={(e)=>setAdmin({...admin,nom:e.target.value})} />
+                <input placeholder="Nom :" className="input_text_" type="text" name="nom" value={admin.nom} onChange={(e)=>setAdmin({...admin,nom:e.target.value})} />
             </div>
             <div>
-                <label>Prenom :</label>
-                <input type="text" name="prenom" value={admin.prenom} onChange={(e)=>setAdmin({...admin,prenom:e.target.value})}  />
+                <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={admin.prenom} onChange={(e)=>setAdmin({...admin,prenom:e.target.value})}  />
             </div>
             <div>
-                <label>Age :</label>
-                <input type="number" name="age" min={0} max={110} value={admin.age} onChange={(e)=>setAdmin({...admin,age:e.target.value})}  />
+                <input placeholder="Age :" className="input_text_" type="number" name="age" min={0} max={110} value={admin.age} onChange={(e)=>setAdmin({...admin,age:e.target.value})}  />
             </div>
             <div>
-                <label>Email :</label>
-                <input type="text" name="email"  value={admin.email} onChange={(e)=>setAdmin({...admin,email:e.target.value})} />
+                <input placeholder="Email :" className="input_text_" type="text" name="email"  value={admin.email} onChange={(e)=>setAdmin({...admin,email:e.target.value})} />
             </div>
             <div>
-                <label>Contact :</label>
-                <input type="number" name="contact" value={admin.contact} onChange={(e)=>setAdmin({...admin,contact:e.target.value})}  />
+                <input placeholder="Contact :" className="input_text_" type="number" name="contact" value={admin.contact} onChange={(e)=>setAdmin({...admin,contact:e.target.value})}  />
             </div>
 
             <div>
-                <label>Username :</label>
-                <input type="text" name="username"  value={admin.username} onChange={(e)=>setAdmin({...admin,username:e.target.value})} />
+                <input placeholder="Username :" className="input_text_" type="text" name="username"  value={admin.username} onChange={(e)=>setAdmin({...admin,username:e.target.value})} />
             </div>
             <div>
-                <label>Password</label>
-                <input type="text" name="password"  value={admin.password} onChange={(e)=>setAdmin({...admin,password:e.target.value})} />
+                <input placeholder="Password :" className="input_text_"  type="text" name="password"  value={admin.password} onChange={(e)=>setAdmin({...admin,password:e.target.value})} />
             </div>
             <div>
-                <label>Image :</label>
-                <input type="file" name="photo" onChange={onInputChange}  />
+                <input placeholder="Image :" className="input_text_" type="file" name="photo" onChange={onInputChange}  />
             </div>
-        </div>
-        <div>
-                <button onClick={handleRegister}>Register</button>
+            <div>
+                <button className="btn_" onClick={handleRegister}>Register</button>
                 
             </div>
+                 </div>
+   
     
     </div>);
 }

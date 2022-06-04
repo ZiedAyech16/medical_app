@@ -34,7 +34,7 @@ async function findOnePatient(id){
 });
 }
 
-async function updatePatient(new_patient,id){
+async function updatePatient(new_patient,id,image){
     return await Patient.update({
         nom:new_patient.nom,
         prenom:new_patient.prenom,
@@ -42,7 +42,7 @@ async function updatePatient(new_patient,id){
         contact:new_patient.contact,
         age:new_patient.age,
         password:new_patient.password,
-        image:new_patient.image
+        image:image
     },
     {
         where:{id:id}

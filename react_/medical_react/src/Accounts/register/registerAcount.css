@@ -15,12 +15,12 @@
     padding: 2%;
 }
 
-input{
+/* input{
     font-size: 16px;
     width: 60%;
     padding: 1%;
     margin: 2%;
-}
+} */
 .btn1{
     background-color: #4c7faf;
     border: none;
@@ -143,4 +143,65 @@ i{
     box-shadow: 0 0 0 3px #4CAF50;
     border-radius:  15px 0 15px 0;
     margin-top: 3px;
+  }
+
+
+  .btn_{
+    border:4px ridge whitesmoke;
+    background-color : rgb(62, 165, 31);
+    color: whitesmoke;
+    padding: 5px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 22px;
+    margin: 8px 2px;
+    cursor: pointer;
+    border-radius:10%;
+    float: left;
+    margin-left: 5vw;
+  }
+  .input_text_{
+    width: 40vw;
+    font-size: 25px;
+    padding: 5px;
+    margin: 5px;
+  }
+
+  .formulaire_{
+    background-color: #fdfeff;
+    width: 60vw;
+    
+    margin-left: 20vw;
+    padding: 5vw;
+    justify-content: center;
+    border-radius: 2% 20% 20% 2%;
+  }
+
+  .formulaire_container{
+    background: linear-gradient(60deg,#041a3b88,#377a3d88,#6cd87588,#041a3b88);
+    display: grid;
+    grid-template-columns: auto;
+    width: 100vw;
+    align-items: center;
+    box-shadow: 0 0 0 30px #000436ee;
+  }
+
+  .title_text{
+    color: rgb(34, 138, 230);
+    letter-spacing: 3px;
+    text-decoration: underline blue 5px;
+    margin-bottom: 3vh;
+  }
+  .title_text::first-letter{
+    color: rgb(14, 83, 143);
+    font-size: 48px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    font-style: oblique;
+    letter-spacing: 6px;
+    text-decoration: underline  rgb(4, 4, 61) 5px;
+  }
+
+  .image_card_{
+    
   }

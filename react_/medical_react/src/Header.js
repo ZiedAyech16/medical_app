@@ -31,9 +31,18 @@ export default function Header(){
     const tordvs = ()=>navigate("/rdvs");
     const posertime = ()=>navigate("/poser_time");
     const gerefichespatient = () =>navigate("/fiche_patients");
+    const gereadmins = ()=>navigate("/gere/admins");
+    const geremedecins = ()=>navigate("/gere/medecins");
+    const geresecretaires = ()=>navigate("/gere/secretaires");
+    const gerepatients = ()=>navigate("/gere/patients");
 
+    
+    
+    
     const [users_role,setUser_Role]=useState([]);
     const [user_admin,setUser_admin]=useState(false);
+
+    const [admin_,setAdmin_] = useState(true);
 
     useEffect(()=>{
         axios.get("/users_role").then(result=>setUser_Role(result.data));
@@ -58,7 +67,18 @@ export default function Header(){
       <ul className="navbar_part_2_1">
       <li><img className="logo_" src="/images/sante.jpg" width={45} height={45} alt="Gestion Cabinet Medical" /></li>
 
-    
+        {
+            admin_?
+            <div className="navbar_admin">
+                <li><button className="btn-design log_out btn-sm" onClick={gereadmins}>Gerer Admins</button></li>
+                <li><button className="btn-design log_out btn-sm" onClick={geremedecins}>Gerer Medecins</button></li>
+                <li><button className="btn-design log_out btn-sm" onClick={geresecretaires}>Gerer Secretaires</button></li>
+                <li><button className="btn-design log_out btn-sm" onClick={gerepatients}>Gerer Patients</button></li>
+
+            </div>
+            :<></>
+        }
+
 
         <li><button className="btn-design log_out btn-sm" onClick={posertime}>Poser Time</button></li>
         <li><button className="btn-design log_out btn-sm" onClick={gerefichespatient}>Gerer Fiche Patients</button></li>
