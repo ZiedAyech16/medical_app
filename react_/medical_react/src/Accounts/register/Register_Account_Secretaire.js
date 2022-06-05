@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 axios.defaults.baseURL = "http://localhost:5000";
 export default function RegisterSecretaire(props){
@@ -45,7 +46,17 @@ export default function RegisterSecretaire(props){
 
 
         if(searchparams.get("id")!==null){
-            axios.put(`/secretaires/${searchparams.get("id")}`,form,config).then(result=>console.log(result));
+            axios.put(`/secretaires/${searchparams.get("id")}`,form,config).then(result=>{
+                
+                console.log(result);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Secretaire a été modifié',
+                    showConfirmButton: false,
+                    timer: 2500
+                  })
+            });
         }else{
 
         
@@ -53,7 +64,13 @@ export default function RegisterSecretaire(props){
         axios.post("/secretaires",form,config).then((res)=>{
             console.log(res);
             axios.post("/users_role",{email:res.data.secretaire.email,userId:res.data.secretaire.id,role:'secretaire'});
-
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Secretaire a été ajouté',
+                showConfirmButton: false,
+                timer: 2500
+              })
         }).catch((errr)=>console.log(errr));
     }
     }
