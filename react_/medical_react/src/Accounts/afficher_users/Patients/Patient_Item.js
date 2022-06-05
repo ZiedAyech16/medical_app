@@ -2,11 +2,12 @@ import { useNavigate } from "react-router";
 import { createSearchParams } from "react-router-dom";
 import "./Patient.css";
 import axios from "axios";
-
+import {  useState } from "react";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 
 export default function Patient_Item(props){
     console.log(props);
+
     const navigate = useNavigate();
 
 
@@ -31,6 +32,8 @@ export default function Patient_Item(props){
                     username:props.patient.username,
                     password:props.patient.password,
                     image:props.patient.image,
+                    MedecinId:props.patient.MedecinId,
+                    SecretaireId:props.patient.SecretaireId
                 }
             ).toString()
         })
@@ -38,7 +41,7 @@ export default function Patient_Item(props){
     return(
         <div className="gere_secretaire_card">
             
-            <img src={`http://127.0.0.1:5000/patients/images/${props.patient.image}`} alt="image 1" width={200} height={200} />
+            <img className="image_card_" src={`http://127.0.0.1:5000/patients/images/${props.patient.image}`} alt="image 1" width={200} height={200} />
             <div>
                 <h3 className="gere_secretaire_card_title">{props.patient.nom} {props.patient.prenom} </h3>
             </div>

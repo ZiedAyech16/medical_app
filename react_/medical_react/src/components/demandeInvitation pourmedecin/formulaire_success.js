@@ -20,6 +20,8 @@ export default function LoginInvite(props){
 
   const params = useParams();
 
+  console.log("params fiche",params);
+
 
   const [demande_fiche,setDemande_fiche] = useState({
     nom:'',
@@ -28,7 +30,7 @@ export default function LoginInvite(props){
     sexe:'',
     contact:'',
     PatientId:localStorage.getItem("id"),
-    MedecinId:params.medecin_id
+    MedecinId:parseInt(params.medecin_id)
   });
   
 
@@ -47,16 +49,17 @@ useEffect(()=>{
   axios.get(`/medecins/${ params.medecin_id>0?params.medecin_id:props.doctor_id}`).then((data)=>setUser_doctor_id(data.data.UserId)).catch((err)=>console.log(err));
   axios.get(`/medecins/${params.medecin_id!=null||params.medecin_id>0 ?params.medecin_id:props.doctor_id}`).then((data)=>setSpecialite(data.data.specialite)).catch((err)=>console.log(err));
   console.log(user_doctor_id);
-  axios.get(`/users/${user_doctor_id}`).then((data)=>setDoctorName(data.data.nom+" "+data.data.prenom)).catch((err)=>console.log(err));
+  axios.get(`/medecins/${params.medecin_id}`).then((data)=>{setDoctorName(data.data.nom+" "+data.data.prenom);setContact(data.data.contact);  setImage(data.data.image);
+}).catch((err)=>console.log(err));
 
 
  // user_doctor_id.map(res=>console.log(res));
 
 
   axios.get(`/users/${localStorage.getItem("id")}`).then((response)=>setUser(response.data));
-  axios.get(`/users/${user_doctor_id}`)
-  .then((d)=>
-  setImage(d.data.image));
+  // axios.get(`/users/${user_doctor_id}`)
+  // .then((d)=>
+  // setImage(d.data.image));
   axios.get(`/patients`).then((res)=>setPatients(res.data));
   patients.map((e)=>console.log(e.UserId===parseInt(localStorage.getItem("id"))));
   patients.filter((res)=>res.UserId===parseInt(localStorage.getItem("id"))).map((data)=>setPatient(data));
@@ -128,7 +131,7 @@ const user_role_event = (e)=>{
     <div  className="modal-content container_model">
       <div className="modal-header">
         {/* <img src="/images/medecin1.jpg" className="image"></img> */}
-        <img className="image" src={`http://127.0.0.1:5000/users/images/${image}`}   />
+        <img className="image" src={`http://127.0.0.1:5000/medecins/images/${image}`}   />
 
         <div>
         <h5 className="modal-title" id="exampleModalLongTitle">{doctor_name}</h5>

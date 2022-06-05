@@ -3,8 +3,12 @@
 }
 
 .card_picker{
-    background-color: cadetblue;
+    background-color: rgb(250, 255, 255);
     display: grid;
+    border: 4px ridge navy;
+    border-radius: 0 0 25% 0;
+    width: 60%;
+    margin-left: 20%;
     grid-template-columns: repeat(1,100%);
 }
 
@@ -16,25 +20,22 @@
 }
 
 .title_picker{
-    color: beige;
+    color: rgb(241, 241, 11);
     font-size: 28px;
     letter-spacing: 4px;
+    
     margin: 20px 20px 20px 70px;
-    text-shadow: 4px  4px 4px navy;
+    text-shadow: 2px  2px 2px  rgb(0, 128, 32);
 }
 
 .button_picker{
     color: beige;
-    font-size: 28px;
+    font-size: 20px;
     letter-spacing: 4px;
     margin: 20px 20px 20px 70px;
-    text-shadow: 4px  4px 4px navy;
-    background-color: darkcyan;
-    border: 1px solid white;
-    border-radius: 20%;
+    background-color: rgb(32, 4, 109);
 }
 
-.alert.success {background-color: #04AA6D;}
 
 .closebtn {
     margin-left: 15px;

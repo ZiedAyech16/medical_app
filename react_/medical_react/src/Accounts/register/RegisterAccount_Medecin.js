@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 axios.defaults.baseURL = "http://localhost:5000";
 export default function RegisterMedecin(){
@@ -46,7 +47,13 @@ export default function RegisterMedecin(){
             axios.put(`/medecins/${searchparams.get("id")}`,form,config).then((res)=>{
                 console.log(res);
                 //axios.post("/users_role",{email:res.data.medecin.email,userId:res.data.medecin.id,role:'medecin'});
-    
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Medecin a été modifié',
+                    showConfirmButton: false,
+                    timer: 2500
+                  })
             }).catch((errr)=>console.log(errr));
         }
     else{
@@ -54,7 +61,13 @@ export default function RegisterMedecin(){
         axios.post("/medecins",form,config).then((res)=>{
             console.log(res);
             axios.post("/users_role",{email:res.data.medecin.email,userId:res.data.medecin.id,role:'medecin'});
-
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Medecin a été ajouté',
+                showConfirmButton: false,
+                timer: 2500
+              })
         }).catch((errr)=>console.log(errr));
     }
     }

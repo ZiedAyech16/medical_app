@@ -12,6 +12,8 @@ function insertPatient(patient,image){
     age:patient.age,
     username:patient.username,
     password:patient.password,
+    MedecinId:patient.MedecinId,
+    SecretaireId:patient.SecretaireId,
     image:image});
 }
 
@@ -41,7 +43,10 @@ async function updatePatient(new_patient,id,image){
         email:new_patient.email,
         contact:new_patient.contact,
         age:new_patient.age,
+        username:new_patient.username,
         password:new_patient.password,
+        MedecinId:new_patient.MedecinId,
+        SecretaireId:new_patient.SecretaireId,
         image:image
     },
     {

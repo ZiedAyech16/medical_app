@@ -4,6 +4,9 @@
     <link rel="stylesheet" href="https://unpkg.com/charts.css/dist/charts.min.css">
 
 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+
+
     <link href="https://fonts.googleapis.com/css?family=Poppins:600&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 
@@ -49,5 +52,16 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+    <script>
+
+      function fireSweetAlert() {
+          Swal.fire({
+              icon: 'info',
+              title: 'Info',
+              text: 'You clicked the button!'
+          })
+      }
+  
+  </script>
   </body>
 </html>

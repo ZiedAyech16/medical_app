@@ -7,10 +7,11 @@ import LoginInvite from "./demandeInvitation pourmedecin/formulaire_success";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 export function CalenderHour(props){
     const params = useParams();
+    const [docteur,setDocteur]=useState({});
    // console.log(params);
-    const color1 = "darkgray";
-    const color2 = "bisque";
-    const color3 = "palevioletred";
+    const color1 = "#87cefa";
+    const color2 = "lightskyblue";
+    const color3 = "#24a750";
     const hours = [8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,0,1,2,3,4,5,6,7];
     const munites = [0,30,59];
    // const disponibility = [true,true,false,true,false,false,true,true,false,true,false,false,false];
@@ -278,6 +279,9 @@ const state__1 = [...disponibilityp2_];
     
     // });
 
+    console.log(params);
+
+    
 useEffect(()=>{
     axios.get("/calenders").then((result)=>setAllMedecins(result.data));
 
@@ -285,6 +289,9 @@ useEffect(()=>{
 
     medecins.filter((d)=>d.MedecinId ===parseInt(params.medecin_id)).map((res)=>{
 
+        if(parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(params.year)&&parseInt(res.date[5]+res.date[6])===parseInt(params.month)&&parseInt(res.date[8]+res.date[9])===parseInt(params.day)){
+           // console.log("date ajourd'hui");
+        
         if(parseInt(res.date[11]+res.date[12])===8){
             state__[0]=color3;
         }
@@ -382,12 +389,14 @@ useEffect(()=>{
             state__1[11]=color3;
         }
     
+    }
         setdisponibilityp1_(state__);
         setdisponibilityp2_(state__1);
     
     });
 
 
+    axios.get(`/medecins/${params.medecin_id}`).then(r=>setDocteur(r.data))
 
 
 },[])
@@ -396,7 +405,14 @@ useEffect(()=>{
 const reload = ()=>{
 
     medecins.filter((d)=>d.MedecinId ===parseInt(params.medecin_id)).map((res)=>{
-
+     //   console.log("yea__r",parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(params.year));
+      //  console.log("yea__r",parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])+" "+parseInt(params.year));
+      console.log("month__",res.date[5]+res.date[6]);
+      console.log("day__",res.date);
+        if(parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(params.year)&&parseInt(res.date[5]+res.date[6])===parseInt(params.month)&&parseInt(res.date[8]+res.date[9])===parseInt(params.day)){
+      //      if(parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(params.year)&&parseInt(res.date[5]+res.date[6])===parseInt(params.month)&&parseInt(res.date[8]+res.date[9])===parseInt(params.day)){
+                console.log("date ajourd'hui");
+        
         if(parseInt(res.date[11]+res.date[12])===8){
             state__[0]=color3;
         }
@@ -493,13 +509,15 @@ const reload = ()=>{
         if(parseInt(res.date[11]+res.date[12])===6){
             state__1[11]=color3;
         }
-    
+        }
         setdisponibilityp1_(state__);
         setdisponibilityp2_(state__1);
     
     });
 
 
+
+    reload();
 
     setdisponibilityp1_(state__);
 setdisponibilityp2_(state__1);
@@ -530,10 +548,20 @@ const [heure_depart,setHeure_depart] = useState(0);
 
     }
 
+    console.log(docteur)
    // console.log(params);
     return(
-        <div>
-            <h2 className="date_">Date {params.day<10?<>0</>:<></>}{params.day}/{params.day<10?<>0</>:<></>}{params.month}/{params.year} Selectionné<button className="refresh_hours" onClick={reload}>Pour Obtenir Des Infos</button></h2>
+        <div className="container_calender_hour">
+            <div>
+             <div>
+                <div className="detail_docteur">
+                    <h4>Monsieur: {docteur.nom} {docteur.prenom} </h4>
+                    <h4>Specialite: {docteur.specialite} </h4>
+                    <h4 className="">Date {parseInt(params.day)<10?<>0</>:<></>}{params.day}/{params.day<10?<>0</>:<></>}{params.month}/{params.year}</h4>
+                    <h4> Selectionné<button className="refresh_hours" onClick={reload}>Pour Obtenir Les Infos</button></h4>
+
+                </div>     
+            </div>   
 
 
          
@@ -544,7 +572,7 @@ const [heure_depart,setHeure_depart] = useState(0);
 
 
         <table className="table my_table"   >
-            <tr>
+            <tr className="line_">
             <td ><span className="time">{hours[0]}</span></td>
             <td ><span className="time">{hours[1]}</span></td>
             <td ><span className="time">{hours[2]}</span></td>
@@ -559,10 +587,10 @@ const [heure_depart,setHeure_depart] = useState(0);
 
             </tr>
       
-             <tr>   {disponibilityp1_.map((data,i)=><td><button className="" data-toggle={modal1[i]} data-target="#exampleModalLong"  onClick={()=>remplirDemande(data,i)} style={{backgroundColor:data,width:"105%",height:"100px",border:"none"}}></button></td>)}</tr>
+             <tr>   {disponibilityp1_.map((data,i)=><td><button className="" data-toggle={modal1[i]} data-target="#exampleModalLong"  onClick={()=>remplirDemande(data,i)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr>
 
 
-             <tr>
+             <tr className="line_">
              <td ><span className="time">{hours[11]}</span></td>
             <td ><span className="time">{hours[12]}</span></td>
             <td ><span className="time">{hours[13]}</span></td>
@@ -579,7 +607,7 @@ const [heure_depart,setHeure_depart] = useState(0);
 
             </tr>
       
-             <tr>   {disponibilityp2_.map((data,i)=><td ><button className="" data-toggle={modal2[i]} data-target="#exampleModalLong" onClick={()=>remplirDemande(data,i+11)} style={{backgroundColor:data,width:"105%",height:"100px",border:"none"}}></button></td>)}</tr>
+             <tr>   {disponibilityp2_.map((data,i)=><td ><button className="" data-toggle={modal2[i]} data-target="#exampleModalLong" onClick={()=>remplirDemande(data,i+11)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr>
 
 <tr></tr>
         </table>
@@ -587,6 +615,8 @@ const [heure_depart,setHeure_depart] = useState(0);
         {condition_remplir?  
             // <LoginInvite doctor_id={params.medecin_id} heure={heure_depart} parameter={params} />:<h2>Non Disponible</h2>}
             <LoginInvite doctor_id={params.medecin_id} heure={heure_depart} parameter={params} />:<h2>Non Disponible</h2>}
+         </div>
+
          </div>
     );
 }

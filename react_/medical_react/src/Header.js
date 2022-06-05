@@ -59,7 +59,7 @@ export default function Header(){
 
   <div  className="navbar_part_2">
       
-      {localStorage.getItem("email").length!==0 ?<div className="navbar_part_2_">
+      {localStorage.getItem("email")!=='' ?<div className="navbar_part_2_">
       {/* <Link to="/profile" >Profile</Link> */}
     
    {   user_admin?<HomeAdmin />:
@@ -87,14 +87,14 @@ export default function Header(){
         <li>
         <ul  className="btn-design log_out btn-sm">
             <li className="dropdown">   
-            <a className="dropdown_ btn-design">list</a>
+            <a className="dropdown_ btn-design">liste docteur</a>
 
             <table className="container_items col-sm-2">
                 <tr className="item">
                     <td>
                         <div className="display_item border-0">
                             <img src="/images/medecin1.jpg" width={40} height={40}></img>
-                        <h6> <Link to="/pediatres" className=" text-dark">Pédiatre</Link></h6>
+                        <h6> <Link to="/pediatres" className="link_">Pédiatre</Link></h6>
                         </div>
                     </td>
                     </tr>
@@ -102,14 +102,14 @@ export default function Header(){
                     <td>
                         <div className="display_item border-0">
                             <img src="/images/medecin2.jpg" width={40} height={40}></img>
-                            <h6><Link to="/psychotherapie" className=" text-dark">Psychothérapie</Link></h6>
+                            <h6><Link to="/psychotherapie" className="link_">Psychothérapie</Link></h6>
                         </div>
                     </td>
         </tr><tr className="item">
                 <td >
                         <div className="display_item bg-gradient-warning border-0">
                             <img src="/images/medecin3.png" width={40} height={40}></img>
-                            <h6><Link to="/dentiste" className=" text-dark">Dentiste</Link></h6>
+                            <h6><Link to="/dentiste" className="link_">Dentiste</Link></h6>
                         </div>
                     </td>
                     </tr>
@@ -120,7 +120,7 @@ export default function Header(){
                     <td >
                         <div className="display_item border-0">
                             <img src="/images/Allergists.jpg" width={40} height={40}></img>
-                            <h6><Link to="/allergists" className=" text-dark">Allergists</Link></h6>
+                            <h6><Link to="/allergists" className="link_">Allergists</Link></h6>
                         </div>
                     </td>
 
@@ -130,7 +130,7 @@ export default function Header(){
                     <td >
                         <div className="display_item border-0">
                             <img src="/images/Dermatologists.webp" width={40} height={40}></img>
-                            <h6><Link to="/dermatologists" className=" text-dark">Dermatologists</Link></h6>
+                            <h6><Link to="/dermatologists" className="link_">Dermatologists</Link></h6>
                         </div>
                     </td>
 
@@ -142,7 +142,7 @@ export default function Header(){
                     <td >
                         <div className="display_item border-0">
                             <img src="/images/gynecologists.jpg" width={40} height={40}></img>
-                            <h6><Link to="/gynecologists" className=" text-dark">gynecologists</Link></h6>
+                            <h6><Link to="/gynecologists" className="link_">gynecologists</Link></h6>
                         </div>
                     </td>
 
@@ -154,7 +154,7 @@ export default function Header(){
                     <td >
                         <div className="display_item border-0">
                             <img src="/images/cardiologists.jpg" width={40} height={40}></img>
-                            <h6><Link to="/cardiologists" className=" text-dark">Cardiologists</Link></h6>
+                            <h6><Link to="/cardiologists" className="link_">Cardiologists</Link></h6>
                         </div>
                     </td>
 

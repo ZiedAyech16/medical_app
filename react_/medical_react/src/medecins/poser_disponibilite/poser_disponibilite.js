@@ -7,6 +7,7 @@ import { TextFields } from "@mui/icons-material";
 import TimePicker from "react-multi-date-picker/plugins/time_picker";
 import axios from "axios";
 import "./poser_disponibilite.css";
+import Swal from "sweetalert2";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 export default function Poser_Time(props){
     const [value,setValue]=useState(new Date());
@@ -16,7 +17,7 @@ export default function Poser_Time(props){
         console.log('value');
     console.log(value);
     axios.get(`/medecins`).then((result)=>setMedecin_all(result.data));
-    medecin_all.filter((res_)=>res_.UserId===parseInt(localStorage.getItem("id"))).map((result)=>setMedecin_(result));
+    medecin_all.filter((res_)=>res_.id===parseInt(localStorage.getItem("id"))).map((result)=>setMedecin_(result));
 
     },[])
     // console.log(value.month.number);
@@ -27,7 +28,7 @@ export default function Poser_Time(props){
         e.preventDefault();
         const date_ = new Date();
         date_.setMonth()
-        axios.post('/calenders',{date:value,MedecinId:medecin_.MedecinId}).then((response)=>console.log(response));
+        axios.post('/calenders',{date:value,MedecinId:medecin_.id}).then((response)=>console.log(response));
 
         var close = document.getElementsByClassName("closebtn");
         var i;
@@ -39,6 +40,13 @@ export default function Poser_Time(props){
             setTimeout(function(){ div.style.display = "none"; }, 600);
           }
         }
+        Swal.fire({
+          title: 'Info',
+          text: 'cette date ajouté',
+          icon: 'success',
+          confirmButtonText: 'Fermer'
+        })
+
     }
 
 
@@ -48,12 +56,13 @@ export default function Poser_Time(props){
 
     return(
         <div className="card_picker">
+          
             {value?.toDate?.().toString()}
             <div class="alert success">
-              <span class="closebtn">&times;</span>  
-              <strong>Attendez pour Ajouter</strong> votre disponbilte:
+              <span class="closebtn">&times;</span>      
+                <h2 className="title_picker">Ajouter Votre Disponibilte</h2>
+  
             </div>
-            <h2 className="title_picker">Disponibilte</h2>
             <DatePicker className="design_picker"
             
             containerStyle={{ //datepicker container style
@@ -95,6 +104,10 @@ export default function Poser_Time(props){
     }}
   />
 </LocalizationProvider> */}
+
+
+
+
 
 
 

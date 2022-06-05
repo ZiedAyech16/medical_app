@@ -28,7 +28,7 @@ function App() {
     <Header />
     {
     
-    localStorage.getItem("email").length===0?
+    localStorage.getItem("email")===null||localStorage.getItem("email")===''?
     state.email.length===0?statelogin?
     <Login />:<RegisterAccount />:<div>
            

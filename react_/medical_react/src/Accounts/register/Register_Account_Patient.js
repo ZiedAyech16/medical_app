@@ -1,10 +1,18 @@
 import axios from "axios";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 axios.defaults.baseURL = "http://localhost:5000";
 export default function RegisterPatient(){
     const [searchparams]=useSearchParams();
+
+    const [medecins,setMedecins] = useState([]);
+    const [medecin,setMedecin] = useState();
+    const searchMedecin = useRef();
+    const [list_secretaire,setListSecretaire] = useState([]);
+    const  [secretaire,setSecretaire]=useState();
+
 
     const [patient,setPatient]=useState({
         nom:'',
@@ -14,6 +22,8 @@ export default function RegisterPatient(){
         contact:0,
         username:'',
         password:'',
+        MedecinId:0,
+        SecretaireId:0
     })
     const [file,setFile]=useState(null);
 
@@ -31,6 +41,8 @@ export default function RegisterPatient(){
         form.append("contact",patient.contact);
         form.append("username",patient.username);
         form.append("password",patient.password);
+        form.append("MedecinId",patient.MedecinId);
+        form.append("SecretaireId",patient.SecretaireId);
 
         const config = {
             headers:{
@@ -41,6 +53,13 @@ export default function RegisterPatient(){
         if(searchparams.get("id")!==null){
             axios.put(`/patients/${searchparams.get("id")}`,form,config).then((res)=>{
                 console.log(res);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Patient a été ajouté',
+                    showConfirmButton: false,
+                    timer: 2500
+                  })
                 //axios.post("/users_role",{email:res.data.success.email,userId:res.data.success.id,role:'patient'});
             }).catch((errr)=>console.log(errr));
         }else{
@@ -48,6 +67,13 @@ export default function RegisterPatient(){
         axios.post("/patients",form,config).then((res)=>{
             console.log(res);
             axios.post("/users_role",{email:res.data.success.email,userId:res.data.success.id,role:'patient'});
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Patient a été modifié',
+                showConfirmButton: false,
+                timer: 2500
+              })
         }).catch((errr)=>console.log(errr));
     }
 
@@ -56,6 +82,11 @@ export default function RegisterPatient(){
 
 
     useEffect(()=>{
+
+        axios.get("/medecins").then(result=>setMedecins(result.data));
+        searchMedecin.current=patient.MedecinId;
+        axios.get("/secretaires").then(r=>setListSecretaire(r.data));
+
         if(searchparams.get("id")!==null){
             setPatient({...patient,
                 nom:searchparams.get("nom"),
@@ -65,15 +96,20 @@ export default function RegisterPatient(){
                 contact:parseInt(searchparams.get("contact")),
                 username:searchparams.get("username"),
                 password:searchparams.get("password"),
-                image:searchparams.get("image")
-                
+                image:searchparams.get("image"),
+                MedecinId:searchparams.get("MedecinId"),
+                SecretaireId:searchparams.get("SecretaireId")
             })
         }
-    },[])
+    },[medecin])
+
+
+    
 
     return(
     <div className="formulaire_container">
 
+{medecin}
         <div className="formulaire_">  
             <h1 className="title_text">Patient</h1>
 
@@ -101,6 +137,22 @@ export default function RegisterPatient(){
             </div>
             <div>
                 <input placeholder="Image :" className="input_text_"  type="file" name="photo" onChange={onInputChange}  />
+            </div>
+
+            <div>
+                <select className="input_text_" value={patient.MedecinId} onChange={(e)=>setPatient({...patient,MedecinId:e.target.value})} name="medecin">
+                    <option value="" readOnly={true} hidden={true} selected="selected">Choisir Un Medecin</option>
+
+                    {medecins.map((r)=><option key={r.id} value={r.id}>{r.prenom}{' '}{r.nom} </option>)}
+                </select>
+            </div>
+
+            <div>
+                <select className="input_text_" name="secretaires" value={patient.SecretaireId} onChange={(e)=>setPatient({...patient,SecretaireId:e.target.value})}>
+                                <option  readOnly={true} hidden={true} value="" selected="selected">Choisir Une Secretiare</option>
+                                {list_secretaire.filter((r)=>r.MedecinId ===parseInt(patient.MedecinId)&&r.MedecinId !==null).map((r)=><option key={r.id} value={r.id}>{r.nom}{' '}{r.prenom} </option>)}
+
+                </select>
             </div>
                  <div>
                 <button className="btn_" onClick={handleRegister}>Register</button>

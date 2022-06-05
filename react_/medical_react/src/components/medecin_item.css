@@ -19,6 +19,7 @@
     border: 5px solid white;
     padding: 1%;
 
+
 }
 .td__ {
     font-size: 18px;
@@ -26,6 +27,8 @@
     letter-spacing: 2px;
     color: navy;
     padding: 2%;
+    display: flex;
+    justify-content: flex-start;
   }
 
   .image_medecin{

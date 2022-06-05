@@ -23,9 +23,9 @@ export default function AllMedecins(props){
     },[search_])
     return (
         <div>
-           <div className="search_cards"> 
+           <div className="container_search"> 
                <h2  className="all_med_title">Liste des <span className="all_med_title_">{props.specialite} </span></h2>
-            <input type="text" className="search_panel" value={search_} onChange={(e)=>setSearch_(e.target.value)} />
+            <input type="text" className="search_nom" value={search_} onChange={(e)=>setSearch_(e.target.value)} />
            
            </div>
               <div  className="cards">

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSearchParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 axios.defaults.baseURL = "http://localhost:5000";
 export default function RegisterAdmin(){
@@ -42,6 +43,13 @@ export default function RegisterAdmin(){
             console.log("not null");
             axios.put(`/admins/${searchparams.get("id")}`,form,config).then((res)=>{
                 console.log(res);
+                Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Admin Modifier',
+                    showConfirmButton: false,
+                    timer: 2500
+                  })
                 //axios.post("/users_role",{email:res.data.success.email,userId:res.data.success.id,role:'patient'});
             }).catch((errr)=>console.log(errr));
         }else{
@@ -52,8 +60,20 @@ export default function RegisterAdmin(){
             console.log(res);
             axios.post("/users_role",{email:res.data.admin.email,userId:res.data.admin.id,role:'admin'});
 
+
+            Swal.fire({
+                position: 'center',
+                icon: 'success',
+                title: 'Admin a été ajouté',
+                showConfirmButton: false,
+                timer: 2500
+              })
         }).catch((errr)=>console.log(errr));
+
     }
+
+     
+
     }
 
 

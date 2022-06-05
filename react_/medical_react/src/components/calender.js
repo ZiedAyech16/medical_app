@@ -72,29 +72,27 @@ export default function Calender(){
     
 
     return (
-        <div className="container_ row container_calender">
+        <div className="container_calender">
 
 
-<div className="row ">
-<div className="col-sm-6 ">
 
-<h6 className="mt-5 text-primary">Choisir une Date :</h6>
-</div>
-<div className="calender_year col-sm-4">
-            <strong>Year :{_years} </strong>
-            <select className="form-control" onChange={(e)=>setYears(e.target.value)} value={_years}>
+            <div className="tabs_calender">
+            {_years%4===0?calender[0].month1[_months].days.map((day)=><button className="btn_calender" onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>):calender[0].month2[_months].days.map((day)=><button className="btn_calender" onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>)}
+        </div>
+
+        <div className="calender_choisir_date_">
+            <h6 className="calender_choisir_date_titre">Choisir une Date :</h6>
+
+            <strong className="calender_choisir_date_text">Year :{_years} </strong>
+            <select className="calender_year" onChange={(e)=>setYears(e.target.value)} value={_years}>
                 {years.map((year)=><option key={year} value={year}>{year} </option>)}
             </select>
-            <strong>Month :</strong>
-            <select className="form-control w-2" value={_months} onChange={(e)=>setMonths(e.target.value)}>
+            <strong className="calender_choisir_date_text">Month :</strong>
+            <select className="calender_year" value={_months} onChange={(e)=>setMonths(e.target.value)}>
                 {months.map((month_,index)=><option key={month_} value={index}>{month_} </option>)}
             </select>
       </div>
-</div>
 
-            <div className="tabs">
-            {_years%4===0?calender[0].month1[_months].days.map((day)=><button className="btn btn-outline-dark p-1  tab" onClick={()=>{onClickHandler(day,_months,_years)}}>{day} </button>):calender[0].month2[_months].days.map((day)=><button className="btn btn-outline-dark  p-2 tab" onClick={()=>{onClickHandler(day,_months,_years)}}>{day} </button>)}
-        </div>
         </div>
     );
 }
