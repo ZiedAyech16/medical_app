@@ -1,11 +1,11 @@
 const express = require("express");
-const { findAllRDV, findOneRDV, insertRDV, updateRDV, removeRDV } = require("../controller/rdv_DB");
+const { selectAllRdv, findOneRDV, ajouterRdv, updateRdv, removeRdv } = require("../controller/rdv_DB");
 const router = express.Router();
 
-findAllRDV().then((data)=>console.log(data));
+selectAllRdv().then((data)=>console.log(data));
 
 router.get("/",(req,res)=>{
-    findAllRDV().then((data)=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
+    selectAllRdv().then((data)=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
 })
 
 router.get("/:id",(req,res)=>{
@@ -13,16 +13,16 @@ router.get("/:id",(req,res)=>{
 })
 
 router.post("/",(req,res)=>{
-    insertRDV(req.body).then(data=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
+    ajouterRdv(req.body).then(data=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
 })
 
 
 router.put("/:id",(req,res)=>{
-    updateRDV(req.body,req.params.id).then(data=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
+    updateRdv(req.body,req.params.id).then(data=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
 })
 
 router.delete("/:id",(req,res)=>{
-    removeRDV(req.params.id).then(data=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
+    removeRdv(req.params.id).then(data=>res.status(200).send(data)).catch(err=>res.sendStatus(500).send(err));
 })
 
 module.exports = router;

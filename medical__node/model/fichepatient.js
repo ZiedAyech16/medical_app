@@ -1,56 +1,28 @@
 const { DataTypes } = require("sequelize");
+const db = require("../database/db");
 const Medecin = require("./medecin");
 const Patient = require("./patient");
-
-
 const sequelize = db.sequelize;
 
-const Fichepatient = sequelize.define("Fichepatient",{
+const FichePatient = sequelize.define("FichePatient",{
     id:{
         type:DataTypes.INTEGER,
-        autoIncrement:true,
         allowNull:false,
-        primaryKey:true
+        primaryKey:true,
+        autoIncrement:true
     },
-    nom:{
-        type:DataTypes.STRING
-    },
-    prenom:{
-        type:DataTypes.STRING
-    },
-    contact:{
-        type:DataTypes.INTEGER
-    },
-    age:{
-        type:DataTypes.INTEGER
-    },
-    sexe:{
-        type:DataTypes.STRING
-    },
-    hour:{
-        type:DataTypes.STRING
-    },
-    hour:{
-        type:DataTypes.STRING
-    },
-    jour:{
-        type:DataTypes.STRING
-    },
-    month:{
-        type:DataTypes.STRING
-    },
-    year:{
-        type:DataTypes.STRING
+    date:{
+        type:DataTypes.DATE,
+        allowNull:false
     }
 });
 
+Medecin.hasOne(FichePatient);
+FichePatient.belongsTo(Medecin);
 
-Medecin.hasOne(Fichepatient);
-Fichepatient.belongsTo(Medecin);
+Patient.hasOne(FichePatient);
+FichePatient.belongsTo(Patient);
 
-Patient.hasOne(Fichepatient);
-Fichepatient.belongsTo(Patient);
+ //FichePatient.sync({force:true});
 
- //Fichepatient.sync({force:true});
-
-module.exports = Fichepatient;
+module.exports = FichePatient;

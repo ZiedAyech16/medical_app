@@ -1,8 +1,17 @@
 .model_form{
     background-color: white;
     border-radius: 1%;
-    margin: 2%;
+    margin: 1%;
+    display: grid;
+    
+    grid-template-columns: 40% 60%;
 
+}
+
+
+
+.largeure{
+    width: 80%;
 }
 
 .button_close{
@@ -13,20 +22,26 @@
 }
 
 .input_text{
-    width: 90%;
+    width: 70%;
+    font-size: medium;
+    color: rgb(102, 74, 74);
+    font-family: 'Courier New', Courier, monospace;
+    font-style: oblique;
+    font-weight: bold;
 }
 
 .container_model{
-background-color: cadetblue;
+background-color: rgb(102, 74, 74);
+margin-top: -2%;
 }
 
 .button_{
-    background-color: transparent;
-    color: black;
-    border:2px ridge black;
+    background-color: rgba(255, 255, 255, 0.144);
+    color: rgb(10, 10, 10);
     font-family: bold;
-    border-radius: 0 25% 0 0;
     padding: 1%;
+    border: none;
+    font-size: x-large;
 }
 
 .button_:hover{
@@ -34,12 +49,84 @@ background-color: cadetblue;
     color: wheat;
     border:2px ridge wheat;
     font-family: bold;
-    border-radius: 0 25% 0 0;
     padding: 1%;
 }
 
-.image{
-    width: 60px;
-    height: 60px;
-    border-radius: 35%;
+.color__1{
+    color: rgb(52, 221, 0);
+}
+
+.color__2{
+    color: rgb(75, 42, 42);
+}
+
+.image__{
+    width: 160px;
+    height: 160px;
+    margin: 2%;
+    border-radius: 2% 2% 25% 2%;
+    
+}
+
+.date_rendevous{
+    display: flex;
+    justify-content: center;
+    width: 80vw;
+    color: rgb(218, 183, 250);
+    letter-spacing: 4px;
+    font-size: large;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.date_rendevous_text{
+    color: aliceblue;
+    font: 20px;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.part_left{
+    background-color: rgb(235, 173, 151);
+    display: flex;
+    justify-content: flex-start;
+    margin: 2%;
+    border-radius: 5% 5% 5% 25%;
+}
+
+.docteur_detail{
+    margin-top: 140px;
+}
+
+.text_docteur{
+    display: flex;
+    justify-content: flex-start;
+    
+}
+
+
+
+.line___{
+    display: grid;
+    justify-content: 20% 60%;
+    margin: 10px;
+    align-items: baseline;
+}
+
+.line___ > *{
+    display: flex;
+    justify-content: flex-start;
+    margin-top: 5px;
+}
+
+.radio_formulaire{
+    margin-right: 5px;
+    align-items: baseline;
+}
+.radio_formulaire > *{
+    margin-right: 10px;
+
+}
+
+.radio__{
+    margin-left: 5px;
 }

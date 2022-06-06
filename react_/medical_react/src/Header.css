@@ -112,7 +112,6 @@ color: gainsboro;
 .container_items:hover{
   background-color: rgb(206, 49, 81);
   color: bisque;
-  animation-duration: 5s;
 }
 
 @keyframes animcontainer{

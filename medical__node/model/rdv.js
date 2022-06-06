@@ -1,28 +1,56 @@
 const { DataTypes } = require("sequelize");
-const db = require("../database/db");
 const Medecin = require("./medecin");
 const Patient = require("./patient");
+
+
 const sequelize = db.sequelize;
 
-const RDV = sequelize.define("RDV",{
+const rdv = sequelize.define("rdv",{
     id:{
         type:DataTypes.INTEGER,
+        autoIncrement:true,
         allowNull:false,
-        primaryKey:true,
-        autoIncrement:true
+        primaryKey:true
     },
-    date:{
-        type:DataTypes.DATE,
-        allowNull:false
+    nom:{
+        type:DataTypes.STRING
+    },
+    prenom:{
+        type:DataTypes.STRING
+    },
+    contact:{
+        type:DataTypes.INTEGER
+    },
+    age:{
+        type:DataTypes.INTEGER
+    },
+    sexe:{
+        type:DataTypes.STRING
+    },
+    hour:{
+        type:DataTypes.STRING
+    },
+    hour:{
+        type:DataTypes.STRING
+    },
+    jour:{
+        type:DataTypes.STRING
+    },
+    month:{
+        type:DataTypes.STRING
+    },
+    year:{
+        type:DataTypes.STRING
     }
 });
 
-Medecin.hasOne(RDV);
-RDV.belongsTo(Medecin);
 
-Patient.hasOne(RDV);
-RDV.belongsTo(Patient);
+Medecin.hasOne(rdv);
+rdv.belongsTo(Medecin);
 
-// RDV.sync({force:true});
+Patient.hasOne(rdv);
+rdv.belongsTo(Patient);
 
-module.exports = RDV;
+ //rdv.sync({force:true});
+
+module.exports = rdv;
