@@ -555,7 +555,7 @@ const [heure_depart,setHeure_depart] = useState(0);
             <div>
              <div>
                 <div className="detail_docteur">
-                    <h4>Monsieur: {docteur.nom} {docteur.prenom} </h4>
+                    <h4>Monsieur/Madame: {docteur.nom} {docteur.prenom} </h4>
                     <h4>Specialite: {docteur.specialite} </h4>
                     <h4 className="">Date {parseInt(params.day)<10?<>0</>:<></>}{params.day}/{params.day<10?<>0</>:<></>}{params.month}/{params.year}</h4>
                     <h4> Selectionné<button className="refresh_hours" onClick={reload}>Pour Obtenir Les Infos</button></h4>
@@ -607,7 +607,7 @@ const [heure_depart,setHeure_depart] = useState(0);
 
             </tr>
       
-             <tr>   {disponibilityp2_.map((data,i)=><td ><button className="" data-toggle={modal2[i]} data-target="#exampleModalLong" onClick={()=>remplirDemande(data,i+11)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr>
+             <tr>   {disponibilityp2_.map((data,i)=><td ><button className="" data-toggle={modal2[i]}  data-target=".bd-example-modal-xl" onClick={()=>remplirDemande(data,i+11)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr>
 
 <tr></tr>
         </table>

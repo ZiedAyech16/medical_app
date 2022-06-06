@@ -1,62 +1,67 @@
-.container{
-    background-color: transparent;
-    width: 60%;
-}
-
-/* input{
-    font-size: 16px;
-    width: 40%;
-    padding: 1%;
-    margin: 2%;
-} */
-.btn1{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
-
-.btn_{
-   background-color: transparent;
-   padding: 10px;
-   font-size: 24px;
-   background-color: #06001a ;
-   color: antiquewhite;
-   letter-spacing: 2px;
-   
-   border-radius: 10% 5% 20%;
-   border:none;
-   margin: 10px;
-  }
-i{
-  margin-left: 20%;
+.menu_login{
+  height: 100%;
+  z-index: 5;
 
 }
-  .input_{
-    width: 40%;
-    border: none;
-    font-size: 24px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    border-radius: 5%;
-  }
 
-  .login_page{
-    padding: 2%;
-    color: darkslategrey;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-  }
+.login-container{
+  display: flex;
+  justify-content: center;
+  background-color: rgba(10, 44, 73, 0.747);
+  width: 80vw;
+  height: 60vh;
 
-  .container__{
-    background-color: rgb(46, 99, 146);
-  }
+}
 
-  .login-container{
-    background-color: rgba(46, 99, 146, 0.308);
-    border-radius: 25% 0 25% 0;
-  }
+.menu_login{
+  display: grid;
+  grid-template-columns: auto;
+
+}
+
+.input__{
+  width: 40vw;
+  font-size: x-large;
+  margin: 2px;
+  padding: 5px;
+}
+
+.item_login{
+  width: 60vw;
+}
+
+.btn__{
+  background-color: rgb(10, 11, 66);
+  padding: 5px 25px 5px 25px;
+  font-size: x-large;
+  display: flex;
+  justify-content: flex-start;
+  border: none;
+  letter-spacing: 5px;
+  font-style: oblique;
+  margin-left: 15vw;
+  color: beige;
+}
+
+.login_page__{
+  color: rgb(32, 46, 7);
+  font-size: xx-large;
+  letter-spacing: 5px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-style: oblique;
+  text-decoration: underline dotted 32px rgba(46, 1, 1, 0.048);
+  transform: rotate(0.7deg);
+  padding: 12px;
+}
+
+
+.container___{
+  background-color: rgba(136, 79, 25, 0.507);
+  padding: 1%;
+  width: 100vw;
+  height: 120vh;
+  z-index: 0;
+  transform: rotate(60deg);
+  border-radius: 4%;
+  position: absolute;
+}

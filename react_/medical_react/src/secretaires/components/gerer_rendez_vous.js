@@ -36,6 +36,8 @@ export function ListRendez_vous(){
 
     const  [all_patients,setAll_patients]=useState([]);
 
+    const [medecin_user,setMedecin_user]=useState({});
+
     console.log(date__);
 
     var fetchdata = async()=>{
@@ -50,7 +52,7 @@ export function ListRendez_vous(){
   
   rdvs.map((result)=>{
 
-  console.log(result.Medecin.UserId);
+  //console.log(result.Medecin.id);
  // axios.get(`/patients/${result.PatientId}`).then((res)=>{console.log(res);setRendezvous_Patients(res.data)});
  // axios.get(`/medecins/${result.MedecinId}`).then((res)=>{console.log(res.data);setRendezvous_Medecin(res.data)});
   });
@@ -64,13 +66,13 @@ export function ListRendez_vous(){
 
     }
 
-console.log(value.day);
+//console.log(value.day);
 
 
 
 const search_patient_condition = (valeur)=>{
     //console.log("ok1");
-    const pats = all_patients.filter((res__)=>res__.User.nom.includes(valeur)).map((da)=>true)
+    const pats = all_patients.filter((res__)=>res__.nom.includes(valeur)).map((da)=>true)
     return pats.length
    // console.log("ok2");
 
@@ -79,17 +81,20 @@ const search_patient_condition = (valeur)=>{
    // return false;
 }
 
+
     useEffect(()=>{
         fetchdata();
         patientsearch.current=searchPatient;
+        axios.get(`/medecins/${parseInt(localStorage.getItem("userId"))}`).then(r=>setMedecin_user(r.data))
 
         
-            rdvs.map((d)=>setDate__({...date__,yyyy:d.date[0]+d.date[1]+d.date[2]+d.date[3]}))
+            // rdvs.map((d)=>setDate__({...date__,yyyy:d.date[0]+d.date[1]+d.date[2]+d.date[3]}))
         
-            rdvs.map((d)=>setDate__({...date__,mm:d.date[5]+d.date[6]}))
+            // rdvs.map((d)=>setDate__({...date__,mm:d.date[5]+d.date[6]}))
         
-            rdvs.map((d)=>setDate__({...date__,dd:d.date[8]+d.date[9]}))
+            // rdvs.map((d)=>setDate__({...date__,dd:d.date[8]+d.date[9]}))
         
+
             searchpatient.current=search_patient
             console.log(date__);
 
@@ -119,53 +124,49 @@ const search_patient_condition = (valeur)=>{
    //console.log(medecin_details(2).then((result)=>console.log(result[0].specialite)));
    //console.log(axios.get(`medecins/${2}`).then((data)=>{console.log(data.data)}));
    //1//console.log(medecin_details(2).then((result)=>{ JSON.stringify(result)}).then((result)=>{return result[0].specialite}));
+   console.log(value.day);
+   console.log(medecin_user);
+
     return(
         <div>
-            <div className="search_rdvs">
-            <h1 className="rendez_vous_title">Gerer Rendez-Vous    
-            {
-   // console.log('tt',search_patient_condition(search_patient))
-}
-            </h1>
-            <input className="search_nom_fc" type="text" value={search_patient}  onChange={(e)=>setSearch_patient(e.target.value)} />
+            <div className=" container_search">
+               
+                 {/* <h1 className="rendez_vous_title">Gerer Rendez-Vous    
+                                {
+                    // console.log('tt',search_patient_condition(search_patient))
+                    }
+                                </h1> */}
+                                <input className="search_nom" placeholder="search rendez vous" type="text" value={search_patient}  onChange={(e)=>setSearch_patient(e.target.value)} />
 
+                                <DatePicker
+                        containerStyle={{ //datepicker container style
+                            width: "160px",
+                            margin: "auto",
+                            marginLeft:"80px",
+                            
+                            }}
+                            style={{ //input style
+                            width: "230px",
+                            height: "36px",
+                            boxSizing: "border-box",
+                            paddingLeft:"55px",
+                            border:"5px solid navy"
 
-            <DatePicker
-     containerStyle={{ //datepicker container style
-          width: "160px",
-          margin: "auto",
-          marginLeft:"80px",
-          
-        }}
-        style={{ //input style
-          width: "230px",
-          height: "36px",
-          boxSizing: "border-box",
-          paddingLeft:"55px",
-          border:"5px solid navy"
+                            }}
 
-        }}
+                    value={value} onChange={setValue}  className=" red " />
 
-value={value} onChange={setValue}  className=" red " />
+                    
             </div>
 
        
 
-{
-   // rdvs.map((d)=>console.log(d.date.substr(0,10)+" "+d.date.substr(0,4)+" "+d.date.substr(5,6)+" "+d.date.substr(7,8)))
-}
-{/* {
-    rdvs.map((d)=>console.log(d.date[0]+d.date[1]+d.date[2]+d.date[3]))
-}
+<div className="container_cards_user">
 
-{
-    rdvs.map((d)=>console.log(d.date[5]+d.date[6]))
-}
-{
-    rdvs.map((d)=>console.log(d.date[8]+d.date[9]))
-} */}
 
-  {/* {value?.toDate?.().toString()} */}
+
+
+
 
             <table width="100%">
                 <thead className="table bg-dark text-white"> 
@@ -193,44 +194,51 @@ value={value} onChange={setValue}  className=" red " />
                 </thead>
 
                
+                {value.day}
+{/* 
+                {rdvs.map((data)=>{
+                <Rendezvous_Item rendezvous={data}  key={data.id} />
+                console.log(parseInt(data.year)===(value.year===undefined||value.year===null?-1:value.year))
+                console.log(data.year,(value.year===undefined||value.year===null?-1:value.year))
+                console.log("day = ",parseInt(data.jour)===(value.day===undefined||value.day===null?-1:value.day));
+                console.log(parseInt(data.jour),(value.day===undefined||value.day===null?-1:value.day));
+                
+            }
 
+              )} */}
+       
 
-            {rdvs.filter((res)=>parseInt(res.date[8]+res.date[9])===value.day
+            {value!==null||value!==undefined?rdvs.filter((res)=>parseInt(res.jour)===(value.day===undefined||value.day===null?-1:value.day)
             //  &&parseInt(res.date[5]+res.date[6])===convertoMonthToNumber(value.month)
-            &&parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===value.year
-           // &&res.Patient.User.UserId.includes(search_patient)
-           &&search_patient_condition(search_patient)
-           &&res.Medecin!==null&res.Patient!==null&&res.Medecin.UserId!==null&&res.Patient.UserId
+            &&parseInt(res.year)===(value.year===undefined||value.year===null?-1:value.year)
+            &&res.nom.includes(search_patient)
+          // &&search_patient_condition(search_patient)
+          // &&res.Medecin!==null&res.Patient!==null&&res.Medecin.id!==null&&res.Patient.id
             ).map((data)=><Rendezvous_Item rendezvous={data}  key={data.id} />
 
-            // <tr key={data.id}>
-            //     <td>{data.id}</td>
-               
-                //{
-                    /* <td>ali</td>
-                <td>ben ali</td>
-                <td>22555544</td>
-                <td>zied12@gmail.com</td>
-                <td>ali</td>
-                <td>Ahmed</td>
-                <td>54444444</td>
-                <td>{axios.get(`/users/${data.id}`).then((data_)=><p>{data_.data.nom} </p>)}</td>
-
-                <td>17/11/2022</td>
-                <td>14:00</td>
-                <td>
-                    <button className="btn_valid">valider</button>
-                    <button className="btn_reject">refuser</button>
-                </td> */
-            //}
-
-
-                //  </tr>
-                 )}
+              ):<></>}
             </table>
+
+
+
+            
+  <div className="card_">
+               
+             <img className="image_card_rdv" src={`http://127.0.0.1:5000/medecins/images/${medecin_user.image}`}></img>
+
+             <h4><strong>{medecin_user.prenom} {medecin_user.nom} </strong></h4>
+                <p><span className="title_title">Email: </span><strong className="title_content">{medecin_user.email}</strong> </p>
+                <p><span className="title_title">Contact: </span><strong className="title_content">{medecin_user.contact}</strong></p>
+                <p><span className="title_title">Specialite: </span><strong className="title_content">{medecin_user.specialite}</strong> </p>
+                <p><span className="title_title">Num Order </span><strong className="title_content">{medecin_user.num_order}</strong> </p>
+            </div>
+
+
+            </div>
         </div>
     );
 }
+
 
 
 function convertoMonthToNumber(s){

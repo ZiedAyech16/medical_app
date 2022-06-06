@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
+import Swal from "sweetalert2";
 import "./formulaire_success.css";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 export default function LoginInvite(props){
@@ -92,7 +93,7 @@ const handeaddfiche_pat = (e)=>{
     MedecinId:params.medecin_id
   });
 
-  axios.post("/fiche_patients",{
+  axios.post("/rdvs",{
     nom:user.nom,
     prenom:user.prenom,
     age:user.age,
@@ -107,6 +108,13 @@ const handeaddfiche_pat = (e)=>{
   }).then((result)=>console.log(result));
   console.log(user);
 
+  Swal.fire({
+    position: 'center',
+    icon: 'success',
+    title: 'Rendez-vous a été ajouté',
+    showConfirmButton: false,
+    timer: 2500
+  })
 }
 
 const user_role_event = (e)=>{
@@ -124,64 +132,77 @@ const user_role_event = (e)=>{
 
         <>
         
-<div  className="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+<div  class="modal fade  bd-example-modal-xl" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
 <form>
 
-  <div  className="modal-dialog" role="document">
+  <div  className="modal-dialog modal-xl" role="document">
     <div  className="modal-content container_model">
       <div className="modal-header">
         {/* <img src="/images/medecin1.jpg" className="image"></img> */}
-        <img className="image" src={`http://127.0.0.1:5000/medecins/images/${image}`}   />
 
-        <div>
-        <h5 className="modal-title" id="exampleModalLongTitle">{doctor_name}</h5>
-        <h6 style={{float:"left"}}>{specialite}</h6>
+        <div className="">
+            <div> 
+              <div  className="date_rendevous">Date de rendez-vous</div><br/>
+                <h6 className="date_rendevous_text">Date: {props.parameter.day} {afficheMonthLikeString(parseInt(props.parameter.month))} {parseInt(props.parameter.year)}</h6>
+            </div>
+            <div><h5 className="date_rendevous_text">Heure: {heure_dep}:00</h5></div>
         </div>
-        <button type="button" className="close button_close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
+
       </div>
 
       <div className="modal-body model_form">
-        <div className="">
-         <div className="pb-4"> <div style={{float:"left"}}>Date de rendez-vous</div><br/>
-               <h6 style={{float:"left"}}>{props.parameter.day} {afficheMonthLikeString(parseInt(props.parameter.month))} {parseInt(props.parameter.year)}</h6>
-         </div>
-         <div><h3 style={{float:"right"}}>{heure_dep}:00</h3></div>
+
+
+      <div className="part_left">
+        <img className="image__" src={`http://127.0.0.1:5000/medecins/images/${image}`}   />
+
+        <div className="docteur_detail">
+          <h5 className="modal-title text_docteur" id="exampleModalLongTitle">Nom de Medecin:</h5> <h6 className="text_docteur">{doctor_name}</h6>
+          <br/>
+          <h5 className="text_docteur">Specialite:</h5> <h6 className="text_docteur">{specialite}</h6>
         </div>
-        <div>
-          <h6>Saissez vos Information</h6>
-            <div className="form-group">
-              <label className="ms-3" style={{float:"left"}}>Nom :</label>
-              <input type="text" value={user.nom} onChange={(e)=>setDemande_fiche({...demande_fiche,nom:e.target.value})} className="form-control input_text"></input>
 
-            </div>
+      </div>
 
-            <div className="form-group">
-              <label style={{float:"left"}} className="ms-2" >Prenom :</label>
-              <input style={{float:"left"}} value={user.prenom} onChange={(e)=>setDemande_fiche({...demande_fiche,prenom:e.target.value})} type="text" className="form-control input_text"></input>
 
-            </div>
+        <div className="part_right">
+                <div className="line___"><h6>Saissez vos Information</h6></div>
+          
+                <div className="line___">
+                  <label  >Nom :</label>
+                  <input type="text" value={user.nom} onChange={(e)=>setDemande_fiche({...demande_fiche,nom:e.target.value})} className="form-control input_text"></input>
 
-            <div className="form-group">
-              <label style={{float:"left"}} className="ms-2" >Contact :</label>
-              <input style={{float:"left"}} value={user.contact} onChange={(e)=>setDemande_fiche({...demande_fiche,contact:e.target.value})} type="number" className="form-control input_text"></input>
+                </div>
 
-            </div>
+                <div className="line___">
+                  <label >Prenom :</label>
+                  <input  value={user.prenom} onChange={(e)=>setDemande_fiche({...demande_fiche,prenom:e.target.value})} type="text" className="form-control input_text"></input>
 
-            <div className="form-group">
-              <label style={{float:"left"}} className="ms-2" >Sexe :</label>
-              <div  style={{float:"left"}} className="input_text">
-              <input type="radio"  value={0} checked={demande_fiche.sexe==="0"}  onChange={user_role_event}  name="sexe"></input>Homme
-              <input type="radio"   value={1} checked={demande_fiche.sexe==="1"}   onChange={user_role_event}  name="sexe"></input>Femme
-              </div>
-            </div>
+                </div>
+
+                <div className="line___">
+                  <label  >Contact :</label>
+                  <input  value={user.contact} onChange={(e)=>setDemande_fiche({...demande_fiche,contact:e.target.value})} type="number" className="form-control input_text"></input>
+
+                </div>
+
+                <div className="line___">
+                  <div  className="radio_formulaire">
+                  <label >Sexe :</label>
+
+                  <input className="radio__" type="radio"  value={0} checked={demande_fiche.sexe==="0"}  onChange={user_role_event}  name="sexe"></input>Homme
+                  <input className="radio__" type="radio"   value={1} checked={demande_fiche.sexe==="1"}   onChange={user_role_event}  name="sexe"></input>Femme
+                  </div>
+                </div>
 
         </div>
       </div>
       <div className="modal-footer">
         {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button> */}
-        <button type="button" className="button_" onClick={handeaddfiche_pat}>Save changes</button>
+        <button type="button" className="button_ color__2" onClick={handeaddfiche_pat}>Save changes</button>
+        <button type="button" className="button_ color__2" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">Fermer</span>
+        </button>
       </div>
       
     </div>

@@ -28,6 +28,10 @@ export default function Login(){
 
     const [all_user,setAll_user]=useState([]);
 
+
+    const [users_role,setUsers_role]=useState([]);
+
+
 const handleChange = ()=>{
     dispatch(logging(false));
 }
@@ -67,13 +71,13 @@ const handleChange = ()=>{
         });
         console.log(token);
         
-        all_user.filter((res)=>res.email===email).map((response)=>{
-                    localStorage.setItem("token", token);
-                    localStorage.setItem("id",response.id)
-            console.log("user = ",response);
-        localStorage.setItem("email",response.email);
-        localStorage.setItem("password",response.password);
-        })
+        // all_user.filter((res)=>res.email===email).map((response)=>{
+        //             localStorage.setItem("token", token);
+        //             localStorage.setItem("id",response.id)
+        //     console.log("user = ",response);
+        // localStorage.setItem("email",response.email);
+        // localStorage.setItem("password",response.password);
+        // })
 
        // localStorage.setItem("id",userstate.user.id)
 
@@ -92,6 +96,7 @@ const handleChange = ()=>{
         //     alert('wrong');
         // }
 
+        axios.get("/users_role").then(r=>setUsers_role(r.data));
   
         axios.get("/users").then((response)=>setAll_user(response.data));
         axios.get("/users").then((response)=>console.log(response.data));
@@ -99,26 +104,48 @@ const handleChange = ()=>{
 
 
     },[]);
-console.log(all_user);
-    return (<div  className="container__">
+//console.log(all_user);
+users_role.map(r=>console.log(r));
+
+users_role.filter((res)=>res.email===email).map((response)=>{
+    localStorage.setItem("token", token);
+    localStorage.setItem("id",response.id)
+    console.log("user = ",response);
+    localStorage.setItem("email",response.email);
+    localStorage.setItem("password",response.password);
+    localStorage.setItem("role",response.role);
+    localStorage.setItem("userId",response.userId);
+})
+
+    return (<div >
+        <div className="container___"></div>
         <div  style={url} ></div>
         {change?<form className="login-container">
-            <h3 className="login_page">Medical Login Page :</h3>
-          <div >
-              
-                  <i className="fas fa-user"></i>
-                  
-                  <input type="email"  className="input_" placeholder="email :" value={email} onChange={e=>setEmail(e.target.value)}></input>
-                  </div>
-            <div>
-            <i className="fas fa-lock"></i>
-                <input type="password" className="input_" placeholder="Password :" value={password} onChange={e=>setPassword(e.target.value)}></input>
-            </div>
-            <div>
-                <button className="btn_" onClick={login}>Login</button>
-                <button onClick={()=>setChange(false)} className="btn_">Sign in</button>
+            <div className="menu_login">
+                        <div className="item_login">
 
-            </div>
+                            <h3 className="login_page__">Gestion Medical Login Page</h3>
+                        </div>
+                        
+                        <div className="item_login">
+                        
+                            <i className="fas fa-user"></i>
+                            
+                            <input type="email"  className="input__" placeholder="email :" value={email} onChange={e=>setEmail(e.target.value)}></input>
+                        </div>
+
+                        <div className="item_login">
+                            <i className="fas fa-lock"></i>
+                            <input type="password" className="input__" placeholder="Password :" value={password} onChange={e=>setPassword(e.target.value)}></input>
+                        </div>
+         
+                        <div className="item_login">
+                            <button className="btn__" onClick={login}>Login</button>
+                            {/* <button onClick={()=>setChange(false)} className="btn__">Sign in</button> */}
+
+                        </div>
+
+                        </div>
             
         </form>:<RegisterAccount />}
 

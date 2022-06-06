@@ -1,11 +1,14 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import { useParams } from "react-router";
+
 import { useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 axios.defaults.baseURL = "http://localhost:5000";
 export default function RegisterPatient(){
-    const [searchparams]=useSearchParams();
+       const parametre = useParams();
+ const [searchparams]=useSearchParams();
 
     const [medecins,setMedecins] = useState([]);
     const [medecin,setMedecin] = useState();
@@ -13,6 +16,7 @@ export default function RegisterPatient(){
     const [list_secretaire,setListSecretaire] = useState([]);
     const  [secretaire,setSecretaire]=useState();
 
+    console.log("parametre",parametre.id);
 
     const [patient,setPatient]=useState({
         nom:'',
@@ -103,6 +107,12 @@ export default function RegisterPatient(){
         }
     },[medecin])
 
+    const check_med_sectraire = (e)=>{
+        e.preventDefault();
+        if(parametre.role_!==undefined&&parametre.role_!==null){
+            
+        }
+    }
 
     
 
@@ -143,10 +153,12 @@ export default function RegisterPatient(){
                 <select className="input_text_" value={patient.MedecinId} onChange={(e)=>setPatient({...patient,MedecinId:e.target.value})} name="medecin">
                     <option value="" readOnly={true} hidden={true} selected="selected">Choisir Un Medecin</option>
 
-                    {medecins.map((r)=><option key={r.id} value={r.id}>{r.prenom}{' '}{r.nom} </option>)}
+                    {parametre.role_!==undefined&&parametre.role_!==null?
+                      medecins.filter(r=>r.id===parseInt(parametre.id)).map((r)=><option key={r.id} value={r.id}>{r.prenom}{' '}{r.nom} </option>)
+
+                    :medecins.map((r)=><option key={r.id} value={r.id}>{r.prenom}{' '}{r.nom} </option>)}
                 </select>
             </div>
-
             <div>
                 <select className="input_text_" name="secretaires" value={patient.SecretaireId} onChange={(e)=>setPatient({...patient,SecretaireId:e.target.value})}>
                                 <option  readOnly={true} hidden={true} value="" selected="selected">Choisir Une Secretiare</option>

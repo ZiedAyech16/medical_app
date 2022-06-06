@@ -15,6 +15,15 @@
 
 }
 
+.container_cards_user{
+    display: grid;
+    grid-template-columns: 60vw 20vw;
+}
+
+.card_{
+    
+}
+
 .rendez_vous_title{
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color:navy;
@@ -50,4 +59,30 @@
 .search_nom_fc:focus{
     background-color: rgb(1, 34, 32);
     color: aliceblue;
+}
+
+
+.search_nom{
+    width: 80%;
+    font-size: x-large;
+    color: navy;
+    margin:0 0  0 0;
+    border-radius: 10%;
+
+}
+.search_nom:focus{
+    background-color: rgb(1, 47, 78);
+    color: aliceblue;
+}
+
+.container_search{
+    width: 100vw;
+    padding: 2%;
+    margin: 0 0 0 0;
+    border: 10px solid rgb(1, 1, 34);
+    box-shadow: 1px 1px 1px 30px rgba(0, 0, 22, 0.918);
+    background-color: rgb(1, 1, 34);
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
 }

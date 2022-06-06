@@ -1,16 +1,38 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
+import Swal from "sweetalert2";
 import "./gerer_rendez_vous_item.css";
+
+axios.defaults.baseURL ="http://127.0.0.1:5000";
+
 export default function Rendezvous_Item(props){
     console.log(props);
     const [userMedecin,setUserMedecin]=useState({});
     const [userPatient,setUserPatient]=useState({});
 
-    console.log(props.rendezvous);
+    const ajouterfiche_patient = (e)=>{
+        e.preventDefault();
+
+        Swal.fire({
+            title: 'Do you want to save the changes?',
+            showDenyButton: true,
+            showCancelButton: true,
+            confirmButtonText: 'Save',
+            denyButtonText: `Don't save`,
+          }).then((result) => {
+            /* Read more about isConfirmed, isDenied below */
+            if (result.isConfirmed) {
+                axios.post("/fiche_patients",{})
+              Swal.fire('Saved!', '', 'success')
+            } else if (result.isDenied) {
+              Swal.fire('Changes are not saved', '', 'info')
+            }
+          })
+    }
 
     useEffect(()=>{
-        axios.get(`/users/${props.rendezvous.Medecin.UserId}`).then((res)=>setUserMedecin(res.data));
-        axios.get(`/users/${props.rendezvous.Patient.UserId}`).then((res)=>setUserPatient(res.data));
+        axios.get(`/medecins/${props.rendezvous.MedecinId}`).then((res)=>setUserMedecin(res.data));
+        axios.get(`/patients/${props.rendezvous.PatientId}`).then((res)=>setUserPatient(res.data));
     },[]);
 
     console.log(userMedecin);
@@ -38,32 +60,28 @@ export default function Rendezvous_Item(props){
 
 
     <div className="card_principal">
-        <div className="def_">
-
-                <h4><strong>{userMedecin.prenom} {userMedecin.nom} </strong></h4>
-        <img className="image_" src="/images/calender.jpg" width="200px" ></img>
-            <h4><strong>{userPatient.prenom} {userPatient.nom} </strong></h4>
-
-        </div>
 
 
-        <div className="card">
 
+       
             <div>
-            Medecin
-                <p><span className="title_title">Email: </span><strong className="title_content">{userMedecin.email}</strong> </p>
-                <p><span className="title_title">Contact: </span><strong className="title_content">{userMedecin.contact}</strong></p>
-                <p><span className="title_title">Specialite: </span><strong className="title_content">{props.rendezvous.Medecin.specialite}</strong> </p>
-                <p><span className="title_title">Num Order </span><strong className="title_content">{props.rendezvous.Medecin.num_order}</strong> </p>
-            </div>
-            <div>
-            Pateint
-            <p><span className="title_title">Email: </span><strong className="title_content">{userPatient.email}</strong> </p>
-            <p><span className="title_title">Contact: </span><strong className="title_content">{userPatient.contact}</strong> </p>
-            <p><span className="title_title">Age </span><strong className="title_content">{userPatient.age}</strong> </p>
+
+                     <img className="image_card_rdv" src={`http://127.0.0.1:5000/patients/images/${userPatient.image}`}></img>
 
             </div>
-        </div>
+
+            <div className="card_rdv">
+            
+
+                <h4><strong>{userPatient.prenom} {userPatient.nom} </strong></h4>
+
+                <p><span className="title_title">Email: </span><strong className="title_content">{userPatient.email}</strong> </p>
+                <p><span className="title_title">Contact: </span><strong className="title_content">{userPatient.contact}</strong> </p>
+                <p><span className="title_title">Age </span><strong className="title_content">{userPatient.age}</strong> </p>
+                <button onClick={ajouterfiche_patient} >ajouter au fiche patient</button>
+
+            </div>
+        
     </div>
 
 

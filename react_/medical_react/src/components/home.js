@@ -142,6 +142,7 @@ export default function Home(){
         <Route path="/gere/medecins" element={<Gere_Medecin />} exact></Route>
         <Route path="/gere/patients" element={<Gere_Patients />} exact></Route>
         <Route path="/gere/admins" element={<Gere_Admins />} exact></Route>
+        <Route path="/register/patient/:id/:role_" element={<RegisterPatient />}></Route>
 
         
 </Routes></div>

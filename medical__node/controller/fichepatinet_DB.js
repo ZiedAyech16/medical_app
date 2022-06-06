@@ -1,50 +1,59 @@
-const Fichepatient = require("../model/fichepatient");
+const Medecin = require("../model/medecin");
+const Patient = require("../model/patient");
+const RDV = require("../model/fichepatient");
 
-async function ajouterFichePatient(fp){
-    return await Fichepatient.create({
-        nom:fp.nom,
-        prenom:fp.prenom,
-        age:fp.age,
-        sexe:fp.sexe,
-        hour:fp.hour,
-        jour:fp.jour,
-        month:fp.month,
-        year:fp.year,
-        contact:fp.contact,
-        MedecinId:fp.MedecinId,
-        PatientId:fp.PatientId
+async function findAllFichePatient(){
+    return await RDV.findAll({
+    include:[
+        {
+        model:Medecin,
+         attributes:{exclude:[]}
+    },
+    {
+        model:Patient,
+         attributes:{exclude:[]}
+    }
+]
     });
 }
 
-async function selectAllFichePatient(){
-    return await Fichepatient.findAll({
-        
+async function findOneFichePatient(id){
+    return await RDV.findOne({where:{id:id},
+        include:[
+            {
+            model:Medecin,
+             attributes:{exclude:[]}
+        },
+        {
+            model:Patient,
+             attributes:{exclude:[]}
+        }
+    ]});
+}
+
+async function insertFichePatient(rdv){
+    return await RDV.create({
+        date:rdv.date,
+        MedecinId:rdv.MedecinId,
+        PatientId:rdv.PatientId
     });
 }
 
-
-async function removeFichePatient(id){
-    return await Fichepatient.destroy({where:{id:id}});
-}
-
-
-async function updateFichePatient(fp,id){
-    return await Fichepatient.update({
-        nom:fp.nom,
-        prenom:fp.prenom,
-        age:fp.age,
-        sexe:fp.sexe,
-        hour:fp.hour,
-        jour:fp.jour,
-        month:fp.month,
-        year:fp.year,
-        contact:fp.contact,
-        MedecinId:fp.MedecinId,
-        PatientId:fp.PatientId
+async function updateFichePatient(rdv,id){
+    return await RDV.update({
+        date:rdv.date,
+        MedecinId:rdv.MedecinId,
+        PatientId:rdv.PatientId
     },{
         where:{id:id}
     });
 }
 
+async function removeFichePatient(id){
+    return await RDV.destroy({
+        
+        where:{id:id}
+    });
+}
 
-module.exports = {ajouterFichePatient,selectAllFichePatient,updateFichePatient,removeFichePatient};
+module.exports = {findAllFichePatient,findOneFichePatient,insertFichePatient,updateFichePatient,removeFichePatient};
