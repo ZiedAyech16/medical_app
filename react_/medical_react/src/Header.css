@@ -1,5 +1,6 @@
 .navbar{
-  background: linear-gradient(120deg,rgb(2, 2, 68),rgb(0, 118, 139));
+  /*background: linear-gradient(120deg,rgb(2, 2, 68),rgb(0, 118, 139));*/
+  background-color: rgb(1, 41, 68);
   display:grid;
   grid-template-columns:  100vw;
   width: 100vw;

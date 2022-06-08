@@ -83,6 +83,7 @@ export default function RegisterPatient(){
 
     }
 
+    const date_ = new Date();
 
 
     useEffect(()=>{
@@ -130,7 +131,7 @@ export default function RegisterPatient(){
                 <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={patient.prenom} onChange={(e)=>setPatient({...patient,prenom:e.target.value})}  />
             </div>
             <div>
-                <input placeholder="Age :" className="input_text_" type="number" name="age" min={0} max={110} value={patient.age} onChange={(e)=>setPatient({...patient,age:e.target.value})}  />
+                <input placeholder="Age :" className="input_text_" type="date" name="age" max={`${date_.toISOString().substring(0,10)}`} min="1938-01-01" value={patient.age} onChange={(e)=>setPatient({...patient,age:e.target.value})}  />
             </div>
             <div>
                 <input placeholder="Email :" className="input_text_" type="text" name="email"  value={patient.email} onChange={(e)=>setPatient({...patient,email:e.target.value})} />

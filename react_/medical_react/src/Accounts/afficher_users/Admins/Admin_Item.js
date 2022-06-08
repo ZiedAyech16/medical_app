@@ -45,7 +45,7 @@ export default function Admin_Item(props){
                 <div>
                     <p className="gere_secretaire_card_text">Email: {props.admin.email} </p>
                     <p className="gere_secretaire_card_text">Contact: {props.admin.contact} </p>
-                    <p className="gere_secretaire_card_text">Age: {props.admin.age} </p>
+                    <p className="gere_secretaire_card_text">Date de naisance:  {props.admin.age} </p>
                 </div>
                 <div>
                     <button  className="gere_secretaire_card_button color_1" onClick={editer_admin}>Editer</button>

@@ -48,7 +48,7 @@ export default function Medecin_Item(props){
                 <div>
                     <p className="gere_secretaire_card_text">Email:{props.medecin.email} </p>
                     <p className="gere_secretaire_card_text">Contact:{props.medecin.contact} </p>
-                    <p className="gere_secretaire_card_text">Age:{props.medecin.age} </p>
+                    <p className="gere_secretaire_card_text">Date de naisance: {props.medecin.age} </p>
                 </div>
                 <div>
                     <button  className="gere_secretaire_card_button color_1" onClick={editer_medecin}>Editer</button>

@@ -76,7 +76,9 @@ export default function RegisterAdmin(){
 
     }
 
+    const date_ = new Date();
 
+console.log(date_.toISOString().substring(0,10));
 
     useEffect(()=>{
         if(searchparams.get("id")!==null){
@@ -106,7 +108,7 @@ export default function RegisterAdmin(){
                 <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={admin.prenom} onChange={(e)=>setAdmin({...admin,prenom:e.target.value})}  />
             </div>
             <div>
-                <input placeholder="Age :" className="input_text_" type="number" name="age" min={0} max={110} value={admin.age} onChange={(e)=>setAdmin({...admin,age:e.target.value})}  />
+                <input placeholder="Age :" className="input_text_" type="date" name="age" min="1938-07-22" max={`${date_.toISOString().substring(0,10)}`} value={admin.age} onChange={(e)=>setAdmin({...admin,age:e.target.value})}  />
             </div>
             <div>
                 <input placeholder="Email :" className="input_text_" type="text" name="email"  value={admin.email} onChange={(e)=>setAdmin({...admin,email:e.target.value})} />

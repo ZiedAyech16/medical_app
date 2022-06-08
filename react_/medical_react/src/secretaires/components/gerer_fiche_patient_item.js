@@ -19,8 +19,10 @@ export default function FichePatientItem(props){
     
     const editer_patient = (e)=>{
         e.preventDefault();
+        //navigate(`/register/patient/${medecin.id}/${localStorage.getItem("role")}`);
+
         navigate({
-            pathname:"/register/patient",
+            pathname:`/register/patient/${medecin.id}/${localStorage.getItem("role")}`,
             search:createSearchParams(
                 {
                     id:props.patient.id,

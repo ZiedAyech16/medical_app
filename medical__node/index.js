@@ -53,6 +53,13 @@ app.use("/specialites",specialtes);
 const userRole = require("./router/user_role_routes");
 app.use("/users_role",userRole);
 
+const consultations = require("./router/consultation_routes");
+app.use("/consultations",consultations);
+
+const cabinets = require("./router/cabinet_routes");
+app.use("/cabinets",cabinets);
+
+
 var formidable = require('formidable');
 var fs = require('fs');
 app.get("/fileup",(req,res)=>{

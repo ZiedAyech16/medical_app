@@ -45,7 +45,7 @@ export default function Secretaire_Item(props){
                 <div>
                     <p className="gere_secretaire_card_text">Email: {props.secretaire.email} </p>
                     <p className="gere_secretaire_card_text">Contact: {props.secretaire.contact} </p>
-                    <p className="gere_secretaire_card_text">Age: {props.secretaire.age} </p>
+                    <p className="gere_secretaire_card_text">Date de naisance: {props.secretaire.age} </p>
                 </div>
                 <div>
                     <button  className="gere_secretaire_card_button color_1" onClick={editer_secretaire}>Editer</button>
