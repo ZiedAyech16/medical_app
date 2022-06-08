@@ -74,6 +74,7 @@ export default function RegisterMedecin(){
 
 
     const [specialtes,setAllspecialite]=useState([]);
+    const date_ = new Date();
 
     useEffect(()=>{
         axios.get("/specialites").then(result=>setAllspecialite(result.data));
@@ -108,7 +109,7 @@ export default function RegisterMedecin(){
                 <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={medecin.prenom} onChange={(e)=>setMedecin({...medecin,prenom:e.target.value})}  />
             </div>
             <div>
-                <input placeholder="Age :" className="input_text_" type="number" name="age" min={0} max={110} value={medecin.age} onChange={(e)=>setMedecin({...medecin,age:e.target.value})}  />
+                <input placeholder="Age :" className="input_text_" type="date" name="age" min="1938-01-01" max={`${date_.toISOString().substring(0,10)}`} value={medecin.age} onChange={(e)=>setMedecin({...medecin,age:e.target.value})}  />
             </div>
             <div>
                 <input placeholder="Email :" className="input_text_" type="text" name="email"  value={medecin.email} onChange={(e)=>setMedecin({...medecin,email:e.target.value})} />

@@ -7,7 +7,7 @@ export default function Gerer_Doctor_ByAdmin_Item(props){
     const editer_doctor = ()=>navigate(`/editer/${props.doctor.id}/doctor`)
     return (
         <div className="card_doctor">
-            <img  src={`http://127.0.0.1:5000/users/images/${props.doctor.image}`} width={100} height={100} />
+            <img className="image_card_"  src={`http://127.0.0.1:5000/users/images/${props.doctor.image}`} width={80} height={80} />
             <div className="card_nom_prenom">{props.doctor.nom} {props.doctor.prenom}</div>
             <div className="card_div"><div className="card_text">Specialite: </div><div className="card_text">{props.doctor.specialite}</div></div>
             <div className="card_div"><div className="card_text">contact: </div><div className="card_text">{props.doctor.contact}</div></div>

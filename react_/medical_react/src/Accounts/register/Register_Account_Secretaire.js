@@ -76,7 +76,7 @@ export default function RegisterSecretaire(props){
     }
 
     const [medecins,setMedecines]=useState([]);
-
+const date_ = new Date();
 
     useEffect(()=>{
         axios.get("/medecins").then(result=>setMedecines(result.data));
@@ -109,7 +109,7 @@ export default function RegisterSecretaire(props){
                 <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={secretaire.prenom} onChange={(e)=>setSecretaire({...secretaire,prenom:e.target.value})}  />
             </div>
             <div>
-                <input placeholder="Age :" className="input_text_" type="number" name="age" min={0} max={110} value={secretaire.age} onChange={(e)=>setSecretaire({...secretaire,age:e.target.value})}  />
+                <input placeholder="Age :" className="input_text_" type="date" name="age" min="1938-01-01" max={`${date_.toISOString().substring(0,10)}`} value={secretaire.age} onChange={(e)=>setSecretaire({...secretaire,age:e.target.value})}  />
             </div>
             <div>
                 <input placeholder="Email :" className="input_text_" type="text" name="email"  value={secretaire.email} onChange={(e)=>setSecretaire({...secretaire,email:e.target.value})} />

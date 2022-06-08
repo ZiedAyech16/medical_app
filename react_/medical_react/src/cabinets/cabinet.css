@@ -1,0 +1,144 @@
+/*ajouter cabinet */
+.cabinet_ajouter_{
+    background-color: rgb(212, 212, 170);
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.cabinet_ajouter_container{
+    padding: 2%;
+    background-color: beige;
+    width:60%;
+    margin: 5% 10% 20% 10%;
+
+}
+
+.cabinet_ajoute_title{
+    font-weight: 600;
+    letter-spacing: 3px;
+    color: navy;
+    font-variant: small-caps;
+    padding: 1%;
+    background-color: beige;
+    margin-bottom: 3%;
+
+}
+
+.cabinet_ajouter_item{
+    display: grid;
+    grid-template-columns: auto;
+}
+.cabinet_ajouter_label{
+    display: flex;
+    justify-content: flex-start;
+    font-weight: 900;
+    color: navy;
+    font-style: oblique;
+}
+.cabinet_ajouter_input{
+font-size: 24px;
+margin: 1% 0 2% 0;
+padding: 1%;
+}
+.cabinet_ajouter_button{
+    margin: 2%;
+    width: 40%;
+    font-variant: small-caps;
+    font-size: 22px;
+    padding: 1%;
+    font-weight: 600;
+    background-color: navy;
+    color: aliceblue;
+}
+
+/*cabinets */
+
+.cabinet_card_cards{
+    margin-left: 20%;
+}
+
+
+.cabinet_card{
+    display: grid;
+    grid-template-columns: 30% 40%;
+    width: 60vw;
+    background-color: aliceblue ;
+    padding: 1%;
+    margin-bottom: 2%;
+}
+
+.cabinet_card_item{
+
+}
+
+
+.cabinet_card_image{
+    width: 200px;
+    height: 150px;
+
+}
+
+.cabinet_card_nom{
+    font-size: x-large;
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 15%;
+    margin-bottom: 2%;
+    color: navy;
+}
+
+.cabinet_card_text{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 10%;
+    margin-bottom: 2%;
+    color: navy;
+}
+
+.cabinet_card_button{
+    padding: 2%;
+    color: aliceblue;
+    margin-left: 2%;
+}
+.cabinet_card_color1{
+    background-color: darkgoldenrod;
+}
+
+.cabinet_card_color2{
+    background-color: crimson;
+}
+
+
+.cabinet_search_nom{
+    width: 40%;
+    font-size: x-large;
+    color: navy;
+    margin:0 0  0 0;
+    border-radius: 10%;
+
+}
+
+.cabinet_search_nom:focus{
+    background-color: rgb(1, 47, 78);
+    color: aliceblue;
+}
+
+.cabinet_container_search{
+    width: 100vw;
+    padding: 2%;
+    margin: 0 0 0 0;
+    border: 10px solid rgb(1, 41, 68);
+    box-shadow: 1px 1px 1px 30px rgb(1, 41, 68);
+    background-color: rgb(1, 41, 68);
+}
+
+.cabinet_cabinet_ajouter_{
+    color: rgb(131, 139, 6);
+    background-color: transparent;
+    font-size: 25px;
+    float: right;
+    letter-spacing: 3px;
+    font-style: oblique;
+    border: none;
+}

@@ -23,6 +23,10 @@ import Gere_Secretaire from "../Accounts/afficher_users/Secretaires";
 import Gere_Medecin from "../Accounts/afficher_users/Medecins/Medecins";
 import Gere_Patients from "../Accounts/afficher_users/Patients/Patients";
 import Gere_Admins from "../Accounts/afficher_users/Admins/Admins";
+import Consultation from "../consultations/consultations";
+import AjouterConsultation from "../consultations/ajouter_consultation";
+import Cabinets from "../cabinets/cabinets";
+import AjouterCabinet from "../cabinets/ajouter_cabinet";
 
 export default function Home(){
     return(
@@ -143,7 +147,16 @@ export default function Home(){
         <Route path="/gere/patients" element={<Gere_Patients />} exact></Route>
         <Route path="/gere/admins" element={<Gere_Admins />} exact></Route>
         <Route path="/register/patient/:id/:role_" element={<RegisterPatient />}></Route>
+        <Route path="/consultations" element={<Consultation />}></Route>
+        <Route path="/consultations/ajouter" element={<AjouterConsultation />}></Route>
+        <Route path="/consultations/ajouter/:role" element={<AjouterConsultation />}></Route>
+        <Route path="/cabinets" element={<Cabinets />}></Route>
+        <Route path="/cabinets/ajouter" element={<AjouterCabinet />} ></Route>
+        <Route path="/cabinets/ajouter/:role" element={<AjouterCabinet />} ></Route>
+        
 
+        
+        
         
 </Routes></div>
         
