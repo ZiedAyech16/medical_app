@@ -77,8 +77,8 @@ export default function Rendezvous_Item(props){
 
                 <p><span className="title_title">Email: </span><strong className="title_content">{userPatient.email}</strong> </p>
                 <p><span className="title_title">Contact: </span><strong className="title_content">{userPatient.contact}</strong> </p>
-                <p><span className="title_title">Age </span><strong className="title_content">{userPatient.age}</strong> </p>
-                <button onClick={ajouterfiche_patient} >ajouter au fiche patient</button>
+                <p><span className="title_title">Date de naissance </span><strong className="title_content">{userPatient.age}</strong> </p>
+                {/* <button onClick={ajouterfiche_patient} >ajouter au fiche patient</button> */}
 
             </div>
         

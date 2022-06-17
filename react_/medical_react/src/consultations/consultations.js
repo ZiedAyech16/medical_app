@@ -49,7 +49,7 @@ export default function Consultation(){
             </select>
                 <button className="button_consultation" onClick={ajouterConsultation}>Ajouter Un Consultation</button>
             </div>
-           {all_consultation.filter(r=>r.Patient.nom.includes(nom_)&&r.Patient.prenom.includes(prenom_)&&
+           {all_consultation.filter(r=>r.Patient!==null&&r.Patient.nom.includes(nom_)&&r.Patient.prenom.includes(prenom_)&&
            (parseInt((new Date(r.date)).toISOString().substring(0,4))===parseInt((new Date(date_)).toISOString().substring(0,4))&&
            (parseInt((new Date(r.date)).toISOString().substring(4,7))===parseInt((new Date(date_)).toISOString().substring(4,7)))&&
            (parseInt((new Date(r.date)).toISOString().substring(7,10))===parseInt((new Date(date_)).toISOString().substring(7,10)))&&

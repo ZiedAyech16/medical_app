@@ -15,7 +15,7 @@ export default function Gere_Secretaire(){
 
     const goto_register = ()=>{
        
-        navigate("/register/secretaire");
+        navigate("/register/secretaire/ajouter");
     }
 
     useEffect(()=>{
@@ -25,9 +25,10 @@ export default function Gere_Secretaire(){
     return (
 <div>
 <div className="container_search"><input className="search_nom" type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Secretaire :"></input>
-<button className="ajouter_" onClick={goto_register}>Ajouter Admin</button>
+<button className="ajouter_" onClick={goto_register}>Ajouter Secretaire</button>
  </div>
 
+ <h2 className="title_liste">Liste des Secretaires</h2>
 
 
         <div className="gere_secretaire_container">

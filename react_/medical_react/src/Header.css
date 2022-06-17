@@ -43,6 +43,7 @@
   justify-content: flex-end;
   margin-left: 20vw;
   width: 20vw;
+  justify-items: baseline;
 
 }
 

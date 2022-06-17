@@ -19,7 +19,7 @@ export default function Secretaire_Item(props){
     const editer_secretaire = (e)=>{
         e.preventDefault();
         navigate({
-            pathname:"/register/secretaire",
+            pathname:"/register/secretaire/editer",
             search:createSearchParams(
                 {
                     id:props.secretaire.id,

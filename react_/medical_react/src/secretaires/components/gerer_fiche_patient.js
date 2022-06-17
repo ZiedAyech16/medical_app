@@ -36,9 +36,10 @@ export default function FichePatient(){
 
             </div>
             
+            <div className="fiche_pat_cards">
             {/* {fiches.filter((res__)=>(res__.Patient.nom!==null?res__.Patient.nom.includes(search_):false)&&(res__.Patient.prenom!==null?res__.Patient.prenom.includes(search_prenom):false)).map((result)=><FichePatientItem key={result.id} fiche_patient={result} />)} */}
             {patients.filter((res__)=>(res__.nom!==null?res__.nom.includes(search_):false)&&(res__.prenom!==null?res__.prenom.includes(search_prenom):false)&&(res__.MedecinId===medecin.id)).map((result)=><FichePatientItem key={result.id} fiche_patient={result} patient={result} />)}
-
+            </div>
 
      </div>
  );

@@ -25,12 +25,12 @@ export default function LoginInvite(props){
 
 
   const [demande_fiche,setDemande_fiche] = useState({
-    nom:'',
-    prenom:'',
-    age:0,
+    nom:patient.nom!==null?patient.nom:'',
+    prenom:patient.prenom!==null?patient.prenom:'',
+    age:patient.age!==null?patient.age:0,
     sexe:'',
-    contact:'',
-    PatientId:localStorage.getItem("id"),
+    contact:patient.contact!==null?patient.contact:'',
+    PatientId:localStorage.getItem("userId"),
     MedecinId:parseInt(params.medecin_id)
   });
   
@@ -51,19 +51,21 @@ useEffect(()=>{
   axios.get(`/medecins/${params.medecin_id!=null||params.medecin_id>0 ?params.medecin_id:props.doctor_id}`).then((data)=>setSpecialite(data.data.specialite)).catch((err)=>console.log(err));
   console.log(user_doctor_id);
   axios.get(`/medecins/${params.medecin_id}`).then((data)=>{setDoctorName(data.data.nom+" "+data.data.prenom);setContact(data.data.contact);  setImage(data.data.image);
+
+  axios.get(`/patients/${localStorage.getItem("userId")}`).then(r=>setPatient(r.data));
 }).catch((err)=>console.log(err));
 
 
  // user_doctor_id.map(res=>console.log(res));
 
 
-  axios.get(`/users/${localStorage.getItem("id")}`).then((response)=>setUser(response.data));
+  axios.get(`/patients/${localStorage.getItem("id")}`).then((response)=>setUser(response.data));
   // axios.get(`/users/${user_doctor_id}`)
   // .then((d)=>
   // setImage(d.data.image));
   axios.get(`/patients`).then((res)=>setPatients(res.data));
   patients.map((e)=>console.log(e.UserId===parseInt(localStorage.getItem("id"))));
-  patients.filter((res)=>res.UserId===parseInt(localStorage.getItem("id"))).map((data)=>setPatient(data));
+  //patients.filter((res)=>res.UserId===parseInt(localStorage.getItem("id"))).map((data)=>setPatient(data));
   console.log(patient);
 
 
@@ -80,25 +82,25 @@ const handeaddfiche_pat = (e)=>{
   e.preventDefault();
   const sexe_=demande_fiche.sexe===0?"Homme":"Femme";
   console.log({
-    nom:user.nom,
-    prenom:user.prenom,
-    age:user.age,
+    nom:demande_fiche.nom,
+    prenom:demande_fiche.prenom,
+    age:demande_fiche.age,
     sexe:sexe_,
-    contact:user.contact,
+    contact:demande_fiche.contact,
     hour:props.heure,
     jour:params.day,
     month:params.month,
     year:params.year,
-    PatientId:localStorage.getItem("id"),
+    PatientId:localStorage.getItem("userId"),
     MedecinId:params.medecin_id
   });
 
   axios.post("/rdvs",{
-    nom:user.nom,
-    prenom:user.prenom,
-    age:user.age,
+    nom:patient.nom,
+    prenom:patient.prenom,
+    age:patient.age,
     sexe:sexe_,
-    contact:user.contact,
+    contact:patient.contact,
     hour:props.heure,
     jour:params.day,
     month:params.month,
@@ -170,19 +172,19 @@ const user_role_event = (e)=>{
           
                 <div className="line___">
                   <label  >Nom :</label>
-                  <input type="text" value={user.nom} onChange={(e)=>setDemande_fiche({...demande_fiche,nom:e.target.value})} className="form-control input_text"></input>
+                  <input type="text" value={demande_fiche.nom} onChange={(e)=>setDemande_fiche({...demande_fiche,nom:e.target.value})} className="form-control input_text"></input>
 
                 </div>
 
                 <div className="line___">
                   <label >Prenom :</label>
-                  <input  value={user.prenom} onChange={(e)=>setDemande_fiche({...demande_fiche,prenom:e.target.value})} type="text" className="form-control input_text"></input>
+                  <input  value={demande_fiche.prenom} onChange={(e)=>setDemande_fiche({...demande_fiche,prenom:e.target.value})} type="text" className="form-control input_text"></input>
 
                 </div>
 
                 <div className="line___">
                   <label  >Contact :</label>
-                  <input  value={user.contact} onChange={(e)=>setDemande_fiche({...demande_fiche,contact:e.target.value})} type="number" className="form-control input_text"></input>
+                  <input  value={demande_fiche.contact} onChange={(e)=>setDemande_fiche({...demande_fiche,contact:e.target.value})} type="number" className="form-control input_text"></input>
 
                 </div>
 
@@ -199,7 +201,7 @@ const user_role_event = (e)=>{
       </div>
       <div className="modal-footer">
         {/* <button type="button" className="btn btn-secondary" data-dismiss="modal">Close</button> */}
-        <button type="button" className="button_ color__2" onClick={handeaddfiche_pat}>Save changes</button>
+        <button type="button" className="button_ color__2" onClick={handeaddfiche_pat}>Enregistrer</button>
         <button type="button" className="button_ color__2" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">Fermer</span>
         </button>

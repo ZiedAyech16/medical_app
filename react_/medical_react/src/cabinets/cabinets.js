@@ -24,7 +24,7 @@ export default function Cabinets(){
             <div>
                <div className="cabinet_container_search">
                 <input className="cabinet_search_nom" type="text" value={cabinetnom} onChange={(e)=>setCabinetnom(e.target.value)} placeholder="Nom de la Cabinet :"></input>
-                <button className="cabinet_cabinet_ajouter_" onClick={ajouterCabinet}>Ajouter Medecin</button> 
+                <button className="cabinet_cabinet_ajouter_" onClick={ajouterCabinet}>Ajouter Cabinet</button> 
 
                 </div>
             </div>

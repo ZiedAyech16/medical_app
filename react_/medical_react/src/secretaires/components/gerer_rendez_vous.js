@@ -85,8 +85,20 @@ const search_patient_condition = (valeur)=>{
     useEffect(()=>{
         fetchdata();
         patientsearch.current=searchPatient;
-        axios.get(`/medecins/${parseInt(localStorage.getItem("userId"))}`).then(r=>setMedecin_user(r.data))
+        if(localStorage.getItem("role")==="medecin"){
+             axios.get(`/medecins/${parseInt(localStorage.getItem("userId"))}`).then(r=>setMedecin_user(r.data))
 
+        }
+
+        if(localStorage.getItem("role")==="secretaire"){
+            axios.get(`/secretaires/${parseInt(localStorage.getItem("userId"))}`).then((result) => {
+            console.log("result =>",result.data);
+            setMedecin_user(result.data.Medecin);            
+        }).catch((err) => {
+            
+        });
+        }
+    
         
             // rdvs.map((d)=>setDate__({...date__,yyyy:d.date[0]+d.date[1]+d.date[2]+d.date[3]}))
         

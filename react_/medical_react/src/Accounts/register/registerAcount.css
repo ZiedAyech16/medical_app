@@ -159,7 +159,7 @@ i{
     cursor: pointer;
     border-radius:10%;
     float: left;
-    margin-left: 5vw;
+    margin-left: 1vw;
   }
   .input_text_{
     width: 40vw;
@@ -205,3 +205,21 @@ i{
   .image_card_{
     
   }
+
+
+  label{
+    display: flex;
+    justify-content: flex-start;
+    font-size: 16;
+    font-style: oblique;
+    font-weight: 800;
+    padding: 1% 0 0 1%;
+
+  }
+
+  .form-gr{
+    display: grid;
+    grid-template-columns: auto;
+  }
+
+ 

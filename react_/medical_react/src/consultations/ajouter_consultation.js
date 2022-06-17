@@ -32,7 +32,7 @@ export default function AjouterConsultation(){
         axios.get("/secretaires").then(re=>setSecretaire(re.data));
         axios.get("/patients").then((re)=>setPatients(re.data)); 
 
-        if(parametre.role==="medecin"&&consultation.duree.length===0){
+        if(parametre.role==="medecin"&&searchparams.get("id")!==undefined){
             setConsultation({
                 ...consultation,
                 date:new Date(searchparams.get("date")),
@@ -74,9 +74,10 @@ export default function AjouterConsultation(){
         form.append("SecretaireId",consultation.SecretaireId);
         form.append("PatientId",consultation.PatientId);
 //normalement secretaire
-        if(searchparams.get("id")!==undefined){
+console.log(searchparams.get("id"))
+        if(searchparams.get("id")!==undefined||searchparams.get("id")!==null){
             axios.put(`/consultations/${searchparams.get("id")}`,consultation).then(r=>{
-                console.log(r);
+                console.log("rr",r);
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
@@ -106,6 +107,8 @@ export default function AjouterConsultation(){
 
     }
     
+    console.log(consultation);
+
     return(
     <div className="consultation_ajoute_">
         <h2 className="consultation_ajoute_title">Consultation</h2>
