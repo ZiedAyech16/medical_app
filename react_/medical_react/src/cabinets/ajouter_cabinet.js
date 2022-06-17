@@ -11,6 +11,7 @@ export default function AjouterCabinet(){
     const [cabinets,caninets]=useState();
     const [medecins,setMedecins] = useState([]);
     const [file,setFile] = useState(null);
+    const [title,setTitle]=useState("Ajouter ");
     const [cabinet,setCabinet] = useState({
         nom:'',
         etablissement:'',
@@ -20,6 +21,7 @@ export default function AjouterCabinet(){
         axios.get("/medecins").then(r=>setMedecins(r.data));
 
         if(parametre.role==="medecin"){
+            setTitle("Editer ");
             setCabinet({...cabinet,
             nom:searchparams.get("nom"),
             etablissement:searchparams.get("etablissement"),
@@ -78,7 +80,7 @@ const ajouterCabinet = ()=>{
     return (
         <div className="cabinet_ajouter_">
             <div className="cabinet_ajouter_container"> 
-               <h3 className="cabinet_ajoute_title">Cabinet</h3>
+               <h3 className="cabinet_ajoute_title">{title} Cabinet</h3>
 
                 <div className="cabinet_ajouter_item">
                     <label className="cabinet_ajouter_label">Nom :</label>

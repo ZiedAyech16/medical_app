@@ -1,5 +1,5 @@
 const express = require("express");
-const { selectAllCabinet, selectOneCabinet, removeCabinet } = require("../controller/cabinet_DB");
+const { selectAllCabinet, selectOneCabinet, removeCabinet, ajouterCabinet } = require("../controller/cabinet_DB");
 const { uploadImage, upload, uploadImage1, upload1 } = require("../controller/controller_image_cabinet");
 const router = express.Router();
 const fs =require("fs");
@@ -11,6 +11,8 @@ router.get("/",(req,res)=>{
 router.get("/:id",(req,res)=>{
     selectOneCabinet(req.params.id).then(cabinet=>res.send(cabinet)).catch(errr=>res.send(errr));
 })
+
+
 
 router.post("/",uploadImage,upload);
 

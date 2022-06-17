@@ -23,6 +23,9 @@ export default function Header(){
 
        localStorage.setItem("email","");
        localStorage.setItem("password","");
+       localStorage.setItem("role","");
+       localStorage.setItem("userId","");
+       localStorage.setItem("id","");
        dispatch(Logout_());
        
     }
@@ -35,6 +38,10 @@ export default function Header(){
     const geremedecins = ()=>navigate("/gere/medecins");
     const geresecretaires = ()=>navigate("/gere/secretaires");
     const gerepatients = ()=>navigate("/gere/patients");
+    const gerecabinets = ()=>navigate("/cabinets");
+    const gereconsultations = ()=>navigate("/consultations");
+
+    
 
     
     
@@ -68,26 +75,36 @@ export default function Header(){
       <li><img className="logo_" src="/images/sante.jpg" width={45} height={45} alt="Gestion Cabinet Medical" /></li>
 
         {
-            admin_?
+            localStorage.getItem("role")==="admin"?
             <div className="navbar_admin">
-                <li><button className="btn-design log_out btn-sm" onClick={gereadmins}>Gerer Admins</button></li>
+                {/* <li><button className="btn-design log_out btn-sm" onClick={gereadmins}>Gerer Admins</button></li> */}
                 <li><button className="btn-design log_out btn-sm" onClick={geremedecins}>Gerer Medecins</button></li>
                 <li><button className="btn-design log_out btn-sm" onClick={geresecretaires}>Gerer Secretaires</button></li>
                 <li><button className="btn-design log_out btn-sm" onClick={gerepatients}>Gerer Patients</button></li>
+                <li><button className="btn-design log_out btn-sm" onClick={gerecabinets}>Gerer Cabinets</button></li>
 
             </div>
             :<></>
         }
 
+{localStorage.getItem("role")==="medecin"||localStorage.getItem("role")==="secretaire"?
+
+<>
+        <li><button className="btn-design log_out btn-sm" onClick={gereconsultations}>Gerer Consultation</button></li>
 
         <li><button className="btn-design log_out btn-sm" onClick={posertime}>Poser Time</button></li>
         <li><button className="btn-design log_out btn-sm" onClick={gerefichespatient}>Gerer Fiche Patients</button></li>
         <li><button className="btn-design log_out btn-sm" onClick={tordvs}>Rdvs</button></li>
-        <li><button className="btn-design log_out btn-sm" onClick={toprofile}>Profile</button></li>
+
+    </>:<></>}
+    {localStorage.getItem("role")!=="admin"?<>
+        <li><button className="btn-design log_out btn-sm" onClick={toprofile}>Profile</button></li></>:<></>}
+    
+        {localStorage.getItem("role")==="patient"?<>
         <li>
         <ul  className="btn-design log_out btn-sm">
             <li className="dropdown">   
-            <a className="dropdown_ btn-design">liste docteur</a>
+            <a className="dropdown_ btn-design" style={{color:"white"}}>Docteurs</a>
 
             <table className="container_items col-sm-2">
                 <tr className="item">
@@ -168,8 +185,10 @@ export default function Header(){
             </table>
             </li>
         </ul>
-        </li>
-      </ul></div>}
+        </li></>:<></>}
+      </ul>
+      
+      </div>}
       <ul className="navbar_part_2_2">
 
             <li className="email-design">{localStorage.getItem("email")}</li>

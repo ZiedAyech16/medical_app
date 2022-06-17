@@ -33,6 +33,8 @@ export default function ConsultationItem(props){
         })
     }
     return(
+        <div>
+        {consultation.Patient!==null?
         <div className="card_consultation">
 
 
@@ -80,6 +82,7 @@ export default function ConsultationItem(props){
                 </button>
             </div>
 
+        </div>:<></>}
         </div>
     );
 }

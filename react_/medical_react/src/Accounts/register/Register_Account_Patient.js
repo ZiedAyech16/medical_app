@@ -15,6 +15,7 @@ export default function RegisterPatient(){
     const searchMedecin = useRef();
     const [list_secretaire,setListSecretaire] = useState([]);
     const  [secretaire,setSecretaire]=useState();
+    const [title,setTitle] = useState("Ajouter ");
 
     console.log("parametre",parametre.id);
 
@@ -54,13 +55,13 @@ export default function RegisterPatient(){
             }
         }
 
-        if(searchparams.get("id")!==null){
+        if(parametre.role==="editer"){
             axios.put(`/patients/${searchparams.get("id")}`,form,config).then((res)=>{
                 console.log(res);
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Patient a été ajouté',
+                    title: 'Patient a été modifiée',
                     showConfirmButton: false,
                     timer: 2500
                   })
@@ -92,7 +93,8 @@ export default function RegisterPatient(){
         searchMedecin.current=patient.MedecinId;
         axios.get("/secretaires").then(r=>setListSecretaire(r.data));
 
-        if(searchparams.get("id")!==null){
+        if(parametre.role==="editer"){
+            setTitle("Editer ");
             setPatient({...patient,
                 nom:searchparams.get("nom"),
                 prenom:searchparams.get("prenom"),
@@ -122,35 +124,53 @@ export default function RegisterPatient(){
 
 {medecin}
         <div className="formulaire_">  
-            <h1 className="title_text">Patient</h1>
+            <h1 className="title_text">{title} Patient</h1>
 
-            <div>
+            <div className="form-gr">
+                <label>Nom :</label>
+
                 <input  placeholder="Nom :" className="input_text_" type="text" name="nom" value={patient.nom} onChange={(e)=>setPatient({...patient,nom:e.target.value})} />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Prenom :</label>
+
                 <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={patient.prenom} onChange={(e)=>setPatient({...patient,prenom:e.target.value})}  />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Age :</label>
+
                 <input placeholder="Age :" className="input_text_" type="date" name="age" max={`${date_.toISOString().substring(0,10)}`} min="1938-01-01" value={patient.age} onChange={(e)=>setPatient({...patient,age:e.target.value})}  />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Eamil :</label>
+
                 <input placeholder="Email :" className="input_text_" type="text" name="email"  value={patient.email} onChange={(e)=>setPatient({...patient,email:e.target.value})} />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Contact :</label>
+
                 <input placeholder="Contact :" className="input_text_"  type="number" name="contact" value={patient.contact} onChange={(e)=>setPatient({...patient,contact:e.target.value})}  />
             </div>
 
-            <div>
+            <div className="form-gr">
+                <label>Username :</label>
+
                 <input placeholder="Username :" className="input_text_" type="text" name="username"  value={patient.username} onChange={(e)=>setPatient({...patient,username:e.target.value})} />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Password :</label>
+
                 <input placeholder="Password :" className="input_text_"  type="text" name="password"  value={patient.password} onChange={(e)=>setPatient({...patient,password:e.target.value})} />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Image :</label>
+
                 <input placeholder="Image :" className="input_text_"  type="file" name="photo" onChange={onInputChange}  />
             </div>
 
-            <div>
+            <div className="form-gr">
+                <label>Medecin :</label>
+
                 <select className="input_text_" value={patient.MedecinId} onChange={(e)=>setPatient({...patient,MedecinId:e.target.value})} name="medecin">
                     <option value="" readOnly={true} hidden={true} selected="selected">Choisir Un Medecin</option>
 
@@ -160,7 +180,9 @@ export default function RegisterPatient(){
                     :medecins.map((r)=><option key={r.id} value={r.id}>{r.prenom}{' '}{r.nom} </option>)}
                 </select>
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Seretaire :</label>
+
                 <select className="input_text_" name="secretaires" value={patient.SecretaireId} onChange={(e)=>setPatient({...patient,SecretaireId:e.target.value})}>
                                 <option  readOnly={true} hidden={true} value="" selected="selected">Choisir Une Secretiare</option>
                                 {list_secretaire.filter((r)=>r.MedecinId ===parseInt(patient.MedecinId)&&r.MedecinId !==null).map((r)=><option key={r.id} value={r.id}>{r.nom}{' '}{r.prenom} </option>)}

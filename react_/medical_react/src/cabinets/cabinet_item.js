@@ -41,9 +41,11 @@ export default function CabinetItem(props){
                 
                     <div className="cabinet_card_item">
                         <h5 className="cabinet_card_nom">Medecin Detail</h5>
-                        <div className="cabinet_card_text">Nom :{cabinet.Medecin.nom} </div>
+                        {cabinet.Medecin!==null?<div>
+                        <div className="cabinet_card_text">Nom :${cabinet.Medecin.nom} </div>
                         <div className="cabinet_card_text">Prenom :{cabinet.Medecin.prenom} </div>
                         <div className="cabinet_card_text">Contact :{cabinet.Medecin.contact} </div>
+                        </div>:<div className="cabinet_card_text">Non Medecin </div>}
 
                     </div>
                     <div>

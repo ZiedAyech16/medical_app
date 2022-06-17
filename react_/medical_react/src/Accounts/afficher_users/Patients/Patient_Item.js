@@ -20,7 +20,7 @@ export default function Patient_Item(props){
     const editer_patient = (e)=>{
         e.preventDefault();
         navigate({
-            pathname:"/register/patient",
+            pathname:"/register/patient/editer",
             search:createSearchParams(
                 {
                     id:props.patient.id,

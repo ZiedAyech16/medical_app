@@ -138,9 +138,9 @@ export default function Home(){
         <Route path="/editer/:id/:specialite"  element={<RegisterAccount />}></Route>
         <Route path="/admin_gere_secretaires" element={<GereSecretairesByAdmin />} ></Route>
 
-        <Route path="/register/medecin" element={<RegisterMedecin />}></Route>
-        <Route path="/register/patient" element={<RegisterPatient />}></Route>
-        <Route path="/register/secretaire" element={<RegisterSecretaire />}></Route>
+        <Route path="/register/medecin/:role" element={<RegisterMedecin />}></Route>
+        <Route path="/register/patient/:role" element={<RegisterPatient />}></Route>
+        <Route path="/register/secretaire/:role" element={<RegisterSecretaire />}></Route>
         <Route path="/register/admins" element={<RegisterAdmin />}></Route>
         <Route path="/gere/secretaires" element={<Gere_Secretaire />} exact></Route>
         <Route path="/gere/medecins" element={<Gere_Medecin />} exact></Route>

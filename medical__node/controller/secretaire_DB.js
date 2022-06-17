@@ -1,8 +1,12 @@
+const Medecin = require("../model/medecin");
 const Secretaire = require("../model/secretaire");
 const User = require("../model/user");
 
 async function findAllSecretaire(){
     return await Secretaire.findAll(
+        {
+            include:{model:Medecin}
+        }
     //    { include:{
     //        // model:User,
     //         attributes:{exclude:["createAt","updateAt"]}
@@ -12,6 +16,9 @@ async function findAllSecretaire(){
 
 async function findOneSecretaire(id){
     return await Secretaire.findOne({where:{id:id},
+        
+            include:{model:Medecin}
+        
     //     include:{
     //     //model:User
     // }

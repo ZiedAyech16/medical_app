@@ -15,7 +15,7 @@ export default function Gere_Medecin(){
 
     const goto_register = ()=>{
        
-        navigate("/register/medecin");
+        navigate("/register/medecin/ajouter");
     }
 
     useEffect(()=>{
@@ -23,11 +23,14 @@ export default function Gere_Medecin(){
         search.current=search_;
     },[search_]);
     return (
-<div>
-<div className="container_search"><input className="search_nom" type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Medecin :"></input>
+<div >
+<div className="container_search">
+<input className="search_nom" type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Medecin :"></input>
 <button className="ajouter_" onClick={goto_register}>Ajouter Medecin</button> 
 
 </div>
+<h2 className="title_liste">Liste des Medecins</h2>
+
 
         <div className="gere_secretaire_container">
            { medecins.filter(res=>res.nom.includes(search_)).map((result)=> <Medecin_Item key={result.id} medecin={result} />)}

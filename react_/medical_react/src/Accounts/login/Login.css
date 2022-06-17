@@ -1,67 +1,40 @@
-.menu_login{
-  height: 100%;
-  z-index: 5;
-
+.cabinet__image{
+  height: 400px;
 }
 
-.login-container{
-  display: flex;
-  justify-content: center;
-  background-color: rgba(10, 44, 73, 0.747);
-  width: 80vw;
-  height: 60vh;
-
-}
-
-.menu_login{
-  display: grid;
-  grid-template-columns: auto;
+.cabinet__{
+    width: 90vw;
+    margin-left: 5%;
+    background-color: beige;
 
 }
 
 .input__{
-  width: 40vw;
-  font-size: x-large;
-  margin: 2px;
-  padding: 5px;
+  width: 50vw;
+  padding: 1%;
+  font-size: large;
+  margin-bottom: 1%;
+}
+
+.login_container_item{
+  background:linear-gradient(120deg,rgb(3, 81, 105),white);
+  margin-top: -2%;
+  padding: 2%;
 }
 
 .item_login{
-  width: 60vw;
+  margin-top: 1%;
 }
 
 .btn__{
-  background-color: rgb(10, 11, 66);
-  padding: 5px 25px 5px 25px;
+  background-color: rgb(129, 184, 47);
+  color: black;
+  padding: 0.4%;
+  font-weight: 700;
+  font-family: 'Courier New', Courier, monospace;
   font-size: x-large;
-  display: flex;
-  justify-content: flex-start;
+  width: 10vw;
   border: none;
-  letter-spacing: 5px;
-  font-style: oblique;
-  margin-left: 15vw;
-  color: beige;
-}
-
-.login_page__{
-  color: rgb(32, 46, 7);
-  font-size: xx-large;
-  letter-spacing: 5px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  font-style: oblique;
-  text-decoration: underline dotted 32px rgba(46, 1, 1, 0.048);
-  transform: rotate(0.7deg);
-  padding: 12px;
-}
-
-
-.container___{
-  background-color: rgba(136, 79, 25, 0.507);
-  padding: 1%;
-  width: 100vw;
-  height: 120vh;
-  z-index: 0;
-  transform: rotate(60deg);
-  border-radius: 4%;
-  position: absolute;
+  margin-left: -20%;
+  margin-bottom: 2%;
 }

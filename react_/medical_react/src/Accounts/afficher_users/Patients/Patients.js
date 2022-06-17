@@ -15,7 +15,7 @@ export default function Gere_Patients(){
 
     const goto_register = ()=>{
        
-        navigate("/register/patient");
+        navigate("/register/patient/ajouter");
     }
 
     useEffect(()=>{
@@ -28,6 +28,8 @@ export default function Gere_Patients(){
 <button className="ajouter_" onClick={goto_register}>Ajouter Patient</button> 
 
 </div>
+
+<h2 className="title_liste">Liste des patients</h2>
 
         <div className="gere_secretaire_container">
            { patients.filter(res=>res.nom.includes(search_)).map((result)=> <Patient_Item key={result.id} patient={result} />)}

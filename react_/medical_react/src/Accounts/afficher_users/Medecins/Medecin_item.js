@@ -19,7 +19,7 @@ export default function Medecin_Item(props){
     const editer_medecin = (e)=>{
         e.preventDefault();
         navigate({
-            pathname:"/register/medecin",
+            pathname:"/register/medecin/editer",
             search:createSearchParams(
                 {
                     id:props.medecin.id,

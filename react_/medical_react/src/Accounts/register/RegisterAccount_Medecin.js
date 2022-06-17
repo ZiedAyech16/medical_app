@@ -1,11 +1,13 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { useSearchParams } from "react-router-dom";
+import { useParams, useSearchParams } from "react-router-dom";
 import Swal from "sweetalert2";
 
 axios.defaults.baseURL = "http://localhost:5000";
 export default function RegisterMedecin(){
     const [searchparams]=useSearchParams();
+    const parameter = useParams();
+    const [title,setTitle] = useState("Ajouter ");
     const [medecin,setMedecin]=useState({
         nom:'',
         prenom:'',
@@ -43,7 +45,7 @@ export default function RegisterMedecin(){
             }
         }
 
-        if(searchparams.get("id")!==null){
+        if(parameter.role==="editer"){
             axios.put(`/medecins/${searchparams.get("id")}`,form,config).then((res)=>{
                 console.log(res);
                 //axios.post("/users_role",{email:res.data.medecin.email,userId:res.data.medecin.id,role:'medecin'});
@@ -79,7 +81,8 @@ export default function RegisterMedecin(){
     useEffect(()=>{
         axios.get("/specialites").then(result=>setAllspecialite(result.data));
         
-        if(searchparams.get("id")!==null){
+        if(parameter.role==="editer"){
+            setTitle("Editer ");
             setMedecin({...medecin,
                 nom:searchparams.get("nom"),
                 prenom:searchparams.get("prenom"),
@@ -100,39 +103,49 @@ export default function RegisterMedecin(){
     <div className="formulaire_container">
 
         <div className="formulaire_">
-            <h1 className="title_text">Medecin</h1>
+            <h1 className="title_text">{title} Medecin</h1>
 
-            <div>
+            <div className="form-gr">
+                <label>Nom :</label>
                 <input placeholder="Nom :" className="input_text_" type="text" name="nom" value={medecin.nom} onChange={(e)=>setMedecin({...medecin,nom:e.target.value})} />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Prenom :</label>
                 <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={medecin.prenom} onChange={(e)=>setMedecin({...medecin,prenom:e.target.value})}  />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Age :</label>
                 <input placeholder="Age :" className="input_text_" type="date" name="age" min="1938-01-01" max={`${date_.toISOString().substring(0,10)}`} value={medecin.age} onChange={(e)=>setMedecin({...medecin,age:e.target.value})}  />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Email :</label>
                 <input placeholder="Email :" className="input_text_" type="text" name="email"  value={medecin.email} onChange={(e)=>setMedecin({...medecin,email:e.target.value})} />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Contact :</label>
                 <input placeholder="Contact :" className="input_text_" type="number" name="contact" value={medecin.contact} onChange={(e)=>setMedecin({...medecin,contact:e.target.value})}  />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Num Order :</label>
                 <input placeholder="Num order :" className="input_text_" type="number" name="num_order" value={medecin.num_order} onChange={(e)=>setMedecin({...medecin,num_order:e.target.value})}  />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Specialite :</label>
                 <select placeholder="Specialite :" className="input_text_" name="specialte" value={medecin.specialite} onChange={(e)=>setMedecin({...medecin,specialite:e.target.value})}>
                 <option value="" readonly="true" hidden="true" selected>choisir la specialite :</option>
                     {specialtes.map((result=><option value={result.nom} >{result.nom} </option>))}
                 </select>
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Username :</label>
                 <input placeholder="Username :" className="input_text_" type="text" name="username"  value={medecin.username} onChange={(e)=>setMedecin({...medecin,username:e.target.value})} />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Password :</label>
                 <input placeholder="Password :" className="input_text_" type="text" name="password"  value={medecin.password} onChange={(e)=>setMedecin({...medecin,password:e.target.value})} />
             </div>
-            <div>
+            <div className="form-gr">
+                <label>Image :</label>
                 <input placeholder="Image :" className="input_text_" type="file" name="photo" onChange={onInputChange}  />
             </div>
             <div>
