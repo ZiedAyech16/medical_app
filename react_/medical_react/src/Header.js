@@ -5,7 +5,7 @@ import { Logout_ } from "./user/store/actions";
 import "./Header.css";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
-import HomeAdmin from "./Accounts/home/home_admin";
+import HomeAdmin from "./Accounts/home/home";
 
 export default function Header(){
     const [currentEmail,setCurrentEmail]=useState('');
@@ -40,6 +40,7 @@ export default function Header(){
     const gerepatients = ()=>navigate("/gere/patients");
     const gerecabinets = ()=>navigate("/cabinets");
     const gereconsultations = ()=>navigate("/consultations");
+    const gereordonnances = ()=>navigate("/ordonnances");
 
     
 
@@ -57,6 +58,8 @@ export default function Header(){
 
     },[]);
 
+    const _cabinets = (e)=>navigate("/liste_cabinets");
+
 //    users_role.map(result=>console.log(result));
     
     return (
@@ -69,7 +72,7 @@ export default function Header(){
       {localStorage.getItem("email")!=='' ?<div className="navbar_part_2_">
       {/* <Link to="/profile" >Profile</Link> */}
     
-   {   user_admin?<HomeAdmin />:
+      
      <div>
       <ul className="navbar_part_2_1">
       <li><img className="logo_" src="/images/sante.jpg" width={45} height={45} alt="Gestion Cabinet Medical" /></li>
@@ -97,6 +100,13 @@ export default function Header(){
         <li><button className="btn-design log_out btn-sm" onClick={tordvs}>Rdvs</button></li>
 
     </>:<></>}
+
+
+    {localStorage.getItem("role")==="medecin"||localStorage.getItem("role")==="patient"?
+        <li><button className="btn-design log_out btn-sm" onClick={gereordonnances}>Ordonnances</button></li>
+
+    :<></>}
+
     {localStorage.getItem("role")!=="admin"?<>
         <li><button className="btn-design log_out btn-sm" onClick={toprofile}>Profile</button></li></>:<></>}
     
@@ -188,13 +198,16 @@ export default function Header(){
         </li></>:<></>}
       </ul>
       
-      </div>}
+      </div>
       <ul className="navbar_part_2_2">
 
             <li className="email-design">{localStorage.getItem("email")}</li>
             <li><button className="btn-design log_out btn-sm" onClick={logout}>Logout</button></li>
       </ul>
-      </div>:<div className="needtologin">You need to Login</div>}
+      </div>:<div className="needtologin">
+        <span>You need to Login</span>
+        {/* <span><button onClick={_cabinets}>Cabinets</button></span> */}
+        </div>}
     
      </div>
   </div>
