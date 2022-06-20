@@ -60,6 +60,10 @@ const cabinets = require("./router/cabinet_routes");
 app.use("/cabinets",cabinets);
 
 
+const ordonnances = require("./router/ordonnace_routes");
+app.use("/ordonnances",ordonnances);
+
+
 var formidable = require('formidable');
 var fs = require('fs');
 app.get("/fileup",(req,res)=>{

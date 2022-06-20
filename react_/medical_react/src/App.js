@@ -26,11 +26,11 @@ function App() {
     <div className="App">
       <BrowserRouter>
     <Header />
-    {
+    {/* {
     
     localStorage.getItem("email")===null||localStorage.getItem("email")===''?
     state.email.length===0?statelogin?
-    <Login />:<RegisterAccount />:<div>
+    <Login />:<Home />:<div>
            
 
       <br/>
@@ -39,6 +39,10 @@ function App() {
     : <Home />
 
 
+    } */}
+
+    {
+      localStorage.getItem("email")===""? <Login />:<Home />
     }
       
     </BrowserRouter>

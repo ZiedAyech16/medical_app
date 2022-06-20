@@ -27,6 +27,10 @@ import Consultation from "../consultations/consultations";
 import AjouterConsultation from "../consultations/ajouter_consultation";
 import Cabinets from "../cabinets/cabinets";
 import AjouterCabinet from "../cabinets/ajouter_cabinet";
+import AjouterOrdonnace from "../ordonnnance/ajouter_ordonnance";
+import OrdonnancePrint from "../ordonnnance/ordonnance_print";
+import Ordonnances from "../ordonnnance/ordonnances";
+import ShowCabinet from "../cabinets/show_cabinet";
 
 export default function Home(){
     return(
@@ -153,6 +157,10 @@ export default function Home(){
         <Route path="/cabinets" element={<Cabinets />}></Route>
         <Route path="/cabinets/ajouter" element={<AjouterCabinet />} ></Route>
         <Route path="/cabinets/ajouter/:role" element={<AjouterCabinet />} ></Route>
+        <Route path="/ordonnances/:type" element={<AjouterOrdonnace />}></Route>
+        <Route path="/ordonnances/imprimer" element={<OrdonnancePrint />}></Route>
+        <Route path="/ordonnances" element={<Ordonnances />}></Route>
+        <Route path="/liste_cabinets" element={<ShowCabinet />} exact></Route>
         
 
         

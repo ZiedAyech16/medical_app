@@ -37,7 +37,6 @@ export default function Login(){
 
     const [users_role,setUsers_role]=useState([]);
 
-    const [cabinets,setCabinets] = useState([]);
 
 
 const handleChange = ()=>{
@@ -48,7 +47,7 @@ const handleChange = ()=>{
 
      function login(e){    
 
-        e.preventDefault();
+//        e.preventDefault();
 
         axios.get("/users_role/login").then(user=>{
             console.log("login:",user.data.token);
@@ -213,7 +212,6 @@ const handleChange = ()=>{
         // axios.get("/users").then((response)=>setAll_user(response.data));
         // axios.get("/users").then((response)=>console.log(response.data));
         // axios.get("/users").then((response)=>setUsers__(response.data));
-         axios.get("/cabinets").then(r=>setCabinets(r.data));
 
 
     },[]);
@@ -298,9 +296,7 @@ users_role.filter((res)=>res.email===email).map((response)=>{
                     </form>
             
         </div>
-		 <Carousel axis="horizontal" useKeyboardArrows={true}>
-		 {cabinets.map(r=><CabinetItem cabinets={r} />)}
-   </Carousel> 
+
                 <div className="login_container_item_cabinets">
 
  
