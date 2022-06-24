@@ -6,7 +6,7 @@ import "./gerer_rendez_vous_item.css";
 axios.defaults.baseURL ="http://127.0.0.1:5000";
 
 export default function Rendezvous_Item(props){
-    console.log(props);
+    console.log("props",props);
     const [userMedecin,setUserMedecin]=useState({});
     const [userPatient,setUserPatient]=useState({});
 
@@ -35,8 +35,8 @@ export default function Rendezvous_Item(props){
         axios.get(`/patients/${props.rendezvous.PatientId}`).then((res)=>setUserPatient(res.data));
     },[]);
 
-    console.log(userMedecin);
-    console.log(userPatient);
+    console.log("med rdv",userMedecin);
+    console.log("pat rdv",userPatient);
     return(
         // <tr>
                       //{

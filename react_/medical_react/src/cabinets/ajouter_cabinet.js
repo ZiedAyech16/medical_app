@@ -5,6 +5,7 @@ import Swal from "sweetalert2";
 import { useParams } from "react-router";
 import "./cabinet.css";
 
+axios.defaults.baseURL="http://localhost:5000";
 export default function AjouterCabinet(){
     const [searchparams] = useSearchParams();
     const parametre = useParams();
@@ -93,7 +94,9 @@ const ajouterCabinet = ()=>{
                 <div className="cabinet_ajouter_item">
                     <label className="cabinet_ajouter_label">Medecin :</label>
                     <select className="cabinet_ajouter_input" name="MedecinId" value={cabinet.MedecinId} onChange={(e)=>setCabinet({...cabinet,MedecinId:e.target.value})}>
+                       <option>Selectioinnez cabinet</option>
                         {medecins.map(r=><option key={r.id} value={r.id}>{r.nom} {r.prenom} </option>)}
+                        
                     </select>
                 </div>
                 <div className="cabinet_ajouter_item">

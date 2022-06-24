@@ -12,7 +12,11 @@ export function CalenderHour(props){
     const color1 = "#87cefa";
     const color2 = "lightskyblue";
     const color3 = "#24a750";
-    const hours = [8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,0,1,2,3,4,5,6,7];
+    const color4 = "#a72c16";
+
+    
+    const hours = [8,9,10,11,12,13,14,15,16,17,18];
+//    const hours = [8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,0,1,2,3,4,5,6,7];
     const munites = [0,30,59];
    // const disponibility = [true,true,false,true,false,false,true,true,false,true,false,false,false];
    //props.disponibilityp1
@@ -50,241 +54,17 @@ disponibilityp2_.map((data,index)=>{
 
 const state__ = [...disponibilityp1_];
 const state__1 = [...disponibilityp2_];
-// medecins.map((res)=>{
-//     console.log("date==",res.date[11]+res.date[12])
-//     hours.filter((r)=>r===parseInt(res.date[11]+res.date[12])).map((data)=>{state__[data-8]=color3;});
-//     hours.filter((r)=>r===parseInt(res.date[11]+res.date[12])&&r<8).map((data)=>{state__1[data+6]=color3;});
-// });
 
-
-
-//console.log(params.medecin_id);
-//console.log(disponibilityp2_);
-//medecins.map((e)=>console.log("opp",e.MedecinId ));
-//medecins.filter((d)=>d.MedecinId ===parseInt(params.medecin_id)).map((e)=>console.log("opp params.medecin_id",e));
-
-//medecins.map((e)=>console.log("params.medecin_id",params.medecin_id ));
-
-
-
-//medecins.filter((d)=>d.MedecinId ===parseInt(params.medecin_id)).map((e)=>console.log("opp",e));
-
-    // medecins.filter((d)=>d.MedecinId ===parseInt(params.medecin_id)).map((res)=>{
-    //  //   console.log(res.date);
-    //     if(parseInt(res.date[11]+res.date[12])===8){
-    //         state__[0]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===9){
-    //         state__[1]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===10){
-    //         state__[2]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===11){
-    //         state__[3]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===12){
-    //         state__[4]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===13){
-    //         state__[5]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===14){
-    //         state__[6]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===15){
-    //         state__[7]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===16){
-    //         state__[8]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===17){
-    //         state__[9]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===18){
-    //         state__[10]=color3;
-    //     }
-    // //////////////////
-    //     if(parseInt(res.date[11]+res.date[12])===19){
-    //         state__1[0]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===20){
-    //         state__1[1]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===21){
-    //         state__1[2]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===22){
-    //         state__1[3]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===23){
-    //         state__1[4]=color3;
-    //     }
-    
-    
-    
-    
-    //     if(parseInt(res.date[11]+res.date[12])===0){
-    //         state__1[5]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===1){
-    //         state__1[6]=color3;
-    //     }
-    
-    
-    //     if(parseInt(res.date[11]+res.date[12])===2){
-    //         state__1[7]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===3){
-    //         state__1[8]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===4){
-    //         state__1[9]=color3;
-    //     }
-    
-    
-    //     if(parseInt(res.date[11]+res.date[12])===5){
-    //         state__1[10]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===6){
-    //         state__1[11]=color3;
-    //     }
-    
-    //     setdisponibilityp1_(state__);
-    //     setdisponibilityp2_(state__1);
-    
-    // });
-
-    // medecins.filter((d)=>d.Medecin_Id===params.medecin_id).map((e)=>console.log("opp",e));
-
-    // medecins.filter((d)=>d.MedecinId ===params.medecin_id).map((res)=>{
-
-    //     if(parseInt(res.date[11]+res.date[12])===8){
-    //         state__[0]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===9){
-    //         state__[1]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===10){
-    //         state__[2]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===11){
-    //         state__[3]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===12){
-    //         state__[4]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===13){
-    //         state__[5]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===14){
-    //         state__[6]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===15){
-    //         state__[7]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===16){
-    //         state__[8]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===17){
-    //         state__[9]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===18){
-    //         state__[10]=color3;
-    //     }
-    // //////////////////
-    //     if(parseInt(res.date[11]+res.date[12])===19){
-    //         state__1[0]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===20){
-    //         state__1[1]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===21){
-    //         state__1[2]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===22){
-    //         state__1[3]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===23){
-    //         state__1[4]=color3;
-    //     }
-    
-    
-    
-    
-    //     if(parseInt(res.date[11]+res.date[12])===0){
-    //         state__1[5]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===1){
-    //         state__1[6]=color3;
-    //     }
-    
-    
-    //     if(parseInt(res.date[11]+res.date[12])===2){
-    //         state__1[7]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===3){
-    //         state__1[8]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===4){
-    //         state__1[9]=color3;
-    //     }
-    
-    
-    //     if(parseInt(res.date[11]+res.date[12])===5){
-    //         state__1[10]=color3;
-    //     }
-    
-    //     if(parseInt(res.date[11]+res.date[12])===6){
-    //         state__1[11]=color3;
-    //     }
-    
-    //     setdisponibilityp1_(state__);
-    //     setdisponibilityp2_(state__1);
-    
-    // });
 
     console.log(params);
+
+
+    const [rdvs, setRdvs] = useState([]);
 
     
 useEffect(()=>{
     axios.get("/calenders").then((result)=>setAllMedecins(result.data));
-
+    axios.get("/rdvs").then(r=>setRdvs(r.data));
 //medecins.filter((d)=>d.MedecinId ===parseInt(params.medecin_id)).map((e)=>console.log("opp",e));
 
     medecins.filter((d)=>d.MedecinId ===parseInt(params.medecin_id)).map((res)=>{
@@ -513,7 +293,113 @@ const reload = ()=>{
         setdisponibilityp1_(state__);
         setdisponibilityp2_(state__1);
     
+        rdvs.filter(r=> parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(r.year)&&parseInt(res.date[5]+res.date[6])===parseInt(r.month)&&parseInt(res.date[8]+res.date[9])===parseInt(r.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(r.hour)).map(re=>{
+            console.log("ok","ok");
+            console.log("result", parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(re.year)&&parseInt(res.date[5]+res.date[6])===parseInt(re.month)&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour));
+            if(parseInt(res.date[11]+res.date[12])===8&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)){
+                state__[0]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===9&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)){
+                state__[1]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===10&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)){
+                state__[2]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===11){
+                state__[3]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===12){
+                state__[4]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===13){
+                state__[5]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===14){
+                state__[6]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===15){
+                state__[7]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===16){
+                state__[8]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===17){
+                state__[9]=color4;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===18){
+                state__[10]=color4;
+            }
+        //////////////////
+            if(parseInt(res.date[11]+res.date[12])===19){
+                state__1[0]=color2;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===20){
+                state__1[1]=color2;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===21){
+                state__1[2]=color2;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===22){
+                state__1[3]=color2;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===23){
+                state__1[4]=color2;
+            }
+        
+        
+        
+        
+            if(parseInt(res.date[11]+res.date[12])===0){
+                state__1[5]=color2;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===1){
+                state__1[6]=color2;
+            }
+        
+        
+            if(parseInt(res.date[11]+res.date[12])===2){
+                state__1[7]=color2;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===3){
+                state__1[8]=color2;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===4){
+                state__1[9]=color2;
+            }
+        
+        
+            if(parseInt(res.date[11]+res.date[12])===5){
+                state__1[10]=color2;
+            }
+        
+            if(parseInt(res.date[11]+res.date[12])===6){
+                state__1[11]=color2;
+                
+            }
+            
+            setdisponibilityp1_(state__);
+            setdisponibilityp2_(state__1);
+        })
+
     });
+
 
 
 
@@ -589,7 +475,7 @@ const [heure_depart,setHeure_depart] = useState(0);
       
              <tr>   {disponibilityp1_.map((data,i)=><td><button className="" data-toggle={modal1[i]} data-target="#exampleModalLong"  onClick={()=>remplirDemande(data,i)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr>
 
-
+{/* 
              <tr className="line_">
              <td ><span className="time">{hours[11]}</span></td>
             <td ><span className="time">{hours[12]}</span></td>
@@ -607,7 +493,7 @@ const [heure_depart,setHeure_depart] = useState(0);
 
             </tr>
       
-             <tr>   {disponibilityp2_.map((data,i)=><td ><button className="" data-toggle={modal2[i]}  data-target=".bd-example-modal-xl" onClick={()=>remplirDemande(data,i+11)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr>
+             <tr>   {disponibilityp2_.map((data,i)=><td ><button className="" data-toggle={modal2[i]}  data-target=".bd-example-modal-xl" onClick={()=>remplirDemande(data,i+11)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr> */}
 
 <tr></tr>
         </table>

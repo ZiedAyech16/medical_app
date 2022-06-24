@@ -9,8 +9,9 @@ export default function ConsultationItem(props){
     const consultation = props.consultation;
     const navigate = useNavigate();
     const toDetailPage = ()=>navigate({
-                        pathname:`/consultations/ajouter/${localStorage.getItem('role')}`,
-                        search:createSearchParams(consultation).toString()});
+       // pathname:`/consultations/ajouter/${localStorage.getItem('role')}`,
+        pathname:`/consultations/editer`,
+        search:createSearchParams(consultation).toString()});
     const date_ = new Date(consultation.date);
 
     const remove_consultation = (e)=>{

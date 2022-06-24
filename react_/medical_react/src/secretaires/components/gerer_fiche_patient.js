@@ -11,6 +11,7 @@ export default function FichePatient(){
  const [search_prenom,setSearch_Prenom]=useState('');
  const search = useRef();
  const searchprenom = useRef();
+ const [secretaire_of_med, setSecretaire_of_med] = useState({});
 
  const navigate = useNavigate();
 
@@ -25,6 +26,9 @@ export default function FichePatient(){
     axios.get(`/medecins/${localStorage.getItem("userId")}`).then((result)=>setMedecin(result.data));
     search.current = search_;
     searchprenom.current = search_prenom; 
+    if(localStorage.getItem("role")==="secretaire"){
+        axios.get(`/secretaires/${localStorage.getItem("userId")}`).then(r=>setSecretaire_of_med(r.data));
+    }
  },[search_,search_prenom]);
 
     return (
@@ -38,7 +42,11 @@ export default function FichePatient(){
             
             <div className="fiche_pat_cards">
             {/* {fiches.filter((res__)=>(res__.Patient.nom!==null?res__.Patient.nom.includes(search_):false)&&(res__.Patient.prenom!==null?res__.Patient.prenom.includes(search_prenom):false)).map((result)=><FichePatientItem key={result.id} fiche_patient={result} />)} */}
-            {patients.filter((res__)=>(res__.nom!==null?res__.nom.includes(search_):false)&&(res__.prenom!==null?res__.prenom.includes(search_prenom):false)&&(res__.MedecinId===medecin.id)).map((result)=><FichePatientItem key={result.id} fiche_patient={result} patient={result} />)}
+            {localStorage.getItem("role")==="medecin"? patients.filter((res__)=>(res__.nom!==null?res__.nom.includes(search_):false)&&(res__.prenom!==null?res__.prenom.includes(search_prenom):false)&&(res__.MedecinId===parseInt(localStorage.getItem("userId")))).map((result)=><FichePatientItem key={result.id} fiche_patient={result} patient={result} />):<></>}
+            {localStorage.getItem("role")==="secretaire"? patients.filter((res__)=>(res__.nom!==null?res__.nom.includes(search_):false)&&(res__.prenom!==null?res__.prenom.includes(search_prenom):false)&&(res__.MedecinId===secretaire_of_med.MedecinId)).map((result)=><FichePatientItem key={result.id} fiche_patient={result} patient={result} />):<></>}
+            
+            
+
             </div>
 
      </div>

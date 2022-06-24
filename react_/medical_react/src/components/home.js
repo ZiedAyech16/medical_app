@@ -1,7 +1,5 @@
 import { Route, Routes  } from "react-router";
 import { Link ,BrowserRouter} from "react-router-dom";
-import GereDoctorByAdmin from "../Accounts/admin_gere_doctors/admin_gere_doctors";
-import GereSecretairesByAdmin from "../Accounts/admin_gere_secretaire.js/admin_gere_secretaire";
 import Login from "../Accounts/login/Login";
 import Profile from "../Accounts/profile/profile";
 import RegisterAccount from "../Accounts/register/RegisterAccount";
@@ -138,9 +136,6 @@ export default function Home(){
         <Route path="/poser_time" element={<Poser_Time />} exact></Route>
         <Route path="/fiche_patients" element={<FichePatient />} exact></Route>
         <Route path="/fiche_patients/:id" element={<FichePatientItem />}></Route>
-        <Route path="/admin_gere_doctors" element={<GereDoctorByAdmin/>}  exact></Route>
-        <Route path="/editer/:id/:specialite"  element={<RegisterAccount />}></Route>
-        <Route path="/admin_gere_secretaires" element={<GereSecretairesByAdmin />} ></Route>
 
         <Route path="/register/medecin/:role" element={<RegisterMedecin />}></Route>
         <Route path="/register/patient/:role" element={<RegisterPatient />}></Route>
@@ -150,10 +145,10 @@ export default function Home(){
         <Route path="/gere/medecins" element={<Gere_Medecin />} exact></Route>
         <Route path="/gere/patients" element={<Gere_Patients />} exact></Route>
         <Route path="/gere/admins" element={<Gere_Admins />} exact></Route>
-        <Route path="/register/patient/:id/:role_" element={<RegisterPatient />}></Route>
+        {/* <Route path="/register/patient/:id/:role_" element={<RegisterPatient />}></Route> */}
         <Route path="/consultations" element={<Consultation />}></Route>
-        <Route path="/consultations/ajouter" element={<AjouterConsultation />}></Route>
-        <Route path="/consultations/ajouter/:role" element={<AjouterConsultation />}></Route>
+        {/* <Route path="/consultations/ajouter" element={<AjouterConsultation />}></Route> */}
+        <Route path="/consultations/:role" element={<AjouterConsultation />}></Route>
         <Route path="/cabinets" element={<Cabinets />}></Route>
         <Route path="/cabinets/ajouter" element={<AjouterCabinet />} ></Route>
         <Route path="/cabinets/ajouter/:role" element={<AjouterCabinet />} ></Route>

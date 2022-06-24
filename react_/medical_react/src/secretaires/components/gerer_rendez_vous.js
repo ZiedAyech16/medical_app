@@ -14,6 +14,8 @@ export function ListRendez_vous(){
     const [rendezvous,setRendezvous] = useState([]);
     const [rendezvous_medecin,setRendezvous_Medecin] = useState([]);
     const [rendezvous_patients,setRendezvous_Patients] = useState([]);
+    const [secretaire_of_med, setSecretaire_of_med] = useState({});
+
 
     const [medecinId,setmedecinId] =useState("");
     const [nom_med,setnom_med] = useState("");
@@ -88,6 +90,11 @@ const search_patient_condition = (valeur)=>{
         if(localStorage.getItem("role")==="medecin"){
              axios.get(`/medecins/${parseInt(localStorage.getItem("userId"))}`).then(r=>setMedecin_user(r.data))
 
+        }
+
+        
+        if(localStorage.getItem("role")==="secretaire"){
+            axios.get(`/secretaires/${localStorage.getItem("userId")}`).then(r=>setSecretaire_of_med(r.data));
         }
 
         if(localStorage.getItem("role")==="secretaire"){
@@ -220,15 +227,29 @@ const search_patient_condition = (valeur)=>{
               )} */}
        
 
-            {value!==null||value!==undefined?rdvs.filter((res)=>parseInt(res.jour)===(value.day===undefined||value.day===null?-1:value.day)
+            {localStorage.getItem("role")==="medecin"&&(value!==null||value!==undefined)?rdvs.filter((res)=>parseInt(res.jour)===(value.day===undefined||value.day===null?-1:value.day)
             //  &&parseInt(res.date[5]+res.date[6])===convertoMonthToNumber(value.month)
             &&parseInt(res.year)===(value.year===undefined||value.year===null?-1:value.year)
             &&res.nom.includes(search_patient)
+            &&parseInt(localStorage.getItem("userId"))===res.MedecinId
           // &&search_patient_condition(search_patient)
           // &&res.Medecin!==null&res.Patient!==null&&res.Medecin.id!==null&&res.Patient.id
             ).map((data)=><Rendezvous_Item rendezvous={data}  key={data.id} />
 
               ):<></>}
+
+              
+            {localStorage.getItem("role")==="secretaire"&&(value!==null||value!==undefined)?rdvs.filter((res)=>parseInt(res.jour)===(value.day===undefined||value.day===null?-1:value.day)
+            //  &&parseInt(res.date[5]+res.date[6])===convertoMonthToNumber(value.month)
+            &&parseInt(res.year)===(value.year===undefined||value.year===null?-1:value.year)
+            &&res.nom.includes(search_patient)
+            &&secretaire_of_med.MedecinId===res.MedecinId
+          // &&search_patient_condition(search_patient)
+          // &&res.Medecin!==null&res.Patient!==null&&res.Medecin.id!==null&&res.Patient.id
+            ).map((data)=><Rendezvous_Item rendezvous={data}  key={data.id} />
+
+              ):<></>}
+              
             </table>
 
 

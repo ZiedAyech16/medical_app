@@ -6,6 +6,8 @@ import Swal from "sweetalert2";
 axios.defaults.baseURL = "http://localhost:5000";
 export default function RegisterAdmin(){
     const [searchparams]=useSearchParams();
+    const [usersrole, setUsersrole] = useState([]);
+    const [countuserrole, setCountuserrole] = useState(0);
     const [admin,setAdmin]=useState({
         nom:'',
         prenom:'',
@@ -39,6 +41,8 @@ export default function RegisterAdmin(){
             }
         }
 
+        usersrole.filter(re=>re.email===admin.email).map((a)=>setCountuserrole(countuserrole+1));
+
         if(searchparams.get("id")!==null){
             console.log("not null");
             axios.put(`/admins/${searchparams.get("id")}`,form,config).then((res)=>{
@@ -56,6 +60,7 @@ export default function RegisterAdmin(){
             console.log(" null");
 
         console.log(admin);
+        if(countuserrole===0){
         axios.post("/admins",form,config).then((res)=>{
             console.log(res);
             axios.post("/users_role",{email:res.data.admin.email,userId:res.data.admin.id,role:'admin'});
@@ -70,6 +75,16 @@ export default function RegisterAdmin(){
               })
         }).catch((errr)=>console.log(errr));
 
+    }else{
+        
+        Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Admin est déja ajouté',
+            showConfirmButton: false,
+            timer: 2500
+          })
+    }
     }
 
      
@@ -93,7 +108,9 @@ console.log(date_.toISOString().substring(0,10));
                 image:searchparams.get("image")
                 
             })
-        }  
+        }
+        
+        axios.get("/users_role").then(re=>setUsersrole(re.data));
     },[])
 
     return(

@@ -1,7 +1,6 @@
 import axios from "axios";
 import { useEffect, useRef, useState } from "react";
 import Calender from "../../components/calender";
-import { getAllMedecins } from "../gerer_medecin/all";
 import { Link } from "react-router-dom";
 import MedecinItem from "../../components/medecinItem";
 import "./all_med.css";

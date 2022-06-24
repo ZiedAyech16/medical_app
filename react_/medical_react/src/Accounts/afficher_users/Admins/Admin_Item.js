@@ -3,6 +3,7 @@ import { createSearchParams } from "react-router-dom";
 import "./Admin.css";
 import axios from "axios";
 
+//url de lapartie backend
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 
 export default function Admin_Item(props){

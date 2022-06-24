@@ -10,6 +10,9 @@ export default function RegisterPatient(){
        const parametre = useParams();
  const [searchparams]=useSearchParams();
 
+ const [usersrole, setUsersrole] = useState([]);
+ const [countuserrole, setCountuserrole] = useState(0);
+
     const [medecins,setMedecins] = useState([]);
     const [medecin,setMedecin] = useState();
     const searchMedecin = useRef();
@@ -54,6 +57,9 @@ export default function RegisterPatient(){
                 'content-type':'multipart/form-data'
             }
         }
+        axios.get("/users_role").then(re=>setUsersrole(re.data));
+
+        usersrole.filter(re=>re.email===patient.email).map((a)=>setCountuserrole(parseInt(countuserrole)+1));
 
         if(parametre.role==="editer"){
             axios.put(`/patients/${searchparams.get("id")}`,form,config).then((res)=>{
@@ -61,7 +67,7 @@ export default function RegisterPatient(){
                 Swal.fire({
                     position: 'center',
                     icon: 'success',
-                    title: 'Patient a été modifiée',
+                    title: 'Patient a été modifié',
                     showConfirmButton: false,
                     timer: 2500
                   })
@@ -69,17 +75,30 @@ export default function RegisterPatient(){
             }).catch((errr)=>console.log(errr));
         }else{
         console.log(patient);
+        if(countuserrole===0){
+
         axios.post("/patients",form,config).then((res)=>{
             console.log(res);
             axios.post("/users_role",{email:res.data.success.email,userId:res.data.success.id,role:'patient'});
             Swal.fire({
                 position: 'center',
                 icon: 'success',
-                title: 'Patient a été modifié',
+                title: 'Patient a été ajouté',
                 showConfirmButton: false,
                 timer: 2500
               })
         }).catch((errr)=>console.log(errr));
+
+    }else{
+        
+        Swal.fire({
+            position: 'center',
+            icon: 'warning',
+            title: 'Patient est déja ajouté',
+            showConfirmButton: false,
+            timer: 2500
+          })
+    }
     }
 
     }
@@ -108,6 +127,8 @@ export default function RegisterPatient(){
                 SecretaireId:searchparams.get("SecretaireId")
             })
         }
+        axios.get("/users_role").then(re=>setUsersrole(re.data));
+
     },[medecin])
 
     const check_med_sectraire = (e)=>{
@@ -173,7 +194,7 @@ export default function RegisterPatient(){
 
                 <select className="input_text_" value={patient.MedecinId} onChange={(e)=>setPatient({...patient,MedecinId:e.target.value})} name="medecin">
                     <option value="" readOnly={true} hidden={true} selected="selected">Choisir Un Medecin</option>
-
+                    <option></option>
                     {parametre.role_!==undefined&&parametre.role_!==null?
                       medecins.filter(r=>r.id===parseInt(parametre.id)).map((r)=><option key={r.id} value={r.id}>{r.prenom}{' '}{r.nom} </option>)
 
@@ -183,8 +204,9 @@ export default function RegisterPatient(){
             <div className="form-gr">
                 <label>Seretaire :</label>
 
-                <select className="input_text_" name="secretaires" value={patient.SecretaireId} onChange={(e)=>setPatient({...patient,SecretaireId:e.target.value})}>
+                <select className="input_text_" name="SecretaireId" value={patient.SecretaireId} onChange={(e)=>setPatient({...patient,SecretaireId:e.target.value})}>
                                 <option  readOnly={true} hidden={true} value="" selected="selected">Choisir Une Secretiare</option>
+                                <option></option>
                                 {list_secretaire.filter((r)=>r.MedecinId ===parseInt(patient.MedecinId)&&r.MedecinId !==null).map((r)=><option key={r.id} value={r.id}>{r.nom}{' '}{r.prenom} </option>)}
 
                 </select>

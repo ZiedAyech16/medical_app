@@ -8,8 +8,17 @@ import TimePicker from "react-multi-date-picker/plugins/time_picker";
 import axios from "axios";
 import "./poser_disponibilite.css";
 import Swal from "sweetalert2";
+import moment from 'moment-timezone';
+
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 export default function Poser_Time(props){
+
+function onChange(date, dateString) {
+  console.log(date, dateString);
+}
+
+//moment.tz.setDefault("America/Los_Angeles");
+
     const [value,setValue]=useState(new Date());
     const [medecin_,setMedecin_]=useState({});
     const [medecin_all,setMedecin_all]=useState([]);
@@ -23,12 +32,15 @@ export default function Poser_Time(props){
     // console.log(value.month.number);
     // console.log(value.day);
     // console.log(value.year);
-
+    const [date__, setDate__] = useState(value)
+    console.log("date__",date__);
+    console.log("userId",localStorage.getItem("userId"));
     const handleCalender = (e)=>{
         e.preventDefault();
-        const date_ = new Date();
-        date_.setMonth()
-        axios.post('/calenders',{date:value,MedecinId:medecin_.id}).then((response)=>console.log(response));
+        const date_ = new Date(value);
+        //date_.setMonth()
+        date_.setHours(parseInt(value.hour));
+        axios.post('/calenders',{date:value,MedecinId:localStorage.getItem("userId")}).then((response)=>console.log(response));
 
         var close = document.getElementsByClassName("closebtn");
         var i;
@@ -83,12 +95,14 @@ export default function Poser_Time(props){
         // offsetX={10}
         // onClose={() => false}
             
-            format="MM/DD/YYYY HH:mm:ss"
+            format="MM/DD/YYYY hh:mm:ss"
   plugins={[
-    <TimePicker position="bottom" />
+    <TimePicker position="bottom"  />
   ]} 
-  
-  value={value} onChange={setValue}  />
+   onChange={setValue}
+  value={new Date(value?.toDate?.().toString())}
+  // onChange={setValue} 
+   />
 
         {/* <div>{value.day}/{value.month.number}/{value.year}</div> */}
 

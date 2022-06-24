@@ -7,6 +7,7 @@ import Swal from "sweetalert2";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 export default function AjouterConsultation(){
     const [searchparams] = useSearchParams();
+    const parameter = useParams();
     const [consultation,setConsultation]=useState({
         date:'',
         duree:'',
@@ -17,6 +18,7 @@ export default function AjouterConsultation(){
         SecretaireId:0
     })
 
+    const [condition_pour_edite, setCondition_pour_edite] = useState(false);
     const [secretaire,setSecretaire] = useState([]);
     const searchPatient = useRef();
 
@@ -25,6 +27,7 @@ export default function AjouterConsultation(){
     const [role, setRole] = useState(0);
 
     const parametre = useParams();
+    const [secretaire__current, setSecretaire__current] = useState({});
     
 
     useEffect(()=>{
@@ -32,7 +35,11 @@ export default function AjouterConsultation(){
         axios.get("/secretaires").then(re=>setSecretaire(re.data));
         axios.get("/patients").then((re)=>setPatients(re.data)); 
 
-        if(parametre.role==="medecin"&&searchparams.get("id")!==undefined){
+        if(localStorage.getItem("role")==="secretaire"){
+            axios.get(`/secretaires/${localStorage.getItem("userId")}`).then(r=>setSecretaire__current(r.data));
+        }
+
+        if(parametre.role==="editer"&&condition_pour_edite===false){
             setConsultation({
                 ...consultation,
                 date:new Date(searchparams.get("date")),
@@ -43,6 +50,7 @@ export default function AjouterConsultation(){
                 PatientId:searchparams.get("PatientId"),
                 SecretaireId:searchparams.get("SecretaireId")
             });
+            setCondition_pour_edite(true);
         }
         }, 2000);
 
@@ -75,7 +83,7 @@ export default function AjouterConsultation(){
         form.append("PatientId",consultation.PatientId);
 //normalement secretaire
 console.log(searchparams.get("id"))
-        if(searchparams.get("id")!==undefined||searchparams.get("id")!==null){
+        if(parameter.role==="editer"){
             axios.put(`/consultations/${searchparams.get("id")}`,consultation).then(r=>{
                 console.log("rr",r);
                 Swal.fire({
@@ -119,7 +127,7 @@ console.log(searchparams.get("id"))
             </div>
             <div className="consultation_ajoute_item">
                 <label className="consultation_ajoute_label" >Duree :</label>
-                <input className="consultation_ajoute_input" type="time" value={consultation.duree} onChange={(e)=>setConsultation({...consultation,duree:e.target.value})} name="duree" />
+                <input className="consultation_ajoute_input" type="number" step={0.01} value={consultation.duree} onChange={(e)=>setConsultation({...consultation,duree:e.target.value})} name="duree" />
             </div>
 
             <div className="consultation_ajoute_item">
@@ -145,8 +153,13 @@ console.log(searchparams.get("id"))
             <div className="consultation_ajoute_item">
                 <label className="consultation_ajoute_label" >Secretaire :</label>
                 <select className="consultation_ajoute_input" name="SecretaireId"  value={consultation.SecretaireId} onChange={(e)=>setConsultation({...consultation,SecretaireId:e.target.value})} >
+                    <option></option>
                     {
-                        secretaire.map(re=><option value={re.id}> {re.nom} {re.prenom} </option>)
+                      localStorage.getItem("role")==="medecin"?secretaire.filter(r=>r.MedecinId===parseInt(localStorage.getItem("userId"))).map(re=><option value={re.id}> {re.nom} {re.prenom} </option>):<></>
+
+                    }
+                    {
+                      localStorage.getItem("role")==="secretaire"?secretaire.filter(r=>r.MedecinId===parseInt(secretaire__current.MedecinId)).map(re=><option value={re.id}> {re.nom} {re.prenom} </option>):<></>
 
                     }
                 </select>
@@ -155,6 +168,7 @@ console.log(searchparams.get("id"))
             <div className="consultation_ajoute_item">
                 <label className="consultation_ajoute_label">Patient :</label>
                 <select className="consultation_ajoute_input" name="PatientId" value={consultation.PatientId} onChange={(e)=>setConsultation({...consultation,PatientId:e.target.value})}>
+                    <option></option>
                     {patients.filter(re=>re.SecretaireId===parseInt(consultation.SecretaireId)).map((re)=><option value={re.id}>{re.nom}{' '}{re.prenom} </option>)}
                 </select>
             </div>

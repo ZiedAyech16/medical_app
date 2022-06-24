@@ -70,7 +70,7 @@ useEffect(()=>{
 
 
   setDemande_fiche({...demande_fiche,MedecinId:parseInt(props.doctor_id)});
-  setDemande_fiche({...demande_fiche,PatientId:parseInt(localStorage.getItem("id"))});
+  setDemande_fiche({...demande_fiche,PatientId:parseInt(localStorage.getItem("userId"))});
   setDemande_fiche({...demande_fiche,contact:user.contact});
   setDemande_fiche({...demande_fiche,nom:user.nom});
 },[]);

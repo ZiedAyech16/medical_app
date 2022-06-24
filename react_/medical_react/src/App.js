@@ -42,7 +42,7 @@ function App() {
     } */}
 
     {
-      localStorage.getItem("email")===""? <Login />:<Home />
+      localStorage.getItem("email")===""? <Login />:<Home /> // 
     }
       
     </BrowserRouter>

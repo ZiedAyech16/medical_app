@@ -7,6 +7,9 @@ axios.defaults.baseURL = "http://localhost:5000";
 export default function RegisterSecretaire(props){
     const [searchparams]=useSearchParams();
     console.log(searchparams.get('id'));
+    const [usersrole, setUsersrole] = useState([]);
+    const [countuserrole, setCountuserrole] = useState("0");
+
     const [title,setTitle]=useState("Ajouter ");
     const parametre = useParams();
 
@@ -43,9 +46,14 @@ export default function RegisterSecretaire(props){
                 'content-type':'multipart/form-data'
             }
         }
+        axios.get("/users_role").then(re=>setUsersrole(re.data));
 
         console.log(secretaire);
-
+        usersrole.filter(re=>re.email===secretaire.email).map((a)=>setCountuserrole(parseInt(countuserrole)+1));
+        console.log("ok===>");
+        console.log("usercount",usersrole);
+        console.log("usercount",countuserrole);
+        console.log("ok===>");
 
         if(parametre.role === "editer"){
             axios.put(`/secretaires/${searchparams.get("id")}`,form,config).then(result=>{
@@ -62,6 +70,7 @@ export default function RegisterSecretaire(props){
         }else{
 
         
+            // if(countuserrole===0){
 
         axios.post("/secretaires",form,config).then((res)=>{
             console.log(res);
@@ -74,7 +83,18 @@ export default function RegisterSecretaire(props){
                 timer: 2500
               })
         }).catch((errr)=>console.log(errr));
-    }
+    // }else{
+        
+    //     Swal.fire({
+    //         position: 'center',
+    //         icon: 'warning',
+    //         title: 'Secretaire est déja ajouté',
+    //         showConfirmButton: false,
+    //         timer: 2500
+    //       })
+    // }
+
+}
     }
 
     const [medecins,setMedecines]=useState([]);
@@ -97,6 +117,9 @@ const date_ = new Date();
                 
             })
         }
+
+        axios.get("/users_role").then(re=>setUsersrole(re.data));
+
     },[])
 
     return(
@@ -141,6 +164,7 @@ const date_ = new Date();
             <div className="form-gr">
                 <label>Medecin :</label>
                 <select className="input_text_" value={secretaire.MedecinId} name="MedecinId" onChange={(e)=>setSecretaire({...secretaire,MedecinId:e.target.value})}>
+                    <option></option>
                     {medecins.map(result=><option value={`${result.id}`}>{result.prenom} {result.nom}</option>)}
                 </select>
             </div>
