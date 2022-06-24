@@ -4,6 +4,7 @@ import Admin_Item from "./Admin_Item";
 import "./Admin.css";
 import { useNavigate } from "react-router";
 
+axios.defaults.baseURL = "http://127.0.0.1:5000";
 export default function Gere_Admins(){
     const [admins,setAlladmin] = useState([]);
     admins.map((result)=>console.log(result));
@@ -21,7 +22,7 @@ export default function Gere_Admins(){
     useEffect(()=>{
         axios.get("/admins").then(result=>setAlladmin(result.data));
         search.current=search_;
-    },[search_]);
+    },[search_]); // afficher juste le resultat demandé pour recherche
     return (
 <div>
 <div className="container_search"><input className="search_nom" type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Admin :"></input>

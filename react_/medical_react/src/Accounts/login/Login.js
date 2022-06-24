@@ -11,10 +11,12 @@ import { Divider } from "@mui/material";
 import CabinetItem from "./Cabinets_Item";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { useNavigate } from "react-router";
 
 
 axios.defaults.baseURL = "http://127.0.0.1:5000/";
 export default function Login(){
+    const navigate=useNavigate();
     const dispatch=useDispatch();
     const userstate = useSelector(state=>state.user);
     const [email,setEmail]=useState('');
@@ -36,7 +38,6 @@ export default function Login(){
 
 
     const [users_role,setUsers_role]=useState([]);
-
 
 
 const handleChange = ()=>{
@@ -148,13 +149,15 @@ const handleChange = ()=>{
 
                                
                    })}
+                   
             });
             
  
 
             
         });
-        
+        navigate("/profile");
+
       //  users__.map((response)=>console.log(response));
         // users__.filter((res)=>res.email===email).map((response)=>{
             
