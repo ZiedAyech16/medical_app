@@ -127,47 +127,61 @@ const date_ = new Date();
         
 
         <div className="formulaire_">
-            <h1 className="title_text">{title} Secretaire</h1>
+            <h3 className="title_text">{title} Secretaire</h3>
             <div className="form-gr">
                 <label>Nom :</label>
-                <input placeholder="Nom :" className="input_text_" type="text" name="nom" value={secretaire.nom} onChange={(e)=>setSecretaire({...secretaire,nom:e.target.value})} />
+                <label>Prenom :</label>
+
             </div>
             <div className="form-gr">
-                <label>Prenom :</label>
+            <input placeholder="Nom :" className="input_text_" type="text" name="nom" value={secretaire.nom} onChange={(e)=>setSecretaire({...secretaire,nom:e.target.value})} />
+
                 <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={secretaire.prenom} onChange={(e)=>setSecretaire({...secretaire,prenom:e.target.value})}  />
             </div>
             <div className="form-gr">
                 <label>Age :</label>
-                <input placeholder="Age :" className="input_text_" type="date" name="age" min="1938-01-01" max={`${date_.toISOString().substring(0,10)}`} value={secretaire.age} onChange={(e)=>setSecretaire({...secretaire,age:e.target.value})}  />
+                <label>Email :</label>
+
             </div>
             <div className="form-gr">
-                <label>Email :</label>
+                <input placeholder="Age :" className="input_text_" type="date" name="age" min="1938-01-01" max={`${date_.toISOString().substring(0,10)}`} value={secretaire.age} onChange={(e)=>setSecretaire({...secretaire,age:e.target.value})}  />
+
                 <input placeholder="Email :" className="input_text_" type="text" name="email"  value={secretaire.email} onChange={(e)=>setSecretaire({...secretaire,email:e.target.value})} />
             </div>
             <div className="form-gr">
                 <label>Contact :</label>
-                <input placeholder="Contact :" className="input_text_" type="number" name="contact" value={secretaire.contact} onChange={(e)=>setSecretaire({...secretaire,contact:e.target.value})}  />
+                <label>Image :</label>
+
             </div>
 
             <div className="form-gr">
-                <label>Username :</label>
-                <input placeholder="Username :" className="input_text_" type="text" name="username"  value={secretaire.username} onChange={(e)=>setSecretaire({...secretaire,username:e.target.value})} />
-            </div>
-            <div className="form-gr">
-                <label>Password :</label>
-                <input placeholder="Password :" className="input_text_" type="text" name="password"  value={secretaire.password} onChange={(e)=>setSecretaire({...secretaire,password:e.target.value})} />
-            </div>
-            <div className="form-gr">
-                <label>Image :</label>
+                <input placeholder="Contact :" className="input_text_" type="number" name="contact" value={secretaire.contact} onChange={(e)=>setSecretaire({...secretaire,contact:e.target.value})}  />
+
                 <input placeholder="Image :" className="input_text_" type="file" name="photo" onChange={onInputChange}  />
             </div>
-            <div className="form-gr">
+
+            <div className="form-gr-1">
                 <label>Medecin :</label>
+            </div>
+            <div className="form-gr-1">
                 <select className="input_text_" value={secretaire.MedecinId} name="MedecinId" onChange={(e)=>setSecretaire({...secretaire,MedecinId:e.target.value})}>
                     <option></option>
                     {medecins.map(result=><option value={`${result.id}`}>{result.prenom} {result.nom}</option>)}
                 </select>
             </div>
+
+            <div className="form-gr">
+                <label>Username :</label>
+                <label>Password :</label>
+
+            </div>
+            <div className="form-gr">
+                <input placeholder="Username :" className="input_text_" type="text" name="username"  value={secretaire.username} onChange={(e)=>setSecretaire({...secretaire,username:e.target.value})} />
+
+                <input placeholder="Password :" className="input_text_" type="text" name="password"  value={secretaire.password} onChange={(e)=>setSecretaire({...secretaire,password:e.target.value})} />
+            </div>
+
+
              <div>
                 <button className="btn_" onClick={handleRegister}>Register</button>
                 

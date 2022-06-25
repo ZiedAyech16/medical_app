@@ -1,6 +1,8 @@
 .App {
   text-align: center;
-  
+  display: grid;
+  background-color: gray;
+  grid-template-columns: 18vw 70vw;
   background: radial-gradient(ellipse farthest-corner at var(--x) 0%, rgba(26, 156, 0, 0.7) 0%, rgba(255, 253, 253, 0.822) 14%, rgb(14, 131, 139,20%) 25%, rgb(0, 0, 128,20%) 62.5%, rgb(241, 255, 163) 100%);
   animation: colorChange 5s infinite alternate;
 }

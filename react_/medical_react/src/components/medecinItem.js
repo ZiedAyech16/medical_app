@@ -12,7 +12,7 @@ const onClickHandler = () => navigate(`/calender/${props.medecin.id}`)
     console.log(props);
     return(
         <div className="tr__">
-                                <div><img className="image_medecin" width={200} height={200} src={`http://127.0.0.1:5000/medecins/images/${medecin.image}`} /></div>
+                                <div><img className="image_medecin" width={150} height={150} src={`http://127.0.0.1:5000/medecins/images/${medecin.image}`} /></div>
                                 <div className="td__">Num Order: {medecin.num_order} </div>
                                 <div className="td__">Specialite: {medecin.specialite} </div>
                                 <div className="td__">Nom: {medecin.nom} </div>

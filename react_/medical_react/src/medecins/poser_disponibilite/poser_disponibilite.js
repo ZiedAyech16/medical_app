@@ -8,17 +8,8 @@ import TimePicker from "react-multi-date-picker/plugins/time_picker";
 import axios from "axios";
 import "./poser_disponibilite.css";
 import Swal from "sweetalert2";
-import moment from 'moment-timezone';
-
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 export default function Poser_Time(props){
-
-function onChange(date, dateString) {
-  console.log(date, dateString);
-}
-
-//moment.tz.setDefault("America/Los_Angeles");
-
     const [value,setValue]=useState(new Date());
     const [medecin_,setMedecin_]=useState({});
     const [medecin_all,setMedecin_all]=useState([]);
@@ -26,21 +17,29 @@ function onChange(date, dateString) {
         console.log('value');
     console.log(value);
     axios.get(`/medecins`).then((result)=>setMedecin_all(result.data));
-    medecin_all.filter((res_)=>res_.id===parseInt(localStorage.getItem("id"))).map((result)=>setMedecin_(result));
+    medecin_all.filter((res_)=>res_.id===parseInt(localStorage.getItem("userId"))).map((result)=>setMedecin_(result));
 
     },[])
     // console.log(value.month.number);
     // console.log(value.day);
     // console.log(value.year);
-    const [date__, setDate__] = useState(value)
-    console.log("date__",date__);
-    console.log("userId",localStorage.getItem("userId"));
+    console.log("date",value.hour);
+    console.log("day",value.day);
+    console.log("month",value.month.number);
+    console.log("year",value.year);
     const handleCalender = (e)=>{
         e.preventDefault();
-        const date_ = new Date(value);
-        //date_.setMonth()
-        date_.setHours(parseInt(value.hour));
-        axios.post('/calenders',{date:value,MedecinId:localStorage.getItem("userId")}).then((response)=>console.log(response));
+        const date_ = new Date();
+        date_.setMonth(value.month);
+        date_.setDate(value.day);
+        date_.setFullYear(value.year);
+        date_.setHours(value.hour);
+
+        console.log("hours==>",date_.getHours());
+
+        console.log("date_",date_);
+        
+        axios.post('/calenders',{date:date_,MedecinId:medecin_.id}).then((response)=>console.log(response));
 
         var close = document.getElementsByClassName("closebtn");
         var i;
@@ -95,14 +94,12 @@ function onChange(date, dateString) {
         // offsetX={10}
         // onClose={() => false}
             
-            format="MM/DD/YYYY hh:mm:ss"
+            format="MM/DD/YYYY HH:mm:ss"
   plugins={[
-    <TimePicker position="bottom"  />
+    <TimePicker lang="" position="bottom"  />
   ]} 
-   onChange={setValue}
-  value={new Date(value?.toDate?.().toString())}
-  // onChange={setValue} 
-   />
+  
+  value={value} onChange={setValue}  />
 
         {/* <div>{value.day}/{value.month.number}/{value.year}</div> */}
 

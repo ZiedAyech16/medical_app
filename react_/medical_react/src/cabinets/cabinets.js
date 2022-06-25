@@ -21,13 +21,17 @@ export default function Cabinets(){
 
     return (
         <div>
-            <div>
-               <div className="cabinet_container_search">
-                <input className="cabinet_search_nom" type="text" value={cabinetnom} onChange={(e)=>setCabinetnom(e.target.value)} placeholder="Nom de la Cabinet :"></input>
-                <button className="cabinet_cabinet_ajouter_" onClick={ajouterCabinet}>Ajouter Cabinet</button> 
+ 
 
-                </div>
-            </div>
+            <div className="medecins_header">
+    <div className="search__">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input className="search__input" type="text" value={cabinetnom} onChange={(e)=>setCabinetnom(e.target.value)} placeholder="Secretaire :"></input>
+
+    </div>
+    <button className="color_button" onClick={ajouterCabinet}><i class="fa fa-plus-circle" aria-hidden="true"  style={{fontSize:'30px',color:"#bbb"}}></i></button> 
+
+</div>
             <div className="cabinet_card_cards">
                
                 {
