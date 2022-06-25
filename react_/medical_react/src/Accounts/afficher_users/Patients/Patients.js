@@ -24,16 +24,36 @@ export default function Gere_Patients(){
     },[search_]);
     return (
 <div>
-<div className="container_search"><input className="search_nom"  type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Patient :"></input>
-<button className="ajouter_" onClick={goto_register}>Ajouter Patient</button> 
+
+
+<div className="medecins_header">
+    <div className="search__">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input className="search__input"  type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Patient :"></input>
+
+    </div>
+    <button className="color_button" onClick={goto_register}><i class="fa fa-plus-circle" aria-hidden="true"  style={{fontSize:'30px',color:"#bbb"}}></i></button> 
 
 </div>
 
-<h2 className="title_liste">Liste des patients</h2>
 
-        <div className="gere_secretaire_container">
-           { patients.filter(res=>res.nom.includes(search_)).map((result)=> <Patient_Item key={result.id} patient={result} />)}
 
-        </div></div>
+
+<table className="table_container_medecins">
+    <caption style={{textAlign:"left",captionSide:"top"}}>Liste des patients</caption>
+    <thead className="table_container_medecins_head">
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Date naisance</th>
+        <th>Medecin</th>
+        <th>Secretaire</th>
+        <th>Action</th>
+    </thead> 
+     { patients.filter(res=>res.nom.includes(search_)).map((result)=> <Patient_Item key={result.id} patient={result} />)}
+
+        </table></div>
         );
 }

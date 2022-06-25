@@ -1,99 +1,84 @@
-.gere_secretaire_container{
-    display: grid;
-    grid-template-columns: 25vw 25vw 25vw 25vw;
+.table_container_medecins{
+    width: 75vw;
+    margin-left: 2%;
+}
+
+.table_container_medecins_head{
+    background-color: rgb(2, 83, 138);
+    color: white;
+}
+.table_container_medecins_head > th {
+        padding: 1%;
+
+}
+.table_container_medecins_td{
+    /* display: flex;
+    justify-content: flex-start; */
+    /* background-color: azure;
+    border: 1px solid black;
+    padding: 1%; */
+    float: left;
 
 }
 
-.gere_secretaire_title{
-
+.table_container_medecins_tr{
+    border: 2px solid rgb(238, 238, 238);
+    padding: 1%;
+    background-color: rgb(255, 255, 255);
 }
 
-.gere_secretaire_card_m{
-    background-color: rgb(211, 253, 162);
-    padding: 10px;
-    margin: 10px;
-    border-radius: 10%;
+.table_container_medecins_tr > td{
+    border: 1px solid white;
+    font-size: large;
+    padding: 1%;
 }
 
-.gere_secretaire_card_title{
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    color: rgb(44, 60, 104);
-}
-
-.gere_secretaire_card_text{
-    color: darkolivegreen;
-    display: flex;
-    justify-content: flex-start;
-    margin-left: 10px;
-}
-.gere_secretaire_card_text > *{
-    margin-right: 15%;
-
-}
-
-.gere_secretaire_card_button{
-    font-size: 18px;
-    letter-spacing: 2px; 
-    padding: 3px;
-    color: aliceblue;
-    margin: 2px;
-    border-radius: 10%;
-}
-
-.color_1{
-    background-color: goldenrod;
-
-}
-
-.color_2{
-    background-color: crimson;
-}
-
-.image_card_{
-    width: 280px;
-    height: 280px;
+.table_container_medecins_image{
     border-radius: 50%;
     padding: 2%;
-    margin-bottom: 5%;
 }
 
-.search_nom{
-    width: 40%;
-    font-size: x-large;
-    color: navy;
-    margin:0 0  0 0;
-    border-radius: 10%;
-
-}
-.search_nom:focus{
-    background-color: rgb(1, 47, 78);
-    color: aliceblue;
-}
-
-.container_search{
-    width: 100vw;
-    padding: 2%;
-    margin: 0 0 0 0;
-    border: 10px solid rgb(1, 41, 68);
-    box-shadow: 1px 1px 1px 30px rgb(1, 41, 68);
-    background-color: rgb(1, 41, 68);
-}
-
-.ajouter_{
-    color: rgb(131, 139, 6);
+.color_button{
     background-color: transparent;
-    font-size: 25px;
-    float: right;
-    letter-spacing: 3px;
-    font-style: oblique;
     border: none;
-    margin-left: 10vw;
 }
 
-.title_liste{
-    background-color: rgb(1, 41, 68);
-    color: cornsilk;
-    width: 140vw;
-    margin-left: -40%;
+.medecins_header{
+    width: 100vw;
+    margin-top: -2%;
+    display: flex;
+    justify-content: flex-start;
+    padding: 2%;
 }
 
+.search__{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: flex-start;
+    justify-content: baseline;
+    width: 20vw;
+    padding: 1%;
+}
+
+.search__input{
+    width: 20vw;
+    font-size: large;
+    border: none;
+}
+
+.search__ > i{
+    margin-top: 3%;
+    margin-right: 1%;
+    margin-left: -3%;
+}
+
+.text_style{
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-weight: 900;
+}
+
+.medecins_role{
+    border: 2px solid black;
+    padding: 0.5%;
+}

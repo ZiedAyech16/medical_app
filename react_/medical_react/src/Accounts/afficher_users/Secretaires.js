@@ -24,16 +24,36 @@ export default function Gere_Secretaire(){
     },[search_]);
     return (
 <div>
-<div className="container_search"><input className="search_nom" type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Secretaire :"></input>
-<button className="ajouter_" onClick={goto_register}>Ajouter Secretaire</button>
+
+<div className="medecins_header">
+    <div className="search__">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input className="search__input" type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Secretaire :"></input>
+    </div>
+    <button className="color_button" onClick={goto_register}><i class="fa fa-plus-circle" aria-hidden="true"  style={{fontSize:'30px',color:"#bbb"}}></i></button> 
+
+</div>
+
+<div className="">
  </div>
 
- <h2 className="title_liste">Liste des Secretaires</h2>
 
+ <table className="table_container_medecins">
+    <caption style={{textAlign:"left",captionSide:"top"}}>Liste des Secretaires</caption>
+    <thead className="table_container_medecins_head">
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Date naisance</th>
+        <th>Medecin</th>
+        <th>Action</th>
+    </thead>
 
-        <div className="gere_secretaire_container">
            { secretaires.filter(res=>res.nom.includes(search_)).map((result)=> <Secretaire_Item key={result.id} secretaire={result} />)}
 
-        </div></div>
+</table>
+        </div>
         );
 }

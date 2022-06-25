@@ -29,6 +29,7 @@ import AjouterOrdonnace from "../ordonnnance/ajouter_ordonnance";
 import OrdonnancePrint from "../ordonnnance/ordonnance_print";
 import Ordonnances from "../ordonnnance/ordonnances";
 import ShowCabinet from "../cabinets/show_cabinet";
+import ListMedecin from "../list_medecin/list_medecin";
 
 export default function Home(){
     return(
@@ -156,6 +157,8 @@ export default function Home(){
         <Route path="/ordonnances/imprimer" element={<OrdonnancePrint />}></Route>
         <Route path="/ordonnances" element={<Ordonnances />}></Route>
         <Route path="/liste_cabinets" element={<ShowCabinet />} exact></Route>
+
+        <Route path="/list_medecin" element={<ListMedecin />}></Route>
         
 
         

@@ -1,6 +1,8 @@
 const { isRequired } = require("nodemon/lib/utils");
 const User = require("../model/user");
 const Patient = require("../model/patient");
+const Medecin = require("../model/medecin");
+const Secretaire = require("../model/secretaire");
 
 function insertPatient(patient,image){
     //const user = User.findOne({where:{id:id}});
@@ -23,6 +25,7 @@ async function findAllPatients(){
     //     //model:User,
     //    attributes:{exclude:["createAt","updateAt"]}
     //    }]
+    include:[{model:Medecin},{model:Secretaire}]
    });
 }
 
@@ -33,6 +36,8 @@ async function findOnePatient(id){
     //     //,
     //     attributes:{exclude:["createdAt","updatedAt"]}
     // }
+    ,include:[{model:Medecin},{model:Secretaire}]
+
 });
 }
 

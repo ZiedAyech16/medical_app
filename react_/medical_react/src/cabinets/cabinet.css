@@ -1,26 +1,21 @@
 /*ajouter cabinet */
 .cabinet_ajouter_{
-    background-color: rgb(212, 212, 170);
     width: 100%;
     display: flex;
     justify-content: center;
 }
 
 .cabinet_ajouter_container{
-    padding: 2%;
-    background-color: beige;
+    padding: 5%;
+    background-color: rgb(255, 255, 255);
     width:60%;
-    margin: 5% 10% 20% 10%;
+    margin: 5% 10% 20% 1%;
 
 }
 
 .cabinet_ajoute_title{
-    font-weight: 600;
-    letter-spacing: 3px;
     color: navy;
-    font-variant: small-caps;
     padding: 1%;
-    background-color: beige;
     margin-bottom: 3%;
 
 }
@@ -48,14 +43,14 @@ padding: 1%;
     font-size: 22px;
     padding: 1%;
     font-weight: 600;
-    background-color: navy;
+    background-color: #bbb;
     color: aliceblue;
 }
 
 /*cabinets */
 
 .cabinet_card_cards{
-    margin-left: 20%;
+    margin-left: 2%;
 }
 
 
@@ -63,9 +58,9 @@ padding: 1%;
     display: grid;
     grid-template-columns: 30% 40%;
     width: 60vw;
-    background-color: aliceblue ;
+    background-color: rgb(252, 252, 252) ;
     padding: 1%;
-    margin-bottom: 2%;
+    margin-bottom: 1%;
 }
 
 .cabinet_card_item{
@@ -74,16 +69,16 @@ padding: 1%;
 
 
 .cabinet_card_image{
-    width: 200px;
-    height: 150px;
+    width: 150px;
+    height: 120px;
 
 }
 
 .cabinet_card_nom{
-    font-size: x-large;
+    font-size: large;
     display: flex;
     justify-content: flex-start;
-    margin-left: 15%;
+    margin-left: 23%;
     margin-bottom: 2%;
     color: navy;
 }
@@ -94,6 +89,7 @@ padding: 1%;
     margin-left: 10%;
     margin-bottom: 2%;
     color: navy;
+    font-size: large;
 }
 
 .cabinet_card_button{
@@ -102,7 +98,6 @@ padding: 1%;
     margin-left: 2%;
 }
 .cabinet_card_color1{
-    background-color: darkgoldenrod;
 }
 
 .cabinet_card_color2{

@@ -21,32 +21,7 @@
     padding: 1%;
     margin: 2%;
 } */
-.btn1{
-    background-color: #4c7faf;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: left;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-top: 4px;
-    cursor: pointer;
-    
-  }
 
-.btn2{
-    background-color: #4c7faf;
-    border: none;
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
 
 
   .container{
@@ -60,18 +35,7 @@
     padding: 1%;
     margin: 2%;
 } */
-.btn1{
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    cursor: pointer;
-  }
+
 
 .btn{
     border:4px ridge whitesmoke;
@@ -148,7 +112,7 @@ i{
 
   .btn_{
     border:4px ridge whitesmoke;
-    background-color : rgb(62, 165, 31);
+    background-color : #bbb;
     color: whitesmoke;
     padding: 5px 32px;
     text-align: center;
@@ -159,47 +123,33 @@ i{
     cursor: pointer;
     border-radius:10%;
     float: left;
-    margin-left: 1vw;
+    width: 25vw;
   }
   .input_text_{
-    width: 40vw;
+    width: 25vw;
     font-size: 25px;
     padding: 5px;
     margin: 5px;
+  }
+
+
+  .form-gr > label:nth-child(even){
+    margin-left: 18px;
   }
 
   .formulaire_{
     background-color: #fdfeff;
     width: 60vw;
     
-    margin-left: 20vw;
-    padding: 5vw;
+    margin-left: 1vw;
+    padding: 2vw 2vw 5vw 2vw;
     justify-content: center;
-    border-radius: 2% 20% 20% 2%;
   }
 
-  .formulaire_container{
-    background: linear-gradient(60deg,#041a3b88,#377a3d88,#6cd87588,#041a3b88);
-    display: grid;
-    grid-template-columns: auto;
-    width: 100vw;
-    align-items: center;
-    box-shadow: 0 0 0 30px #000436ee;
-  }
 
   .title_text{
     color: rgb(34, 138, 230);
-    letter-spacing: 3px;
-    text-decoration: underline blue 5px;
-    margin-bottom: 3vh;
-  }
-  .title_text::first-letter{
-    color: rgb(14, 83, 143);
-    font-size: 48px;
-    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    font-style: oblique;
-    letter-spacing: 6px;
-    text-decoration: underline  rgb(4, 4, 61) 5px;
+  
   }
 
   .image_card_{
@@ -219,7 +169,15 @@ i{
 
   .form-gr{
     display: grid;
-    grid-template-columns: auto;
+    grid-template-columns: auto auto;
   }
+
+  .form-gr-1 > select{
+    display: grid;
+    grid-template-columns: auto ;
+    width: 95%;
+  }
+
+
 
  

@@ -24,17 +24,37 @@ export default function Gere_Medecin(){
     },[search_]);
     return (
 <div >
-<div className="container_search">
-<input className="search_nom" type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Medecin :"></input>
-<button className="ajouter_" onClick={goto_register}>Ajouter Medecin</button> 
+<div className="">
+
+<div className="medecins_header">
+    <div className="search__">
+        <i class="fa fa-search" aria-hidden="true"></i>
+        <input className="search__input" type="text" value={search_} onChange={(e)=>setSearch_(e.target.value)} placeholder="Medecin :"></input>
+    </div>
+    <button className="color_button" onClick={goto_register}><i class="fa fa-plus-circle" aria-hidden="true"  style={{fontSize:'30px',color:"#bbb"}}></i></button> 
 
 </div>
-<h2 className="title_liste">Liste des Medecins</h2>
 
 
-        <div className="gere_secretaire_container">
+</div>
+
+<table className="table_container_medecins">
+    <caption style={{textAlign:"left",captionSide:"top"}}>Liste des Medecins</caption>
+    <thead className="table_container_medecins_head">
+        <th>Image</th>
+        <th>Nom</th>
+        <th>Prenom</th>
+        <th>Email</th>
+        <th>Contact</th>
+        <th>Date naisance</th>
+        <th>Action</th>
+    </thead>
+        {/* <tr className="gere_secretaire_container"> */}
            { medecins.filter(res=>res.nom.includes(search_)).map((result)=> <Medecin_Item key={result.id} medecin={result} />)}
 
-        </div></div>
+        {/* </tr> */}
+        
+        </table>
+        </div>
         );
 }

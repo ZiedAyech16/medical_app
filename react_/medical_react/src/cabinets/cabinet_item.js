@@ -49,8 +49,10 @@ export default function CabinetItem(props){
 
                     </div>
                     <div>
-                        <button className="cabinet_card_button cabinet_card_color1" onClick={editerCabinet}>Editer</button>
-                        <button className="cabinet_card_button cabinet_card_color2" onClick={supprimerCabinet}>Supprimer</button>
+                        <button className="color_button" onClick={editerCabinet}><i class="fa fa-pencil-square" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
+                        <button className="color_button" onClick={supprimerCabinet}><i class="fa fa-trash" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
+
+        
                     </div>
                 </div>
         
