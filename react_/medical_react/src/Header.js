@@ -81,6 +81,8 @@ export default function Header(){
     
     return (
         <div className="">
+
+            {localStorage.getItem("email")!==""?
   <div className="navbar">
 
 
@@ -104,10 +106,10 @@ export default function Header(){
             localStorage.getItem("role")==="admin"?
             <div className="navbar_admin">
                 {/* <li><button className="btn-design log_out btn-sm" onClick={gereadmins}>Gerer Admins</button></li> */}
-                <li><button className="btn-design log_out btn-sm" onClick={geremedecins}><i class='fa fa-user-md icon_' style={{fontSize:'36px'}}></i> Medecins</button></li>
-                <li><button className="btn-design log_out btn-sm" onClick={geresecretaires}><i class='fa fa-user-circle icon_' style={{fontSize:'36px'}}></i> Secretaires</button></li>
-                <li><button className="btn-design log_out btn-sm" onClick={gerepatients}><i class='fa fa-user icon_' style={{fontSize:'36px'}}></i> Patients</button></li>
-                <li><button className="btn-design log_out btn-sm" onClick={gerecabinets}><i class='fa fa-home icon_' style={{fontSize:'36px'}}></i> Cabinets</button></li>
+                <li><button className="btn-design log_out btn-sm" onClick={geremedecins}><i className='fa fa-user-md icon_' style={{fontSize:'36px'}}></i> Medecins</button></li>
+                <li><button className="btn-design log_out btn-sm" onClick={geresecretaires}><i className='fa fa-user-circle icon_' style={{fontSize:'36px'}}></i> Secretaires</button></li>
+                <li><button className="btn-design log_out btn-sm" onClick={gerepatients}><i className='fa fa-user icon_' style={{fontSize:'36px'}}></i> Patients</button></li>
+                <li><button className="btn-design log_out btn-sm" onClick={gerecabinets}><i className='fa fa-home icon_' style={{fontSize:'36px'}}></i> Cabinets</button></li>
 
             </div>
             :<></>
@@ -116,42 +118,42 @@ export default function Header(){
 {localStorage.getItem("role")==="medecin"||localStorage.getItem("role")==="secretaire"?
 
 <>
-        <li><button className="btn-design log_out btn-sm" onClick={gereconsultations}>Gerer Consultation</button></li>
+        <li><button className="btn-design log_out btn-sm" onClick={gereconsultations}><i className="fa fa-users icon_" style={{fontSize:'36px'}} aria-hidden="true"></i> Consultation</button></li>
 
-        <li><button className="btn-design log_out btn-sm" onClick={posertime}>Poser Time</button></li>
-        <li><button className="btn-design log_out btn-sm" onClick={gerefichespatient}>Gerer Fiche Patients</button></li>
-        <li><button className="btn-design log_out btn-sm" onClick={tordvs}>Rdvs</button></li>
+        {localStorage.getItem("role")==="medecin"?<li><button className="btn-design log_out btn-sm" onClick={posertime}><i className="fa fa-clock-o icon_" style={{fontSize:'36px'}} aria-hidden="true"></i>Poser Time</button></li>:<></>}
+        <li><button className="btn-design log_out btn-sm" onClick={gerefichespatient}><i className="fa fa-address-book icon_" style={{fontSize:'36px'}} aria-hidden="true"></i> Fiche Patients</button></li>
+        <li><button className="btn-design log_out btn-sm" onClick={tordvs}><i className="fa fa-address-card icon_" style={{fontSize:'36px'}} aria-hidden="true"></i>Rdvs</button></li>
 
     </>:<></>}
 
 
     {localStorage.getItem("role")==="medecin"||localStorage.getItem("role")==="patient"?
-        <li><button className="btn-design log_out btn-sm" onClick={gereordonnances}><i class='fa fa-user-md icon_' style={{fontSize:'36px'}}></i>
+        <li><button className="btn-design log_out btn-sm" onClick={gereordonnances}><i className='fa fa-user-md icon_' style={{fontSize:'36px'}}></i>
 Ordonnances</button></li>
 
     :<></>}
 
     {localStorage.getItem("role")!=="admin"?<>
-        <li><button className="btn-design log_out btn-sm" onClick={toprofile}><i class='fa fa-user-circle icon_' style={{fontSize:'36px'}}></i>Profile</button></li></>:<></>}
+        <li><button className="btn-design log_out btn-sm" onClick={toprofile}><i className='fa fa-user-circle icon_' style={{fontSize:'36px'}}></i>Profile</button></li></>:<></>}
     
         {localStorage.getItem("role")==="patient"?<>
         <li>
-        <button className="btn-design log_out btn-sm"  onClick={tolistmeds}><i class="fa fa-list-alt icon_" aria-hidden="true" style={{fontSize:'36px'}}></i>Liste des Medecin</button>
+        <button className="btn-design log_out btn-sm"  onClick={tolistmeds}><i className="fa fa-list-alt icon_" aria-hidden="true" style={{fontSize:'36px'}}></i>Liste des Medecin</button>
         </li></>:<></>}
       </ul>
       
       </div>
       <ul className="navbar_part_2_2">
 
-            <li><button className="btn-design" onClick={logout}><i class='fa fa-times-circle icon_' style={{fontSize:'36px'}}></i>Logout</button></li>
+            <li><button className="btn-design" onClick={logout}><i className='fa fa-times-circle icon_' style={{fontSize:'36px'}}></i>Logout</button></li>
       </ul>
       </div>:<div className="needtologin">
-        <span>You need to Login</span>
+        {/* <span>You need to Login</span> */}
         {/* <span><button onClick={_cabinets}>Cabinets</button></span> */}
         </div>}
     
      </div>
-  </div>
+  </div>:<></>}
 </div>
     );
 }

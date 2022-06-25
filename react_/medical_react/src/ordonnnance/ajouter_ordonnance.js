@@ -147,13 +147,17 @@ export default function AjouterOrdonnace(){
 
     return (
         <div className="ordonnance_container">
+            {parametre.type ==="editer"?<h3  className="ordonnance_">Editer Ordonnance</h3>:<></>} 
+            {parametre.type ==="ajouter"?<h3  className="ordonnance_">Ajouter Ordonnance</h3>:<></>} 
             <div className="ordonnance_item">
                 <label>Medecin :</label>
-                <h4 className="ordonnance_medecin" name="MedecinId">{medecins.filter(r=>r.id===parseInt(localStorage.getItem("userId"))).map(re=>re.nom+" "+re.prenom)}</h4>
+                <label>Patient :</label>
+
             </div>
 
             <div className="ordonnance_item">
-                <label>Patient :</label>
+            <h4 className="ordonnance_medecin" name="MedecinId">{medecins.filter(r=>r.id===parseInt(localStorage.getItem("userId"))).map(re=>re.nom+" "+re.prenom)}</h4>
+
                 <select name="PatientId" className="ordonnance_text_input" onChange={(e)=>setOrdonnance({...ordonnance,PatientId:e.target.value})}>
                     <option></option>
                     {patients.filter(r=>r.MedecinId===parseInt(localStorage.getItem("userId"))).map(re=><option value={re.id} key={re.id}>{re.nom} {re.prenom} </option>)}
@@ -161,14 +165,16 @@ export default function AjouterOrdonnace(){
             </div>
             <div className="ordonnance_item">
                 <label>Medicament :</label>
-                <textarea rows={5} cols={60} type="text"  className="ordonnance_text_input" name="medicament" value={ordonnance.medicament} onChange={(e)=>setOrdonnance({...ordonnance,medicament:e.target.value})} />
+                <label>Apci</label>
+
             </div>
 
             <div className="ordonnance_item">
-                <label>Apci</label>
+                <textarea rows={5} cols={60} type="text"  className="ordonnance_text_input" name="medicament" value={ordonnance.medicament} onChange={(e)=>setOrdonnance({...ordonnance,medicament:e.target.value})} />
+
                 <div className="ordonnance_radio">
-                    <input type="radio" name="apci" checked={ordonnance.apci==="0"} value={0} onChange={(e)=>setOrdonnance({...ordonnance,apci:e.target.value})} /><label>Oui</label>
-                    <input type="radio" name="apci" checked={ordonnance.apci==="1"} value={1} onChange={(e)=>setOrdonnance({...ordonnance,apci:e.target.value})} /><label>Non</label></div>
+                    <input className="radio" type="radio" name="apci" checked={ordonnance.apci==="0"} value={0} onChange={(e)=>setOrdonnance({...ordonnance,apci:e.target.value})} /><label>Oui</label>
+                    <input className="radio" type="radio" name="apci" checked={ordonnance.apci==="1"} value={1} onChange={(e)=>setOrdonnance({...ordonnance,apci:e.target.value})} /><label>Non</label></div>
             </div>
 
             <div className="ordonnance_item">

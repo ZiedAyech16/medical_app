@@ -148,15 +148,14 @@ const search_patient_condition = (valeur)=>{
 
     return(
         <div>
-            <div className=" container_search">
-               
-                 {/* <h1 className="rendez_vous_title">Gerer Rendez-Vous    
-                                {
-                    // console.log('tt',search_patient_condition(search_patient))
-                    }
-                                </h1> */}
-                                <input className="search_nom" placeholder="search rendez vous" type="text" value={search_patient}  onChange={(e)=>setSearch_patient(e.target.value)} />
 
+
+<div className="medecins_header">
+    <div className="search__">
+        <i class="fa fa-search" aria-hidden="true"></i>
+  
+    <input className="search__input" placeholder="search rendez vous" type="text" value={search_patient}  onChange={(e)=>setSearch_patient(e.target.value)} />
+    </div>
                                 <DatePicker
                         containerStyle={{ //datepicker container style
                             width: "160px",
@@ -176,7 +175,8 @@ const search_patient_condition = (valeur)=>{
                     value={value} onChange={setValue}  className=" red " />
 
                     
-            </div>
+</div>
+           
 
        
 
@@ -187,7 +187,7 @@ const search_patient_condition = (valeur)=>{
 
 
 
-            <table width="100%">
+            <table width="80%">
                 <thead className="table bg-dark text-white"> 
                 {/* <tr >
                     <th style={{border:"2px solid white",padding:"1%"}}>PatientID</th>
@@ -213,7 +213,6 @@ const search_patient_condition = (valeur)=>{
                 </thead>
 
                
-                {value.day}
 {/* 
                 {rdvs.map((data)=>{
                 <Rendezvous_Item rendezvous={data}  key={data.id} />

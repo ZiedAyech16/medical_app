@@ -1,11 +1,11 @@
 .card_consultation{
     display: grid;
     grid-template-columns: auto;
-    width: 40vw;
+    width: 70vw;
     padding: 2%;
     margin: 1% 10% 1% 3%;
     border-radius: 5%;
-    background-color: rgb(126, 124, 106);
+    background-color: rgb(255, 255, 255);
 }
 
 .consultation_title{
@@ -23,10 +23,9 @@
 
 
 .button_detail{
-    color: aliceblue;
-    color: cornflowerblue;
+
     padding: 0.5%;
-    margin: 1% 1% 0 0;
+    margin: 1% 1% 0 3%;
     font-size: 20px;
     border: none;
 }
@@ -77,7 +76,7 @@
 }
 
 .title_consultation::first-letter{
-    font-size: 45px;
+    font-size: 25px;
     font-style: oblique;
     color: rgb(54, 54, 153);
 }
@@ -91,17 +90,15 @@
 
 .consultation_item_1{
     display: grid;
-    grid-template-columns: 20vw 40vw 20vw;
-    background-color: rgba(17, 17, 77, 0.795);
-    padding: 2%;
-    border-radius: 0 25% 0 0;
+    grid-template-columns: 10vw 20vw 20vw;
+    padding: 1%;
+    align-items: baseline;
 }
 
 .consultation_item_2{
     display: grid;
-    grid-template-columns: 40vw 30vw 20vw;
+    grid-template-columns: 20vw 20vw 20vw;
     padding: 2%;
-    background-color: rgba(216, 216, 252, 0.795);
 
 }
 
@@ -136,19 +133,19 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
+    border: 4px solid #bbb;
+    margin-top: -7%;
 }
 
 
 .date_consultation{
-    font-size: 28px;
-    color: rgb(241, 248, 244);
+    font-size: 20px;
 }
 
 .consultation_item_3{
     display: grid;
     grid-template-columns: auto;
     justify-items: baseline;
-    background-color: rgba(216, 216, 252, 0.795);
     padding-left: 1%;
 }
 
@@ -156,8 +153,9 @@
 /*ajouter consultation:*/
 
 .consultation_ajoute_{
-    background-color: rgb(212, 212, 170);
-    margin-left: 10%;
+    background-color: rgb(255, 255, 255);
+    margin-left: 2%;
+    width: 60vw;
 
 }
 
@@ -165,9 +163,8 @@
 display: grid;
 grid-template-columns: auto;
 width: 60%;
-margin-left: 18%;
+margin-left: 2%;
 padding: 2%;
-background-color: beige;
 
 }
 
@@ -175,15 +172,14 @@ background-color: beige;
     font-weight: 600;
     letter-spacing: 3px;
     color: navy;
-    font-variant: small-caps;
     padding: 1%;
-    background-color: beige;
 
 }
 
 .consultation_ajoute_item{
     display: grid;
-    grid-template-columns: auto;
+    width: 70vw;
+    grid-template-columns: 25vw 25vw;
 
 }
 
@@ -203,18 +199,18 @@ padding: 2%;
 }
 
 .consultation_ajoute_button{
-    margin: 2%;
+    margin: 3% 0 0 1%;
     width: 40%;
-    font-variant: small-caps;
     font-size: 22px;
     padding: 1%;
     font-weight: 600;
-    background-color: navy;
-    color: aliceblue;
+    background-color: #bbb;
 }
 
 .consultation_ajoute_input_radio{
-float: left;
+    display: flex;
+    justify-content: flex-start;
+    align-items: baseline;
 width: 35%;
 font-size: large;
 
@@ -226,3 +222,17 @@ font-size: large;
 }
 
 
+.consultation_header{
+    display: flex;
+    justify-content: flex-start;
+    margin-left: 2%;
+}
+
+.search__input > select{
+    padding: 2.5%;
+}
+
+
+.consultation_ajoute_item > textarea{
+    width: 50vw;
+}

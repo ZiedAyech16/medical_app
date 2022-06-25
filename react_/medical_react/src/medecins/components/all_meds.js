@@ -38,20 +38,29 @@ export default function AllMedecins(props){
     </div>
 
 </div>
-              <div  className="cards">
+              <table  className="table">
+
+                <thead className="tr_th">
+                <th>Image</th>
+                <th>Num Order</th>
+                <th>Specialite</th>
+                <th>Nom	</th>
+                <th>Prenom</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Action</th>
+                </thead>
              
             {
                // medecins.map((us)=>console.log(us.User!==null?us.User.nom:{}))
                 medecins.filter((user)=>user.specialite===props.specialite&&user!==null?user.nom.includes(search_):false).map((state,key)=>
-                        <div className="card" key={state.id}>
-                            {console.log(state)}
-                            <MedecinItem  medecin={state} />
+                   
+                            <MedecinItem key={state.id}  medecin={state} />
                             
-                        </div>
                   
                 )
             }
-              </div>
+              </table>
         </div>
     );
 }

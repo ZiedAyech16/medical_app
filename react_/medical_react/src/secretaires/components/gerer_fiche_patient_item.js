@@ -22,7 +22,7 @@ export default function FichePatientItem(props){
         //navigate(`/register/patient/${medecin.id}/${localStorage.getItem("role")}`);
 
         navigate({
-            pathname:`/register/patient/${medecin.id}/${localStorage.getItem("role")}`,
+            pathname:`/register/patient/editer`,
             search:createSearchParams(
                 {
                     id:props.patient.id,
@@ -62,33 +62,32 @@ export default function FichePatientItem(props){
     }
 //medecin.id ===parseInt(localStorage.getItem("id"))
     return (
-   <div> {true?
-   <div className="fiche_card_container">
+   <tr className="table_container_medecins_tr"> {true?
+   <>
 
 {/* <h1> {props.fiche_patient.sexe}</h1> */}
 
 
-<img src={`http://127.0.0.1:5000/patients/images/${props.fiche_patient.image}`} className="fiche_card_image"></img>
-<div>
-<div className="fiche_card_name">{props.fiche_patient.nom} {props.fiche_patient.prenom} </div>
-<div className="fiche_card_container_sub">
+<td><img src={`http://127.0.0.1:5000/patients/images/${props.fiche_patient.image}`} className="fiche_card_image"></img></td>
+    <td className="text_style">{props.fiche_patient.nom}</td>
+    <td className="text_style">{props.fiche_patient.prenom} </td>
+
     {/* <div className="fiche_card_element">
         Date: <span>{props.fiche_patient.jour}</span>/<span>{props.fiche_patient.month}</span>/<span>{props.fiche_patient.year}</span>--<span>{props.fiche_patient.hour}:</span>00
     </div> */}
-    <div className="fiche_card_element"><span>Contact: {props.fiche_patient.contact}</span></div>
-    <div className="fiche_card_element"><span>Email: {props.fiche_patient.email}</span></div>
+    <td className="text_style"> {props.fiche_patient.contact}</td>
+    <td className="text_style">{props.fiche_patient.email}</td>
     {/* <div className="fiche_card_element"><span>Sexe: {props.fiche_patient.Patient.sexe}</span></div> */}
-    <div className="fiche_card_element"><span>Date de creation: {props.fiche_patient.createdAt}</span></div>
-    <div  className="fiche_card_element"><button className="button_supprimer" onClick={supprimerfichpat}>supprimer</button></div>
-    <div  className="fiche_card_element"><button className="button_editer" onClick={editer_patient}>Editer</button></div>
-</div>
-</div>
-</div>
+    <td className="text_style">{props.fiche_patient.createdAt}</td>
+    <td  className=""><button className="color_button" onClick={supprimerfichpat}><i class="fa fa-trash" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
+    <button className="color_button" onClick={editer_patient}><i class="fa fa-pencil-square" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button></td>
+</>
+
 
    
-   :<div>
+   :<td colSpan={5}>
        No Rdv pou aujordhui{ Date.now()?.toString()}
-   </div>}</div>
+   </td>}</tr>
 
     
     );

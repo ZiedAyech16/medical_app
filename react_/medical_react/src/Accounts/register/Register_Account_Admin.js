@@ -115,7 +115,7 @@ console.log(date_.toISOString().substring(0,10));
 
     return(
     <div className="formulaire_container">
-        <h1 className="title_text">Admin</h1>
+        <h4 className="title_text">Admin</h4>
 
         <div className="formulaire_">
             <div>

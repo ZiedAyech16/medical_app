@@ -9,7 +9,7 @@ export function CalenderHour(props){
     const params = useParams();
     const [docteur,setDocteur]=useState({});
    // console.log(params);
-    const color1 = "#87cefa";
+    const color1 = "#ffffff";
     const color2 = "lightskyblue";
     const color3 = "#24a750";
     const color4 = "#a72c16";
@@ -444,7 +444,7 @@ const [heure_depart,setHeure_depart] = useState(0);
                     <h4>Monsieur/Madame: {docteur.nom} {docteur.prenom} </h4>
                     <h4>Specialite: {docteur.specialite} </h4>
                     <h4 className="">Date {parseInt(params.day)<10?<>0</>:<></>}{params.day}/{params.day<10?<>0</>:<></>}{params.month}/{params.year}</h4>
-                    <h4> Selectionné<button className="refresh_hours" onClick={reload}>Pour Obtenir Les Infos</button></h4>
+                    <h4> <button className="refresh_hours" onClick={reload}>Pour Obtenir Les Infos</button></h4>
 
                 </div>     
             </div>   
@@ -473,7 +473,7 @@ const [heure_depart,setHeure_depart] = useState(0);
 
             </tr>
       
-             <tr>   {disponibilityp1_.map((data,i)=><td><button className="" data-toggle={modal1[i]} data-target="#exampleModalLong"  onClick={()=>remplirDemande(data,i)} style={{backgroundColor:data,width:"105%",height:"50px",border:"none"}}></button></td>)}</tr>
+             <tr>   {disponibilityp1_.map((data,i)=><td><button className="" data-toggle={modal1[i]} data-target="#exampleModalLong"  onClick={()=>remplirDemande(data,i)} style={{backgroundColor:data,width:"105%",height:"100px",border:"none"}}></button></td>)}</tr>
 
 {/* 
              <tr className="line_">
@@ -500,7 +500,7 @@ const [heure_depart,setHeure_depart] = useState(0);
 
         {condition_remplir?  
             // <LoginInvite doctor_id={params.medecin_id} heure={heure_depart} parameter={params} />:<h2>Non Disponible</h2>}
-            <LoginInvite doctor_id={params.medecin_id} heure={heure_depart} parameter={params} />:<h2>Non Disponible</h2>}
+            <LoginInvite doctor_id={params.medecin_id} heure={heure_depart} parameter={params} />:<h2></h2>}
          </div>
 
          </div>

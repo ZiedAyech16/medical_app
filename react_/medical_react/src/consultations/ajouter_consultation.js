@@ -119,28 +119,28 @@ console.log(searchparams.get("id"))
 
     return(
     <div className="consultation_ajoute_">
-        <h2 className="consultation_ajoute_title">Consultation</h2>
+        <h4 className="consultation_ajoute_title">Consultation</h4>
         <div className="consultation_ajoute_container">
             <div className="consultation_ajoute_item">
                 <label className="consultation_ajoute_label" >Date :</label>
-                <input className="consultation_ajoute_input" type="date" value={consultation.date} onChange={(e)=>setConsultation({...consultation,date:e.target.value})} name="date" />
+                <label className="consultation_ajoute_label" >Duree :</label>
+
             </div>
             <div className="consultation_ajoute_item">
-                <label className="consultation_ajoute_label" >Duree :</label>
+            <input className="consultation_ajoute_input" type="date" value={consultation.date} onChange={(e)=>setConsultation({...consultation,date:e.target.value})} name="date" />
+
                 <input className="consultation_ajoute_input" type="number" step={0.01} value={consultation.duree} onChange={(e)=>setConsultation({...consultation,duree:e.target.value})} name="duree" />
             </div>
 
             <div className="consultation_ajoute_item">
                 <label  className="consultation_ajoute_label">Frais :</label>
-                <input className="consultation_ajoute_input" type="number" step={0.01} value={consultation.frais} onChange={(e)=>setConsultation({...consultation,frais:e.target.value})} name="frais" />
+                <label className="consultation_ajoute_label" >Apci :</label>
+
             </div>
 
             <div className="consultation_ajoute_item">
-                <label className="consultation_ajoute_label" >Description :</label>
-                <textarea className="consultation_ajoute_input"  type="text" cols={60} rows={5} value={consultation.description} onChange={(e)=>setConsultation({...consultation,description:e.target.value})} name="description" />
-            </div>
-            <div className="consultation_ajoute_item">
-                <label className="consultation_ajoute_label" >Apci :</label>
+            <input className="consultation_ajoute_input" type="number" step={0.01} value={consultation.frais} onChange={(e)=>setConsultation({...consultation,frais:e.target.value})} name="frais" />
+
                 <div className="consultation_ajoute_item">
                 <div className="consultation_ajoute_input_radio">
                     <input className="" type="radio" checked={consultation.apci==="0"} value={0} onChange={(e)=>setConsultation({...consultation,apci:e.target.value})} name="apci"  />oui
@@ -151,8 +151,23 @@ console.log(searchparams.get("id"))
             </div>
 
             <div className="consultation_ajoute_item">
+                <label className="consultation_ajoute_label" >Description :</label>
+            </div>
+            <div className="consultation_ajoute_item">
+                <textarea className="consultation_ajoute_input"  type="text" cols={60} rows={3} value={consultation.description} onChange={(e)=>setConsultation({...consultation,description:e.target.value})} name="description" />
+            </div>
+       
+
+            <div className="consultation_ajoute_item">
                 <label className="consultation_ajoute_label" >Secretaire :</label>
-                <select className="consultation_ajoute_input" name="SecretaireId"  value={consultation.SecretaireId} onChange={(e)=>setConsultation({...consultation,SecretaireId:e.target.value})} >
+                <label className="consultation_ajoute_label">Patient :</label>
+
+            </div>
+
+            <div className="consultation_ajoute_item">
+
+                
+            <select className="consultation_ajoute_input" name="SecretaireId"  value={consultation.SecretaireId} onChange={(e)=>setConsultation({...consultation,SecretaireId:e.target.value})} >
                     <option></option>
                     {
                       localStorage.getItem("role")==="medecin"?secretaire.filter(r=>r.MedecinId===parseInt(localStorage.getItem("userId"))).map(re=><option value={re.id}> {re.nom} {re.prenom} </option>):<></>
@@ -163,10 +178,7 @@ console.log(searchparams.get("id"))
 
                     }
                 </select>
-            </div>
 
-            <div className="consultation_ajoute_item">
-                <label className="consultation_ajoute_label">Patient :</label>
                 <select className="consultation_ajoute_input" name="PatientId" value={consultation.PatientId} onChange={(e)=>setConsultation({...consultation,PatientId:e.target.value})}>
                     <option></option>
                     {patients.filter(re=>re.SecretaireId===parseInt(consultation.SecretaireId)).map((re)=><option value={re.id}>{re.nom}{' '}{re.prenom} </option>)}

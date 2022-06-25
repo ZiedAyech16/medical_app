@@ -1,40 +1,54 @@
 .cabinet__image{
-  height: 400px;
 }
 
-.cabinet__{
-    width: 90vw;
-    margin-left: 5%;
-    background-color: beige;
 
-}
-
-.input__{
-  width: 50vw;
-  padding: 1%;
-  font-size: large;
-  margin-bottom: 1%;
+.input___{
+  width: 37vw;
+  font-size: 20px;
+  height: 4vw;
+  margin: 1%;
+  border: none;
+  background-color: white;
 }
 
 .login_container_item{
-  background:linear-gradient(120deg,rgb(3, 81, 105),white);
-  margin-top: -2%;
-  padding: 2%;
+  background-color: white;
+  width: 50vw;
+  padding: 5%;
+  margin-left: 10%;
+  
 }
 
 .item_login{
-  margin-top: 1%;
+  background-color: white;
+  border: 0.1px solid black ;
+  display: grid;
+  grid-template-columns: 4vw 10vw;
+  align-items: baseline;
+  margin: 1%;
 }
 
 .btn__{
-  background-color: rgb(129, 184, 47);
-  color: black;
-  padding: 0.4%;
-  font-weight: 700;
-  font-family: 'Courier New', Courier, monospace;
+  display: flex;
+  width: 42vw;
+  justify-content: center;
   font-size: x-large;
-  width: 10vw;
-  border: none;
-  margin-left: -20%;
-  margin-bottom: 2%;
+  background-color: navy;
+  color: white;
+  margin-top: 2%;
+  margin-left: 1%;
+  padding: 1%;
+
+}
+
+.login_page__{
+  margin-bottom: 3%;
+}
+
+.image_login{
+  margin: 10% 0 2% -10%;
+}
+
+.login_container_{
+
 }

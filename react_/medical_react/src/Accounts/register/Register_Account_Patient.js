@@ -145,7 +145,7 @@ export default function RegisterPatient(){
 
 {medecin}
         <div className="formulaire_">  
-            <h3 className="title_text">{title} Patient</h3>
+            <h4 className="title_text">{title} Patient</h4>
 
             <div className="form-gr">
                 <label>Nom :</label>

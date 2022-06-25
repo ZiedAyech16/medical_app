@@ -1,3 +1,4 @@
+import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
 import "./calender.css";
@@ -48,7 +49,7 @@ export default function Calender(){
     ]
 
    // console.log(calender[0].month1);
-   console.log(years[13]%4)
+   //console.log(years[13]%4)
     const [_months,setMonths]=useState(0);
     const [_years,setYears]=useState(0);
     const [_days,setDays]=useState();
@@ -57,6 +58,10 @@ export default function Calender(){
     const navigate = useNavigate();
     const onClickHandler=(day,month,year,id_med)=>navigate(`/hours/${day}/${month}/${year}/${params.id}`);
 
+
+    const [medecins, setMedecins] = useState({});
+    const [calender_medecin, setCalender_medecin] = useState([]);
+    const [count__, setCount__] = useState(0);
 
     useEffect(()=>{
         console.log("res"+_years%4);
@@ -68,31 +73,63 @@ export default function Calender(){
         if(_months==="February"){
             
         }
+
+        axios.get(`/medecins/${params.id}`).then(r=>setMedecins(r.data));
+        axios.get("/calenders").then(r=>setCalender_medecin(r.data));
+
     },[]);
     
 
+
+
+    const find_=(day)=>{
+     //   calender_medecin.map(r=>console.log(r.MedecinId+" a"+params.id+" b"+new Date(r.date).toISOString().substring(0,4)+"c "+_years+" d"+new Date(r.date).toISOString().substring(5,7)+" e"+_months+" f"+new Date(r.date).toISOString().substring(8,10)+" g"+day));
+//        calender_medecin.map(r=>console.log("id",r.MedecinId===parseInt(params.id)));
+        //calender_medecin.map(r=>console.log("year",parseInt(new Date(r.date).toISOString().substring(0,4))===parseInt(_years)));
+                //calender_medecin.map(r=>console.log("month_",parseInt(new Date(r.date).toISOString().substring(5,7))===parseInt(parseInt(_months)+1)));
+        //        calender_medecin.map(r=>console.log("day_",r.MedecinId===parseInt(params.id)&&parseInt(new Date(r.date).toISOString().substring(0,4))===parseInt(_years)&&parseInt(new Date(r.date).toISOString().substring(5,7))===parseInt(parseInt(_months)+1)&&parseInt(new Date(r.date).toISOString().substring(8,10))===parseInt(day)));
+
+        //calender_medecin.map(r=>console.log(">",r.MedecinId===parseInt(params.id)+","+parseInt(new Date(r.date).toISOString().substring(0,4))===_years+","+parseInt(new Date(r.date).toISOString().substring(5,7))===(_months+1)+","+parseInt(new Date(r.date).toISOString().substring(8,10))===day));
+      
+      setTimeout(() => {
+                //setCount__(0);
+
+                calender_medecin.filter(r=>r.MedecinId===parseInt(params.id)&&parseInt(new Date(r.date).toISOString().substring(0,4))===parseInt(_years)&&parseInt(new Date(r.date).toISOString().substring(5,7))===parseInt(parseInt(_months)+1)&&parseInt(new Date(r.date).toISOString().substring(8,10))===parseInt(day)).map(res=> setCount__(parseInt(count__)+1));
+      console.log("rr",count__)
+                return count__;
+
+      }, 2000);
+      
+
+    }
+
+
+  
+
+
     return (
-        <div className="container_calender">
+        <div>
 
-
+    <h6 className="calender_choisir_date_titre">Choisir une Date :</h6>
+    <div  className="container_calender">
 
             <div className="tabs_calender">
-            {_years%4===0?calender[0].month1[_months].days.map((day)=><button className="btn_calender" onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>):calender[0].month2[_months].days.map((day)=><button className="btn_calender" onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>)}
+            {_years%4===0?calender[0].month1[_months].days.map((day)=><button className="btn_calender" style={find_(day)>0?{backgroundColor:"green"}:{backgroundColor:"#bbb"}} onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>):calender[0].month2[_months].days.map((day)=><button className="btn_calender" style={find_(day)>0?{backgroundColor:"green"}:{backgroundColor:"#bbb"}}  onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>)}
         </div>
 
         <div className="calender_choisir_date_">
-            <h6 className="calender_choisir_date_titre">Choisir une Date :</h6>
 
-            <strong className="calender_choisir_date_text">Year :{_years} </strong>
+            <strong className="calender_choisir_date_text">Year  </strong>
             <select className="calender_year" onChange={(e)=>setYears(e.target.value)} value={_years}>
                 {years.map((year)=><option key={year} value={year}>{year} </option>)}
             </select>
-            <strong className="calender_choisir_date_text">Month :</strong>
+            <strong className="calender_choisir_date_text">Month </strong>
             <select className="calender_year" value={_months} onChange={(e)=>setMonths(e.target.value)}>
                 {months.map((month_,index)=><option key={month_} value={index}>{month_} </option>)}
             </select>
       </div>
 
+    </div>
         </div>
     );
 }

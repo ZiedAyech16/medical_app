@@ -31,7 +31,7 @@
 .detail_docteur{
     display: grid;
     grid-template-columns:auto auto ;
-    background-color: rgba(65, 16, 16, 0.452);
+    background-color: transparent;
     border-radius: 0 10% 0 0;
 }
 
@@ -43,9 +43,15 @@
     
 }
 
+.detail_docteur > h4:hover{
+    color: blue;
+}
+
 .container_calender_hour{
-    width: 100%;
-    margin:0 0 0 5%;
+    width: 75vw;
+    margin:0 0 0 2%;
+    background-color: white;
+    height: 80vh;
 }
 .my_table_thead{
     background-color: brown;
@@ -74,4 +80,9 @@
     letter-spacing: 3px;
     font-style: oblique;
     
+}
+
+.refresh_hours:hover{
+    background-color: navy;
+    color: white;
 }

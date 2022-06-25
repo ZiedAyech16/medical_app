@@ -123,16 +123,16 @@ export default function Profile(){
             <div className="card_profile">
 
             <div className="left_card">
-            {localStorage.getItem("role")==="patient"?  <img className="image_profile" src={`http://127.0.0.1:5000/patients/images/${image}`}   />:<></>}
+            {/* {localStorage.getItem("role")==="patient"?  <img className="image_profile" src={`http://127.0.0.1:5000/patients/images/${image}`}   />:<></>}
             {localStorage.getItem("role")==="secretaire"?  <img className="image_profile" src={`http://127.0.0.1:5000/secretaires/images/${image}`}   />:<></>}
-            {localStorage.getItem("role")==="medecin"?  <img className="image_profile" src={`http://127.0.0.1:5000/medecins/images/${image}`}   />:<></>}
-                            <h1 className="title">{nom} {prenom}</h1>
+            {localStorage.getItem("role")==="medecin"?  <img className="image_profile" src={`http://127.0.0.1:5000/medecins/images/${image}`}   />:<></>} */}
+                            <h3 className="title">{nom} {prenom}</h3>
 
                 </div>
 
                 <div className="right_card">
 
-                <h2 className="title_item_profile" style={{float:"left",width:"80%"}}>{localStorage.getItem("role")} </h2>
+                <h4 className="title_item_profile" style={{float:"left",width:"80%"}}>{localStorage.getItem("role")} </h4>
 
                     <div className="item_profile">
                     <span className="text_title">@mail</span>
@@ -152,7 +152,7 @@ export default function Profile(){
                                 {
                                     localStorage.getItem("role")==="secretaire"?
                                         <div>
-                                            <h2 className="title_item_profile" style={{float:"left",width:"80%"}}>Travailler avec le Medecin </h2>
+                                            <h4 className="title_item_profile" style={{float:"left",width:"80%"}}>Travailler avec le Medecin </h4>
                                             <div className="item_profile">
 
                                                 <span className="text_title">Nom et Prenom</span>

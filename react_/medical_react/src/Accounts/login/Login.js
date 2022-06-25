@@ -50,8 +50,8 @@ const handleChange = ()=>{
 
 //        e.preventDefault();
 
-        axios.get("/users_role/login").then(user=>{
-            console.log("login:",user.data.token);
+        // axios.get("/users_role/login").then(user=>{
+        //     console.log("login:",user.data.token);
             users_role.filter(re=>re.email===email).map(r=>{
                 setUser_role_id(r.id);
                 if(r.role==="medecin"){
@@ -60,13 +60,13 @@ const handleChange = ()=>{
                         console.log("user","medecine");
                         console.log("med password",res.data.password);
 
-                        axios.get(`/users_role/login_success/${user_role_id}`,{headers:{
-                            Authorization:`Bearer ${user.data.token}`
-                        }}).then((data)=>{
-                           console.log("data",data);
-                        })
+                        // axios.get(`/users_role/login_success/${user_role_id}`,{headers:{
+                        //     Authorization:`Bearer ${user.data.token}`
+                        // }}).then((data)=>{
+                        //    console.log("data",data);
+                        // })
 
-                        localStorage.setItem("token", user.data.token);
+                        // localStorage.setItem("token", user.data.token);
                         localStorage.setItem("id",r.id)
                         console.log("user = ",r);
                         localStorage.setItem("email",r.email);
@@ -82,13 +82,13 @@ const handleChange = ()=>{
                             console.log("user","secretaire");
                             console.log("sect password",res.data.password);
 
-                            axios.get(`/users_role/login_success/${user_role_id}`,{headers:{
-                                Authorization:`Bearer ${user.data.token}`
-                            }}).then((data)=>{
-                               console.log("data",data);
-                            })
+                            // axios.get(`/users_role/login_success/${user_role_id}`,{headers:{
+                            //     Authorization:`Bearer ${user.data.token}`
+                            // }}).then((data)=>{
+                            //    console.log("data",data);
+                            // })
 
-                            localStorage.setItem("token", user.data.token);
+                            // localStorage.setItem("token", user.data.token);
                             localStorage.setItem("id",r.id)
                             console.log("user = ",r);
                             localStorage.setItem("email",r.email);
@@ -104,13 +104,13 @@ const handleChange = ()=>{
                              console.log("user","patient");
                              console.log("pat password",res.data.password);
 
-                             axios.get(`/users_role/login_success/${user_role_id}`,{headers:{
-                                Authorization:`Bearer ${user.data.token}`
-                            }}).then((data)=>{
-                               console.log("data",data);
-                            })
+                            //  axios.get(`/users_role/login_success/${user_role_id}`,{headers:{
+                            //     Authorization:`Bearer ${user.data.token}`
+                            // }}).then((data)=>{
+                            //    console.log("data",data);
+                            // })
 
-                            localStorage.setItem("token", user.data.token);
+                            // localStorage.setItem("token", user.data.token);
                             localStorage.setItem("id",r.id)
                             console.log("user = ",r);
                             localStorage.setItem("email",r.email);
@@ -131,13 +131,13 @@ const handleChange = ()=>{
                             console.log("user","admin");
                             console.log("pat password",res.data.password);
 
-                            axios.get(`/users_role/login_success/${user_role_id}`,{headers:{
-                               Authorization:`Bearer ${user.data.token}`
-                           }}).then((data)=>{
-                              console.log("data",data);
-                           })
+                        //     axios.get(`/users_role/login_success/${user_role_id}`,{headers:{
+                        //        Authorization:`Bearer ${user.data.token}`
+                        //    }}).then((data)=>{
+                        //       console.log("data",data);
+                        //    })
 
-                           localStorage.setItem("token", user.data.token);
+                         //  localStorage.setItem("token", user.data.token);
                            localStorage.setItem("id",r.id)
                            console.log("user = ",r);
                            localStorage.setItem("email",r.email);
@@ -155,7 +155,7 @@ const handleChange = ()=>{
  
 
             
-        });
+      //  });
         navigate("/profile");
 
       //  users__.map((response)=>console.log(response));
@@ -261,34 +261,37 @@ users_role.filter((res)=>res.email===email).map((response)=>{
 
     return (<div  >
         <div className="container___"></div>
-        <div  style={url}></div>
         {change?
             <div  className="login_container_">
-                     
+                                                 <div>
+                                <img className="image_login" src={`/images/digitalisation.png`} width={100} height={100}></img>
+                            
+                            </div>
                 <div  className="login_container_item">
 
 
 
-                    <form className="login-container">
-                        <div className="menu_login">
-                                    <div className="item_login">
+                    <form className="">
+                        <div className="">
 
-                                        <h3 className="login_page__">Gestion Medical Login Page</h3>
+                                    <div className="">
+
+                                        <h3 className="login_page__">Login</h3>
                                     </div>
                                     
                                     <div className="item_login">
                                     
-                                        <i className="fas fa-user"></i>
+                                        <i className="fas fa-user" style={{backgroundColor:"#fff"}}></i>
                                         
-                                        <input type="email"  className="input__" placeholder="email :" value={email} onChange={e=>setEmail(e.target.value)}></input>
+                                        <input type="email"  className="input___" placeholder="email :" value={email} onChange={e=>setEmail(e.target.value)}></input>
                                     </div>
 
                                     <div className="item_login">
-                                        <i className="fas fa-lock"></i>
-                                        <input type="password" className="input__" placeholder="Password :" value={password} onChange={e=>setPassword(e.target.value)}></input>
+                                        <i className="fas fa-lock" style={{backgroundColor:"#fff"}}></i>
+                                        <input type="password" className="input___" placeholder="Password :" value={password} onChange={e=>setPassword(e.target.value)}></input>
                                     </div>
                     
-                                    <div className="item_login">
+                                    <div className="">
                                         <button className="btn__" onClick={login}>Login</button>
 
                                     </div>
@@ -321,14 +324,3 @@ users_role.filter((res)=>res.email===email).map((response)=>{
     );
 }
 
-const url = {
-    backgroundImage: `url(${process.env.PUBLIC_URL+ "/images/background_.jpg"})`,
-    width:"100%",
-    height:"140%",
-    backgroundRepeat: 'no-repeat',
-    backgroundSize: 'cover',
-    position:"fixed",
-    zIndex:"-1"
-
-
-}

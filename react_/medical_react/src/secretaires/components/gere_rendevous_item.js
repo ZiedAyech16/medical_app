@@ -66,7 +66,7 @@ export default function Rendezvous_Item(props){
        
             <div>
 
-                     <img className="image_card_rdv" src={`http://127.0.0.1:5000/patients/images/${userPatient.image}`}></img>
+                     <img className="image_" src={`http://127.0.0.1:5000/patients/images/${userPatient.image}`}></img>
 
             </div>
 

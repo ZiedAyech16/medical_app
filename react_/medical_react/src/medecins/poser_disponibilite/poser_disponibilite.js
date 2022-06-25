@@ -25,7 +25,7 @@ export default function Poser_Time(props){
     // console.log(value.year);
     console.log("date",value.hour);
     console.log("day",value.day);
-    console.log("month",value.month.number);
+   // console.log("month",value.month.number);
     console.log("year",value.year);
     const handleCalender = (e)=>{
         e.preventDefault();
@@ -69,23 +69,23 @@ export default function Poser_Time(props){
         <div className="card_picker">
           
             {value?.toDate?.().toString()}
-            <div class="alert success">
-              <span class="closebtn">&times;</span>      
+            <div className="alert success">
+              <span className="closebtn">&times;</span>      
                 <h2 className="title_picker">Ajouter Votre Disponibilte</h2>
   
             </div>
             <DatePicker className="design_picker"
             
             containerStyle={{ //datepicker container style
-          width: "180px",
+          width: "480px",
           margin: "auto",
           
         }}
         style={{ //input style
-          width: "250px",
+          width: "400px",
           height: "66px",
           boxSizing: "border-box",
-          paddingLeft:"35px"
+          paddingLeft:"125px"
         }}
         // calendarPosition={`${20}-${5}`}
         // fixMainPosition={5}
@@ -103,7 +103,7 @@ export default function Poser_Time(props){
 
         {/* <div>{value.day}/{value.month.number}/{value.year}</div> */}
 
-        <button className="button_picker" onClick={handleCalender}>save</button>
+        <button className="button_picker" onClick={handleCalender}>Sauvegarder</button>
 
             {/* <LocalizationProvider dateAdapter={AdapterDateFns}>
   <DateTimePicker
