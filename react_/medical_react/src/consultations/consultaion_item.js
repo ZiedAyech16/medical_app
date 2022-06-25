@@ -40,13 +40,13 @@ export default function ConsultationItem(props){
 
 
             <div className="container_consultation_detail">
-            <h2 className='title_consultation'>Consultation</h2>
+            <h4 className='title_consultation'>Consultation</h4>
                 <div className="consultation_item_1">
                     <div className="">
                     <img className="image_consultation_detail" src={`${`http://127.0.0.1:5000/patients/images/${consultation.Patient.image}`}`}></img>
 
                     </div>
-                    <div><h3  className='date_consultation'>Monsieur/Madame :{consultation.Patient.nom}{' '}{consultation.Patient.prenom} </h3> </div>
+                    <div><h3  className='date_consultation'>{consultation.Patient.nom}{' '}{consultation.Patient.prenom} </h3> </div>
                     <div className='date_consultation'>Date :{date_.toISOString().substring(0,10)} </div>
 
                 </div>
@@ -63,8 +63,8 @@ export default function ConsultationItem(props){
                         <div><small className='consultation_text_1'>Email: </small><div className='consultation_text_2'>{consultation.Patient.email}</div></div>
                     </div>
                     <div>
-                        <h4>Secretaire :</h4>
-                        <h3>{consultation.Secretaire.nom}{' '}{consultation.Secretaire.prenom} </h3>
+                        <h6>Secretaire :</h6>
+                        <h5>{consultation.Secretaire.nom}{' '}{consultation.Secretaire.prenom} </h5>
                     </div>
 
                 </div>
@@ -77,10 +77,12 @@ export default function ConsultationItem(props){
 
             </div>
             <div className="consultation_text">
-               <button className="button_detail" onClick={toDetailPage}>Editer
-                    </button>
-                <button className="button_detail" onClick={remove_consultation}>Supprimer
+               <button className="btn_item_medecin button_detail" onClick={toDetailPage}><i class="fa fa-pencil-square" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
+                <button className="btn_item_medecin button_detail" onClick={remove_consultation}><i class="fa fa-trash" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i>
                 </button>
+
+
+        
             </div>
 
         </div>:<></>}

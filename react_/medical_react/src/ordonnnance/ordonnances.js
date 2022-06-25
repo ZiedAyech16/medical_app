@@ -22,11 +22,23 @@ export default function Ordonnances(){
     
     return (
         <div className="">
-                        <div className="container_search_ordonnance">
-            <input type="text" className="search_nom_ordonnance" placeholder="Nom de patient :" value={ordonnance} onChange={(e)=>setOrdonnance(e.target.value)} />
-            {localStorage.getItem("role")==="medecin"? <button className="button_consultation" onClick={ajouterOrdonnance}>Ajouter Un Ordonnance</button>:<></>}
 
-            </div>
+
+            <div className="medecins_header">
+                <div className="search__">
+                    <i class="fa fa-search" aria-hidden="true"></i>
+
+                    <input type="text" className="search__input" placeholder="Nom de patient :" value={ordonnance} onChange={(e)=>setOrdonnance(e.target.value)} />
+ 
+
+           </div>
+                              {localStorage.getItem("role")==="medecin"? 
+                               <button className="color_button" onClick={ajouterOrdonnance}><i class="fa fa-plus-circle" aria-hidden="true"  style={{fontSize:'30px',color:"#bbb"}}></i></button>
+
+                      :<></>}
+
+
+</div>
             <div className="ordonnance_items">
 
                { localStorage.getItem("role")==="medecin"? ordonnances.filter(r_=>(r_.Patient!==null&&r_.Medecin!==null&&r_.Patient.nom.includes(ordonnance)&&r_.MedecinId===parseInt(localStorage.getItem("userId")))).map(r=><OrdonnanceItem key={r.id} ordonnance={r} />)

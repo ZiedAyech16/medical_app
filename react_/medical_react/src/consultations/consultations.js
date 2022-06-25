@@ -43,11 +43,26 @@ export default function Consultation(){
 
     return (
         <div>
-            <div className="container_search_consultation">
-            <input type="text" className="search_nom_consultation" placeholder="Nom :" value={nom_} onChange={(e)=>setNom_(e.target.value)} />
-            <input type="text" className="search_nom_consultation" placeholder="Prenom :" value={prenom_} onChange={(e)=>setPrenom_(e.target.value)} />
-            <input type="date" className="search_nom_consultation" value={date_} onChange={(e)=>{setDate_(e.target.value)}} />
-            <select className="search_nom_consultation" name="secretaire" value={secretaire} onChange={(e)=>setSecretaire(e.target.value)}>
+
+
+
+            
+<div className="consultation_header">
+<div className="search__">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" className="search__input" placeholder="Nom :" value={nom_} onChange={(e)=>setNom_(e.target.value)} />
+            </div>
+            
+            <div className="search__">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="text" className="search__input" placeholder="Prenom :" value={prenom_} onChange={(e)=>setPrenom_(e.target.value)} />
+            </div>
+            <div className="search__">
+            <i class="fa fa-search" aria-hidden="true"></i>
+            <input type="date" className="search__input" value={date_} onChange={(e)=>{setDate_(e.target.value)}} />
+            </div>
+            <div className="search__input">
+            <select className="" name="secretaire" value={secretaire} onChange={(e)=>setSecretaire(e.target.value)}>
                 <option placeholder="">Search Secretaire:</option>
                {localStorage.getItem("role")==="medecin"? secretaires.filter(t=>t.MedecinId===parseInt(localStorage.getItem("userId"))).map((r)=><option key={r.id} value={r.id}>
                    {r.nom} {r.prenom} 
@@ -57,10 +72,11 @@ export default function Consultation(){
                    {r.nom} {r.prenom} 
                    </option>):<></>}        
             </select>
-                <button className="button_consultation" onClick={ajouterConsultation}>Ajouter Un Consultation</button>
             </div>
+                <button className="color_button" onClick={ajouterConsultation}><i class="fa fa-plus-circle" aria-hidden="true"  style={{fontSize:'30px',color:"#bbb"}}></i></button>
+         
+</div>
 
-<h2>            {secretaire}</h2>
 
            {all_consultation.filter(r=>r.Patient!==null&&r.Patient.nom.includes(nom_)&&r.Patient.prenom.includes(prenom_)&&
            (parseInt((new Date(r.date)).toISOString().substring(0,4))===parseInt((new Date(date_)).toISOString().substring(0,4))&&

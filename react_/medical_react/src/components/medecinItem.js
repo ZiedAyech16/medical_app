@@ -11,16 +11,16 @@ const onClickHandler = () => navigate(`/calender/${props.medecin.id}`)
     const medecin=props.medecin;
     console.log(props);
     return(
-        <div className="tr__">
-                                <div><img className="image_medecin" width={150} height={150} src={`http://127.0.0.1:5000/medecins/images/${medecin.image}`} /></div>
-                                <div className="td__">Num Order: {medecin.num_order} </div>
-                                <div className="td__">Specialite: {medecin.specialite} </div>
-                                <div className="td__">Nom: {medecin.nom} </div>
-                                <div className="td__">Prenom: {medecin.prenom} </div>
-                                <div className="td__">Contact: {medecin.contact} </div>
-                                <div className="td__">Email: {medecin.email}</div>
-                                <div  className="td__"><button className="btn_item_medecin" onClick={onClickHandler}>choisir rende-vous</button></div>
-        </div>
+        <tr className="tr__">
+                                <td><img className="image_medecin" width={100} height={100} src={`http://127.0.0.1:5000/medecins/images/${medecin.image}`} /></td>
+                                <td className="td__"> {medecin.num_order} </td>
+                                <td className="td__"> {medecin.specialite} </td>
+                                <td className="td__">{medecin.nom} </td>
+                                <td className="td__"> {medecin.prenom} </td>
+                                <td className="td__"> {medecin.contact} </td>
+                                <td className="td__"> {medecin.email}</td>
+                                <td  className="td__"><button className="btn_item_medecin" onClick={onClickHandler}><i class="fa fa-calendar-check-o" aria-hidden="true"   style={{fontSize:'30px',color:"#bbb"}}></i></button></td>
+        </tr>
     );
 }
 

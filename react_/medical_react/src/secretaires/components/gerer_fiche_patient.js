@@ -17,7 +17,7 @@ export default function FichePatient(){
 
  const goto_register = ()=>{
        
-    navigate(`/register/patient/${medecin.id}/${localStorage.getItem("role")}`);
+    navigate(`/register/patient/ajouter`);
 }
 
  useEffect(()=>{
@@ -33,21 +33,44 @@ export default function FichePatient(){
 
     return (
      <div>
-            <div className="container_search">
-                <input type="text" className="search_nom" placeholder="Nom :" value={search_} onChange={(e)=>setSearch_(e.target.value)} /> 
-                <input type="text" className="search_nom" placeholder="Prenom :" value={search_prenom} onChange={(e)=>setSearch_Prenom(e.target.value)} /> 
-                <button className="ajouter_" onClick={goto_register}>Ajouter Patient</button> 
+            <div className="medecins_header">
+              <div className="search__">
+                <i class="fa fa-search" aria-hidden="true"></i>
+                 <input type="text" className="search__input" placeholder="Nom :" value={search_} onChange={(e)=>setSearch_(e.target.value)} /> 
+            </div>
+            <div className="search__">
+                <i class="fa fa-search" aria-hidden="true"></i>
+
+                <input type="text" className="search__input" placeholder="Prenom :" value={search_prenom} onChange={(e)=>setSearch_Prenom(e.target.value)} /> 
 
             </div>
+            <button className="color_button" onClick={goto_register}><i class="fa fa-plus-circle" aria-hidden="true"  style={{fontSize:'30px',color:"#bbb"}}></i></button> 
+
+
+
+        </div>
+
+        <table className="table_container_medecins">
+            <thead className="table_container_medecins_head">
+                <th>Image</th>
+                <th>Nom</th>
+                <th>Prenom</th>
+                <th>Contact</th>
+                <th>Email</th>
+                <th>Date de creation</th>
+                <th>Action</th>
+                
+            </thead>
             
-            <div className="fiche_pat_cards">
+            <tbody className="">
             {/* {fiches.filter((res__)=>(res__.Patient.nom!==null?res__.Patient.nom.includes(search_):false)&&(res__.Patient.prenom!==null?res__.Patient.prenom.includes(search_prenom):false)).map((result)=><FichePatientItem key={result.id} fiche_patient={result} />)} */}
             {localStorage.getItem("role")==="medecin"? patients.filter((res__)=>(res__.nom!==null?res__.nom.includes(search_):false)&&(res__.prenom!==null?res__.prenom.includes(search_prenom):false)&&(res__.MedecinId===parseInt(localStorage.getItem("userId")))).map((result)=><FichePatientItem key={result.id} fiche_patient={result} patient={result} />):<></>}
             {localStorage.getItem("role")==="secretaire"? patients.filter((res__)=>(res__.nom!==null?res__.nom.includes(search_):false)&&(res__.prenom!==null?res__.prenom.includes(search_prenom):false)&&(res__.MedecinId===secretaire_of_med.MedecinId)).map((result)=><FichePatientItem key={result.id} fiche_patient={result} patient={result} />):<></>}
             
             
 
-            </div>
+            </tbody>
+        </table>
 
      </div>
  );
