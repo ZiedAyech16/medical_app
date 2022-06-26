@@ -5,6 +5,7 @@ import { Logout_ } from "./user/store/actions";
 import "./Header.css";
 import { useNavigate, useParams } from "react-router";
 import axios from "axios";
+import Home_ from "./homepage/routes/Home";
 
 export default function Header(){
     const [currentEmail,setCurrentEmail]=useState('');
@@ -27,6 +28,9 @@ export default function Header(){
        localStorage.setItem("userId","");
        localStorage.setItem("id","");
        dispatch(Logout_());
+       localStorage.setItem("application_state","homepage");
+       navigate("/");
+
        
     }
 
@@ -79,8 +83,14 @@ export default function Header(){
 
 //    users_role.map(result=>console.log(result));
     
+// localStorage.setItem("application_state","homepage");
     return (
         <div className="">
+
+
+
+
+            <div>
 
             {localStorage.getItem("email")!==""?
   <div className="navbar">
@@ -154,6 +164,8 @@ Ordonnances</button></li>
     
      </div>
   </div>:<></>}
+
+  </div>
 </div>
     );
 }

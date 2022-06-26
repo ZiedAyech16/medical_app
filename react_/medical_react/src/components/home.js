@@ -30,6 +30,9 @@ import OrdonnancePrint from "../ordonnnance/ordonnance_print";
 import Ordonnances from "../ordonnnance/ordonnances";
 import ShowCabinet from "../cabinets/show_cabinet";
 import ListMedecin from "../list_medecin/list_medecin";
+import Home_ from "../homepage/routes/Home";
+import About_ from "../homepage/components/About";
+import Find_ from "../homepage/components/Find";
 
 export default function Home(){
     return(
@@ -160,6 +163,10 @@ export default function Home(){
 
         <Route path="/list_medecin" element={<ListMedecin />}></Route>
         
+
+        <Route path='/' exact element={<Home_ />} />
+        <Route path='/about'  element={<About_ />} />
+        <Route path='/find' element={<Find_ />} />
 
         
         

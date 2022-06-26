@@ -61,7 +61,7 @@ export default function Calender(){
 
     const [medecins, setMedecins] = useState({});
     const [calender_medecin, setCalender_medecin] = useState([]);
-    const [count__, setCount__] = useState(0);
+    const [count__, setCount__] = useState("");
 
     useEffect(()=>{
         console.log("res"+_years%4);
@@ -90,15 +90,15 @@ export default function Calender(){
         //        calender_medecin.map(r=>console.log("day_",r.MedecinId===parseInt(params.id)&&parseInt(new Date(r.date).toISOString().substring(0,4))===parseInt(_years)&&parseInt(new Date(r.date).toISOString().substring(5,7))===parseInt(parseInt(_months)+1)&&parseInt(new Date(r.date).toISOString().substring(8,10))===parseInt(day)));
 
         //calender_medecin.map(r=>console.log(">",r.MedecinId===parseInt(params.id)+","+parseInt(new Date(r.date).toISOString().substring(0,4))===_years+","+parseInt(new Date(r.date).toISOString().substring(5,7))===(_months+1)+","+parseInt(new Date(r.date).toISOString().substring(8,10))===day));
-      
-      setTimeout(() => {
-                //setCount__(0);
 
-                calender_medecin.filter(r=>r.MedecinId===parseInt(params.id)&&parseInt(new Date(r.date).toISOString().substring(0,4))===parseInt(_years)&&parseInt(new Date(r.date).toISOString().substring(5,7))===parseInt(parseInt(_months)+1)&&parseInt(new Date(r.date).toISOString().substring(8,10))===parseInt(day)).map(res=> setCount__(parseInt(count__)+1));
-      console.log("rr",count__)
-                return count__;
+      setTimeout(() => {
+
+                calender_medecin.filter(r=>r.MedecinId===parseInt(params.id)&&parseInt(new Date(r.date).toISOString().substring(0,4))===parseInt(_years)&&parseInt(new Date(r.date).toISOString().substring(5,7))===parseInt(parseInt(_months)+1)&&parseInt(new Date(r.date).toISOString().substring(8,10))===parseInt(day)).map(res=> setCount__(new Date(res.date).toISOString().substring(8,10)));
+                console.log("rr",count__)
+                
 
       }, 2000);
+      return count__;
       
 
     }
@@ -109,12 +109,12 @@ export default function Calender(){
 
     return (
         <div>
-
     <h6 className="calender_choisir_date_titre">Choisir une Date :</h6>
     <div  className="container_calender">
 
+
             <div className="tabs_calender">
-            {_years%4===0?calender[0].month1[_months].days.map((day)=><button className="btn_calender" style={find_(day)>0?{backgroundColor:"green"}:{backgroundColor:"#bbb"}} onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>):calender[0].month2[_months].days.map((day)=><button className="btn_calender" style={find_(day)>0?{backgroundColor:"green"}:{backgroundColor:"#bbb"}}  onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>)}
+            {_years%4===0?calender[0].month1[_months].days.map((day)=><button className="btn_calender" style={parseInt(find_(day))===parseInt(day)?{backgroundColor:"green"}:{backgroundColor:"#bbb"}} onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>):calender[0].month2[_months].days.map((day)=><button className="btn_calender" style={parseInt(find_(day))===parseInt(day)?{backgroundColor:"green"}:{backgroundColor:"#bbb"}}  onClick={()=>{onClickHandler(day,parseInt(_months)+1,_years)}}>{day} </button>)}
         </div>
 
         <div className="calender_choisir_date_">
