@@ -37,15 +37,14 @@ export default function ConsultationItem(props){
         <div>
         {consultation.Patient!==null?
         <div className="card_consultation">
-
-
-            <div className="container_consultation_detail">
-            <h4 className='title_consultation'>Consultation</h4>
-                <div className="consultation_item_1">
-                    <div className="">
+           <div className="">
                     <img className="image_consultation_detail" src={`${`http://127.0.0.1:5000/patients/images/${consultation.Patient.image}`}`}></img>
 
                     </div>
+
+            <div className="container_consultation_detail">
+                <div className="consultation_item_1">
+         
                     <div><h3  className='date_consultation'>{consultation.Patient.nom}{' '}{consultation.Patient.prenom} </h3> </div>
                     <div className='date_consultation'>Date :{date_.toISOString().substring(0,10)} </div>
 

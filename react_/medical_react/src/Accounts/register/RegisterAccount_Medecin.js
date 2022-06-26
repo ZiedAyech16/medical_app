@@ -111,18 +111,18 @@ export default function RegisterMedecin(){
 
             </div>
             <div className="form-gr">
-                <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={medecin.prenom} onChange={(e)=>setMedecin({...medecin,prenom:e.target.value})}  />
-                <input placeholder="Nom :" className="input_text_" type="text" name="nom" value={medecin.nom} onChange={(e)=>setMedecin({...medecin,nom:e.target.value})} />
+                <input placeholder="" className="input_text_" type="text" name="prenom" value={medecin.prenom} onChange={(e)=>setMedecin({...medecin,prenom:e.target.value})}  />
+                <input placeholder="" className="input_text_" type="text" name="nom" value={medecin.nom} onChange={(e)=>setMedecin({...medecin,nom:e.target.value})} />
 
             </div>
             <div className="form-gr">
-                <label>Age :</label>
-                <label>Email :</label>
+                <label>Date de naissance :</label>
+                <label className="marge_with_naissance">Email :</label>
 
             </div>
             <div className="form-gr">
-                <input placeholder="Age :" className="input_text_" type="date" name="age" min="1938-01-01" max={`${date_.toISOString().substring(0,10)}`} value={medecin.age} onChange={(e)=>setMedecin({...medecin,age:e.target.value})}  />
-                <input placeholder="Email :" className="input_text_" type="text" name="email"  value={medecin.email} onChange={(e)=>setMedecin({...medecin,email:e.target.value})} />
+                <input placeholder="" className="input_text_" type="date" name="age" min="1938-01-01" max={`${date_.toISOString().substring(0,10)}`} value={medecin.age} onChange={(e)=>setMedecin({...medecin,age:e.target.value})}  />
+                <input placeholder="" className="input_text_" type="text" name="email"  value={medecin.email} onChange={(e)=>setMedecin({...medecin,email:e.target.value})} />
                 
             </div>
             <div className="form-gr">
@@ -131,9 +131,9 @@ export default function RegisterMedecin(){
 
             </div>
             <div className="form-gr">
-            <input placeholder="Contact :" className="input_text_" type="number" name="contact" value={medecin.contact} onChange={(e)=>setMedecin({...medecin,contact:e.target.value})}  />
+                <input placeholder="" className="input_text_" type="number" name="contact" value={medecin.contact} onChange={(e)=>setMedecin({...medecin,contact:e.target.value})}  />
 
-                <input placeholder="Num order :" className="input_text_" type="number" name="num_order" value={medecin.num_order} onChange={(e)=>setMedecin({...medecin,num_order:e.target.value})}  />
+                <input placeholder="" className="input_text_" type="number" name="num_order" value={medecin.num_order} onChange={(e)=>setMedecin({...medecin,num_order:e.target.value})}  />
             </div>
 
             <div className="form-gr-1">
@@ -141,7 +141,7 @@ export default function RegisterMedecin(){
             </div>
 
             <div className="form-gr-1">
-                <select placeholder="Specialite :" className="input_text_" name="specialte" value={medecin.specialite} onChange={(e)=>setMedecin({...medecin,specialite:e.target.value})}>
+                <select placeholder="" className="input_text_" name="specialte" value={medecin.specialite} onChange={(e)=>setMedecin({...medecin,specialite:e.target.value})}>
                 <option value="" readonly="true" hidden="true" selected>choisir la specialite :</option>
                     {specialtes.map((result=><option value={result.nom} >{result.nom} </option>))}
                 </select>
@@ -152,16 +152,16 @@ export default function RegisterMedecin(){
 
             </div>
             <div className="form-gr">
-                <input placeholder="Username :" className="input_text_" type="text" name="username"  value={medecin.username} onChange={(e)=>setMedecin({...medecin,username:e.target.value})} />
+                <input placeholder="" className="input_text_" type="text" name="username"  value={medecin.username} onChange={(e)=>setMedecin({...medecin,username:e.target.value})} />
 
-                <input placeholder="Password :" className="input_text_" type="text" name="password"  value={medecin.password} onChange={(e)=>setMedecin({...medecin,password:e.target.value})} />
+                <input placeholder="" className="input_text_" type="text" name="password"  value={medecin.password} onChange={(e)=>setMedecin({...medecin,password:e.target.value})} />
             </div>
 
             <div className="form-gr">
                 <label>Image :</label>
             </div>
             <div className="form-gr">
-                <input placeholder="Image :" className="input_text_" type="file" name="photo" onChange={onInputChange}  />
+                <input placeholder="" className="input_text_" type="file" name="photo" onChange={onInputChange}  />
             </div>
             <div>
                 <button className="btn_" onClick={handleRegister}>Register</button>

@@ -88,6 +88,39 @@
 .ordonnance_{
     display: flex;
     justify-content: flex-start;
-    color: navy;
+    color: rgb(0, 0, 0);
     margin-bottom: 5%;
+}
+
+.ordonnance_items_{
+    background-color: white;
+    margin-bottom: 1%;
+    margin-left: 2%;
+    width: 34vw;
+    display: grid;
+    grid-template-columns: 34vw;
+    margin-right: 2%;
+
+}
+
+.ordonnance_items{
+    display: grid;
+    grid-template-columns: 35vw 35vw; 
+    width: 80vw;
+}
+
+.ord_item_{
+    display: grid;
+    grid-template-columns: 30vw;
+    padding: 1%;
+    padding-left: 3%;
+}
+
+.ord_item_ > *{
+    display: flex;
+    justify-content: flex-start;
+}
+
+.ord_item_ > button{
+   width: 10vw;
 }

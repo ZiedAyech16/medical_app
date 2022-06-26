@@ -72,13 +72,18 @@
 /*consultation detail:*/
 
 .title_consultation{
-    color: navy;
+    color: rgb(0, 0, 0);
+    float: left;
+    font-weight: 900;
+    margin-left: 2%;
+    margin-top: 1%;
+    margin-bottom: 1%;
 }
 
 .title_consultation::first-letter{
     font-size: 25px;
     font-style: oblique;
-    color: rgb(54, 54, 153);
+    color: rgb(0, 0, 0);
 }
 .container_consultation_detail{
     display: grid;
@@ -109,13 +114,14 @@
 
 .consultation_text_1{
     font-size: 18px;
-    color: rgb(4, 105, 38);
+    color: rgb(0, 0, 0);
     justify-items: baseline;
+    font-weight: 700;
 }
 
 .consultation_text_2{
     font-size: 20px;
-    color: rgb(160, 17, 17);
+    color: rgb(0, 0, 0);
 
 }
 
@@ -133,8 +139,8 @@
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    border: 4px solid #bbb;
-    margin-top: -7%;
+    border: 10px solid rgb(255, 255, 255);
+    margin-top: -5%;
 }
 
 
@@ -171,7 +177,7 @@ padding: 2%;
 .consultation_ajoute_title{
     font-weight: 600;
     letter-spacing: 3px;
-    color: navy;
+    color: rgb(0, 0, 0);
     padding: 1%;
 
 }
@@ -186,7 +192,7 @@ padding: 2%;
 .consultation_ajoute_label{
 display: flex;
 justify-content: flex-start;
-color: navy;
+color: rgb(0, 0, 0);
 font-weight: 900;
 font-family: 'Courier New', Courier, monospace;
 font-style: italic;

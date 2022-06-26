@@ -37,6 +37,7 @@ export default function Gere_Secretaire(){
 <div className="">
  </div>
 
+ <div className="table__">
 
  <table className="table_container_medecins">
     <caption style={{textAlign:"left",captionSide:"top"}}>Liste des Secretaires</caption>
@@ -53,7 +54,7 @@ export default function Gere_Secretaire(){
 
            { secretaires.filter(res=>res.nom.includes(search_)).map((result)=> <Secretaire_Item key={result.id} secretaire={result} />)}
 
-</table>
+</table></div>
         </div>
         );
 }

@@ -39,6 +39,8 @@ export default function Ordonnances(){
 
 
 </div>
+       <div className="table__">
+
             <div className="ordonnance_items">
 
                { localStorage.getItem("role")==="medecin"? ordonnances.filter(r_=>(r_.Patient!==null&&r_.Medecin!==null&&r_.Patient.nom.includes(ordonnance)&&r_.MedecinId===parseInt(localStorage.getItem("userId")))).map(r=><OrdonnanceItem key={r.id} ordonnance={r} />)
@@ -47,10 +49,11 @@ export default function Ordonnances(){
             //    ordonnances.filter(r_=>(r_.Patient!==null&&r_.Medecin!==null&&r_.Patient.nom.includes(ordonnance)&&r_.MedecinId===user_.MedecinId&&r_.MedecinId===parseInt(localStorage.getItem("userId")))).map(r=><OrdonnanceItem key={r.id} ordonnance={r} />)
                }
 
-               { localStorage.getItem("role")==="patient"? ordonnances.filter(r_=>(r_.Patient!==null&&r_.Medecin!==null&&r_.Patient.nom.includes(ordonnance)&&r_.PatientId===parseInt(localStorage.getItem("userId")))).map(r=><OrdonnanceItem key={r.id} ordonnance={r} />):<></>
-            //    ordonnances.filter(r_=>(r_.Patient!==null&&r_.Medecin!==null&&r_.Patient.nom.includes(ordonnance)&&r_.MedecinId===user_.MedecinId&&r_.PatientId===parseInt(localStorage.getItem("userId")))).map(r=><OrdonnanceItem key={r.id} ordonnance={r} />)
-               }
 
+                                { localStorage.getItem("role")==="patient"? ordonnances.filter(r_=>(r_.Patient!==null&&r_.Medecin!==null&&r_.Patient.nom.includes(ordonnance)&&r_.PatientId===parseInt(localStorage.getItem("userId")))).map(r=><OrdonnanceItem key={r.id} ordonnance={r} />):<></>
+                                //    ordonnances.filter(r_=>(r_.Patient!==null&&r_.Medecin!==null&&r_.Patient.nom.includes(ordonnance)&&r_.MedecinId===user_.MedecinId&&r_.PatientId===parseInt(localStorage.getItem("userId")))).map(r=><OrdonnanceItem key={r.id} ordonnance={r} />)
+                                }
+                    </div>
             </div>
 
         </div>

@@ -77,6 +77,7 @@ export default function Consultation(){
          
 </div>
 
+<h4 className='title_consultation'>Liste des Consultations</h4>
 
            {all_consultation.filter(r=>r.Patient!==null&&r.Patient.nom.includes(nom_)&&r.Patient.prenom.includes(prenom_)&&
            (parseInt((new Date(r.date)).toISOString().substring(0,4))===parseInt((new Date(date_)).toISOString().substring(0,4))&&
