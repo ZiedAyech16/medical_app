@@ -12,6 +12,7 @@ import CabinetItem from "./Cabinets_Item";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { useNavigate } from "react-router";
+import Home_ from "../../homepage/routes/Home";
 
 
 axios.defaults.baseURL = "http://127.0.0.1:5000/";
@@ -260,6 +261,14 @@ users_role.filter((res)=>res.email===email).map((response)=>{
 
 
     return (<div  >
+
+{localStorage.getItem("application_state")==="homepage"?
+            <Home_ />:<></>    
+        
+        }
+
+{localStorage.getItem("application_state")==="login"?
+    <div>
         <div className="container___"></div>
         {change?
             <div  className="login_container_">
@@ -319,7 +328,7 @@ users_role.filter((res)=>res.email===email).map((response)=>{
 
 
 
-
+</div>:<></>}
 </div>
     );
 }

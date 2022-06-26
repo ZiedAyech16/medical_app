@@ -1,0 +1,153 @@
+#video {
+    margin-top: 80px;
+    width: 100%;
+    height: 80%;
+    object-fit: cover;
+    z-index: -1;
+
+}
+
+.hero {
+    /* background-color: midnightblue; */
+    height: 110vh;
+    width: 100%;
+    object-fit: contain;
+
+    
+}
+
+
+.video_{
+    position: absolute;
+    left: 0;
+    display: grid;
+    grid-template-columns: 100vw;
+}
+
+.content {
+    /* text-align: center; */
+    /* margin: auto; */
+    /* background-color: rgb(255, 255, 255); */
+    width: 100vw;
+    height: 100%;
+    margin-top: -5%;
+    padding: 2%;
+    top: 40vh;
+    margin-left: 1%;
+    display: grid;
+    grid-template-columns: 40vw 40vw;
+}
+
+.hero .content h1 {
+    font-size: 4rem;
+    color: #fff;
+}
+
+.hero p {
+    font-size: 1.8rem;
+    font-weight: 100;
+    text-transform: uppercase;
+    margin-bottom: 1.6rem;
+    color: #fff;
+}
+
+.hero .btn {
+    margin: 1rem .2rem;
+}
+
+@media screen and (max-width:640px) {
+    .content h1 {
+        font-size: 3rem;
+    }
+
+    .content p {
+        font-size: 1.4rem;
+        margin-bottom: 1.6rem;
+    }
+}
+
+
+
+
+.img {
+    overflow: hidden;
+    object-fit: cover;
+    /* object-position: 180%; */
+    width: 38vw;
+    height: 100%;
+    position: absolute;
+    transition: 0.4s ease-out;
+    position: relative;
+    margin-left: 3%;
+    display: block;
+
+   
+  }
+
+  .container:hover .overlay {
+    opacity: 1;
+  }
+
+  .text {
+    color: white;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  .img:hover{
+    opacity: 0.2;
+  }
+
+  .voire_detail{
+  }
+  .container {
+    position: relative;
+    width: 100%;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 100;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 170%;
+    opacity: 0;
+    transition: .5s ease;
+    background-color: #008bba93;
+  }
+
+  .button-container {
+    width: 130px;
+
+  }
+
+    .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: palegreen;
+        background: blueviolet;
+
+        @media screen and (max-width: 410px){
+          width: 100px;
+          font-size: .85rem;
+        }
+
+       
+      }
+      .button:hover {
+        color: blue;
+        background: palevioletred;
+      }
+    
+  
+
+
+

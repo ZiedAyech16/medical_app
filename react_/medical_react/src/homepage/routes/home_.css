@@ -1,0 +1,8 @@
+.home__{
+    display: grid;
+    grid-template-columns: auto;
+    height: 200%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}

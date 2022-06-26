@@ -293,7 +293,7 @@ const reload = ()=>{
         setdisponibilityp1_(state__);
         setdisponibilityp2_(state__1);
     
-        rdvs.filter(r=> parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(r.year)&&parseInt(res.date[5]+res.date[6])===parseInt(r.month)&&parseInt(res.date[8]+res.date[9])===parseInt(r.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(r.hour)).map(re=>{
+        rdvs.filter(r=> parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(r.year)&&parseInt(res.date[5]+res.date[6])===parseInt(r.month)&&parseInt(res.date[8]+res.date[9])===parseInt(r.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(r.hour)&&r.MedecinId===parseInt(params.medecin_id)).map(re=>{
             console.log("ok","ok");
             console.log("result", parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(re.year)&&parseInt(res.date[5]+res.date[6])===parseInt(re.month)&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour));
             if(parseInt(res.date[11]+res.date[12])===8&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)){
