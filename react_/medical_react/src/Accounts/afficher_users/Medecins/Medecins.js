@@ -38,23 +38,25 @@ export default function Gere_Medecin(){
 
 </div>
 
-<table className="table_container_medecins">
-    <caption style={{textAlign:"left",captionSide:"top"}}>Liste des Medecins</caption>
-    <thead className="table_container_medecins_head">
-        <th>Image</th>
-        <th>Nom</th>
-        <th>Prenom</th>
-        <th>Email</th>
-        <th>Contact</th>
-        <th>Date naisance</th>
-        <th>Action</th>
-    </thead>
-        {/* <tr className="gere_secretaire_container"> */}
-           { medecins.filter(res=>res.nom.includes(search_)).map((result)=> <Medecin_Item key={result.id} medecin={result} />)}
+<div className="table__">
+    <table className="table_container_medecins ">
+        <caption style={{textAlign:"left",captionSide:"top"}}>Liste des Medecins</caption>
+        <thead className="table_container_medecins_head">
+            <th>Image</th>
+            <th>Nom</th>
+            <th>Prenom</th>
+            <th>Email</th>
+            <th>Contact</th>
+            <th>Date naisance</th>
+            <th>Action</th>
+        </thead>
+            {/* <tr className="gere_secretaire_container"> */}
+            <tbody>  { medecins.filter(res=>res.nom.includes(search_)).map((result)=> <Medecin_Item key={result.id} medecin={result} />)}</tbody>
 
-        {/* </tr> */}
-        
-        </table>
+            {/* </tr> */}
+            
+            </table>
+        </div>
         </div>
         );
 }

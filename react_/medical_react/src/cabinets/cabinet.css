@@ -51,13 +51,15 @@ padding: 1%;
 
 .cabinet_card_cards{
     margin-left: 2%;
+    display: grid;
+    grid-template-columns: 38vw 38vw;
 }
 
 
 .cabinet_card{
     display: grid;
-    grid-template-columns: 30% 40%;
-    width: 60vw;
+    grid-template-columns: 33vw;
+    width: 35vw;
     background-color: rgb(252, 252, 252) ;
     padding: 1%;
     margin-bottom: 1%;
@@ -69,8 +71,8 @@ padding: 1%;
 
 
 .cabinet_card_image{
-    width: 150px;
-    height: 120px;
+    width: 34vw;
+    height: 220px;
 
 }
 
@@ -78,17 +80,17 @@ padding: 1%;
     font-size: large;
     display: flex;
     justify-content: flex-start;
-    margin-left: 23%;
+    margin-left: 5%;
     margin-bottom: 2%;
-    color: navy;
+    color: rgb(0, 0, 0);
 }
 
 .cabinet_card_text{
     display: flex;
     justify-content: flex-start;
-    margin-left: 10%;
+    margin-left: 1%;
     margin-bottom: 2%;
-    color: navy;
+    color: rgb(0, 0, 0);
     font-size: large;
 }
 

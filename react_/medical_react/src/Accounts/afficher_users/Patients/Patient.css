@@ -82,3 +82,9 @@
     border: 2px solid black;
     padding: 0.5%;
 }
+
+
+.tbody {
+    max-height:500px;
+    overflow:auto;
+}

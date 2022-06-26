@@ -165,7 +165,7 @@ export default function Home(){
         
 
         <Route path='/' exact element={<Home_ />} />
-        <Route path='/about'  element={<About_ />} />
+        <Route path='/about' exact element={<About_ />} />
         <Route path='/find' element={<Find_ />} />
 
         

@@ -111,8 +111,7 @@ i{
 
 
   .btn_{
-    border:4px ridge whitesmoke;
-    background-color : #bbb;
+    background-color : rgb(94, 94, 94);
     color: whitesmoke;
     padding: 5px 32px;
     text-align: center;
@@ -121,7 +120,6 @@ i{
     font-size: 22px;
     margin: 8px 2px;
     cursor: pointer;
-    border-radius:10%;
     float: left;
     width: 25vw;
   }
@@ -129,13 +127,13 @@ i{
     width: 25vw;
     font-size: 25px;
     padding: 5px;
-    margin: 5px;
+    margin: 3px;
   }
 
 
-  .form-gr > label:nth-child(even){
+  /* .form-gr > label:nth-child(even){
     margin-left: 18px;
-  }
+  } */
 
   .formulaire_{
     background-color: #fdfeff;
@@ -148,7 +146,7 @@ i{
 
 
   .title_text{
-    color: rgb(34, 138, 230);
+    color: rgb(0, 0, 0);
   
   }
 
@@ -180,4 +178,6 @@ i{
 
 
 
- 
+ .marge_with_naissance{
+    margin-left: -15%;
+ }

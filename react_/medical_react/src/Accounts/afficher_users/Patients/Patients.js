@@ -38,10 +38,10 @@ export default function Gere_Patients(){
 
 
 
-
-<table className="table_container_medecins">
-    <caption style={{textAlign:"left",captionSide:"top"}}>Liste des patients</caption>
-    <thead className="table_container_medecins_head">
+<div className="table__">
+    <table className="table_container_medecins">
+     <caption style={{textAlign:"left",captionSide:"top"}}>Liste des patients</caption>
+     <thead className="table_container_medecins_head">
         <th>Image</th>
         <th>Nom</th>
         <th>Prenom</th>
@@ -52,8 +52,8 @@ export default function Gere_Patients(){
         <th>Secretaire</th>
         <th>Action</th>
     </thead> 
-     { patients.filter(res=>res.nom.includes(search_)).map((result)=> <Patient_Item key={result.id} patient={result} />)}
+    <tbody className="tbody"> { patients.filter(res=>res.nom.includes(search_)).map((result)=> <Patient_Item key={result.id} patient={result} />)}</tbody>
 
-        </table></div>
+        </table></div></div>
         );
 }

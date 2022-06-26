@@ -64,35 +64,36 @@ function OrdonnanceItem(props) {
 
     }
   return (
-    <div>
         <div className='ordonnance_items_'>
-        <div className='ord_item_'>
-            <h3>Patient :</h3>
-            <h6>{ordonnance.Patient.nom+' '+ordonnance.Patient.prenom} </h6>
-            <h6>{'Contact : '+ordonnance.Patient.contact} </h6>
-            <h6>{'Email : '+ordonnance.Patient.email} </h6>
+            <div className='ord_item_'>
+                <h3>Patient :</h3>
+                <h6>{ordonnance.Patient.nom+' '+ordonnance.Patient.prenom} </h6>
+                <h6>{'Contact : '+ordonnance.Patient.contact} </h6>
+                <h6>{'Email : '+ordonnance.Patient.email} </h6>
+            </div>
+            <div className='ord_item_'>
+                <h4>Date : </h4>
+                <h6>{ordonnance.createdAt.substring(0,10)} </h6>
+            </div>
+            <div className='ord_item_'>
+                <h3>{'Detail : '}</h3>
+                <h6>{ordonnance.apci==='0'? 'Apci : Oui':'Apci : Non'} </h6>
+                <h6>{'Medicament : '+ordonnance.medicament} </h6>
+            </div>
+            <div className='ord_item_'>
+                    <div>
+                    {
+                        localStorage.getItem("role")==="medecin"?
+                        <>
+                                        <button className='color_button' onClick={editer_}><i class="fa fa-pencil-square" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
+                    <button className='color_button' onClick={delete_}><i class="fa fa-trash" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
+
+                        </>:<button className='button_ordonnance__ color_imprimer' onClick={imprimer}>Imprimer</button>
+                    }
+                </div>
+            </div>
         </div>
-        <div className='ord_item_'>
-            <h4>Date : </h4>
-            <h6>{ordonnance.createdAt.substring(0,10)} </h6>
-        </div>
-        <div className='ord_item_'>
-            <h3>{'Detail : '}</h3>
-            <h6>{ordonnance.apci==='0'? 'Apci : Oui':'Apci : Non'} </h6>
-            <h6>{'Medicament : '+ordonnance.medicament} </h6>
-        </div>
-        <div className='ord_item_'>
-            {
-                localStorage.getItem("role")==="medecin"?
-                <>
-                                <button className='button_ordonnance__ color_edite' onClick={editer_}>Editer</button>
-            <button className='button_ordonnance__ color_delete' onClick={delete_}>Supprimer</button>
-   
-                </>:<button className='button_ordonnance__ color_imprimer' onClick={imprimer}>Imprimer</button>
-            }
-     </div>
-        </div>
-    </div>
+    
   )
 }
 

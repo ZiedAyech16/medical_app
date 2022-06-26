@@ -31,23 +31,20 @@ export default function CabinetItem(props){
         <div>
             <div className="cabinet_card">
                 <div className="cabinet_card_item">
-                <img  className="cabinet_card_image" src={`http://127.0.0.1:5000/cabinets/images/${cabinet.image}`}></img>
-                <h4 className="cabinet_card_nom">{cabinet.nom} </h4>
-                </div>
+                    <img  className="cabinet_card_image" src={`http://127.0.0.1:5000/cabinets/images/${cabinet.image}`}></img>
 
-                <div className="cabinet_card_item">
+                    <h4 className="cabinet_card_nom">{cabinet.nom} </h4>
+
                
                     <h5 className="cabinet_card_nom"><strong>Etablissement : </strong>{cabinet.etablissement} </h5>
-                
-                    <div className="cabinet_card_item">
+
                         <h5 className="cabinet_card_nom">Medecin Detail</h5>
                         {cabinet.Medecin!==null?<div>
-                        <div className="cabinet_card_text">Nom :${cabinet.Medecin.nom} </div>
+                        <div className="cabinet_card_text">Nom :{cabinet.Medecin.nom} </div>
                         <div className="cabinet_card_text">Prenom :{cabinet.Medecin.prenom} </div>
                         <div className="cabinet_card_text">Contact :{cabinet.Medecin.contact} </div>
                         </div>:<div className="cabinet_card_text">Non Medecin </div>}
-
-                    </div>
+      
                     <div>
                         <button className="color_button" onClick={editerCabinet}><i class="fa fa-pencil-square" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
                         <button className="color_button" onClick={supprimerCabinet}><i class="fa fa-trash" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>

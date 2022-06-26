@@ -79,8 +79,10 @@ export default function FichePatientItem(props){
     <td className="text_style">{props.fiche_patient.email}</td>
     {/* <div className="fiche_card_element"><span>Sexe: {props.fiche_patient.Patient.sexe}</span></div> */}
     <td className="text_style">{props.fiche_patient.createdAt}</td>
-    <td  className=""><button className="color_button" onClick={supprimerfichpat}><i class="fa fa-trash" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
-    <button className="color_button" onClick={editer_patient}><i class="fa fa-pencil-square" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button></td>
+    <td  className="">
+        <button className="color_button" onClick={editer_patient}><i class="fa fa-pencil-square" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
+        <button className="color_button" onClick={supprimerfichpat}><i class="fa fa-trash" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
+    </td>
 </>
 
 

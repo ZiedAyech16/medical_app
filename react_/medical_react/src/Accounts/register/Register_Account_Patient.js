@@ -153,19 +153,19 @@ export default function RegisterPatient(){
 
             </div>
             <div className="form-gr">
-                <input  placeholder="Nom :" className="input_text_" type="text" name="nom" value={patient.nom} onChange={(e)=>setPatient({...patient,nom:e.target.value})} />
+                <input  placeholder="" className="input_text_" type="text" name="nom" value={patient.nom} onChange={(e)=>setPatient({...patient,nom:e.target.value})} />
 
-                <input placeholder="Prenom :" className="input_text_" type="text" name="prenom" value={patient.prenom} onChange={(e)=>setPatient({...patient,prenom:e.target.value})}  />
+                <input placeholder="" className="input_text_" type="text" name="prenom" value={patient.prenom} onChange={(e)=>setPatient({...patient,prenom:e.target.value})}  />
             </div>
             <div className="form-gr">
-                <label>Age :</label>
-                <label>Email :</label>
+                <label>Date de naissance :</label>
+                <label className="marge_with_naissance">Email :</label>
 
             </div>
             <div className="form-gr">
-                <input placeholder="Age :" className="input_text_" type="date" name="age" max={`${date_.toISOString().substring(0,10)}`} min="1938-01-01" value={patient.age} onChange={(e)=>setPatient({...patient,age:e.target.value})}  />
+                <input placeholder="" className="input_text_" type="date" name="age" max={`${date_.toISOString().substring(0,10)}`} min="1938-01-01" value={patient.age} onChange={(e)=>setPatient({...patient,age:e.target.value})}  />
 
-                <input placeholder="Email :" className="input_text_" type="text" name="email"  value={patient.email} onChange={(e)=>setPatient({...patient,email:e.target.value})} />
+                <input placeholder="" className="input_text_" type="text" name="email"  value={patient.email} onChange={(e)=>setPatient({...patient,email:e.target.value})} />
             </div>
             <div className="form-gr">
                 <label>Contact :</label>
@@ -174,9 +174,9 @@ export default function RegisterPatient(){
             </div>
 
             <div className="form-gr">
-                <input placeholder="Contact :" className="input_text_"  type="number" name="contact" value={patient.contact} onChange={(e)=>setPatient({...patient,contact:e.target.value})}  />
+                <input placeholder="" className="input_text_"  type="number" name="contact" value={patient.contact} onChange={(e)=>setPatient({...patient,contact:e.target.value})}  />
 
-                <input placeholder="Image :" className="input_text_"  type="file" name="photo" onChange={onInputChange}  />
+                <input placeholder="" className="input_text_"  type="file" name="photo" onChange={onInputChange}  />
             </div>
 
  
@@ -215,9 +215,9 @@ export default function RegisterPatient(){
 
             </div>
             <div className="form-gr">
-                <input placeholder="Username :" className="input_text_" type="text" name="username"  value={patient.username} onChange={(e)=>setPatient({...patient,username:e.target.value})} />
+                <input placeholder="" className="input_text_" type="text" name="username"  value={patient.username} onChange={(e)=>setPatient({...patient,username:e.target.value})} />
 
-                <input placeholder="Password :" className="input_text_"  type="text" name="password"  value={patient.password} onChange={(e)=>setPatient({...patient,password:e.target.value})} />
+                <input placeholder="" className="input_text_"  type="text" name="password"  value={patient.password} onChange={(e)=>setPatient({...patient,password:e.target.value})} />
             </div>
 
                  <div>
