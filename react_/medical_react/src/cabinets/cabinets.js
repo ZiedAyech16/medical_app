@@ -26,17 +26,19 @@ export default function Cabinets(){
             <div className="medecins_header">
     <div className="search__">
         <i class="fa fa-search" aria-hidden="true"></i>
-        <input className="search__input" type="text" value={cabinetnom} onChange={(e)=>setCabinetnom(e.target.value)} placeholder="Secretaire :"></input>
+        <input className="search__input" type="text" value={cabinetnom} onChange={(e)=>setCabinetnom(e.target.value)} placeholder="Cabinet :"></input>
 
     </div>
     <button className="color_button" onClick={ajouterCabinet}><i class="fa fa-plus-circle" aria-hidden="true"  style={{fontSize:'30px',color:"#bbb"}}></i></button> 
 
 </div>
-            <div className="cabinet_card_cards">
-               
+                        <div className="table__">
+<div className="cabinet_card_cards">
+
                 {
                     cabinets.filter(r=>r.nom.includes(cabinetnom)).map(r=><CabinetItem key={r.id} cabinet={r} />)
                 }
+                </div>
             </div>
             
         </div>

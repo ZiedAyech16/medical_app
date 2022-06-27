@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { createSearchParams } from "react-router-dom";
 import "./Secretaire.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 
@@ -13,7 +14,16 @@ export default function Secretaire_Item(props){
     const removeSecretaire = (e)=>{
         e.preventDefault();
         axios.delete(`/secretaires/${props.secretaire.id}`);
-        navigate("/gere/secretaires");
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Secretaire a été Supprimer',
+            showConfirmButton: false,
+            timer: 2000
+          }).then(r=>{
+                    navigate("/gere/secretaires");
+
+          })
     }
     
     const editer_secretaire = (e)=>{

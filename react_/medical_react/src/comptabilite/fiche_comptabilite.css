@@ -1,0 +1,24 @@
+.fichecomptabilite{
+    background-color: white;
+    padding: 5%;
+    margin: 2%;
+    width: 60vw;
+    display: grid;
+    grid-template-columns: auto;
+}
+
+.fichecomptabilite > * {
+    display: flex;
+    justify-content: flex-start;
+    padding: 2%;
+}
+
+.date___{
+    width: 50vw;
+    font-size: 25px;
+    padding: 1%;
+}
+
+.totale_date{
+    letter-spacing: 2px;
+}

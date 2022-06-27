@@ -39,7 +39,8 @@ export default function Poser_Time(props){
 
         console.log("date_",date_);
         
-        axios.post('/calenders',{date:date_,MedecinId:medecin_.id}).then((response)=>console.log(response));
+//        axios.post('/calenders',{date:date_,MedecinId:medecin_.id}).then((response)=>console.log(response));
+        axios.post('/calenders',{date:date_,MedecinId:localStorage.getItem("userId")}).then((response)=>console.log(response));
 
         var close = document.getElementsByClassName("closebtn");
         var i;

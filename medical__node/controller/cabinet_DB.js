@@ -11,7 +11,10 @@ async function selectAllCabinet(){
 
 async function selectOneCabinet(id){
     return await Cabinet.findOne({
-        where:{id:id}
+        where:{id:id},
+                include:{
+            model:Medecin
+        }
     })
 }
 

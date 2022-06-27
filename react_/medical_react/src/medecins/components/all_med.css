@@ -130,3 +130,8 @@
     display: grid;
     grid-template-columns: auto auto;
 }
+
+.table{
+    width: 78vw;
+
+}

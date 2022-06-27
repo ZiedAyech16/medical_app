@@ -87,8 +87,8 @@ export default function OrdonnancePrint(){
  {/* <button type="button"  onClick={print}>
     Print Form
  </button> */}
-            <button type="button" className='button_ordonnance__printer color_imprimer' onClick={print}>
-        Print Ordonnance
+            <button type="button" className='button_ordonnance__printer color_imprimer _icon btn-design' onClick={print}>
+            <i class="fa fa-print" aria-hidden="true" style={{fontSize:'36px',color:"black"}}></i>
      </button>
         </div>
     );

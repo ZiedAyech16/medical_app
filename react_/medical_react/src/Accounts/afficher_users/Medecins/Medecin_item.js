@@ -2,6 +2,7 @@ import { useNavigate } from "react-router";
 import { createSearchParams } from "react-router-dom";
 import "./Medecin.css";
 import axios from "axios";
+import Swal from "sweetalert2";
 
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 
@@ -13,6 +14,13 @@ export default function Medecin_Item(props){
     const removeMedecin = (e)=>{
         e.preventDefault();
         axios.delete(`/medecins/${props.medecin.id}`);
+        Swal.fire({
+            position: 'center',
+            icon: 'success',
+            title: 'Medecin a été Supprimer',
+            showConfirmButton: false,
+            timer: 2000
+          })
         navigate("/gere/medecins");
     }
     
