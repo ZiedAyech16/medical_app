@@ -19,6 +19,7 @@ export default function RegisterPatient(){
     const [list_secretaire,setListSecretaire] = useState([]);
     const  [secretaire,setSecretaire]=useState();
     const [title,setTitle] = useState("Ajouter ");
+    const [docteur_secretaire, setDocteur_secretaire] = useState("");
 
     console.log("parametre",parametre.id);
 
@@ -108,7 +109,17 @@ export default function RegisterPatient(){
 
     useEffect(()=>{
 
-        axios.get("/medecins").then(result=>setMedecins(result.data));
+        if(localStorage.getItem("role")==="secretaire"&&parametre.role==="ajouter"){
+            //setPatient({...patient,SecretaireId:parseInt(localStorage.getItem("userId"))});
+            axios.get(`/secretaires/${localStorage.getItem("userId")}`).then(r=>setPatient({...patient,MedecinId:r.data.MedecinId,SecretaireId:r.id}));
+
+            
+
+        }else{
+             axios.get("/medecins").then(result=>setMedecins(result.data));
+
+        }
+
         searchMedecin.current=patient.MedecinId;
         axios.get("/secretaires").then(r=>setListSecretaire(r.data));
 
@@ -179,8 +190,8 @@ export default function RegisterPatient(){
                 <input placeholder="" className="input_text_"  type="file" name="photo" onChange={onInputChange}  />
             </div>
 
- 
-
+ {localStorage.getItem("role")==="secretaire"?<></>
+:<>
             <div className="form-gr-1">
                 <label>Medecin :</label>
             </div>
@@ -208,7 +219,7 @@ export default function RegisterPatient(){
                 </select>
             </div>
 
-
+</>}
             <div className="form-gr">
                 <label>Username :</label>
                 <label>Password :</label>

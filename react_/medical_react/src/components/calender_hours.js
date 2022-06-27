@@ -181,7 +181,7 @@ useEffect(()=>{
 
 },[])
 
-
+console.log("idmed",params.medecin_id)
 const reload = ()=>{
 
     medecins.filter((d)=>d.MedecinId ===parseInt(params.medecin_id)).map((res)=>{
@@ -296,47 +296,47 @@ const reload = ()=>{
         rdvs.filter(r=> parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(r.year)&&parseInt(res.date[5]+res.date[6])===parseInt(r.month)&&parseInt(res.date[8]+res.date[9])===parseInt(r.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(r.hour)&&r.MedecinId===parseInt(params.medecin_id)).map(re=>{
             console.log("ok","ok");
             console.log("result", parseInt(res.date[0]+res.date[1]+res.date[2]+res.date[3])===parseInt(re.year)&&parseInt(res.date[5]+res.date[6])===parseInt(re.month)&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour));
-            if(parseInt(res.date[11]+res.date[12])===8&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)){
+            if(parseInt(res.date[11]+res.date[12])===8&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[0]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===9&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)){
+            if(parseInt(res.date[11]+res.date[12])===9&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[1]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===10&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)){
+            if(parseInt(res.date[11]+res.date[12])===10&&parseInt(res.date[8]+res.date[9])===parseInt(re.jour)&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[2]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===11){
+            if(parseInt(res.date[11]+res.date[12])===11&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[3]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===12){
+            if(parseInt(res.date[11]+res.date[12])===12&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[4]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===13){
+            if(parseInt(res.date[11]+res.date[12])===13&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[5]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===14){
+            if(parseInt(res.date[11]+res.date[12])===14&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[6]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===15){
+            if(parseInt(res.date[11]+res.date[12])===15&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[7]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===16){
+            if(parseInt(res.date[11]+res.date[12])===16&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[8]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===17){
+            if(parseInt(res.date[11]+res.date[12])===17&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[9]=color4;
             }
         
-            if(parseInt(res.date[11]+res.date[12])===18){
+            if(parseInt(res.date[11]+res.date[12])===18&&parseInt(res.date[11]+res.date[12])===parseInt(re.hour)){
                 state__[10]=color4;
             }
         //////////////////

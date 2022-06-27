@@ -3,6 +3,7 @@ import { createSearchParams } from "react-router-dom";
 import "./Patient.css";
 import axios from "axios";
 import {  useState } from "react";
+import Swal from "sweetalert2";
 axios.defaults.baseURL = "http://127.0.0.1:5000";
 
 export default function Patient_Item(props){
@@ -13,8 +14,17 @@ export default function Patient_Item(props){
 
     const removePatient = (e)=>{
         e.preventDefault();
-        axios.delete(`/patients/${props.patient.id}`);
-        navigate("/gere/patients");
+        axios.delete(`/patients/${props.patient.id}`).then(d=>{
+                  
+        });
+        Swal.fire({
+                    position: 'center',
+                    icon: 'success',
+                    title: 'Patient a été Supprimer',
+                    showConfirmButton: false,
+                    timer: 2000
+                })
+                navigate("/gere/patients");
     }
     
     const editer_patient = (e)=>{

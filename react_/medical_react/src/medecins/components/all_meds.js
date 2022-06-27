@@ -15,10 +15,13 @@ export default function AllMedecins(props){
     const [search_,setSearch_]=useState("");
 
 
+
+
     useEffect(()=>{
         axios.get("/medecins").then((data)=>{setAllMedecins( data.data)}).catch((err)=>{return err});
         console.log(medecins);
         search.current=search_;
+
         //medecins.filter((user)=>user.specialite=props.specialite)
     },[search_])
     return (
@@ -48,6 +51,8 @@ export default function AllMedecins(props){
                 <th>Prenom</th>
                 <th>Contact</th>
                 <th>Email</th>
+                <th>Cabinet</th>
+                <th>Etablissement</th>
                 <th>Action</th>
                 </thead>
              
@@ -55,7 +60,7 @@ export default function AllMedecins(props){
                // medecins.map((us)=>console.log(us.User!==null?us.User.nom:{}))
                 medecins.filter((user)=>user.specialite===props.specialite&&user!==null?user.nom.includes(search_):false).map((state,key)=>
                    
-                            <MedecinItem key={state.id}  medecin={state} />
+                            <MedecinItem key={state.id}  medecin={state}  />
                             
                   
                 )

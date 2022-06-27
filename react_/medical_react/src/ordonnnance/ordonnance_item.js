@@ -88,7 +88,7 @@ function OrdonnanceItem(props) {
                                         <button className='color_button' onClick={editer_}><i class="fa fa-pencil-square" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
                     <button className='color_button' onClick={delete_}><i class="fa fa-trash" aria-hidden="true" style={{fontSize:'30px',color:"#bbb"}}></i></button>
 
-                        </>:<button className='button_ordonnance__ color_imprimer' onClick={imprimer}>Imprimer</button>
+                        </>:<button className='button_ordonnance__ color_imprimer icon_ btn-design' onClick={imprimer}>   <i class="fa fa-print" aria-hidden="true" style={{fontSize:'36px',color:"black"}}></i></button>
                     }
                 </div>
             </div>

@@ -33,6 +33,7 @@ import ListMedecin from "../list_medecin/list_medecin";
 import Home_ from "../homepage/routes/Home";
 import About_ from "../homepage/components/About";
 import Find_ from "../homepage/components/Find";
+import FicheComptabilite from "../comptabilite/fiche_comptabilite";
 
 export default function Home(){
     return(
@@ -162,6 +163,7 @@ export default function Home(){
         <Route path="/liste_cabinets" element={<ShowCabinet />} exact></Route>
 
         <Route path="/list_medecin" element={<ListMedecin />}></Route>
+        <Route path="/fiche_comptabilite" element={<FicheComptabilite />}></Route>
         
 
         <Route path='/' exact element={<Home_ />} />

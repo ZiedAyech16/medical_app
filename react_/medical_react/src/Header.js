@@ -46,6 +46,7 @@ export default function Header(){
     const gereconsultations = ()=>navigate("/consultations");
     const gereordonnances = ()=>navigate("/ordonnances");
     const tolistmeds = ()=>navigate("/list_medecin");
+    const gerecomptabilite = ()=>navigate("/fiche_comptabilite");
 
     
 
@@ -142,6 +143,13 @@ export default function Header(){
 Ordonnances</button></li>
 
     :<></>}
+
+{localStorage.getItem("role")==="medecin"?
+        <li><button className="btn-design log_out btn-sm" onClick={gerecomptabilite}><i className='fa fa-money icon_' style={{fontSize:'36px'}}></i>
+Fiche Comptabilite</button></li>
+
+    :<></>}
+
 
     {localStorage.getItem("role")!=="admin"?<>
         <li><button className="btn-design log_out btn-sm" onClick={toprofile}><i className='fa fa-user-circle icon_' style={{fontSize:'36px'}}></i>Profile</button></li></>:<></>}
